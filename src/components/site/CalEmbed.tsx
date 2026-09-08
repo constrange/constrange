@@ -118,7 +118,7 @@ function mountInlineEmbed({
       light: { "cal-brand": brandColor },
       dark: { "cal-brand": brandColor },
     },
-    hideEventTypeDetails: false,
+    hideEventTypeDetails: true,
     layout: "month_view",
   })
 }
