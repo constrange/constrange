@@ -3228,6 +3228,9 @@ body.on-about .header.on-dark.stuck {
   margin-top: 12px;
   color: #8a1f1f;
 }
+.house-contact-booking {
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, .72fr);
+}
 .cal-inline-embed {
   width: 100%;
   min-height: 640px;

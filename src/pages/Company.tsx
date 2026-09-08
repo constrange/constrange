@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent, type ReactNode } from "react"
+import { useEffect, useState, type ReactNode } from "react"
 import { Link } from "react-router-dom"
 import {
   AboutPlate,
@@ -22,7 +22,7 @@ import {
   HouseShell,
 } from "@/components/site/House"
 import { DrawDraft, DrawHire } from "@/components/site/HouseDraw"
-import { CalInlineEmbed, type CalPrefill } from "@/components/site/CalEmbed"
+import { CalInlineEmbed } from "@/components/site/CalEmbed"
 import { Reveal } from "@/components/site/Layout"
 
 /* ---------------- about ---------------- */
@@ -470,7 +470,7 @@ const contactCopy: Record<
   support: {
     kicker: "Continue",
     title: "If we are already in the work.",
-    lede: "Put the current question and the constraint around it here so you have a copy. Then send it on the channel we have been using.",
+    lede: "Use the channel we have already opened. If you need to book a follow-up conversation, choose a time below.",
     tone: "mist",
     note: "This page does not open a ticket. Live work already has an address.",
   },
@@ -483,61 +483,8 @@ const contactCopy: Record<
   },
 }
 
-const emptyDraft = {
-  first: "",
-  last: "",
-  email: "",
-  pressure: "We are not sure where to start",
-  situation: "",
-}
-
-function formatBookingNotes(variant: ContactVariant, d: typeof emptyDraft) {
-  const variantLabel = contactCopy[variant].kicker
-  return [
-    `Conversation type: ${variantLabel}`,
-    d.pressure && `Pressure: ${d.pressure}`,
-    d.situation,
-  ]
-    .filter(Boolean)
-    .join("\n\n")
-}
-
 export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
-  const [prefill, setPrefill] = useState<CalPrefill | undefined>()
-  const [draft, setDraft] = useState(emptyDraft)
-  const [formError, setFormError] = useState("")
   const copy = contactCopy[variant]
-
-  useEffect(() => {
-    setPrefill(undefined)
-    setFormError("")
-    setDraft(emptyDraft)
-  }, [variant])
-
-  const setField = (key: keyof typeof emptyDraft) => (e: { target: { value: string } }) => {
-    setDraft((d) => ({ ...d, [key]: e.target.value }))
-  }
-
-  const handleContextSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setFormError("")
-
-    const name = [draft.first.trim(), draft.last.trim()].filter(Boolean).join(" ")
-    if (!name || !draft.email.trim() || !draft.situation.trim()) {
-      setFormError("Add your name, work email, and a short description before continuing to the calendar.")
-      return
-    }
-
-    setPrefill({
-      name,
-      email: draft.email.trim(),
-      notes: formatBookingNotes(variant, draft),
-    })
-
-    requestAnimationFrame(() => {
-      document.getElementById("book-calendar")?.scrollIntoView({ behavior: "smooth", block: "start" })
-    })
-  }
 
   return (
     <HouseShell>
@@ -583,60 +530,20 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
       </section>
 
       <HouseChapter
-        id="context"
+        id="book-calendar"
         n="01"
-        kicker="Before you book"
-        title="Share the situation as you currently see it."
-        lede="Optional, but useful. What you write here is carried into the booking so the first conversation starts with context — not a blank form."
+        kicker="Book"
+        title="Choose a time for a first conversation."
+        lede="Pick a slot below. Cal.com will collect your details, send a calendar invite, and any reminders for the booking."
       >
-        <div className="house-contact">
-          <form className="house-form form-grid" onSubmit={handleContextSubmit}>
-            <label className="field">
-              <span>First name</span>
-              <input type="text" required value={draft.first} onChange={setField("first")} autoComplete="given-name" />
-            </label>
-            <label className="field">
-              <span>Last name</span>
-              <input type="text" required value={draft.last} onChange={setField("last")} autoComplete="family-name" />
-            </label>
-            <label className="field">
-              <span>Work email</span>
-              <input type="email" required value={draft.email} onChange={setField("email")} autoComplete="email" />
-            </label>
-            <label className="field">
-              <span>What is under pressure?</span>
-              <select value={draft.pressure} onChange={setField("pressure")}>
-                <option>We are not sure where to start</option>
-                <option>A technology decision is due</option>
-                <option>Operations are strained</option>
-                <option>An AI or automation idea needs a test</option>
-                <option>We are already in the work</option>
-                <option>Informal coordination is failing</option>
-              </select>
-            </label>
-            <label className="field full">
-              <span>Describe the situation</span>
-              <textarea required value={draft.situation} onChange={setField("situation")} rows={7} />
-            </label>
-            <div className="full">
-              <button className="btn" type="submit">
-                Continue to calendar
-              </button>
-              {formError ? <p className="form-note form-note-error">{formError}</p> : null}
-              <p className="form-note">
-                Your details are passed into the booking below. See the{" "}
-                <Link to="/legal/privacy-policy">Privacy policy</Link>
-                {" · "}
-                <Link to="/security">Information handling</Link>.
-              </p>
-            </div>
-          </form>
+        <div className="house-contact house-contact-booking">
+          <CalInlineEmbed />
           <aside className="house-aside">
             <p className="about-kicker">What happens next</p>
             <ul className="house-points">
-              <li>Choose a time in the calendar. The booking is handled by Cal.com.</li>
-              <li>Context from this form is attached to the booking when you continue.</li>
-              <li>It is not a mailing list. There is no automated nurture attached to the button.</li>
+              <li>You choose a time that works. The booking is confirmed by Cal.com.</li>
+              <li>Add context in the booking notes if useful — unofficial is enough.</li>
+              <li>It is not a mailing list. There is no automated nurture attached to booking.</li>
               {variant === "support" && (
                 <li>If we are already in an engagement, use the channel already open — not a new public booking.</li>
               )}
@@ -647,23 +554,18 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
                 </li>
               )}
             </ul>
+            <p className="form-note">
+              See the <Link to="/legal/privacy-policy">Privacy policy</Link>
+              {" · "}
+              <Link to="/security">Information handling</Link>.
+            </p>
           </aside>
         </div>
       </HouseChapter>
 
       <HouseChapter
-        id="book-calendar"
-        n="02"
-        kicker="Book"
-        title="Choose a time for a first conversation."
-        lede="Pick a slot that works. You will receive a calendar invite and any reminders Cal sends for that booking."
-      >
-        <CalInlineEmbed prefill={prefill} />
-      </HouseChapter>
-
-      <HouseChapter
         id="after"
-        n="03"
+        n="02"
         kicker="After a conversation"
         title="A signed letter governs live work."
         lede="Until then, a conversation is only a conversation. We will say if we cannot hold the situation rather than staff one we cannot sit with."
