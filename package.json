@@ -1,0 +1,28 @@
+{
+  "name": "constrange",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=development eleventy --serve --watch",
+    "build": "NODE_ENV=production eleventy",
+    "preview": "npx serve _site",
+    "prerender": "tsx --tsconfig tsconfig.build.json scripts/prerender.tsx",
+    "build:assets": "node scripts/build-assets.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^6.22.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "esbuild": "^0.25.9",
+    "tsx": "^4.8.0",
+    "typescript": "~5.9.3"
+  }
+}

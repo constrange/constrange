@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Constrange">
+  <rect width="1200" height="630" fill="#f7f6f1"/>
+  <rect width="1200" height="8" fill="#dbff71"/>
+  <g transform="translate(118,128) scale(3.55)">
+    <path d="M52.07 47.16A25.8 25.8 0 0 1 6.66 24.03L17.5 27.55A14.4 14.4 0 0 0 42.85 40.46Z" fill="#271675"/>
+    <path d="M6.66 24.03A25.8 25.8 0 0 1 52.07 16.84L42.85 23.54A14.4 14.4 0 0 0 17.5 27.55Z" fill="#3f2d8a"/>
+    <rect x="42.45" y="26.3" width="15.1" height="11.4" fill="#dbff71"/>
+  </g>
+  <text x="118" y="430" fill="#171717" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="400">Constrange</text>
+  <text x="118" y="488" fill="#4c4b46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="28">Technology and business consultancy</text>
+  <text x="118" y="536" fill="#8a877f" font-family="ui-monospace, Menlo, monospace" font-size="16" letter-spacing="3">DIRECTION FIRST · BUILD WHERE IT BELONGS</text>
+</svg>

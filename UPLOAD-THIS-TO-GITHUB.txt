@@ -1,0 +1,22 @@
+Constrange — upload this folder to GitHub
+=========================================
+
+This is the FINAL source project (console errors fixed, no secrets).
+
+DO NOT upload the old zip files on Desktop.
+DO NOT upload node_modules or _site — GitHub builds those automatically.
+
+Steps:
+1. Open Terminal
+2. cd ~/Desktop/Constrange
+3. git init
+4. git add .
+5. git commit -m "Initial commit: Constrange site"
+6. Create a new repo on github.com (name: constrange)
+7. git branch -M main
+8. git remote add origin https://github.com/YOUR_USERNAME/constrange.git
+9. git push -u origin main
+10. GitHub → Settings → Pages → Source: GitHub Actions
+
+After setup, future updates:
+  git add . && git commit -m "your message" && git push
