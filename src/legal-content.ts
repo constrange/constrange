@@ -53,7 +53,7 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
         title: "Conversations and the contact form",
         paragraphs: [
           "You may start a conversation without a polished brief. That invitation is not a commitment by either side to an engagement.",
-          "The contact form on this site does not send a message. What you type is kept in the browser for that visit so you can copy it. It is not transmitted to Constrange, stored on a server, or used to open a file. If we are already in conversation, send the note to the address we have been using. If we are not, the form is a drafting aid — not a submission.",
+          "The contact page lets you share context and book a first conversation through Cal.com. What you write can be carried into the booking. A confirmed calendar slot is not an engagement — live work still begins only when both sides agree in writing.",
         ],
       },
       {
@@ -150,10 +150,10 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
       },
       {
         id: "form",
-        title: "The contact form",
+        title: "Booking and contact details",
         paragraphs: [
-          "The form on this site does not transmit what you type. It does not create a record on a Constrange server. It is a local drafting step so you can keep a copy. If you want us to receive a note, send it through a channel we have already opened with you, or wait until a conversation has an address attached to it.",
-          "Because the form does not send, submitting it is not a request that we process personal information, and it is not consent to marketing. There is no mailing list attached to the button.",
+          "The contact page lets you share context and book a first conversation through Cal.com. When you book, Cal processes the details needed to schedule the meeting (such as your name, email, and any notes you attach). That booking is handled by Cal.com as a processor for scheduling — not as a Constrange marketing list.",
+          "Context you add on the contact page before booking can be passed into the Cal booking so the first conversation starts with the situation in view. A confirmed calendar slot is not an engagement. Live work still begins only when both sides agree in writing.",
         ],
       },
       {
@@ -275,7 +275,7 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
         id: "site",
         title: "The public site",
         paragraphs: [
-          "The contact form on constrange.com does not send email. It does not create a Constrange record of the situation you typed. See the Privacy policy for what the site does and does not collect. Live work is a different channel, opened on purpose.",
+          "The contact page uses Cal.com to book first conversations. What you share there is used to schedule and prepare that conversation. See the Privacy policy for what the site and Cal collect. Live work is a different channel, opened on purpose.",
         ],
       },
       {

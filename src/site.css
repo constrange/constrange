@@ -3224,6 +3224,23 @@ body.on-about .header.on-dark.stuck {
   color: var(--purple);
   border-bottom: 1px solid rgba(39, 22, 117, .25);
 }
+.form-note-error {
+  margin-top: 12px;
+  color: #8a1f1f;
+}
+.cal-inline-embed {
+  width: 100%;
+  min-height: 640px;
+  overflow: auto;
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .72);
+}
+.cal-inline-embed iframe {
+  width: 100%;
+  min-height: 640px;
+  border: 0;
+}
 .house-aside { padding-top: 4px; }
 .house-aside .about-kicker { margin-bottom: 8px; }
 .house-aside .house-points { margin-top: 0; }

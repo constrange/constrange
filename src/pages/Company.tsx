@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react"
+import { useEffect, useState, type FormEvent, type ReactNode } from "react"
 import { Link } from "react-router-dom"
 import {
   AboutPlate,
@@ -22,6 +22,7 @@ import {
   HouseShell,
 } from "@/components/site/House"
 import { DrawDraft, DrawHire } from "@/components/site/HouseDraw"
+import { CalInlineEmbed, type CalPrefill } from "@/components/site/CalEmbed"
 import { Reveal } from "@/components/site/Layout"
 
 /* ---------------- about ---------------- */
@@ -408,7 +409,7 @@ export function Careers() {
         tone="clay"
       >
         <ul className="house-field-list">
-          <li>The contact form on this site does not send. It is a drafting aid so you can keep a copy.</li>
+          <li>Use the contact page to book a first conversation or share context before you book.</li>
           <li>If we are already in conversation, send the note to the address we have been using.</li>
           <li>We will not invent a role to match a strong letter. If there is no named need, we will say so.</li>
         </ul>
@@ -420,7 +421,7 @@ export function Careers() {
         primary={{ label: "Draft a note", to: "/contact" }}
         secondary={{ label: "About Constrange", to: "/about" }}
         figure={
-          <HousePlate refn="Fig. II" note="A note kept in the browser. It is not sent.">
+          <HousePlate refn="Fig. II" note="A first conversation, booked on the calendar.">
             <DrawDraft />
           </HousePlate>
         }
@@ -490,33 +491,52 @@ const emptyDraft = {
   situation: "",
 }
 
-function formatDraft(d: typeof emptyDraft) {
-  const name = [d.first, d.last].filter(Boolean).join(" ")
-  return [name, d.email, d.pressure && `Pressure: ${d.pressure}`, d.situation].filter(Boolean).join("\n\n")
+function formatBookingNotes(variant: ContactVariant, d: typeof emptyDraft) {
+  const variantLabel = contactCopy[variant].kicker
+  return [
+    `Conversation type: ${variantLabel}`,
+    d.pressure && `Pressure: ${d.pressure}`,
+    d.situation,
+  ]
+    .filter(Boolean)
+    .join("\n\n")
 }
 
 export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
-  const [sent, setSent] = useState(false)
-  const [copied, setCopied] = useState(false)
+  const [prefill, setPrefill] = useState<CalPrefill | undefined>()
   const [draft, setDraft] = useState(emptyDraft)
+  const [formError, setFormError] = useState("")
   const copy = contactCopy[variant]
 
   useEffect(() => {
-    setSent(false)
-    setCopied(false)
+    setPrefill(undefined)
+    setFormError("")
+    setDraft(emptyDraft)
   }, [variant])
 
   const setField = (key: keyof typeof emptyDraft) => (e: { target: { value: string } }) => {
     setDraft((d) => ({ ...d, [key]: e.target.value }))
   }
 
-  const keepCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(formatDraft(draft))
-      setCopied(true)
-    } catch {
-      setCopied(false)
+  const handleContextSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormError("")
+
+    const name = [draft.first.trim(), draft.last.trim()].filter(Boolean).join(" ")
+    if (!name || !draft.email.trim() || !draft.situation.trim()) {
+      setFormError("Add your name, work email, and a short description before continuing to the calendar.")
+      return
     }
+
+    setPrefill({
+      name,
+      email: draft.email.trim(),
+      notes: formatBookingNotes(variant, draft),
+    })
+
+    requestAnimationFrame(() => {
+      document.getElementById("book-calendar")?.scrollIntoView({ behavior: "smooth", block: "start" })
+    })
   }
 
   return (
@@ -538,7 +558,7 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
         secondary={{ label: "How we work", to: "/how-we-work" }}
         tone={copy.tone}
         figure={
-          <HousePlate refn="Fig. I" note="A note kept in the browser. It is not sent." className="about-hero-plate">
+          <HousePlate refn="Fig. I" note="A first conversation, booked on the calendar." className="about-hero-plate">
             <DrawDraft />
           </HousePlate>
         }
@@ -563,105 +583,87 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
       </section>
 
       <HouseChapter
-        id="draft"
+        id="context"
         n="01"
-        kicker="A local draft"
-        title={sent ? "Kept in this browser — not emailed." : "Write the situation as you currently see it."}
-        lede={
-          sent
-            ? "Nothing left this page. Copy the note if you want it, then send it through a channel that is already open — or keep it until a conversation has an address."
-            : "This form does not transmit. What you type stays here so you can copy it. It is not a submission, a mailing list, or the start of a file."
-        }
+        kicker="Before you book"
+        title="Share the situation as you currently see it."
+        lede="Optional, but useful. What you write here is carried into the booking so the first conversation starts with context — not a blank form."
       >
-        {sent ? (
-          <div className="house-kept">
-            <p className="about-kicker">Your copy</p>
-            <pre>{formatDraft(draft)}</pre>
-            <div className="about-actions">
-              <button className="btn" type="button" onClick={keepCopy}>
-                {copied ? "Copied" : "Copy the note"}
+        <div className="house-contact">
+          <form className="house-form form-grid" onSubmit={handleContextSubmit}>
+            <label className="field">
+              <span>First name</span>
+              <input type="text" required value={draft.first} onChange={setField("first")} autoComplete="given-name" />
+            </label>
+            <label className="field">
+              <span>Last name</span>
+              <input type="text" required value={draft.last} onChange={setField("last")} autoComplete="family-name" />
+            </label>
+            <label className="field">
+              <span>Work email</span>
+              <input type="email" required value={draft.email} onChange={setField("email")} autoComplete="email" />
+            </label>
+            <label className="field">
+              <span>What is under pressure?</span>
+              <select value={draft.pressure} onChange={setField("pressure")}>
+                <option>We are not sure where to start</option>
+                <option>A technology decision is due</option>
+                <option>Operations are strained</option>
+                <option>An AI or automation idea needs a test</option>
+                <option>We are already in the work</option>
+                <option>Informal coordination is failing</option>
+              </select>
+            </label>
+            <label className="field full">
+              <span>Describe the situation</span>
+              <textarea required value={draft.situation} onChange={setField("situation")} rows={7} />
+            </label>
+            <div className="full">
+              <button className="btn" type="submit">
+                Continue to calendar
               </button>
-              <button className="btn btn-ghost" type="button" onClick={() => setSent(false)}>
-                Edit the draft
-              </button>
-              <Link className="btn btn-ghost" to="/how-we-work">
-                How we work
-              </Link>
+              {formError ? <p className="form-note form-note-error">{formError}</p> : null}
+              <p className="form-note">
+                Your details are passed into the booking below. See the{" "}
+                <Link to="/legal/privacy-policy">Privacy policy</Link>
+                {" · "}
+                <Link to="/security">Information handling</Link>.
+              </p>
             </div>
-          </div>
-        ) : (
-          <div className="house-contact">
-            <form
-              className="house-form form-grid"
-              onSubmit={(e) => {
-                e.preventDefault()
-                setSent(true)
-                setCopied(false)
-              }}
-            >
-              <label className="field">
-                <span>First name</span>
-                <input type="text" required value={draft.first} onChange={setField("first")} autoComplete="given-name" />
-              </label>
-              <label className="field">
-                <span>Last name</span>
-                <input type="text" required value={draft.last} onChange={setField("last")} autoComplete="family-name" />
-              </label>
-              <label className="field">
-                <span>Work email</span>
-                <input type="email" required value={draft.email} onChange={setField("email")} autoComplete="email" />
-              </label>
-              <label className="field">
-                <span>What is under pressure?</span>
-                <select value={draft.pressure} onChange={setField("pressure")}>
-                  <option>We are not sure where to start</option>
-                  <option>A technology decision is due</option>
-                  <option>Operations are strained</option>
-                  <option>An AI or automation idea needs a test</option>
-                  <option>We are already in the work</option>
-                  <option>Informal coordination is failing</option>
-                </select>
-              </label>
-              <label className="field full">
-                <span>Describe the situation</span>
-                <textarea required value={draft.situation} onChange={setField("situation")} rows={7} />
-              </label>
-              <div className="full">
-                <button className="btn" type="submit">
-                  Keep a local copy
-                </button>
-                <p className="form-note">
-                  The form stays in this browser. See the{" "}
-                  <Link to="/legal/privacy-policy">Privacy policy</Link>
-                  {" · "}
-                  <Link to="/security">Information handling</Link>.
-                </p>
-              </div>
-            </form>
-            <aside className="house-aside">
-              <p className="about-kicker">What this is not</p>
-              <ul className="house-points">
-                <li>It is not an inbox. Nothing is transmitted to Constrange.</li>
-                <li>It is not consent to marketing. There is no list attached to the button.</li>
-                <li>Live work uses a channel opened on purpose — usually the address already in use.</li>
-                {variant === "support" && (
-                  <li>If we are in an engagement, send the current constraint there, not as a new public form.</li>
-                )}
-                {variant === "startups" && (
-                  <li>
-                    Growing teams is a situation, not a programme. Read{" "}
-                    <Link to="/solutions/growth">how we sit with that pressure</Link>.
-                  </li>
-                )}
-              </ul>
-            </aside>
-          </div>
-        )}
+          </form>
+          <aside className="house-aside">
+            <p className="about-kicker">What happens next</p>
+            <ul className="house-points">
+              <li>Choose a time in the calendar. The booking is handled by Cal.com.</li>
+              <li>Context from this form is attached to the booking when you continue.</li>
+              <li>It is not a mailing list. There is no automated nurture attached to the button.</li>
+              {variant === "support" && (
+                <li>If we are already in an engagement, use the channel already open — not a new public booking.</li>
+              )}
+              {variant === "startups" && (
+                <li>
+                  Growing teams is a situation, not a programme. Read{" "}
+                  <Link to="/solutions/growth">how we sit with that pressure</Link>.
+                </li>
+              )}
+            </ul>
+          </aside>
+        </div>
+      </HouseChapter>
+
+      <HouseChapter
+        id="book-calendar"
+        n="02"
+        kicker="Book"
+        title="Choose a time for a first conversation."
+        lede="Pick a slot that works. You will receive a calendar invite and any reminders Cal sends for that booking."
+      >
+        <CalInlineEmbed prefill={prefill} />
       </HouseChapter>
 
       <HouseChapter
         id="after"
-        n="02"
+        n="03"
         kicker="After a conversation"
         title="A signed letter governs live work."
         lede="Until then, a conversation is only a conversation. We will say if we cannot hold the situation rather than staff one we cannot sit with."
