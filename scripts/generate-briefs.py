@@ -11,10 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = (ROOT / "src" / "site-data.ts").read_text(encoding="utf-8")
 OUT = ROOT / "public" / "audio"
 
-# Mature British female — slower, warmer storyteller delivery (not a young voice).
-VOICE = "en-GB-SoniaNeural"
-RATE = "-12%"
-PITCH = "-2Hz"
+# Conversational adult female — plain text only (no SSML; tags get read aloud as "slash").
+VOICE = "en-US-AvaMultilingualNeural"
+RATE = "-6%"
 
 
 def briefs():
@@ -29,24 +28,25 @@ def briefs():
 
 def for_speech(text: str) -> str:
     text = text.replace("A.I.", "AI").replace("A.I", "AI")
+    text = text.replace("…", "...")
     text = re.sub(r"\s*[—–]\s*", ", ", text)
+    text = re.sub(r"\s*/\s*", " ", text)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r",\s*,", ",", text)
+    text = re.sub(r"\s+([,.])", r"\1", text)
+    # US voice: avoid odd pronunciations.
+    text = re.sub(r"\bprogrammes\b", "programs", text, flags=re.I)
+    text = re.sub(r"\bprogramme\b", "program", text, flags=re.I)
+    text = re.sub(r"\bsummarise\b", "summarize", text, flags=re.I)
+    text = re.sub(r"\borganisation\b", "organization", text, flags=re.I)
     return text.strip()
-
-
-def to_ssml(text: str) -> str:
-    text = for_speech(text)
-    text = text.replace("…", '<break time="700ms"/>')
-    text = re.sub(r",\s*(ah|oh|hmm)\s*,", r', <break time="280ms"/> \1,', text, flags=re.I)
-    text = re.sub(r"^(So|Okay|Ah|Oh)\s*,", r'\1, <break time="320ms"/>', text, flags=re.I)
-    sentences = re.split(r"(?<=[.!?])\s+", text)
-    body = ' <break time="520ms"/> '.join(s.strip() for s in sentences if s.strip())
-    return f'<speak><prosody pitch="-1st">{body}</prosody></speak>'
 
 
 async def one(item_id: str, text: str) -> None:
     path = OUT / f"{item_id}.mp3"
-    ssml = to_ssml(text)
-    communicate = Communicate(ssml, VOICE, rate=RATE, pitch=PITCH, proxy=None)
+    spoken = for_speech(text)
+    communicate = Communicate(spoken, VOICE, rate=RATE)
     await communicate.save(str(path))
     print(f"wrote {path.name} ({path.stat().st_size:,} bytes)")
 
@@ -55,7 +55,7 @@ async def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     for item_id, text in briefs():
         await one(item_id, text)
-        await asyncio.sleep(0.4)
+        await asyncio.sleep(0.35)
 
 
 if __name__ == "__main__":
