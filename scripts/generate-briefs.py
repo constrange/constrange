@@ -11,10 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = (ROOT / "src" / "site-data.ts").read_text(encoding="utf-8")
 OUT = ROOT / "public" / "audio"
 
-# Ava multilingual is a newer conversational model. Sonia (the previous voice)
-# is an older newsreader neural and reads like a machine.
-VOICE = "en-US-AvaMultilingualNeural"
-RATE = "-2%"
+# Warm British neural voice — slower pace for storytelling, not newsreader delivery.
+VOICE = "en-GB-MaisieNeural"
+RATE = "-4%"
 PITCH = "+0Hz"
 
 
@@ -30,11 +29,8 @@ def briefs():
 
 def for_speech(text: str) -> str:
     text = text.replace("A.I.", "AI").replace("A.I", "AI")
-    # US multilingual voice: keep British meaning, avoid letter-by-letter readings.
-    text = re.sub(r"\bprogrammes\b", "programs", text)
-    text = re.sub(r"\bprogramme\b", "program", text)
-    text = re.sub(r"\bsummarise\b", "summarize", text)
     text = re.sub(r"\s*[—–]\s*", ", ", text)
+    text = re.sub(r"\s*—\s*", ", ", text)
     return text.strip()
 
 
@@ -43,7 +39,7 @@ async def one(item_id: str, text: str) -> None:
     spoken = for_speech(text)
     communicate = Communicate(spoken, VOICE, rate=RATE, pitch=PITCH, proxy=None)
     await communicate.save(str(path))
-    print(f"wrote {path.name} ({path.stat().st_size:,} bytes) — {spoken}")
+    print(f"wrote {path.name} ({path.stat().st_size:,} bytes)")
 
 
 async def main() -> None:

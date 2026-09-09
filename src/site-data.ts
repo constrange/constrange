@@ -545,7 +545,7 @@ export const situations: Situation[] = [
     pressure:
       "There are three programmes running, and only one budget. Leadership still wants a platform decision this quarter.",
     spoken:
-      "There are three programmes running — and only one budget. Leadership still wants a platform decision this quarter.",
+      "Picture this. Three programmes are running at once — and there is only one budget left. Leadership still wants a platform decision this quarter. But ask which piece of work has to change first, and the room goes quiet.",
     reading: "The request is a platform. The issue is priority. Nothing should be bought until the work that must change first is named.",
     move: "Name the work. Rank the constraints. Then, and only then, compare platforms.",
   },
@@ -557,7 +557,7 @@ export const situations: Situation[] = [
     pressure:
       "A request is crossing four teams. The context drops at the second handoff. And the real path, if we are honest, is a spreadsheet.",
     spoken:
-      "A request is crossing four teams. The context drops at the second handoff. And if we're honest, the real path is still a spreadsheet.",
+      "A request is crossing four teams. By the second handoff, the context is gone. Everyone nods in the meeting — then goes back to the spreadsheet that actually runs the work. That is the real process. It just does not have a name yet.",
     reading: "The process is not slow because people are slow. It is slow because the join has no owner and no shared status.",
     move: "One status object. One owner at the join. Give the spreadsheet an end date.",
   },
@@ -569,7 +569,7 @@ export const situations: Situation[] = [
     pressure:
       "Each team has a different story. Meetings keep repeating. And nobody can say, in one sentence, what must change.",
     spoken:
-      "Each team has a different story. The meetings keep repeating. And nobody can say — in one sentence — what actually has to change.",
+      "Every team has a different story about what is wrong. The meetings keep happening — same people, same slide, same disagreement. Nobody can say, in one plain sentence, what actually has to change.",
     reading: "If the problem is not shared, every solution will fight the last one. Alignment is a named constraint, not another workshop.",
     move: "Write one problem statement. Get it agreed. Stop solving until that sentence is stable.",
   },
@@ -581,7 +581,7 @@ export const situations: Situation[] = [
     pressure:
       "Leadership wants artificial intelligence this year. The work itself has not been mapped. And no one has asked whether a simpler change would do.",
     spoken:
-      "Leadership wants AI this year. The work itself hasn't been mapped. And no one's asked whether a simpler change would do.",
+      "Leadership wants AI on the roadmap this year. The work itself has not been mapped. Nobody has asked the quieter question yet — whether a simpler change would do the same job, without a model in the middle.",
     reading: "The question is not how to adopt AI. The question is what is broken in the work — and whether a model is even required.",
     move: "Map the work. Name the friction. Then decide if AI belongs in the path at all.",
   },
@@ -593,7 +593,7 @@ export const situations: Situation[] = [
     pressure:
       "There are two vendors, and one legacy core. The team can integrate. It cannot rebuild. So the architecture has to respect that.",
     spoken:
-      "There are two vendors, and one legacy core. The team can integrate. It can't rebuild. So the architecture has to respect that.",
+      "Two vendors are in the room. One legacy core that is not moving. The team can integrate — they cannot rebuild. Whatever gets chosen has to respect that limit. Not on a slide. In day-to-day operations.",
     reading: "Replacement exceeds the change load. Automating around the core would hide the problem in more tools.",
     move: "A thin integration layer over the core. Write the non-goals before the RFP.",
   },
@@ -605,7 +605,7 @@ export const situations: Situation[] = [
     pressure:
       "The proposed copilot would summarise tickets. Volume is already high. And leadership has already announced A.I.",
     spoken:
-      "The proposed copilot would summarise tickets. Volume is already high. And leadership has already announced AI.",
+      "They want a copilot to summarise tickets. Volume is already high. Leadership has announced AI — so the demo is due. But the delay is not writing. The facts are missing at intake. A fluent summary of incomplete tickets is still wrong.",
     reading: "The delay is not writing. It is missing facts at intake. A fluent summary of incomplete tickets would be fluent and wrong.",
     move: "Fix intake structure. Do not fund a model for a data problem.",
   },
@@ -617,7 +617,7 @@ export const situations: Situation[] = [
     pressure:
       "There are six systems for the same request. People copy between them. And a seventh tool has been proposed to connect everything.",
     spoken:
-      "There are six systems for the same request. People copy between them. And a seventh tool has been proposed — to connect everything.",
+      "Six systems touch the same request. People copy between them. Now someone has proposed a seventh — to connect everything. That is not a strategy. It is another layer on top of a path nobody owns.",
     reading: "Another tool will not create a process. A process with an owner will tell you which tools can stay, and which can go.",
     move: "Draw the real path of one request. Keep the systems that serve it. Name the ones that do not.",
   },
@@ -629,7 +629,7 @@ export const situations: Situation[] = [
     pressure:
       "The work has changed. The core system has not. Teams are inventing workarounds so the numbers still look right.",
     spoken:
-      "The work has changed. The core system hasn't. Teams are inventing workarounds so the numbers still look right.",
+      "The work has changed. The core system has not. So teams built workarounds — quietly — so the numbers still look right. Each workaround is a design decision. Just not an official one.",
     reading: "A workaround is a design. It is just an unofficial one. Structure means deciding what the system must hold, and what people should stop pretending it holds.",
     move: "List the workarounds. Keep the honest ones. Design the join for the rest.",
   },
@@ -641,7 +641,7 @@ export const situations: Situation[] = [
     pressure:
       "The strategy is signed. Nothing has an owner. And the next thing on the table is a twelve-month roadmap.",
     spoken:
-      "The strategy is signed. Nothing has an owner. And the next thing on the table is a twelve-month roadmap.",
+      "The strategy is signed. A strong deck. But nothing has a name on it yet. And the very next conversation is a twelve-month roadmap. A roadmap without owners is not a path. It is a calendar.",
     reading: "A roadmap is not a path. A path has names, a first week, and a way to tell whether the first step worked.",
     move: "Three named actions this week. Review on Friday: what became true, what is still assumed.",
   },
@@ -653,7 +653,7 @@ export const situations: Situation[] = [
     pressure:
       "A generic answer would say, adopt A.I. But the records are incomplete. The team is tired. And the core cannot move this year.",
     spoken:
-      "A generic answer would say: adopt AI. But the records are incomplete. The team's tired. And the core can't move this year.",
+      "A generic playbook would say: adopt AI. But the records are incomplete. The team is tired. The core cannot move this year. Information is cheap here. Judgement is not.",
     reading: "Information is cheap here. Judgement is not. Do not add a model on missing data, or a parallel process on a tired team.",
     move: "Stabilise the record. Then reopen whether automation is even the question.",
   },
@@ -665,7 +665,7 @@ export const situations: Situation[] = [
     pressure:
       "The direction is clear. The programme is not. And the team is waiting for a plan that is still too large to start.",
     spoken:
-      "The direction is clear. The programme isn't. And the team's waiting for a plan that's still too large to start.",
+      "The direction is clear — everyone agrees on that. But the programme is not. The team is waiting for a plan that is still too large to start. That is not caution. That is a large plan doing the job of not beginning.",
     reading: "A large plan is a way of not beginning. A first step is small enough to finish, and clear enough to learn from.",
     move: "One action this week. One owner. One way to tell, by Friday, whether it worked.",
   },
@@ -677,7 +677,7 @@ export const situations: Situation[] = [
     pressure:
       "A transformation has been named. Teams still do the old work. And the new process exists only on a slide.",
     spoken:
-      "A transformation has been named. Teams still do the old work. And the new process exists only on a slide.",
+      "A transformation has been named. Announced, even. Teams still do the old work. The new process exists on a slide. Announcement is not implementation. Implementation is a change in the daily path — with owners, sequence, and one live case.",
     reading: "Announcement is not implementation. Implementation is a change in the daily path — owners, sequence, and a first live case.",
     move: "Pick one live case. Run it on the new path. Do not scale the slide.",
   },
