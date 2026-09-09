@@ -369,7 +369,7 @@ export function HeroDemo() {
       followClock(estimated)
     }
 
-    const audio = new Audio(`/audio/${current.id}.mp3?v=4`)
+    const audio = new Audio(`/audio/${current.id}.mp3?v=5`)
     audioRef.current = audio
     audio.addEventListener("loadedmetadata", () => {
       if (speakGen.current !== gen) return
