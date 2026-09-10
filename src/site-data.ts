@@ -287,13 +287,36 @@ export const reviewAreas = [
 
 export const decisionReviewSteps = [
   "Define",
-  "Establish evidence",
-  "Test assumptions",
-  "Compare options",
-  "Assess economics & risk",
-  "Stress-test",
+  "Evidence",
+  "Assumptions",
+  "Options",
+  "Risk",
+  "Stress test",
   "Recommend",
   "Act",
+]
+
+export const thinkingThemes: [string, string][] = [
+  [
+    "What should we automate — and what shouldn't we?",
+    "Automation is not a virtue. The question is whether a decision belongs in software, in process, or with a person who can hold context.",
+  ],
+  [
+    "The hidden cost of adding another system",
+    "Every new layer solves a symptom and relocates the join. The real cost is often dependency, not licence fees.",
+  ],
+  [
+    "When an AI investment deserves a second opinion",
+    "Before funding a model, ask whether the work is mapped, the data is fit, and a simpler change would do.",
+  ],
+  [
+    "What changes when software begins making operational decisions?",
+    "As systems act, the important question shifts from capability to control, evidence, and who owns the exception.",
+  ],
+  [
+    "How to stress-test a technology investment",
+    "A credible path names assumptions, dependencies, and what would make the decision wrong — before money is committed.",
+  ],
 ]
 
 export const constrangeViews = ["Proceed", "Modify", "Do not proceed"] as const

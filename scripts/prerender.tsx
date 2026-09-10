@@ -52,7 +52,7 @@ function renderHead(pathname: string) {
 <meta property="og:description" content="${escapeHtml(seo.description)}" />
 <meta property="og:url" content="${escapeHtml(seo.canonical)}" />
 <meta property="og:image" content="${escapeHtml(image)}" />
-<meta property="og:image:alt" content="Constrange — technology and business consultancy" />
+<meta property="og:image:alt" content="Constrange — independent decision intelligence" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_GB" />
@@ -60,7 +60,7 @@ function renderHead(pathname: string) {
 <meta name="twitter:title" content="${escapeHtml(seo.title)}" />
 <meta name="twitter:description" content="${escapeHtml(seo.description)}" />
 <meta name="twitter:image" content="${escapeHtml(image)}" />
-<meta name="twitter:image:alt" content="Constrange — technology and business consultancy" />
+<meta name="twitter:image:alt" content="Constrange — independent decision intelligence" />
 <title>${escapeHtml(seo.title)}</title>
 <script type="application/ld+json" id="seo-jsonld">${jsonLd}</script>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin>

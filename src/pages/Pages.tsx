@@ -107,9 +107,9 @@ export function Blog() {
     <>
       <PageHero
         crumbs={[["Home", "/"], ["Blog", "/blog"]]}
-        eyebrow="Blog"
+        eyebrow="Thinking"
         title="Writing from the work"
-        blurb="Notes on judgement, constraint, and why more options do not automatically create a clearer path."
+        blurb="Articles on important decisions: when to automate, when to delay AI investment, how to stress-test technology choices, and why more options do not create clarity."
         primary={null}
         secondary={null}
       />

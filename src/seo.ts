@@ -385,7 +385,7 @@ const pages: PageSeo[] = [
     path: "/about",
     title: "About Constrange | The Practice",
     description:
-      "Constrange is a technology and business consultancy. We start with the operating problem, not a platform. Software is built only when a recurring constraint has earned a product.",
+      "Constrange is an independent decision-intelligence practice. We help organisations evaluate important technology, AI and operational decisions before significant commitment.",
     h1: "The name is the work.",
     primary: "about Constrange",
     intent: "information",
@@ -397,11 +397,11 @@ const pages: PageSeo[] = [
   },
   {
     path: "/blog",
-    title: "Blog | Judgement, Constraint & Method",
+    title: "Thinking & Articles | Constrange",
     description:
-      "Writing from the work: why more options do not create clarity, why technology should wait for the problem, and why judgement is not a model output.",
+      "Writing on important decisions: when to automate, when to delay AI investment, how to stress-test technology choices, and why judgement is not a model output.",
     h1: "Writing from the work",
-    primary: "consulting and AI judgement essays",
+    primary: "decision intelligence essays",
     intent: "information",
     schema: "collection",
     breadcrumbs: [
@@ -425,11 +425,11 @@ const pages: PageSeo[] = [
   },
   {
     path: "/research",
-    title: "How We Hold Complexity | Constrange Thinking",
+    title: "Thinking | Constrange Decision Intelligence",
     description:
-      "Understand, structure, then priorities. Technology waits until the constraint is named. The three holds behind Constrange’s method.",
-    h1: "How we hold complexity",
-    primary: "holding complexity in consulting",
+      "Research and writing on important technology, AI and operational decisions — automation, system cost, investment stress-tests, and when software begins making operational choices.",
+    h1: "Thinking",
+    primary: "decision intelligence research",
     intent: "information",
     schema: "method",
     breadcrumbs: [
@@ -526,10 +526,10 @@ const pages: PageSeo[] = [
   },
   {
     path: "/contact",
-    title: "Start a Conversation | Constrange",
+    title: "Discuss a Decision | Constrange",
     description:
-      "Bring the situation as it currently stands. You do not need a polished brief. Draft the pressure here, then take it to a channel that can actually reach us.",
-    h1: "Bring the pressure as it currently is.",
+      "Tell us what you are trying to decide, what is changing, or where the situation has become difficult. Submit an enquiry or book a 30-minute first conversation.",
+    h1: "Discuss a decision.",
     primary: "contact Constrange",
     intent: "service",
     schema: "contact",
@@ -542,7 +542,7 @@ const pages: PageSeo[] = [
     path: "/contact/sales",
     title: "Request a Diagnostic Conversation | Constrange",
     description:
-      "When the next move is unclear and a diagnostic reading would help. Draft the pressure as it stands — this form does not transmit.",
+      "When the next move is unclear and an independent Decision Review would help. Book a conversation or describe the decision you are facing.",
     h1: "For a decision that is already due.",
     primary: "diagnostic conversation",
     intent: "service",
@@ -601,7 +601,7 @@ const pages: PageSeo[] = [
     path: "/media",
     title: "Media Kit | Constrange",
     description:
-      "Name, mark and how to describe Constrange: a technology and business consultancy. Direction first; build where it belongs.",
+      "Name, mark and how to describe Constrange: an independent decision-intelligence practice. Complex problems. Clearer paths forward.",
     h1: "Media kit",
     primary: "Constrange media kit",
     intent: "information",
@@ -643,7 +643,7 @@ const pages: PageSeo[] = [
     path: "/legal/privacy-policy",
     title: "Privacy Policy | Constrange",
     description:
-      "What constrange.com collects and what it does not. No tracking cookies. The contact form does not transmit. Engagements have their own terms.",
+      "What constrange.com collects and what it does not. No tracking cookies. Enquiry forms and bookings are described here. Engagements have their own terms.",
     h1: "What this site does — and does not — collect.",
     primary: "Constrange privacy policy",
     intent: "information",
@@ -770,16 +770,16 @@ function orgNode() {
     logo: LOGO_URL,
     image: DEFAULT_OG,
     description:
-      "Constrange is a technology and business consultancy. We help organisations understand complex problems and design practical paths. Software is built only when a recurring constraint has earned a product.",
-    slogan: "Complexity held until it can be named.",
+      "Constrange is an independent decision-intelligence practice. We help organisations evaluate important technology, AI and operational decisions before significant commitment.",
+    slogan: "Complex problems. Clearer paths forward.",
     areaServed: "Worldwide",
     knowsAbout: [
-      "Business and technology strategy",
-      "AI strategy",
-      "Business process design",
-      "Systems integration",
-      "Digital transformation",
-      "Implementation strategy",
+      "Decision review",
+      "Technology investment decisions",
+      "AI adoption decisions",
+      "Operational decision-making",
+      "Technology risk assessment",
+      "Independent second opinion",
     ],
   }
 }

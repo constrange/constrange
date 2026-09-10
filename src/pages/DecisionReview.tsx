@@ -10,6 +10,7 @@ import {
   Turn,
 } from "@/components/site/Canvas"
 import { Reveal } from "@/components/site/Layout"
+import { MethodFlow } from "@/components/site/MethodFlow"
 import { FaqList } from "@/components/site/Prose"
 import {
   constrangeViews,
@@ -91,11 +92,7 @@ export default function DecisionReview() {
           rows={methodRows}
           mono={[0]}
         />
-        <ol className="review-flow review-flow-page" aria-label="Decision Review method">
-          {decisionReviewSteps.map((step) => (
-            <li key={step}>{step}</li>
-          ))}
-        </ol>
+        <MethodFlow className="method-flow-page" />
       </CxSection>
 
       <CxSection label="Deliverables" title="What you receive.">

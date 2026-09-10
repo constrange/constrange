@@ -28,7 +28,7 @@ import {
 } from "@/components/site/HouseDraw"
 import { FaqList } from "@/components/site/Prose"
 import { Reveal } from "@/components/site/Layout"
-import { research, solutionBySlug, solutions, productFromLabel } from "@/site-data"
+import { research, solutionBySlug, solutions, productFromLabel, thinkingThemes } from "@/site-data"
 import { solutionContent } from "@/page-content"
 
 function ProseBlock({ children }: { children: ReactNode }) {
@@ -80,10 +80,10 @@ export function ResearchOverview() {
       <HouseHero
         crumbs={[["Home", "/"], ["Thinking", "/research"]]}
         kicker="Thinking"
-        title="Hold the picture before you rank the tools."
-        lede="Understand the situation. Structure the decisions. Rank what should move first. Technology comes after those three — if it comes at all."
-        primary={{ label: "Start a conversation", to: "/contact" }}
-        secondary={{ label: "Read the blog", to: "/blog" }}
+        title="Proof of thinking on important decisions."
+        lede="Research and writing on technology investment, AI adoption, operational complexity, and when an independent view is worth paying for — the same territory as Constrange Decision Review™."
+        primary={{ label: "Discuss a decision", to: "/contact" }}
+        secondary={{ label: "Decision Review", to: "/decision-review" }}
         tone="ink"
         figure={
           <HousePlate refn="Fig. I" note="Three holds. A bar. Then, maybe, a tool.">
@@ -101,7 +101,7 @@ export function ResearchOverview() {
       >
         <div className="house-index">
           {holds.map((h) => (
-            <Link className="house-index-card" to={`/${h.slug}`} key={h.slug}>
+            <Link className="house-index-card" to={`/how-we-work#${h.slug === "priorities" ? "prioritize" : h.slug}`} key={h.slug}>
               <HousePlate refn={`Fig. ${h.n}`} note={h.note}>
                 {h.draw}
               </HousePlate>
@@ -119,8 +119,30 @@ export function ResearchOverview() {
       </HouseChapter>
 
       <HouseChapter
-        id="order"
+        id="themes"
         n="02"
+        kicker="Themes"
+        title="Questions the work keeps returning to."
+        lede="Not SEO volume — proof that Constrange thinks in the same territory it reviews for clients."
+      >
+        <ul className="house-points">
+          {thinkingThemes.map(([title, body]) => (
+            <li key={title}>
+              <strong>{title}</strong>
+              <p>{body}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="about-kicker" style={{ marginTop: 32 }}>
+          <Link className="arrow-link" to="/blog">
+            Read published articles <i>→</i>
+          </Link>
+        </p>
+      </HouseChapter>
+
+      <HouseChapter
+        id="order"
+        n="03"
         kicker="Sequence"
         title="The order is the discipline."
         lede="Reverse it and you will spend a year searching for a use that justifies a purchase. Keep it, and the first move can be small enough to be real."
@@ -131,8 +153,8 @@ export function ResearchOverview() {
       </HouseChapter>
 
       <HouseClose
-        title="Bring a situation that does not fit a playbook."
-        lede="If the next move is unclear, the first artefact is a reading — not a catalogue."
+        title="Have a decision that needs an independent view?"
+        lede="Bring the situation as it is. We will determine whether a Decision Review is useful — and say so if it isn't."
         figure={
           <HousePlate refn="Fig. III" note="The conversation is the first artefact.">
             <DrawSignSmall />

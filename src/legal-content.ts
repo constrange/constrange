@@ -29,14 +29,14 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
     path: "/legal/terms-of-service",
     kicker: "Terms of service",
     title: "How Constrange offers the work.",
-    lede: "These notes describe the public site and how consultancy is offered. A signed engagement letter governs any live work and takes precedence where the two differ.",
+    lede: "These notes describe the public site and how Decision Review engagements are offered. A signed engagement letter governs any live work and takes precedence where the two differ.",
     updated: "6 September 2026",
     sections: [
       {
         id: "who",
         title: "Who these notes are for",
         paragraphs: [
-          "Constrange is a technology and business consultancy. The practice helps organisations decide under constraint, complexity, change, and uncertainty — then turn that decision into a path operations can absorb.",
+          "Constrange is an independent decision-intelligence practice. We help organisations evaluate important technology, AI and operational decisions when the evidence is incomplete, the options are numerous, and the cost of a wrong move is real.",
           "These notes apply to anyone using constrange.com, starting a conversation, or considering an engagement. They are written in ordinary language on purpose. If a sentence here and a signed letter disagree, the letter wins.",
         ],
       },
@@ -150,10 +150,11 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
       },
       {
         id: "form",
-        title: "Booking and contact details",
+        title: "Enquiry form and booking",
         paragraphs: [
-          "The contact page lets you share context and book a first conversation through Cal.com. When you book, Cal processes the details needed to schedule the meeting (such as your name, email, and any notes you attach). That booking is handled by Cal.com as a processor for scheduling — not as a Constrange marketing list.",
-          "Context you add on the contact page before booking can be passed into the Cal booking so the first conversation starts with the situation in view. A confirmed calendar slot is not an engagement. Live work still begins only when both sides agree in writing.",
+          "The contact page includes an enquiry form that transmits your name, work email, organisation, the type of decision you are facing, and a brief description to Constrange by email. The form is processed by FormSubmit (formsubmit.co) as a delivery service — not as a Constrange marketing list.",
+          "You may also book a first conversation through Cal.com. When you book, Cal processes the details needed to schedule the meeting (such as your name, email, and any notes you attach). That booking is handled by Cal.com as a processor for scheduling.",
+          "A form submission or confirmed calendar slot is not an engagement. Live work still begins only when both sides agree in writing.",
         ],
       },
       {
@@ -215,7 +216,7 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
     path: "/security",
     kicker: "Information handling",
     title: "Working material is not content.",
-    lede: "Consultancy depends on discretion. We treat your landscape, constraints, and internal debate as confidential working material. This page is the practice. A signed letter can go further.",
+    lede: "Independent review depends on discretion. We treat your landscape, constraints, and internal debate as confidential working material. This page is the practice. A signed letter can go further.",
     updated: "5 September 2026",
     sections: [
       {
@@ -275,7 +276,7 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
         id: "site",
         title: "The public site",
         paragraphs: [
-          "The contact page uses Cal.com to book first conversations. What you share there is used to schedule and prepare that conversation. See the Privacy policy for what the site and Cal collect. Live work is a different channel, opened on purpose.",
+          "The contact page transmits enquiries by email through FormSubmit and uses Cal.com to book first conversations. What you share is used to respond, schedule, and prepare a conversation — not for marketing. See the Privacy policy for what the site, FormSubmit, and Cal collect. Live work is a different channel, opened on purpose.",
         ],
       },
       {

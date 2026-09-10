@@ -878,8 +878,8 @@ export function NotFound() {
     <PageHero
       eyebrow="404"
       title="That page moved"
-      blurb="That address is not part of this site. Try what we do, or go back home."
-      primary={{ label: "What we do", to: "/products" }}
+      blurb="That address is not part of this site. Try Decision Review, or go back home."
+      primary={{ label: "Decision Review", to: "/decision-review" }}
       secondary={{ label: "Back home", to: "/" }}
     />
   )

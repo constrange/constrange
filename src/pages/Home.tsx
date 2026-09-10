@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import { HeroDemo } from "@/components/site/Blocks"
+import { MethodFlow } from "@/components/site/MethodFlow"
 import { PostCard } from "@/components/site/PostCard"
 import { Reveal } from "@/components/site/Layout"
 import { posts } from "@/blog-content"
 import {
   constrangeViews,
   decisionDeliverables,
-  decisionReviewSteps,
   encounterScenarios,
   methodologyPrinciples,
   reviewAreas,
@@ -81,11 +81,7 @@ export default function Home() {
           </p>
         </Reveal>
         <Reveal delay={100}>
-          <ol className="review-flow" aria-label="Decision Review method">
-            {decisionReviewSteps.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
+          <MethodFlow />
         </Reveal>
         <div className="hero-actions" style={{ marginTop: 32 }}>
           <Link className="arrow-link" to="/decision-review">

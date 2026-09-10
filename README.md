@@ -1,6 +1,6 @@
 # Constrange
 
-Technology and business consultancy marketing site — built with [Eleventy](https://www.11ty.dev/).
+Independent decision intelligence marketing site — built with [Eleventy](https://www.11ty.dev/).
 
 ## Commands
 
