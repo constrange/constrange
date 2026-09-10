@@ -150,11 +150,10 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
       },
       {
         id: "form",
-        title: "Enquiry form and booking",
+        title: "Booking a conversation",
         paragraphs: [
-          "The contact page includes an enquiry form that transmits your name, work email, organisation, the type of decision you are facing, and a brief description to Constrange by email. The form is processed by FormSubmit (formsubmit.co) as a delivery service — not as a Constrange marketing list.",
-          "You may also book a first conversation through Cal.com. When you book, Cal processes the details needed to schedule the meeting (such as your name, email, and any notes you attach). That booking is handled by Cal.com as a processor for scheduling.",
-          "A form submission or confirmed calendar slot is not an engagement. Live work still begins only when both sides agree in writing.",
+          "The contact page lets you book a first conversation through Cal.com. When you book, Cal processes the details needed to schedule the meeting (such as your name, email, and any notes you attach). That booking is handled by Cal.com as a processor for scheduling — not as a Constrange marketing list.",
+          "A confirmed calendar slot is not an engagement. Live work still begins only when both sides agree in writing.",
         ],
       },
       {
@@ -276,7 +275,7 @@ export const legalDocs: Record<LegalKind, LegalDoc> = {
         id: "site",
         title: "The public site",
         paragraphs: [
-          "The contact page transmits enquiries by email through FormSubmit and uses Cal.com to book first conversations. What you share is used to respond, schedule, and prepare a conversation — not for marketing. See the Privacy policy for what the site, FormSubmit, and Cal collect. Live work is a different channel, opened on purpose.",
+          "The contact page uses Cal.com to book first conversations. What you share is used to schedule and prepare that conversation — not for marketing. See the Privacy policy for what the site and Cal collect. Live work is a different channel, opened on purpose.",
         ],
       },
       {

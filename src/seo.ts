@@ -528,7 +528,7 @@ const pages: PageSeo[] = [
     path: "/contact",
     title: "Discuss a Decision | Constrange",
     description:
-      "Tell us what you are trying to decide, what is changing, or where the situation has become difficult. Submit an enquiry or book a 30-minute first conversation.",
+      "Tell us what you are trying to decide, what is changing, or where the situation has become difficult. Book a 30-minute first conversation.",
     h1: "Discuss a decision.",
     primary: "contact Constrange",
     intent: "service",
@@ -643,7 +643,7 @@ const pages: PageSeo[] = [
     path: "/legal/privacy-policy",
     title: "Privacy Policy | Constrange",
     description:
-      "What constrange.com collects and what it does not. No tracking cookies. Enquiry forms and bookings are described here. Engagements have their own terms.",
+      "What constrange.com collects and what it does not. No tracking cookies. Cal.com bookings are described here. Engagements have their own terms.",
     h1: "What this site does — and does not — collect.",
     primary: "Constrange privacy policy",
     intent: "information",

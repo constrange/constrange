@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react"
+import { useEffect, type ReactNode } from "react"
 import { Link } from "react-router-dom"
 import {
   AboutPlate,
@@ -483,75 +483,6 @@ const contactCopy: Record<
   },
 }
 
-function ContactForm() {
-  const [sent, setSent] = useState(false)
-
-  useEffect(() => {
-    if (typeof window === "undefined") return
-    if (new URLSearchParams(window.location.search).get("sent") === "1") setSent(true)
-  }, [])
-
-  if (sent) {
-    return (
-      <div className="form-success">
-        <strong>Message sent.</strong>
-        <p>We will respond within two working days. If the matter is urgent, book a conversation below.</p>
-      </div>
-    )
-  }
-
-  return (
-    <form
-      className="contact-form"
-      action="https://formsubmit.co/contact@constrange.com"
-      method="POST"
-    >
-      <input type="hidden" name="_subject" value="Constrange — decision enquiry" />
-      <input type="hidden" name="_next" value="https://constrange.com/contact?sent=1" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
-      <div className="form-grid">
-        <label className="field">
-          <span>Name</span>
-          <input name="name" required autoComplete="name" />
-        </label>
-        <label className="field">
-          <span>Work email</span>
-          <input type="email" name="email" required autoComplete="email" />
-        </label>
-        <label className="field">
-          <span>Organisation</span>
-          <input name="organisation" required autoComplete="organization" />
-        </label>
-        <label className="field">
-          <span>What are you dealing with?</span>
-          <select name="decision_type" required defaultValue="">
-            <option value="" disabled>Select one</option>
-            <option value="technology">A technology decision</option>
-            <option value="ai">An AI / automation decision</option>
-            <option value="operations">An operational problem</option>
-            <option value="transformation">A transformation decision</option>
-            <option value="unclear">A complex situation that isn't clear yet</option>
-          </select>
-        </label>
-        <label className="field full">
-          <span>Brief description</span>
-          <textarea name="description" rows={5} required placeholder="What is being decided, what is changing, or where the situation has become difficult." />
-        </label>
-      </div>
-      <button type="submit" className="btn" style={{ marginTop: 20 }}>
-        Send to Constrange
-      </button>
-      <p className="form-note">
-        By sending this form you agree we may use your details to respond. See{" "}
-        <Link to="/legal/privacy-policy">Privacy policy</Link>
-        {" · "}
-        <Link to="/security">Information handling</Link>.
-      </p>
-    </form>
-  )
-}
-
 export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
   const copy = contactCopy[variant]
 
@@ -580,20 +511,6 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
         }
       />
 
-      {variant === "general" && (
-        <HouseChapter
-          id="enquiry"
-          n="01"
-          kicker="Enquiry"
-          title="Tell us what you are dealing with."
-          lede="You do not need a finished brief. A short description of the decision, the pressure, or what has become difficult is enough to begin."
-        >
-          <div className="house-contact">
-            <ContactForm />
-          </div>
-        </HouseChapter>
-      )}
-
       <section className="house-strip">
         <div className="about-inner">
           <p className="legal-updated">{copy.note}</p>
@@ -616,9 +533,9 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
 
       <HouseChapter
         id="book-calendar"
-        n={variant === "general" ? "02" : "01"}
+        n="01"
         kicker="Book"
-        title="Prefer a conversation? Book a 30-minute first conversation."
+        title="Book a 30-minute first conversation."
         lede="Pick a slot below. Cal.com will collect your details, send a calendar invite, and any reminders for the booking."
       >
         <div className="house-contact house-contact-booking">
@@ -650,7 +567,7 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
 
       <HouseChapter
         id="after"
-        n={variant === "general" ? "03" : "02"}
+        n="02"
         kicker="After a conversation"
         title="A signed letter governs live work."
         lede="Until then, a conversation is only a conversation. We will say if we cannot hold the situation rather than staff one we cannot sit with."
