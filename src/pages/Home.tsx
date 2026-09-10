@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { HeroDemo } from "@/components/site/Blocks"
 import { MethodFlow } from "@/components/site/MethodFlow"
+import { ReviewIntro } from "@/components/site/ReviewIntro"
 import { PostCard } from "@/components/site/PostCard"
 import { Reveal } from "@/components/site/Layout"
 import { posts } from "@/blog-content"
@@ -9,7 +10,6 @@ import {
   decisionDeliverables,
   encounterScenarios,
   methodologyPrinciples,
-  reviewAreas,
 } from "@/site-data"
 
 const independencePoints = [
@@ -47,29 +47,7 @@ export default function Home() {
         <HeroDemo />
       </div>
 
-      <section className="section shell review-intro">
-        <Reveal className="section-head">
-          <span className="eyebrow">What we review</span>
-          <h2 className="serif-md">When the decision matters, an independent view helps.</h2>
-          <p>
-            The difficult part is rarely knowing what is possible. It is knowing what is worth doing, what
-            could fail, and what should happen first.
-          </p>
-        </Reveal>
-        <div className="review-areas">
-          {reviewAreas.map((area, i) => (
-            <Reveal className="review-area" key={area.slug} delay={i * 90}>
-              <h3>{area.title}</h3>
-              <p>{area.blurb}</p>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={200}>
-          <p className="review-tagline">
-            <strong>One review. One clear recommendation.</strong>
-          </p>
-        </Reveal>
-      </section>
+      <ReviewIntro />
 
       <section className="section shell decision-review-band" id="decision-review">
         <Reveal className="section-head">

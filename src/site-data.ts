@@ -272,16 +272,19 @@ export const reviewAreas = [
     slug: "technology",
     title: "Technology decisions",
     blurb: "Major platform, architecture, transformation and investment choices.",
+    examples: ["Platform or vendor selection", "Architecture and integration paths", "Transformation before commitment"],
   },
   {
     slug: "ai",
     title: "AI decisions",
     blurb: "AI adoption, automation, agents and AI-enabled operating changes.",
+    examples: ["AI roadmap and business case", "Automation vs. process change", "Agents, controls and operating model"],
   },
   {
     slug: "operations",
     title: "Operational decisions",
     blurb: "Process, systems, dependencies and changes that affect how critical work gets done.",
+    examples: ["Cross-team workflow redesign", "System dependency and risk", "Operational change at scale"],
   },
 ]
 
