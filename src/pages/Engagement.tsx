@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { CanvasPage, CxSection } from "@/components/site/Canvas"
+import { EngagementDeliverables } from "@/components/site/EngagementDeliverables"
 import { EngagementPricing } from "@/components/site/EngagementPricing"
 import {
   ConstrangeViewBand,
@@ -29,48 +30,6 @@ const buyingCards = [
     "A clear outcome",
     "You receive a reasoned recommendation, the conditions behind it, and a practical sequence of next actions.",
   ],
-] as const
-
-const deliverables = [
-  {
-    num: "01",
-    title: "Executive Decision Report",
-    meta: "10–20 page PDF, depending on scope.",
-    includes: [
-      "Executive conclusion",
-      "Business context",
-      "Key evidence",
-      "Assumptions",
-      "Options and trade-offs",
-      "Economics where appropriate",
-      "Risks and dependencies",
-      "Constrange recommendation",
-    ],
-  },
-  {
-    num: "02",
-    title: "Decision Map",
-    meta: "A concise visual representation of:",
-    includes: ["Decision → Options → Risks → Trade-offs → Expected outcome"],
-  },
-  {
-    num: "03",
-    title: "Executive Decision Deck",
-    meta: "An 8–12 slide presentation designed for leadership discussion and decision-making.",
-    includes: [],
-  },
-  {
-    num: "04",
-    title: "90-Day Action Plan",
-    meta: "A practical sequence showing:",
-    includes: ["0–30 days", "31–60 days", "61–90 days"],
-  },
-  {
-    num: "05",
-    title: "Executive Readout",
-    meta: "A focused session to walk leadership through the conclusion, reasoning and next actions.",
-    includes: [],
-  },
 ] as const
 
 const includedItems = [
@@ -169,24 +128,7 @@ export default function Engagement() {
         title="What you receive"
         lede="The deliverable is built around the decision—not around a predetermined page count."
       >
-        <ol className="eng-deliverables">
-          {deliverables.map((item, i) => (
-            <Reveal as="li" className="eng-deliverable" key={item.title} delay={i * 60}>
-              <span className="eng-deliverable-num">{item.num}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p className="eng-deliverable-meta">{item.meta}</p>
-                {item.includes.length > 0 && (
-                  <ul>
-                    {item.includes.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </Reveal>
-          ))}
-        </ol>
+        <EngagementDeliverables />
       </CxSection>
 
       <CxSection
