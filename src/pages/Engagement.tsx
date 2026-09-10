@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { CanvasPage, CxSection } from "@/components/site/Canvas"
+import { EngagementPricing } from "@/components/site/EngagementPricing"
 import {
   ConstrangeViewBand,
   DecisionFlowVisual,
@@ -69,62 +70,6 @@ const deliverables = [
     title: "Executive Readout",
     meta: "A focused session to walk leadership through the conclusion, reasoning and next actions.",
     includes: [],
-  },
-] as const
-
-const pricingBands = [
-  {
-    label: "Focused review",
-    title: "One important decision",
-    description: "For a clearly defined decision with a contained scope.",
-    duration: "1–2 weeks",
-    deliverables: [
-      "Decision analysis",
-      "Assumption review",
-      "Options assessment",
-      "Risk analysis",
-      "Recommendation",
-      "Executive readout",
-    ],
-    price: "From $2,500",
-    note: "Best suited to a contained decision with limited stakeholders and a clear evidence base.",
-    featured: false,
-  },
-  {
-    label: "Strategic review",
-    title: "A consequential or multi-dimensional decision",
-    description:
-      "For decisions involving multiple systems, stakeholders, financial considerations, operational dependencies or significant change.",
-    duration: "2–4 weeks",
-    deliverables: [
-      "Full Executive Decision Report",
-      "Decision Map",
-      "Scenario analysis",
-      "Risk and dependency assessment",
-      "Executive Decision Deck",
-      "90-Day Action Plan",
-      "Executive readout",
-    ],
-    price: "From $5,000",
-    note: "Scope is confirmed after the initial conversation.",
-    featured: true,
-  },
-  {
-    label: "Ongoing advisory",
-    title: "Continued decision support",
-    description: "For organisations that want continued independent input after the initial review.",
-    duration: "Monthly",
-    deliverables: [
-      "Decision support",
-      "Advisory sessions",
-      "Follow-up analysis",
-      "New decision reviews",
-      "Targeted research",
-      "Periodic executive briefings",
-    ],
-    price: "Custom",
-    note: "Scoped around the level of involvement required.",
-    featured: false,
   },
 ] as const
 
@@ -252,44 +197,12 @@ export default function Engagement() {
         <ConstrangeViewBand />
       </CxSection>
 
-      <CxSection label="Pricing" title="A fixed fee, scoped to the decision." lede="We work on a fixed-fee basis rather than charging for hours. The fee reflects the complexity of the decision, the evidence required, the number of stakeholders involved, and the depth of analysis needed.">
-        <div className="eng-pricing">
-          {pricingBands.map((band, i) => (
-            <Reveal
-              className={band.featured ? "eng-price-card is-featured" : "eng-price-card"}
-              key={band.label}
-              delay={i * 70}
-            >
-              {band.featured && <span className="eng-price-badge">Most common</span>}
-              <span className="eng-price-label">{band.label}</span>
-              <h3>{band.title}</h3>
-              <p className="eng-price-desc">{band.description}</p>
-              <dl className="eng-price-meta">
-                <div>
-                  <dt>{band.label === "Ongoing advisory" ? "Typical engagement" : "Typical duration"}</dt>
-                  <dd>{band.duration}</dd>
-                </div>
-                <div>
-                  <dt>{band.label === "Ongoing advisory" ? "Typical support" : "Typical deliverables"}</dt>
-                  <dd>
-                    <ul>
-                      {band.deliverables.map((d) => (
-                        <li key={d}>{d}</li>
-                      ))}
-                    </ul>
-                  </dd>
-                </div>
-              </dl>
-              <p className="eng-price-amount">{band.price}</p>
-              <p className="eng-price-note">{band.note}</p>
-              <p className="eng-price-fine">Final fee confirmed after scope.</p>
-            </Reveal>
-          ))}
-        </div>
-        <p className="eng-pricing-disclaimer">
-          Indicative pricing reflects typical engagement shapes and is not a fixed quote. Final scope, fee and timeline
-          are confirmed in the proposal and Statement of Work.
-        </p>
+      <CxSection
+        label="Pricing"
+        title="A fixed fee, scoped to the decision."
+        lede="We work on a fixed-fee basis rather than charging for hours. The fee reflects the complexity of the decision, the evidence required, the number of stakeholders involved, and the depth of analysis needed."
+      >
+        <EngagementPricing />
       </CxSection>
 
       <CxSection label="Fee structure" title="Why the fee varies" lede="No two important decisions require the same level of work. A focused review may involve a single workflow and a small number of stakeholders. A broader review may require financial analysis, multiple interviews, technology assessment, scenario modelling or deeper dependency analysis.">
