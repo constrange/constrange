@@ -43,6 +43,10 @@ export default function Home() {
         </p>
       </section>
 
+      <div className="shell">
+        <HeroDemo />
+      </div>
+
       <section className="section shell review-intro">
         <Reveal className="section-head">
           <span className="eyebrow">What we review</span>
@@ -66,10 +70,6 @@ export default function Home() {
           </p>
         </Reveal>
       </section>
-
-      <div className="shell">
-        <HeroDemo />
-      </div>
 
       <section className="section shell decision-review-band" id="decision-review">
         <Reveal className="section-head">

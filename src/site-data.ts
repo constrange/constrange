@@ -652,59 +652,67 @@ export type Situation = {
 }
 
 export const situationStages: { id: SituationStage; num: string; label: string }[] = [
-  { id: "understand", num: "01", label: "Understand" },
-  { id: "structure", num: "02", label: "Structure" },
-  { id: "implement", num: "03", label: "Implement" },
+  { id: "understand", num: "01", label: "Define the decision" },
+  { id: "structure", num: "02", label: "Test the options" },
+  { id: "implement", num: "03", label: "Recommend" },
 ]
 
 export const situations: Situation[] = [
   {
     id: "priority",
     stage: "understand",
-    title: "A platform is being asked for",
+    title: "A major platform decision is due",
     nodes: ["work", "time", "people"],
     pressure:
-      "There are three programmes running, and only one budget. Leadership still wants a platform decision this quarter.",
+      "A platform decision is due this quarter. Three programmes share one budget, but nobody can say which piece of work must change first.",
     spoken:
-      "So, picture the room for a moment. Three programmes running at once, and only one budget left to share between them. Leadership still wants a platform decision this quarter. They need something concrete to show the board. But when you ask, quietly, which piece of work actually has to change first, the room goes quiet. People look at the deck. Someone says we will come back to that. That is the pressure. Not which platform wins. Which work moves first.",
-    reading: "The request is a platform. The issue is priority. Nothing should be bought until the work that must change first is named.",
-    move: "Name the work. Rank the constraints. Then, and only then, compare platforms.",
+      "Picture the quarter-end board meeting. Three transformation programmes are live, each with a vendor shortlist, and one shared budget left. The ask is not subtle: choose a platform before the year closes. Everyone can describe the future in slides. Almost nobody can say which piece of work actually has to change first, or what breaks if you choose wrong. That is when a Decision Review matters. We do not start by scoring features. We name the decision, gather the evidence, and test the assumptions behind each option. Often the honest finding is that priority is the decision, not the purchase. The review gives leadership something rarer than enthusiasm: a compared set of paths, the risks written down, and a clear view on whether to proceed, modify, or wait.",
+    reading:
+      "The stated decision is which platform to buy. The actual decision is which work must move first, under a budget that cannot fund all three. A platform chosen before that is named will spend the next year looking for a use.",
+    move:
+      "Scope a Decision Review around priority and fit: name the work, rank constraints, compare platforms only after the decision question is stable.",
   },
   {
     id: "handoff",
     stage: "understand",
-    title: "The unofficial path is winning",
+    title: "Operations strain at the joins",
     nodes: ["work", "systems", "people"],
     pressure:
-      "A request is crossing four teams. The context drops at the second handoff. And the real path, if we are honest, is a spreadsheet.",
+      "Work crosses four teams and two systems. Context drops at every handoff. The real process is a spreadsheet nobody will retire.",
     spoken:
-      "Okay, so a request is crossing four teams. By the second handoff, the context is already gone. Everyone nods in the meeting. It all sounds aligned. And then they go back to the spreadsheet that actually runs the work. That is the real process. It just does not have a name on it yet. Nobody owns the join. Nobody can say where it stalled. The unofficial path keeps winning, because it is the only path that still works.",
-    reading: "The process is not slow because people are slow. It is slow because the join has no owner and no shared status.",
-    move: "One status object. One owner at the join. Give the spreadsheet an end date.",
+      "So follow one customer request for a day. It crosses four teams, touches two core systems, and loses context at the second handoff. In the meeting everyone agrees the process should be cleaner. After the meeting they go back to the spreadsheet that actually runs the work. Nobody owns the join. Nobody can draw the real path without apologising for it. Leadership is now being sold another integration layer. That is an operational decision disguised as a software purchase. A Decision Review maps how work actually moves, names where dependency and rework live, and tests whether a new tool solves the join or hides it. Sometimes the answer is one owner and one status object. Sometimes it is proceed with a thin integration. Sometimes it is do not add a seventh system until the path is named.",
+    reading:
+      "The organisation is not slow because people are slow. It is slow because the join has no owner, no shared evidence, and no one accountable for the unofficial path that keeps winning.",
+    move:
+      "Review the real path of one request end to end. Establish what must be true at the join before any new system is funded.",
   },
   {
     id: "problem",
     stage: "understand",
-    title: "Nobody agrees on the problem",
+    title: "Vendors are ready; the problem is not",
     nodes: ["people", "work", "time"],
     pressure:
-      "Each team has a different story. Meetings keep repeating. And nobody can say, in one sentence, what must change.",
+      "Every vendor has a confident answer. Each team has a different story. Nobody can state, in one sentence, what must change.",
     spoken:
-      "So every team has a different story about what is wrong. The meetings keep happening. Same people, same slide, the same disagreement wearing a new title. There is energy in the room. Plenty of opinions. But nobody can say, in one plain sentence, what actually has to change. Until that sentence exists, every solution will fight the last one. That is the pressure underneath all of it.",
-    reading: "If the problem is not shared, every solution will fight the last one. Alignment is a named constraint, not another workshop.",
-    move: "Write one problem statement. Get it agreed. Stop solving until that sentence is stable.",
+      "Every vendor in the room has a confident answer. Each internal team has a different story about what is broken. The meetings keep happening, same people, new slide titles, the same disagreement underneath. There is energy and urgency. What is missing is a shared problem statement strong enough to test options against. That is the moment organisations commit money they cannot get back. A Decision Review slows the room down on purpose. We interview the people who live with the work, document what is known and assumed, and write the decision question in plain language. Then we score each vendor and internal option against that question, not against a generic benchmark. The output is not more slides. It is a position: proceed with this path, modify the scope, or do not proceed until the problem is agreed.",
+    reading:
+      "If the problem is not shared, every solution will fight the last one. Vendor confidence is not evidence. The review's first job is to make the decision question inspectable.",
+    move:
+      "Define the decision and non-goals in writing. Pause procurement until one problem statement survives contact with operations.",
   },
   {
     id: "ai-first",
     stage: "understand",
-    title: "AI is being asked for first",
+    title: "AI is on the roadmap before the work is mapped",
     nodes: ["work", "people", "risk"],
     pressure:
-      "Leadership wants artificial intelligence this year. The work itself has not been mapped. And no one has asked whether a simpler change would do.",
+      "Leadership wants AI this year. Vendors are lined up. The work itself has not been mapped, and no one has asked if a simpler change would do.",
     spoken:
-      "Leadership wants AI on the roadmap this year. The announcement is already half-written, and the vendor conversations have started. But the work itself has not been mapped. Nobody has paused to ask the quieter question. Would a simpler change do the same job, without a model sitting in the middle? The pressure is not missing AI. It is choosing a layer before the problem has a name.",
-    reading: "The question is not how to adopt AI. The question is what is broken in the work — and whether a model is even required.",
-    move: "Map the work. Name the friction. Then decide if AI belongs in the path at all.",
+      "Leadership wants AI on the roadmap this year. The announcement is half-written. Vendor demos are booked. But the work itself has not been mapped, and nobody has asked the quieter question: would a simpler change do the same job without a model in the middle? That is an AI investment decision, not an AI feature decision. A Decision Review tests whether the organisation can feed a useful system, what fails if the model is wrong, and what happens to the people in the loop. We compare build, buy, wait, and fix-the-process-first as explicit options. We are willing to recommend less AI, delayed investment, or no investment when the evidence supports it. That independence is the point. The review ends with a Constrange View: proceed, modify, or do not proceed, and what should happen in the next ninety days.",
+    reading:
+      "The question is not which model to adopt. It is whether AI belongs in this path at all, given the data, the risk, and the cost of being wrong.",
+    move:
+      "Map the work and name the friction first. Scope a review of AI fit, data readiness, and operational risk before any pilot is funded.",
   },
   {
     id: "options",

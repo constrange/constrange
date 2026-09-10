@@ -219,14 +219,18 @@ const DEFAULT_HERO_SITUATIONS = ["priority", "handoff", "problem", "ai-first"]
 export function HeroDemo({
   heading = "The decision often arrives before the problem is clear.",
   situationIds = DEFAULT_HERO_SITUATIONS,
-  listLabel = "Situations",
+  listLabel = "Decisions we review",
 }: {
   heading?: string
   situationIds?: string[]
   listLabel?: string
 }) {
-  const [stage, setStage] = useState<SituationStage>("understand")
-  const [current, setCurrent] = useState<Situation>(situations[0])
+  const pool = useMemo(
+    () => (situationIds ? situations.filter((s) => situationIds.includes(s.id)) : situations),
+    [situationIds],
+  )
+  const [stage, setStage] = useState<SituationStage>(() => pool[0]?.stage ?? "understand")
+  const [current, setCurrent] = useState<Situation>(() => pool[0] ?? situations[0])
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [heard, setHeard] = useState(0)
@@ -242,10 +246,6 @@ export function HeroDemo({
   const estimated = useMemo(() => estimateDuration(current.spoken), [current.spoken])
   const [duration, setDuration] = useState(estimated)
 
-  const pool = useMemo(
-    () => (situationIds ? situations.filter((s) => situationIds.includes(s.id)) : situations),
-    [situationIds],
-  )
   const showStageTabs = useMemo(() => new Set(pool.map((s) => s.stage)).size > 1, [pool])
   const inStage = useMemo(() => pool.filter((s) => s.stage === stage), [pool, stage])
 
@@ -298,7 +298,7 @@ export function HeroDemo({
     ended.current = true
     setPlaying(false)
     setProgress(1)
-    setHeard(current.pressure.length)
+    setHeard(current.spoken.length)
     setShowReading(true)
     timers.current.push(window.setTimeout(() => setShowMove(true), 700))
   }
@@ -310,7 +310,7 @@ export function HeroDemo({
       audio.currentTime = ratio * audio.duration
     }
     setProgress(ratio)
-    setHeard(Math.floor(ratio * current.pressure.length))
+    setHeard(Math.floor(ratio * current.spoken.length))
     if (ratio >= 1) finishBrief()
   }
 
@@ -336,7 +336,7 @@ export function HeroDemo({
 
     const gen = speakGen.current
     const text = current.spoken
-    const chars = current.pressure.length
+    const chars = current.spoken.length
     let usedFallback = false
 
     const followClock = (ms: number) => {
@@ -384,7 +384,7 @@ export function HeroDemo({
       followClock(estimated)
     }
 
-    const audio = new Audio(`/audio/${current.id}.mp3?v=6`)
+    const audio = new Audio(`/audio/${current.id}.mp3?v=7`)
     audioRef.current = audio
     audio.addEventListener("loadedmetadata", () => {
       if (speakGen.current !== gen) return
@@ -407,11 +407,12 @@ export function HeroDemo({
     void audio.play().catch(speakFallback)
   }
 
-  const heardText = current.pressure.slice(0, heard)
-  const restText = current.pressure.slice(heard)
+  const heardText = current.spoken.slice(0, heard)
+  const restText = current.spoken.slice(heard)
+  const liveBrief = playing || heard > 0
 
   return (
-    <section className="studio" aria-label="How Constrange reads a situation">
+    <section className="studio" aria-label="Constrange Decision Review — example situations">
       <p className="studio-heading serif-md">{heading}</p>
       {showStageTabs && (
         <div className="studio-stages" role="tablist" aria-label="Method">
@@ -450,7 +451,10 @@ export function HeroDemo({
               </button>
             ))}
           </div>
-          <p className="studio-note">These are the kinds of problems we take on. Choose one, then press play.</p>
+          <p className="studio-note">
+            Real decisions we review independently. Choose one, press play, and hear how a situation is held
+            before a recommendation is made.
+          </p>
         </aside>
 
         <div className="studio-field">
@@ -479,7 +483,7 @@ export function HeroDemo({
           </div>
 
           <div className="studio-map-wrap">
-            <p className="studio-kicker">What is actually in play</p>
+            <p className="studio-kicker">What the review must hold</p>
             <ConstraintField
               active={current.nodes}
               lit={playing ? Math.max(lit, 1) : current.nodes.length}
@@ -489,8 +493,8 @@ export function HeroDemo({
 
           <div className="studio-voices">
             <article className="studio-voice in">
-              <span>The pressure — spoken</span>
-              {playing || heard > 0 ? (
+              <span>{liveBrief ? "The situation — spoken" : "The pressure"}</span>
+              {liveBrief ? (
                 <p className="studio-spoken">
                   <span>{heardText}</span>
                   <span>{restText}</span>
@@ -500,14 +504,22 @@ export function HeroDemo({
               )}
             </article>
             <article className={showReading ? "studio-voice ours in" : "studio-voice ours"}>
-              <span>The reading</span>
-              <p>{showReading ? current.reading : "After the brief is heard, judgement is written here."}</p>
+              <span>The Constrange reading</span>
+              <p>
+                {showReading
+                  ? current.reading
+                  : "After the situation is heard, an independent view is written here — what the decision actually is."}
+              </p>
             </article>
           </div>
 
           <aside className={showMove ? "studio-move in" : "studio-move"}>
-            <span>First move</span>
-            <p>{showMove ? current.move : "A path only after the problem is named."}</p>
+            <span>What the review would test first</span>
+            <p>
+              {showMove
+                ? current.move
+                : "Evidence, assumptions, and the first move — only after the decision is named."}
+            </p>
           </aside>
         </div>
       </div>
