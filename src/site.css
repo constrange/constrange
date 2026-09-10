@@ -4001,35 +4001,85 @@ body.on-about .header.on-dark.stuck {
 .eng-panel h3 { margin: 0 0 10px; font: 400 20px/1.2 var(--serif); }
 .eng-panel p { margin: 0; font-size: 14.5px; line-height: 1.62; color: var(--cx-quiet); }
 
-.eng-process { position: relative; padding-top: 8px; }
-.eng-process-track {
-  position: absolute; left: 0; right: 0; top: 38px; height: 1px;
-  background: var(--cx-rule-firm); pointer-events: none;
+.eng-process { position: relative; }
+.eng-process-panel {
+  padding: 28px 24px 22px;
+  border: 1px solid rgba(23, 23, 23, .11);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fff 0%, #faf9f6 100%);
+  box-shadow: 0 18px 56px rgba(23, 23, 23, .05);
 }
-.eng-process-line {
-  display: block; width: 100%; height: 100%;
-  background: var(--purple); transform-origin: left center;
-  transition: transform .15s linear;
+.eng-process-rail {
+  display: block; width: 100%; height: 28px; margin-bottom: 22px; overflow: visible;
+}
+.eng-process-rail-base {
+  stroke: rgba(23, 23, 23, .12); stroke-width: 1.2;
+}
+.eng-process-rail-fill {
+  stroke: var(--purple); stroke-width: 2; stroke-linecap: round;
+  stroke-dasharray: 100; stroke-dashoffset: 100;
+  transition: stroke-dashoffset .5s var(--ease);
+}
+.eng-process-rail-node {
+  fill: #fff; stroke: rgba(39, 22, 117, .35); stroke-width: 1.2;
+  transition: r .35s var(--ease), fill .35s var(--ease), stroke .35s var(--ease);
+}
+.eng-process-rail-halo {
+  fill: none; stroke: rgba(39, 22, 117, .2); stroke-width: 1;
+  animation: mapHalo 2.6s var(--ease) infinite;
+}
+.eng-process-rail g.is-lit .eng-process-rail-node {
+  fill: var(--purple); stroke: var(--purple);
 }
 .eng-process-stages {
   margin: 0; padding: 0; list-style: none;
-  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 20px;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px;
 }
-.eng-process-stages li {
-  position: relative; padding: 52px 0 0;
-  opacity: .55; transition: opacity .5s var(--ease), transform .5s var(--ease);
+.eng-process-card { min-width: 0; }
+.eng-process-card-hit {
+  width: 100%; height: 100%; margin: 0; padding: 18px 16px 16px;
+  border: 1px solid rgba(23, 23, 23, .1); border-radius: 14px;
+  background: rgba(255, 255, 255, .7); text-align: left; cursor: default;
+  font: inherit; color: inherit; appearance: none;
+  transition: transform .4s var(--ease), border-color .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
 }
-.eng-process-stages li.is-active,
-.eng-process-stages li.in { opacity: 1; }
-.eng-process-num {
-  display: block; margin-bottom: 14px;
+.eng-process-card-hit:hover,
+.eng-process-card.is-active .eng-process-card-hit {
+  border-color: rgba(39, 22, 117, .28);
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(39, 22, 117, .08);
+}
+.eng-process-card.is-active .eng-process-card-hit { transform: translateY(-4px); }
+.eng-process-card-head {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
+}
+.eng-process-node {
   font: 10px var(--mono); letter-spacing: .14em; color: var(--purple);
 }
-.eng-process-stages h3 {
-  margin: 0 0 8px; font: 10px var(--mono); letter-spacing: .12em;
-  text-transform: uppercase; color: #2f2e2a;
+.eng-process-icon {
+  width: 28px; height: 28px; flex-shrink: 0;
 }
-.eng-process-stages p { margin: 0; font-size: 13.5px; line-height: 1.58; color: var(--cx-quiet); }
+.eng-process-icon-stroke {
+  fill: none; stroke: var(--purple); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round;
+  opacity: .55; transition: opacity .35s var(--ease);
+}
+.eng-process-card.is-active .eng-process-icon-stroke { opacity: 1; }
+.eng-process-phase {
+  display: block; margin-bottom: 6px;
+  font: 9px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: #9a9890;
+}
+.eng-process-stages h3 {
+  margin: 0 0 8px; font: 400 18px/1.2 var(--serif); color: #2f2e2a;
+}
+.eng-process-stages p {
+  margin: 0 0 14px; font-size: 12.5px; line-height: 1.55; color: var(--cx-quiet);
+}
+.eng-process-output {
+  display: inline-block; padding: 5px 9px;
+  border: 1px solid rgba(39, 22, 117, .14); border-radius: 999px;
+  background: rgba(39, 22, 117, .04);
+  font: 9px var(--mono); letter-spacing: .08em; color: var(--purple);
+}
 
 .eng-deliverables {
   margin: 0; padding: 0; list-style: none;
@@ -4210,9 +4260,8 @@ body.on-about .header.on-dark.stuck {
 @media (max-width: 1100px) {
   .eng-hero-grid { grid-template-columns: minmax(0, 1fr); }
   .eng-hero-visual { max-width: 320px; margin-inline: auto; }
-  .eng-process-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
-  .eng-process-stages li:nth-child(n + 3) { margin-top: 28px; }
-  .eng-process-track { display: none; }
+  .eng-process-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eng-process-panel { padding: 22px 18px 18px; }
   .eng-pricing { grid-template-columns: 1fr; max-width: 520px; }
   .eng-price-card.is-featured { transform: none; }
   .eng-price-card.is-featured:hover { transform: translateY(-2px); }
@@ -4220,9 +4269,8 @@ body.on-about .header.on-dark.stuck {
 
 @media (max-width: 900px) {
   .eng-hero { padding-bottom: calc(var(--cx-overlap) + 24px); }
-  .eng-process-stages { grid-template-columns: 1fr; gap: 0; }
-  .eng-process-stages li { padding: 24px 0 0; border-top: 1px solid var(--cx-rule-firm); }
-  .eng-process-stages li:nth-child(n + 3) { margin-top: 0; }
+  .eng-process-stages { grid-template-columns: 1fr; gap: 10px; }
+  .eng-process-rail { margin-bottom: 16px; }
   .eng-view-outcomes, .eng-boundaries, .eng-buying-cards { grid-template-columns: 1fr; }
   .eng-view-indicator { display: none; }
   .eng-deliverable { grid-template-columns: 40px minmax(0, 1fr); gap: 0 12px; }
@@ -4235,7 +4283,8 @@ body.on-about .header.on-dark.stuck {
   .eng-view-indicator::after, .eng-spectrum-fill {
     animation: none !important;
   }
-  .eng-process-line { transition: none; }
+  .eng-process-rail-fill, .eng-process-card-hit, .eng-process-rail-halo { transition: none; animation: none; }
+  .eng-process-card.is-active .eng-process-card-hit { transform: none; }
 }
 
 .eng-glance {
