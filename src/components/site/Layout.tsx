@@ -149,6 +149,12 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
             Decision Review
           </NavLink>
           <NavLink
+            to="/engagement"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+          >
+            Engagement
+          </NavLink>
+          <NavLink
             to="/how-we-work"
             className={({ isActive }) =>
               isActive || pathname === "/docs" ? "nav-link active" : "nav-link"
@@ -194,6 +200,7 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
       {mobile && (
         <div className="mobile-panel">
           <Link to="/decision-review">Decision Review</Link>
+          <Link to="/engagement">Engagement</Link>
           <Link to="/how-we-work">How We Work</Link>
           <Link to="/research">Thinking</Link>
           <Link to="/about">About</Link>
@@ -215,8 +222,9 @@ const footerColumns: [string, [string, string][]][] = [
     "Practice",
     [
       ["Decision Review", "/decision-review"],
+      ["Engagement", "/engagement"],
       ["How We Work", "/how-we-work"],
-      ["Working with us", "/pricing"],
+      ["Working with us", "/engagement"],
       ["Contact", "/contact"],
     ],
   ],

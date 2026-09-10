@@ -8,6 +8,13 @@ import {
 } from "@/components/site/EngagementVisuals"
 import { Reveal } from "@/components/site/Layout"
 
+const glanceItems = [
+  ["What you buy", "A focused independent assessment — not consulting hours."],
+  ["Typical duration", "One to four weeks, scoped to the decision."],
+  ["Fee model", "Fixed fee, confirmed after scope."],
+  ["Outcome", "Proceed, modify, or do not proceed — with next actions."],
+] as const
+
 const buyingCards = [
   [
     "A defined question",
@@ -174,7 +181,7 @@ export default function Engagement() {
             </p>
             <div className="cx-actions">
               <Link className="btn" to="/contact">Discuss a decision</Link>
-              <Link className="btn btn-ghost" to="/how-we-work">How we work</Link>
+              <Link className="btn btn-ghost" to="/decision-review">Decision Review</Link>
             </div>
           </div>
           <div className="eng-hero-visual">
@@ -182,6 +189,19 @@ export default function Engagement() {
           </div>
         </div>
       </header>
+
+      <section className="eng-glance" aria-label="Engagement at a glance">
+        <div className="cx-inner">
+          <div className="eng-glance-grid">
+            {glanceItems.map(([label, value], i) => (
+              <Reveal className="eng-glance-item" key={label} delay={i * 50}>
+                <span>{label}</span>
+                <p>{value}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <CxSection first label="Engagement" title="What you are buying" lede="A Decision Review is a focused piece of independent work around one important question. The scope changes with the complexity of the decision, but the objective remains the same: make the decision clearer before significant money, time or organisational capacity is committed.">
         <div className="cx-cards cx-cards-3 eng-buying-cards">
