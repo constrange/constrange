@@ -1562,8 +1562,26 @@ main.is-insight { position: relative; z-index: 1; background: transparent; }
 .insight-chapter { padding: 72px var(--gutter) 36px; }
 .insight-chapter-inner {
   max-width: 1120px; margin: 0 auto;
-  padding: 8px 0 24px;
+  padding: 36px 40px 44px;
   color: inherit;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.07);
+}
+.tone-forest .insight-chapter-inner,
+.tone-navy .insight-chapter-inner {
+  background: rgba(10, 14, 22, 0.82);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+}
+.tone-mist .insight-chapter-inner,
+.tone-gold .insight-chapter-inner {
+  color: #1c1b18;
+}
+.tone-mist .insight-lede,
+.tone-gold .insight-lede {
+  color: #3d3c38;
 }
 .insight-chapter-head { max-width: 720px; margin-bottom: 40px; }
 .insight-kicker {
@@ -1684,8 +1702,27 @@ main.is-insight { position: relative; z-index: 1; background: transparent; }
 .tone-forest .insight-panel p,
 .tone-navy .insight-panel p,
 .tone-forest .insight-rail p,
-.tone-navy .insight-rail p { color: #d9d5c8; }
+.tone-navy .insight-rail p,
+.tone-forest .insight-list li,
+.tone-navy .insight-list li,
+.tone-forest .insight-note,
+.tone-navy .insight-note { color: #d9d5c8; }
+.tone-forest .insight-panel,
+.tone-navy .insight-panel {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.tone-forest .insight-panel h3,
+.tone-navy .insight-panel h3 { color: #f4f2ea; }
+.tone-forest .insight-rail h3,
+.tone-navy .insight-rail h3 { color: #f4f2ea; }
+.tone-forest .insight-note a,
+.tone-navy .insight-note a { color: var(--lime); }
 .tone-forest, .tone-navy, .insight-close { color: #f4f2ea; }
+.tone-forest .insight-pull,
+.tone-navy .insight-pull { border-left-color: rgba(255, 255, 255, 0.35); }
+.tone-forest .insight-pull cite,
+.tone-navy .insight-pull cite { color: #d9d5c8; }
 
 .insight-close { padding: 48px var(--gutter) 88px; }
 .insight-close .insight-chapter-inner {
@@ -2361,6 +2398,29 @@ body.cx-canvas .header.stuck {
 }
 .idraw-notes strong { display: block; font-size: 14px; font-weight: 600; }
 .idraw-notes p { margin: 4px 0 0; font-size: 13px; line-height: 1.45; opacity: .72; }
+.tone-forest .idraw-notes,
+.tone-navy .idraw-notes { color: #f4f2ea; }
+.tone-forest .idraw-notes p,
+.tone-navy .idraw-notes p { color: #d9d5c8; opacity: 1; }
+.tone-forest .idraw-notes strong,
+.tone-navy .idraw-notes strong { color: #f4f2ea; }
+.method-flow-insight {
+  margin: 0 0 32px;
+  padding: 18px 0 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.method-flow-insight li span { color: #f4f2ea; }
+.method-flow-insight .method-flow-arrow { color: rgba(244, 242, 234, 0.45); }
+.tone-mist .method-flow-insight,
+.tone-gold .method-flow-insight {
+  border-top-color: rgba(0, 0, 0, 0.12);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+.tone-mist .method-flow-insight li span,
+.tone-gold .method-flow-insight li span { color: var(--ink); }
+.tone-mist .method-flow-insight .method-flow-arrow,
+.tone-gold .method-flow-insight .method-flow-arrow { color: #9a9890; }
 
 .idraw-voices {
   display: grid;
@@ -3437,19 +3497,6 @@ body.on-about .header.on-dark.stuck {
 }
 .scenario-card p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
 .review-areas-page { margin-top: 0; }
-.insight-holds {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-.insight-hold {
-  padding: 28px 24px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 12px;
-}
-.insight-hold h3 { margin: 0 0 12px; font: 400 24px/1.15 var(--serif); }
-.insight-hold p { margin: 0 0 16px; font-size: 14px; line-height: 1.55; opacity: .88; }
-.insight-hold ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; opacity: .82; }
 .contact-form select,
 .contact-form input,
 .contact-form textarea {
@@ -3462,7 +3509,8 @@ body.on-about .header.on-dark.stuck {
 }
 
 @media (max-width: 900px) {
-  .review-areas, .view-outcomes, .scenario-grid, .insight-holds, .deliverable-list { grid-template-columns: 1fr; }
+  .review-areas, .view-outcomes, .scenario-grid, .deliverable-list { grid-template-columns: 1fr; }
+  .insight-chapter-inner { padding: 28px 20px 32px; }
   .method-flow { flex-direction: column; align-items: flex-start; gap: 0; }
   .method-flow li { flex-direction: column; align-items: flex-start; gap: 4px; padding: 10px 0; }
   .method-flow-arrow { transform: rotate(90deg); padding: 0; }

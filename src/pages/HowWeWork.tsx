@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Chapter, Close, InsightHero, InsightShell, Pull } from "@/components/site/Insight"
+import { Chapter, Close, InsightHero, InsightShell, Panel, Pull, Rail } from "@/components/site/Insight"
 import {
   DrawArrival,
   DrawArtefacts,
@@ -8,8 +8,9 @@ import {
   DrawReading,
   DrawStages,
   Field,
-  StageNotes,
 } from "@/components/site/InsightDraw"
+import { MethodFlow } from "@/components/site/MethodFlow"
+import { Reveal } from "@/components/site/Layout"
 import { research } from "@/site-data"
 
 const stages = [
@@ -86,10 +87,13 @@ export default function HowWeWork() {
         lede="The method is designed to produce a position leadership can stand behind — not a longer catalogue of initiatives."
         tone="forest"
       >
+        <Reveal>
+          <MethodFlow className="method-flow-insight" />
+        </Reveal>
         <Field refn="Fig. IV" note="The path firms as it moves. The last mark is the recommended action.">
           <DrawStages stages={stages} />
         </Field>
-        <StageNotes stages={stages} />
+        <Rail steps={stages} />
       </Chapter>
 
       <Chapter
@@ -118,19 +122,22 @@ export default function HowWeWork() {
         kicker="Three holds"
         title="Understand. Structure. Prioritize."
         lede="The intellectual work underneath the method — how complexity is held before a recommendation is made."
-        tone="mist"
+        tone="navy"
       >
-        <div className="insight-holds">
+        <div className="insight-triple">
           {holds.map((hold) => (
-            <article id={hold.id} key={hold.id} className="insight-hold">
-              <h3>{hold.title}</h3>
-              <p>{hold.blurb}</p>
-              <ul>
-                {hold.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-            </article>
+            <Panel key={hold.id}>
+              <article id={hold.id}>
+                <span className="insight-mini">{hold.title}</span>
+                <h3>{hold.title}</h3>
+                <p>{hold.blurb}</p>
+                <ul className="insight-list">
+                  {hold.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </article>
+            </Panel>
           ))}
         </div>
       </Chapter>

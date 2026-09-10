@@ -235,11 +235,11 @@ const pages: PageSeo[] = [
   },
   {
     path: "/how-we-work",
-    title: "How Constrange Works | Consulting Method",
+    title: "How a Decision Becomes Clear | Constrange",
     description:
-      "Understand, define, explore, structure, move. A method that starts with the pressure as it is — then produces a first action operations can absorb.",
-    h1: "How a situation becomes a path.",
-    primary: "consulting method",
+      "The Constrange Decision Review™ method: define, establish evidence, challenge assumptions, evaluate options, and recommend — proceed, modify, or do not proceed.",
+    h1: "How a decision becomes clear.",
+    primary: "decision review method",
     intent: "information",
     schema: "method",
     breadcrumbs: [
