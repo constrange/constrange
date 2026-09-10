@@ -31,9 +31,9 @@ export default function Home() {
           </div>
         </div>
         <p className="lede">
-          Constrange is a technology and business consultancy. When challenges, systems and changing
-          technology collide, the right answer is rarely obvious. We help organisations understand
-          the problem, create structure, and design a practical path forward.
+          Constrange helps organisations understand what is changing, what matters, and what to do next.
+          We independently examine important technology, AI and operational decisions, testing
+          assumptions, exposing dependencies and risks, and identifying the actions that matter most.
         </p>
       </section>
 
