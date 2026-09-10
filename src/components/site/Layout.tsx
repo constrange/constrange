@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { BrandMark } from "@/components/site/BrandMark"
-import { BlogMega, WhatWeDoMega } from "@/components/site/NavMega"
 import { Seo } from "@/components/site/Seo"
 import { normalizePathname } from "@/pathname"
-import { solutions } from "@/site-data"
 
 /* ---------------- scroll reveal ---------------- */
 export function Reveal({
@@ -91,13 +89,6 @@ export function Brand({ dark = false }: { dark?: boolean }) {
 }
 
 /* ---------------- header ---------------- */
-const resourceLinks = [
-  ["Blog", "/blog"],
-  ["Thinking", "/research"],
-  ["Notes", "/newsroom"],
-  ["Careers", "/careers"],
-]
-
 export function housePath(pathname: string) {
   const path = normalizePathname(pathname)
   if (path === "/about") return true
@@ -117,40 +108,10 @@ export function insightVariant(pathname: string): "method" | "audience" | null {
 }
 
 function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
-  const [open, setOpen] = useState<string | null>(null)
   const [mobile, setMobile] = useState(false)
   const [stuck, setStuck] = useState(false)
   const location = useLocation()
   const pathname = normalizePathname(location.pathname)
-  const hideTimer = useRef(0)
-  const pinned = useRef(false)
-
-  const show = (id: string) => {
-    window.clearTimeout(hideTimer.current)
-    pinned.current = false
-    setOpen(id)
-  }
-  const hide = (force = false) => {
-    if (pinned.current && !force) return
-    pinned.current = false
-    window.clearTimeout(hideTimer.current)
-    hideTimer.current = window.setTimeout(() => setOpen(null), 160)
-  }
-  const toggle = (id: string) => {
-    window.clearTimeout(hideTimer.current)
-    setOpen((cur) => {
-      if (cur === id) {
-        if (!pinned.current) {
-          pinned.current = true
-          return id
-        }
-        pinned.current = false
-        return null
-      }
-      pinned.current = true
-      return id
-    })
-  }
 
   useEffect(() => {
     let ticking = false
@@ -169,44 +130,7 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
 
   useEffect(() => {
     setMobile(false)
-    setOpen(null)
   }, [location.pathname])
-
-  useEffect(() => () => window.clearTimeout(hideTimer.current), [])
-
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        pinned.current = false
-        setOpen(null)
-      }
-    }
-    const onDown = (e: MouseEvent) => {
-      const el = e.target as HTMLElement
-      if (el.closest(".mega-slot, .nav-item")) return
-      pinned.current = false
-      setOpen(null)
-    }
-    window.addEventListener("keydown", onKey)
-    document.addEventListener("mousedown", onDown)
-    return () => {
-      window.removeEventListener("keydown", onKey)
-      document.removeEventListener("mousedown", onDown)
-    }
-  }, [open])
-
-  const practiceOpen =
-    pathname.startsWith("/products") ||
-    pathname === "/features" ||
-    pathname === "/pricing"
-  const writingOpen =
-    pathname.startsWith("/blog") ||
-    pathname === "/research" ||
-    pathname === "/newsroom" ||
-    pathname === "/understand" ||
-    pathname === "/structure" ||
-    pathname === "/priorities"
 
   return (
     <>
@@ -218,47 +142,39 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
         <Brand dark={onDark} />
 
         <nav className="nav-main" aria-label="Primary">
-          <div className="nav-item" onMouseEnter={() => show("practice")} onMouseLeave={() => hide()}>
-            <button
-              className={`nav-trigger ${practiceOpen ? "active" : ""}`}
-              aria-expanded={open === "practice"}
-              aria-controls="mega-practice"
-              onClick={() => toggle("practice")}
-            >
-              What We Do <span className="nav-caret" />
-            </button>
-          </div>
-
-          <NavLink to="/how-we-work"
+          <NavLink
+            to="/decision-review"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+          >
+            Decision Review
+          </NavLink>
+          <NavLink
+            to="/how-we-work"
             className={({ isActive }) =>
               isActive || pathname === "/docs" ? "nav-link active" : "nav-link"
             }
-            onMouseEnter={() => hide(true)}
           >
             How We Work
           </NavLink>
-          <NavLink to="/customers" className="nav-link" onMouseEnter={() => hide(true)}>
-            Who We Help
+          <NavLink
+            to="/research"
+            className={({ isActive }) =>
+              isActive || pathname.startsWith("/blog") ? "nav-link active" : "nav-link"
+            }
+          >
+            Thinking
           </NavLink>
-
-          <div className="nav-item" onMouseEnter={() => show("writing")} onMouseLeave={() => hide()}>
-            <button
-              className={`nav-trigger ${writingOpen ? "active" : ""}`}
-              aria-expanded={open === "writing"}
-              aria-controls="mega-writing"
-              onClick={() => toggle("writing")}
-            >
-              Blog <span className="nav-caret" />
-            </button>
-          </div>
+          <NavLink to="/about" className="nav-link">
+            About
+          </NavLink>
+          <NavLink to="/contact" className="nav-link">
+            Contact
+          </NavLink>
         </nav>
 
-        <div className="header-actions" onMouseEnter={() => hide(true)}>
-          <Link to="/about" className="plain">
-            About
-          </Link>
+        <div className="header-actions">
           <Link to="/contact" className="btn">
-            Start a Conversation
+            Discuss a decision
           </Link>
         </div>
 
@@ -273,77 +189,18 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
           <span />
         </button>
 
-        {open === "practice" && (
-          <div
-            id="mega-practice"
-            className="mega-slot"
-            onMouseEnter={() => show("practice")}
-            onMouseLeave={() => hide()}
-          >
-            <WhatWeDoMega />
-          </div>
-        )}
-        {open === "writing" && (
-          <div
-            id="mega-writing"
-            className="mega-slot"
-            onMouseEnter={() => show("writing")}
-            onMouseLeave={() => hide()}
-          >
-            <BlogMega />
-          </div>
-        )}
       </header>
 
       {mobile && (
         <div className="mobile-panel">
-          <details>
-            <summary>What We Do</summary>
-            <div className="mobile-sub">
-              <Link to="/products">Overview</Link>
-              <p className="mobile-label">Read</p>
-              <Link to="/products/strategy">Strategy</Link>
-              <Link to="/products/judgement">Judgement</Link>
-              <p className="mobile-label">Shape</p>
-              <Link to="/products/systems-operations">Systems & operations</Link>
-              <Link to="/products/solution-design">Solution design</Link>
-              <Link to="/products/ai-automation">AI & automation</Link>
-              <p className="mobile-label">Move</p>
-              <Link to="/products/implementation">Implementation</Link>
-              <Link to="/products/transformation">Transformation</Link>
-              <Link to="/pricing">Working with us</Link>
-              <Link to="/features">All capabilities</Link>
-            </div>
-          </details>
-          <details>
-            <summary>Who We Help</summary>
-            <div className="mobile-sub">
-              <Link to="/customers">Overview</Link>
-              <Link to="/enterprise">Organisations under complexity</Link>
-              <Link to="/solutions/growth">Growing teams</Link>
-              {solutions.filter((s) => s.slug !== "growth").map((s) => (
-                <Link key={s.slug} to={`/solutions/${s.slug}`}>
-                  {s.name}
-                </Link>
-              ))}
-            </div>
-          </details>
+          <Link to="/decision-review">Decision Review</Link>
           <Link to="/how-we-work">How We Work</Link>
-          <details>
-            <summary>Blog</summary>
-            <div className="mobile-sub">
-              {resourceLinks.map(([label, to]) => (
-                <Link key={to} to={to}>
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </details>
+          <Link to="/research">Thinking</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
           <div className="mobile-cta">
             <Link to="/contact" className="btn">
-              Start a Conversation
+              Discuss a decision
             </Link>
           </div>
         </div>
@@ -355,56 +212,29 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
 /* ---------------- footer ---------------- */
 const footerColumns: [string, [string, string][]][] = [
   [
-    "Capabilities",
+    "Practice",
     [
-      ["Overview", "/products"],
-      ["Strategy", "/products/strategy"],
-      ["AI & automation", "/products/ai-automation"],
-      ["Systems & operations", "/products/systems-operations"],
-      ["Solution design", "/products/solution-design"],
-      ["Working with us", "/pricing"],
-    ],
-  ],
-  [
-    "Who We Help",
-    [
-      ["Overview", "/customers"],
-      ["Organisations", "/enterprise"],
-      ["Growing teams", "/solutions/growth"],
-      ["Operations", "/solutions/operations"],
-      ["Customer & service", "/solutions/customer-experience"],
-      ["Technology leaders", "/solutions/technology-leaders"],
-      ["Regulated environments", "/solutions/regulated"],
-    ],
-  ],
-  [
-    "Method",
-    [
+      ["Decision Review", "/decision-review"],
       ["How We Work", "/how-we-work"],
-      ["Stages in detail", "/docs/api-reference"],
-      ["Working notes", "/docs/guides"],
+      ["Working with us", "/pricing"],
       ["Contact", "/contact"],
+    ],
+  ],
+  [
+    "Thinking",
+    [
+      ["Research & thinking", "/research"],
+      ["Articles", "/blog"],
       ["Practice notes", "/changelog"],
     ],
   ],
-    [
+  [
     "Company",
     [
       ["About", "/about"],
-      ["How we handle information", "/security"],
-      ["Careers", "/careers"],
-      ["Notes", "/newsroom"],
+      ["Information handling", "/security"],
       ["Media kit", "/media"],
       ["Contact", "/contact"],
-    ],
-  ],
-  [
-    "Resources",
-    [
-      ["Blog", "/blog"],
-      ["Thinking", "/research"],
-      ["Contexts", "/languages"],
-      ["Availability", "/status"],
     ],
   ],
 ]
@@ -417,19 +247,20 @@ function Footer() {
         <Reveal>
           <p className="footer-kicker">Constrange</p>
           <h2>
-            Complexity held
+            Have a decision that needs
             <br />
-            until it can be named.
+            an independent view?
           </h2>
           <p className="footer-lede">
-            You do not need a polished brief. We will say whether we can hold it — and if we cannot.
+            Bring the situation as it is. We will determine whether a Decision Review is useful — and say
+            so if it isn't.
           </p>
           <div className="footer-actions">
             <Link to="/contact" className="btn btn-light">
-              Start a Conversation
+              Discuss a decision
             </Link>
-            <Link to="/how-we-work" className="btn btn-dark-ghost">
-              How We Work
+            <Link to="/decision-review" className="btn btn-dark-ghost">
+              Decision Review
             </Link>
           </div>
         </Reveal>
@@ -439,7 +270,7 @@ function Footer() {
 
       <div className="footer-practice">
         <Brand dark />
-        <p>Technology and business consultancy. Direction first; build where it belongs.</p>
+        <p>Independent decision intelligence for important technology, AI and operational decisions.</p>
       </div>
 
       <div className="footer-links">
@@ -540,10 +371,10 @@ export function Layout({ children }: { children: ReactNode }) {
         <aside className="announcement" aria-label="Announcement">
           <div className="announcement-inner">
             <span className="tag">New</span>
-            <b>The right technology is rarely the first decision.</b>
+            <b>Constrange Decision Review™</b>
             <small>Read:</small>
+            <Link to="/decision-review">Decision Review</Link>
             <Link to="/how-we-work">How We Work</Link>
-            <Link to="/blog/information-is-not-judgement">Judgement</Link>
           </div>
           <button type="button" onClick={() => setAnnouncement(false)} aria-label="Dismiss announcement">
             ×

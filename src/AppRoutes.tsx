@@ -1,35 +1,34 @@
-import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom"
+import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
 import { useEffect } from "react"
 import { Layout } from "@/components/site/Layout"
 import { normalizePathname } from "@/pathname"
 import Home from "@/pages/Home"
 import Pricing from "@/pages/Pricing"
 import BlogPost from "@/pages/BlogPost"
-import { Features, ProductDetail, ProductsOverview } from "@/pages/Platform"
+import DecisionReview from "@/pages/DecisionReview"
 import HowWeWork from "@/pages/HowWeWork"
-import WhoWeHelp from "@/pages/WhoWeHelp"
 import {
   Blog,
   Changelog,
   Docs,
-  Enterprise,
   Newsroom,
   Playground,
-  ResearchDetail,
   ResearchOverview,
-  SolutionPage,
-  Status,
 } from "@/pages/Pages"
 import {
   About,
-  Careers,
   Contact,
-  Languages,
   Legal,
   MediaKit,
   NotFound,
   Security,
 } from "@/pages/Company"
+
+function ProductRedirect() {
+  const { slug } = useParams()
+  const to = slug === "judgement" ? "/how-we-work" : "/decision-review"
+  return <Navigate to={to} replace />
+}
 
 function CanonicalPathRedirect() {
   const location = useLocation()
@@ -55,21 +54,23 @@ export function AppRoutes() {
         <Route path="/desk/*" element={<Navigate to="/" replace />} />
         <Route path="/dashboard/*" element={<Navigate to="/" replace />} />
 
-        <Route path="/products" element={<ProductsOverview />} />
-        <Route path="/products/:slug" element={<ProductDetail />} />
-        <Route path="/features" element={<Features />} />
+        <Route path="/decision-review" element={<DecisionReview />} />
+        <Route path="/products" element={<Navigate to="/decision-review" replace />} />
+        <Route path="/products/:slug" element={<ProductRedirect />} />
+        <Route path="/features" element={<Navigate to="/decision-review" replace />} />
         <Route path="/pricing" element={<Pricing />} />
 
-        <Route path="/enterprise" element={<Enterprise />} />
-        <Route path="/customers" element={<WhoWeHelp />} />
-        <Route path="/solutions/:slug" element={<SolutionPage />} />
-        <Route path="/languages" element={<Languages />} />
+        <Route path="/enterprise" element={<Navigate to="/decision-review" replace />} />
+        <Route path="/customers" element={<Navigate to="/decision-review" replace />} />
+        <Route path="/solutions/:slug" element={<Navigate to="/decision-review" replace />} />
+        <Route path="/languages" element={<Navigate to="/decision-review" replace />} />
 
         <Route path="/docs" element={<HowWeWork />} />
         <Route path="/how-we-work" element={<HowWeWork />} />
-        <Route path="/docs/api-reference" element={<Docs variant="reference" />} />
+        <Route path="/docs/api-reference" element={<Navigate to="/how-we-work#stages" replace />} />
+        <Route path="/method" element={<Navigate to="/how-we-work#stages" replace />} />
         <Route path="/docs/guides" element={<Docs variant="guides" />} />
-        <Route path="/status" element={<Status />} />
+        <Route path="/status" element={<Navigate to="/contact" replace />} />
         <Route path="/changelog" element={<Changelog />} />
 
         <Route path="/blog" element={<Blog />} />
@@ -78,13 +79,13 @@ export function AppRoutes() {
         <Route path="/playground" element={<Playground />} />
 
         <Route path="/research" element={<ResearchOverview />} />
-        <Route path="/understand" element={<ResearchDetail slug="understand" />} />
-        <Route path="/structure" element={<ResearchDetail slug="structure" />} />
-        <Route path="/priorities" element={<ResearchDetail slug="priorities" />} />
+        <Route path="/understand" element={<Navigate to="/how-we-work#understand" replace />} />
+        <Route path="/structure" element={<Navigate to="/how-we-work#structure" replace />} />
+        <Route path="/priorities" element={<Navigate to="/how-we-work#prioritize" replace />} />
 
         <Route path="/about" element={<About />} />
         <Route path="/security" element={<Security />} />
-        <Route path="/careers" element={<Careers />} />
+        <Route path="/careers" element={<Navigate to="/about" replace />} />
         <Route path="/media" element={<MediaKit />} />
 
         <Route path="/contact" element={<Contact variant="general" />} />

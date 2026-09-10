@@ -214,7 +214,17 @@ function VoiceWave({
   )
 }
 
-export function HeroDemo() {
+const DEFAULT_HERO_SITUATIONS = ["priority", "handoff", "problem", "ai-first"]
+
+export function HeroDemo({
+  heading = "The decision often arrives before the problem is clear.",
+  situationIds = DEFAULT_HERO_SITUATIONS,
+  listLabel = "Situations",
+}: {
+  heading?: string
+  situationIds?: string[]
+  listLabel?: string
+}) {
   const [stage, setStage] = useState<SituationStage>("understand")
   const [current, setCurrent] = useState<Situation>(situations[0])
   const [playing, setPlaying] = useState(false)
@@ -232,7 +242,12 @@ export function HeroDemo() {
   const estimated = useMemo(() => estimateDuration(current.spoken), [current.spoken])
   const [duration, setDuration] = useState(estimated)
 
-  const inStage = useMemo(() => situations.filter((s) => s.stage === stage), [stage])
+  const pool = useMemo(
+    () => (situationIds ? situations.filter((s) => situationIds.includes(s.id)) : situations),
+    [situationIds],
+  )
+  const showStageTabs = useMemo(() => new Set(pool.map((s) => s.stage)).size > 1, [pool])
+  const inStage = useMemo(() => pool.filter((s) => s.stage === stage), [pool, stage])
 
   const clearTimers = () => {
     speakGen.current += 1
@@ -397,28 +412,31 @@ export function HeroDemo() {
 
   return (
     <section className="studio" aria-label="How Constrange reads a situation">
-      <div className="studio-stages" role="tablist" aria-label="Method">
-        {situationStages.map((s) => (
-          <button
-            key={s.id}
-            role="tab"
-            aria-selected={stage === s.id}
-            className={stage === s.id ? "active" : ""}
-            onClick={() => {
-              setStage(s.id)
-              const first = situations.find((item) => item.stage === s.id)
-              if (first) reset(first)
-            }}
-          >
-            <span>{s.num}</span>
-            {s.label}
-          </button>
-        ))}
-      </div>
+      <p className="studio-heading serif-md">{heading}</p>
+      {showStageTabs && (
+        <div className="studio-stages" role="tablist" aria-label="Method">
+          {situationStages.map((s) => (
+            <button
+              key={s.id}
+              role="tab"
+              aria-selected={stage === s.id}
+              className={stage === s.id ? "active" : ""}
+              onClick={() => {
+                setStage(s.id)
+                const first = pool.find((item) => item.stage === s.id)
+                if (first) reset(first)
+              }}
+            >
+              <span>{s.num}</span>
+              {s.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="studio-body">
         <aside className="studio-rail">
-          <p className="studio-kicker">Typical pressure</p>
+          <p className="studio-kicker">{listLabel}</p>
           <div className="studio-list" role="tablist" aria-label="Situation">
             {inStage.map((item) => (
               <button
@@ -528,7 +546,7 @@ export function PageHero({
   eyebrow,
   title,
   blurb,
-  primary = { label: "Start a conversation", to: "/contact" },
+  primary = { label: "Discuss a decision", to: "/contact" },
   secondary = { label: "How we work", to: "/how-we-work" },
 }: {
   crumbs?: [string, string][]

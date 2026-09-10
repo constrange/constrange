@@ -267,6 +267,95 @@ export const solutions: Solution[] = [
 
 export const solutionBySlug = (slug?: string) => solutions.find((s) => s.slug === slug)
 
+export const reviewAreas = [
+  {
+    slug: "technology",
+    title: "Technology decisions",
+    blurb: "Major platform, architecture, transformation and investment choices.",
+  },
+  {
+    slug: "ai",
+    title: "AI decisions",
+    blurb: "AI adoption, automation, agents and AI-enabled operating changes.",
+  },
+  {
+    slug: "operations",
+    title: "Operational decisions",
+    blurb: "Process, systems, dependencies and changes that affect how critical work gets done.",
+  },
+]
+
+export const decisionReviewSteps = [
+  "Define",
+  "Establish evidence",
+  "Test assumptions",
+  "Compare options",
+  "Assess economics & risk",
+  "Stress-test",
+  "Recommend",
+  "Act",
+]
+
+export const constrangeViews = ["Proceed", "Modify", "Do not proceed"] as const
+
+export const decisionDeliverables = [
+  "Executive Decision Report",
+  "Decision Map",
+  "Executive Deck",
+  "90-Day Action Plan",
+  "Executive Readout",
+]
+
+export const decisionQuestions = [
+  "Should we proceed?",
+  "Is this investment justified?",
+  "Are the assumptions sound?",
+  "What are we missing?",
+  "What could fail?",
+  "Is there a simpler path?",
+  "What should happen first?",
+]
+
+export const methodologyPrinciples: [string, string][] = [
+  ["Independent", "We do not sell the technology we evaluate, and we do not require implementation work to justify a recommendation."],
+  ["Evidence-led", "Decisions are tested against what is known, what is assumed, and what would change the answer."],
+  ["Technology-neutral", "We are willing to recommend less technology, delayed investment, or no investment when the evidence supports it."],
+  ["Actionable", "Every review ends with a clear view — proceed, modify, or do not proceed — and what should happen first."],
+]
+
+export const whoBringsUsIn: [string, string, string][] = [
+  ["CEOs & founders", "When a consequential decision needs an independent view."],
+  ["COOs & operations leaders", "When complexity, dependencies or operational strain are obscuring the next move."],
+  ["CTOs & technology leaders", "When architecture, AI or transformation choices have significant downstream consequences."],
+  ["Transformation leaders", "When the proposed programme needs to be tested before execution."],
+]
+
+export const encounterScenarios = [
+  {
+    label: "Technology choice",
+    description:
+      "Multiple vendors offer credible solutions, but none has been assessed against the organisation's existing landscape.",
+  },
+  {
+    label: "AI pressure",
+    description:
+      "Leadership wants AI on the roadmap before the work has been mapped, or before anyone has asked whether a simpler change would do.",
+  },
+  {
+    label: "Operational strain",
+    description:
+      "Work is crossing too many teams and systems. The unofficial path is winning, and nobody owns the join.",
+  },
+]
+
+export const engagementStages: [string, string][] = [
+  ["Conversation", "We understand the decision and determine whether a review is appropriate."],
+  ["Scope", "We define the question, evidence required, stakeholders and deliverables."],
+  ["Review", "We investigate, challenge assumptions, assess options and identify risks."],
+  ["Readout", "We present the conclusion and recommended next actions."],
+]
+
+/** @deprecated Use encounterScenarios — kept for redirects and legacy pages */
 export const customers = [
   {
     name: "Operations",
@@ -360,6 +449,15 @@ export const standingInputs: [string, string][] = [
 ]
 
 export const methodStages: [string, string, string, string][] = [
+  ["Define", "What is being decided?", "Scope", "Non-goals"],
+  ["Establish", "What do we know?", "Evidence", "Gaps"],
+  ["Challenge", "Which assumptions matter?", "Dependencies", "Invalidators"],
+  ["Evaluate", "What are the alternatives?", "Economics", "Risk"],
+  ["Recommend", "What should happen?", "Sequence", "First move"],
+]
+
+/** Legacy five-stage labels — used on older content only */
+export const legacyMethodStages: [string, string, string, string][] = [
   ["Understand", "Situation reading", "Context", "Constraints"],
   ["Define", "Problem statement", "Scope", "Non-goals"],
   ["Explore", "Options", "Fit", "Risk"],

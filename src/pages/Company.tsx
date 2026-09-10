@@ -78,13 +78,13 @@ export function About() {
             <span className="about-kicker">Practice</span>
             <h1>The name is the work.</h1>
             <p className="about-lede">
-              Constrange is a technology and business consultancy. We help organisations decide under
-              constraint, complexity, change, and uncertainty — then turn that decision into a path
-              operations can actually absorb.
+              Constrange is an independent decision-intelligence practice. We help organisations evaluate
+              important technology, AI and operational decisions when the evidence is incomplete, the
+              options are numerous, and the cost of a wrong move is real.
             </p>
             <div className="about-actions">
               <Link className="btn" to="/contact">
-                Start a conversation
+                Discuss a decision
               </Link>
               <Link className="btn btn-ghost" to="/how-we-work">
                 How we work
@@ -455,10 +455,10 @@ const contactCopy: Record<
 > = {
   general: {
     kicker: "Contact",
-    title: "Bring the pressure as it currently is.",
-    lede: "You do not need a polished brief. We will say whether we can hold it — and if we cannot.",
+    title: "Discuss a decision.",
+    lede: "You do not need a finished brief. Tell us what you are trying to decide, what is changing, or where the situation has become difficult.",
     tone: "clay",
-    note: "A first reading of a situation under pressure. Unofficial is enough.",
+    note: "We take on a limited number of engagements at a time so the work stays directly led and tightly held.",
   },
   sales: {
     kicker: "A diagnostic",
@@ -483,6 +483,75 @@ const contactCopy: Record<
   },
 }
 
+function ContactForm() {
+  const [sent, setSent] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    if (new URLSearchParams(window.location.search).get("sent") === "1") setSent(true)
+  }, [])
+
+  if (sent) {
+    return (
+      <div className="form-success">
+        <strong>Message sent.</strong>
+        <p>We will respond within two working days. If the matter is urgent, book a conversation below.</p>
+      </div>
+    )
+  }
+
+  return (
+    <form
+      className="contact-form"
+      action="https://formsubmit.co/contact@constrange.com"
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value="Constrange — decision enquiry" />
+      <input type="hidden" name="_next" value="https://constrange.com/contact?sent=1" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+      <div className="form-grid">
+        <label className="field">
+          <span>Name</span>
+          <input name="name" required autoComplete="name" />
+        </label>
+        <label className="field">
+          <span>Work email</span>
+          <input type="email" name="email" required autoComplete="email" />
+        </label>
+        <label className="field">
+          <span>Organisation</span>
+          <input name="organisation" required autoComplete="organization" />
+        </label>
+        <label className="field">
+          <span>What are you dealing with?</span>
+          <select name="decision_type" required defaultValue="">
+            <option value="" disabled>Select one</option>
+            <option value="technology">A technology decision</option>
+            <option value="ai">An AI / automation decision</option>
+            <option value="operations">An operational problem</option>
+            <option value="transformation">A transformation decision</option>
+            <option value="unclear">A complex situation that isn't clear yet</option>
+          </select>
+        </label>
+        <label className="field full">
+          <span>Brief description</span>
+          <textarea name="description" rows={5} required placeholder="What is being decided, what is changing, or where the situation has become difficult." />
+        </label>
+      </div>
+      <button type="submit" className="btn" style={{ marginTop: 20 }}>
+        Send to Constrange
+      </button>
+      <p className="form-note">
+        By sending this form you agree we may use your details to respond. See{" "}
+        <Link to="/legal/privacy-policy">Privacy policy</Link>
+        {" · "}
+        <Link to="/security">Information handling</Link>.
+      </p>
+    </form>
+  )
+}
+
 export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
   const copy = contactCopy[variant]
 
@@ -502,38 +571,54 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
         title={copy.title}
         lede={copy.lede}
         primary={null}
-        secondary={{ label: "How we work", to: "/how-we-work" }}
+        secondary={{ label: "Decision Review", to: "/decision-review" }}
         tone={copy.tone}
         figure={
-          <HousePlate refn="Fig. I" note="A first conversation, booked on the calendar." className="about-hero-plate">
+          <HousePlate refn="Fig. I" note="A decision described as it is — not as a polished brief." className="about-hero-plate">
             <DrawDraft />
           </HousePlate>
         }
       />
 
+      {variant === "general" && (
+        <HouseChapter
+          id="enquiry"
+          n="01"
+          kicker="Enquiry"
+          title="Tell us what you are dealing with."
+          lede="You do not need a finished brief. A short description of the decision, the pressure, or what has become difficult is enough to begin."
+        >
+          <div className="house-contact">
+            <ContactForm />
+          </div>
+        </HouseChapter>
+      )}
+
       <section className="house-strip">
         <div className="about-inner">
           <p className="legal-updated">{copy.note}</p>
-          <nav className="house-switch" aria-label="Kinds of conversation">
-            {contactNav.map((item) => (
-              <Link
-                key={item.variant}
-                to={item.to}
-                className={item.variant === variant ? "is-on" : undefined}
-                aria-current={item.variant === variant ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          {variant !== "general" && (
+            <nav className="house-switch" aria-label="Kinds of conversation">
+              {contactNav.map((item) => (
+                <Link
+                  key={item.variant}
+                  to={item.to}
+                  className={item.variant === variant ? "is-on" : undefined}
+                  aria-current={item.variant === variant ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          )}
         </div>
       </section>
 
       <HouseChapter
         id="book-calendar"
-        n="01"
+        n={variant === "general" ? "02" : "01"}
         kicker="Book"
-        title="Choose a time for a first conversation."
+        title="Prefer a conversation? Book a 30-minute first conversation."
         lede="Pick a slot below. Cal.com will collect your details, send a calendar invite, and any reminders for the booking."
       >
         <div className="house-contact house-contact-booking">
@@ -565,7 +650,7 @@ export function Contact({ variant = "general" }: { variant?: ContactVariant }) {
 
       <HouseChapter
         id="after"
-        n="02"
+        n={variant === "general" ? "03" : "02"}
         kicker="After a conversation"
         title="A signed letter governs live work."
         lede="Until then, a conversation is only a conversation. We will say if we cannot hold the situation rather than staff one we cannot sit with."

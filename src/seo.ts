@@ -60,14 +60,29 @@ function pack(page: PageSeo): SeoRecord {
 const pages: PageSeo[] = [
   {
     path: "/",
-    title: "Constrange | Technology & Business Consultancy",
+    title: "Constrange | Independent Decision Intelligence",
     description:
-      "Constrange helps organisations understand complex problems and design practical paths — across strategy, systems, AI, automation and implementation.",
+      "Constrange helps organisations understand what is changing, what matters, and what to do next. Independent review of important technology, AI and operational decisions.",
     h1: "Complex problems. Clearer paths forward.",
-    primary: "technology and business consultancy",
+    primary: "independent decision intelligence",
     intent: "provider",
     schema: "home",
     breadcrumbs: [["Home", "/"]],
+  },
+  {
+    path: "/decision-review",
+    title: "Constrange Decision Review™ | Independent Technology & AI Decision Review",
+    description:
+      "An independent review of an important technology, AI or operational decision — before significant money, time or organisational capacity is committed.",
+    h1: "Constrange Decision Review™",
+    primary: "decision review",
+    intent: "service",
+    schema: "service",
+    breadcrumbs: [
+      ["Home", "/"],
+      ["Decision Review", "/decision-review"],
+    ],
+    faqs: engagementFaqs.slice(0, 5),
   },
   {
     path: "/products",
@@ -207,8 +222,8 @@ const pages: PageSeo[] = [
     path: "/pricing",
     title: "How an Engagement Works | Constrange",
     description:
-      "How Constrange shapes a piece of work: a contained reading, a recommendation, and a first move. Not a rate card. Not a default programme.",
-    h1: "Shape the work to the situation",
+      "How a Decision Review engagement works: conversation, scope, review and readout. Fixed fee, scoped to the decision — not an open-ended rate card.",
+    h1: "How an engagement works.",
     primary: "consulting engagement",
     intent: "service",
     schema: "method",

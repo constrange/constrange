@@ -46,7 +46,7 @@ export function Seo() {
     upsertMeta('meta[property="og:image"]', { property: "og:image", content: image })
     upsertMeta('meta[property="og:image:alt"]', {
       property: "og:image:alt",
-      content: "Constrange — technology and business consultancy",
+      content: "Constrange — independent decision intelligence",
     })
 
     upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" })
@@ -67,7 +67,7 @@ export function Seo() {
     upsertMeta('meta[property="og:image:height"]', { property: "og:image:height", content: "630" })
     upsertMeta('meta[name="twitter:image:alt"]', {
       name: "twitter:image:alt",
-      content: "Constrange — technology and business consultancy",
+      content: "Constrange — independent decision intelligence",
     })
 
     const root = document.documentElement
