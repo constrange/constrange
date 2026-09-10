@@ -5,7 +5,13 @@ import { PostCard } from "@/components/site/PostCard"
 import { FaqList, Prose, ReadingProgress, TableOfContents } from "@/components/site/Prose"
 import { PageHero } from "@/components/site/Blocks"
 import { Reveal } from "@/components/site/Layout"
-import { copyToClipboard, openShareWindow, publicPostUrl, twitterIntentUrl } from "@/share"
+import {
+  copyToClipboard,
+  linkedInShareUrl,
+  openShareWindow,
+  publicPostUrl,
+  twitterIntentUrl,
+} from "@/share"
 
 export default function BlogPost() {
   const { slug } = useParams()
@@ -51,8 +57,12 @@ export default function BlogPost() {
     flashCopyLabel(ok ? "Copied!" : "Copy failed")
   }
 
-  const onPost = () => {
+  const onShareX = () => {
     openShareWindow(twitterIntentUrl(article.title, shareUrl))
+  }
+
+  const onShareLinkedIn = () => {
+    openShareWindow(linkedInShareUrl(shareUrl))
   }
 
   return (
@@ -103,8 +113,11 @@ export default function BlogPost() {
               <button type="button" onClick={onCopyLink}>
                 {copyLabel}
               </button>
-              <button type="button" onClick={onPost}>
-                Post
+              <button type="button" onClick={onShareLinkedIn}>
+                LinkedIn
+              </button>
+              <button type="button" onClick={onShareX}>
+                X
               </button>
             </div>
           </div>

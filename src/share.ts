@@ -11,6 +11,11 @@ export function twitterIntentUrl(title: string, url: string): string {
   return `https://x.com/intent/tweet?${params.toString()}`
 }
 
+export function linkedInShareUrl(url: string): string {
+  const params = new URLSearchParams({ url })
+  return `https://www.linkedin.com/sharing/share-offsite/?${params.toString()}`
+}
+
 export async function copyToClipboard(text: string): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text)
