@@ -1,31 +1,19 @@
-export type Block =
-  | { t: "p"; text: string }
-  | { t: "h2"; text: string }
-  | { t: "h3"; text: string }
-  | { t: "ul"; items: string[] }
-  | { t: "ol"; items: string[] }
-  | { t: "table"; caption?: string; head: string[]; rows: string[][] }
-  | { t: "code"; lang: string; code: string }
-  | { t: "cta"; title: string; text: string; label: string; to: string }
-  | { t: "quote"; text: string; cite: string }
-  | { t: "note"; text: string }
+export type { Article, Block, BlogTone } from "./blog/types"
+import type { Article } from "./blog/types"
+import {
+  aiAgentsPost,
+  aiGovernancePost,
+  aiProjectCostPost,
+  aiProjectsFailAfterPocPost,
+  aiReadinessPost,
+  buildBuyAutomatePost,
+  buildVsBuyPost,
+  evaluateAiVendorPost,
+  legacyReplacePost,
+  whenToAutomatePost,
+} from "./blog/posts"
 
-export type Article = {
-  slug: string
-  title: string
-  deck: string
-  category: string
-  date: string
-  dateIso: string
-  readTime: string
-  author: { name: string; role: string }
-  tags: string[]
-  art: { label: string; cells: [string, string]; tone: "ink" | "field" | "slate" }
-  body: Block[]
-  faqs: [string, string][]
-}
-
-export const posts: Article[] = [
+const legacyPosts: Article[] = [
   {
     slug: "information-is-not-judgement",
     title: "Information is cheap. Judgement is not.",
@@ -577,6 +565,20 @@ ELSE
       ],
     ],
   },
+]
+
+export const posts: Article[] = [
+  buildVsBuyPost,
+  aiProjectsFailAfterPocPost,
+  evaluateAiVendorPost,
+  aiProjectCostPost,
+  whenToAutomatePost,
+  aiAgentsPost,
+  aiReadinessPost,
+  legacyReplacePost,
+  aiGovernancePost,
+  buildBuyAutomatePost,
+  ...legacyPosts,
 ]
 
 export const articles = posts

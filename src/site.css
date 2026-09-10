@@ -1159,6 +1159,86 @@ a.tile:hover { transform: translateY(-3px); }
     radial-gradient(68% 78% at 8% 100%, #e4e0d6 0%, transparent 54%),
     linear-gradient(148deg, #f2f1eb 0%, #d8e0e8 44%, #aebbc8 100%);
 }
+.post-hero.tone-plum {
+  background:
+    radial-gradient(70% 85% at 10% 10%, #e8dff5 0%, transparent 55%),
+    radial-gradient(60% 70% at 90% 8%, #c9b8e8 0%, transparent 50%),
+    radial-gradient(80% 70% at 92% 92%, #4a2d8a 0%, transparent 58%),
+    radial-gradient(65% 75% at 4% 88%, #f0e8f8 0%, transparent 52%),
+    linear-gradient(160deg, #f6f3fa 0%, #ddd0f0 48%, #a894d4 100%);
+}
+.post-hero.tone-coral {
+  background:
+    radial-gradient(72% 82% at 8% 14%, #fde8e4 0%, transparent 54%),
+    radial-gradient(58% 68% at 88% 6%, #f5c4b8 0%, transparent 48%),
+    radial-gradient(85% 72% at 96% 96%, #b85a48 0%, transparent 56%),
+    radial-gradient(68% 78% at 6% 90%, #fff0ec 0%, transparent 52%),
+    linear-gradient(155deg, #fdf6f4 0%, #f5d4cc 46%, #e8a898 100%);
+}
+.post-hero.tone-dusk {
+  background:
+    radial-gradient(70% 84% at 6% 12%, #e4e0f2 0%, transparent 54%),
+    radial-gradient(62% 72% at 92% 10%, #b8aed8 0%, transparent 50%),
+    radial-gradient(82% 74% at 100% 100%, #3d3568 0%, transparent 58%),
+    radial-gradient(66% 76% at 8% 92%, #ece8f6 0%, transparent 52%),
+    linear-gradient(158deg, #f4f2f8 0%, #cfc8e8 44%, #8a7eb8 100%);
+}
+.post-hero.tone-amber {
+  background:
+    radial-gradient(74% 86% at 12% 8%, #fef3d8 0%, transparent 54%),
+    radial-gradient(60% 70% at 90% 12%, #f5d080 0%, transparent 48%),
+    radial-gradient(85% 72% at 94% 94%, #c48820 0%, transparent 56%),
+    radial-gradient(68% 78% at 4% 88%, #fff8e8 0%, transparent 52%),
+    linear-gradient(152deg, #fdf9f0 0%, #f5e0a8 48%, #d4a850 100%);
+}
+.post-hero.tone-moss {
+  background:
+    radial-gradient(72% 84% at 10% 10%, #e8f0d8 0%, transparent 54%),
+    radial-gradient(58% 68% at 88% 8%, #b8d088 0%, transparent 48%),
+    radial-gradient(82% 72% at 96% 96%, #4a6838 0%, transparent 56%),
+    radial-gradient(66% 76% at 6% 90%, #f0f4e8 0%, transparent 52%),
+    linear-gradient(156deg, #f6f8f0 0%, #d0e0b8 46%, #88a868 100%);
+}
+.post-hero.tone-wine {
+  background:
+    radial-gradient(70% 82% at 8% 12%, #f0e4e8 0%, transparent 54%),
+    radial-gradient(60% 70% at 90% 6%, #d4a8b8 0%, transparent 48%),
+    radial-gradient(84% 74% at 98% 98%, #6a3048 0%, transparent 58%),
+    radial-gradient(68% 78% at 4% 92%, #f8f0f4 0%, transparent 52%),
+    linear-gradient(158deg, #faf6f8 0%, #e8c8d4 44%, #a87088 100%);
+}
+.post-hero.tone-tide {
+  background:
+    radial-gradient(72% 86% at 6% 14%, #d8eef4 0%, transparent 54%),
+    radial-gradient(62% 72% at 92% 8%, #88c8dc 0%, transparent 50%),
+    radial-gradient(85% 74% at 100% 100%, #286878 0%, transparent 56%),
+    radial-gradient(66% 78% at 8% 88%, #e8f4f8 0%, transparent 52%),
+    linear-gradient(150deg, #f2f8fa 0%, #b8dce8 46%, #68a8b8 100%);
+}
+.post-hero.tone-pine {
+  background:
+    radial-gradient(70% 84% at 10% 10%, #dce8e0 0%, transparent 54%),
+    radial-gradient(58% 68% at 88% 6%, #98c0a8 0%, transparent 48%),
+    radial-gradient(82% 72% at 96% 96%, #2d5848 0%, transparent 56%),
+    radial-gradient(66% 76% at 6% 90%, #ecf4f0 0%, transparent 52%),
+    linear-gradient(154deg, #f4f8f6 0%, #b8d4c4 46%, #689878 100%);
+}
+.post-hero.tone-frost {
+  background:
+    radial-gradient(74% 88% at 8% 12%, #eef4f8 0%, transparent 54%),
+    radial-gradient(60% 70% at 90% 8%, #c8dce8 0%, transparent 48%),
+    radial-gradient(85% 72% at 94% 94%, #587888 0%, transparent 56%),
+    radial-gradient(68% 78% at 6% 88%, #f6fafc 0%, transparent 52%),
+    linear-gradient(148deg, #f8fafc 0%, #d8e8f0 44%, #98b8c8 100%);
+}
+.post-hero.tone-clay {
+  background:
+    radial-gradient(72% 84% at 10% 10%, #f0e8e0 0%, transparent 54%),
+    radial-gradient(58% 68% at 88% 8%, #d4b8a0 0%, transparent 48%),
+    radial-gradient(82% 72% at 96% 96%, #785840 0%, transparent 56%),
+    radial-gradient(66% 76% at 6% 90%, #f8f4f0 0%, transparent 52%),
+    linear-gradient(156deg, #faf6f2 0%, #e8d0b8 46%, #b89878 100%);
+}
 /* film grain */
 .post-hero:after {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .85; mix-blend-mode: soft-light;
@@ -1204,6 +1284,16 @@ a.tile:hover { transform: translateY(-3px); }
 .tone-slate .post-art-frame {
   background: linear-gradient(145deg, #eef2f5 0%, #c5d0da 50%, #7d8c9a 100%);
 }
+.tone-plum .post-art-frame { background: linear-gradient(145deg, #f6f2fc 0%, #c8b8e8 52%, #7a68a8 100%); }
+.tone-coral .post-art-frame { background: linear-gradient(145deg, #fdf4f2 0%, #f0c0b4 52%, #c87868 100%); }
+.tone-dusk .post-art-frame { background: linear-gradient(145deg, #f2f0f8 0%, #b8acd8 50%, #6a5c98 100%); }
+.tone-amber .post-art-frame { background: linear-gradient(145deg, #fdf8ec 0%, #f0d888 52%, #c89830 100%); }
+.tone-moss .post-art-frame { background: linear-gradient(145deg, #f4f6ec 0%, #c0d898 52%, #789858 100%); }
+.tone-wine .post-art-frame { background: linear-gradient(145deg, #faf4f6 0%, #d8a8b8 50%, #985870 100%); }
+.tone-tide .post-art-frame { background: linear-gradient(145deg, #eef6f8 0%, #98d0e0 52%, #4890a0 100%); }
+.tone-pine .post-art-frame { background: linear-gradient(145deg, #f0f4f0 0%, #a8c8b0 50%, #588870 100%); }
+.tone-frost .post-art-frame { background: linear-gradient(145deg, #f6fafc 0%, #c0d8e8 52%, #7898a8 100%); }
+.tone-clay .post-art-frame { background: linear-gradient(145deg, #faf6f2 0%, #d8c0a8 50%, #987858 100%); }
 .post-art-comp { position: absolute; left: 20%; top: 30%; display: inline-flex; flex-direction: column; align-items: flex-start; max-width: calc(100% - 24px); }
 .post-art-chip {
   padding: 20px 24px; min-width: 196px;
@@ -1212,6 +1302,16 @@ a.tile:hover { transform: translateY(-3px); }
 .tone-ink .post-art-chip { background: var(--purple); }
 .tone-field .post-art-chip { background: #171717; }
 .tone-slate .post-art-chip { background: #2c3844; }
+.tone-plum .post-art-chip { background: #4a3080; }
+.tone-coral .post-art-chip { background: #a84838; }
+.tone-dusk .post-art-chip { background: #3d3568; }
+.tone-amber .post-art-chip { background: #886018; }
+.tone-moss .post-art-chip { background: #3d5828; }
+.tone-wine .post-art-chip { background: #582838; }
+.tone-tide .post-art-chip { background: #185868; }
+.tone-pine .post-art-chip { background: #285840; }
+.tone-frost .post-art-chip { background: #385868; }
+.tone-clay .post-art-chip { background: #584028; }
 .post-art-cells { display: flex; }
 .post-art-cells span {
   padding: 15px 19px; border: 1px solid #131313; background: transparent;
@@ -1305,6 +1405,16 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 .post-card-media.tone-slate {
   background: linear-gradient(145deg, #eef2f5 0%, #c5d0da 50%, #7d8c9a 100%);
 }
+.post-card-media.tone-plum { background: linear-gradient(145deg, #f6f2fc 0%, #c8b8e8 52%, #7a68a8 100%); }
+.post-card-media.tone-coral { background: linear-gradient(145deg, #fdf4f2 0%, #f0c0b4 52%, #c87868 100%); }
+.post-card-media.tone-dusk { background: linear-gradient(145deg, #f2f0f8 0%, #b8acd8 50%, #6a5c98 100%); }
+.post-card-media.tone-amber { background: linear-gradient(145deg, #fdf8ec 0%, #f0d888 52%, #c89830 100%); }
+.post-card-media.tone-moss { background: linear-gradient(145deg, #f4f6ec 0%, #c0d898 52%, #789858 100%); }
+.post-card-media.tone-wine { background: linear-gradient(145deg, #faf4f6 0%, #d8a8b8 50%, #985870 100%); }
+.post-card-media.tone-tide { background: linear-gradient(145deg, #eef6f8 0%, #98d0e0 52%, #4890a0 100%); }
+.post-card-media.tone-pine { background: linear-gradient(145deg, #f0f4f0 0%, #a8c8b0 50%, #588870 100%); }
+.post-card-media.tone-frost { background: linear-gradient(145deg, #f6fafc 0%, #c0d8e8 52%, #7898a8 100%); }
+.post-card-media.tone-clay { background: linear-gradient(145deg, #faf6f2 0%, #d8c0a8 50%, #987858 100%); }
 .post-card-media .post-art-comp { left: 10%; top: 22%; transform: scale(.62); transform-origin: top left; }
 .post-card-body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 20px 22px 22px; min-width: 0; }
 .post-card .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; color: #85827a; }

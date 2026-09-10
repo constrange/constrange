@@ -382,9 +382,9 @@ const pages: PageSeo[] = [
   },
   {
     path: "/blog",
-    title: "Blog | Judgement, Constraint & Method",
+    title: "Blog | AI Decisions, Build vs Buy & Technology Judgement",
     description:
-      "Writing from the work: why more options do not create clarity, why technology should wait for the problem, and why judgement is not a model output.",
+      "Decision guides on build vs buy, AI vendor evaluation, project cost, automation, governance, and when technology should wait — written from independent consulting work.",
     h1: "Writing from the work",
     primary: "consulting and AI judgement essays",
     intent: "information",
