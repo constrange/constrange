@@ -234,6 +234,21 @@ const pages: PageSeo[] = [
     ],
   },
   {
+    path: "/engagement",
+    title: "Engagement | Constrange",
+    description:
+      "Understand how Constrange engagements work, what a Decision Review includes, and how fixed-fee projects are scoped around important technology, AI and operational decisions.",
+    h1: "A focused engagement, scoped to the decision.",
+    primary: "decision review engagement",
+    intent: "service",
+    schema: "service",
+    faqs: engagementFaqs.slice(0, 5),
+    breadcrumbs: [
+      ["Home", "/"],
+      ["Engagement", "/engagement"],
+    ],
+  },
+  {
     path: "/how-we-work",
     title: "How a Decision Becomes Clear | Constrange",
     description:

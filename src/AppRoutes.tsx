@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { Layout } from "@/components/site/Layout"
 import { normalizePathname } from "@/pathname"
 import Home from "@/pages/Home"
+import Engagement from "@/pages/Engagement"
 import Pricing from "@/pages/Pricing"
 import BlogPost from "@/pages/BlogPost"
 import DecisionReview from "@/pages/DecisionReview"
@@ -59,6 +60,7 @@ export function AppRoutes() {
         <Route path="/products/:slug" element={<ProductRedirect />} />
         <Route path="/features" element={<Navigate to="/decision-review" replace />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/engagement" element={<Engagement />} />
 
         <Route path="/enterprise" element={<Navigate to="/decision-review" replace />} />
         <Route path="/customers" element={<Navigate to="/decision-review" replace />} />
