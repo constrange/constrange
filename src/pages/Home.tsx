@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import { HeroDemo } from "@/components/site/Blocks"
-import { MethodFlow } from "@/components/site/MethodFlow"
+import { ConstrangeViewSection } from "@/components/site/ConstrangeViewSection"
+import { DecisionReviewBand } from "@/components/site/DecisionReviewBand"
 import { ReviewIntro } from "@/components/site/ReviewIntro"
 import { PostCard } from "@/components/site/PostCard"
 import { Reveal } from "@/components/site/Layout"
 import { posts } from "@/blog-content"
 import {
-  constrangeViews,
   decisionDeliverables,
   encounterScenarios,
   methodologyPrinciples,
@@ -49,40 +49,9 @@ export default function Home() {
 
       <ReviewIntro />
 
-      <section className="section shell decision-review-band" id="decision-review">
-        <Reveal className="section-head">
-          <span className="eyebrow">Constrange Decision Review™</span>
-          <h2 className="serif-md">An independent review before commitment becomes expensive.</h2>
-          <p>
-            A focused independent review of an important technology, AI or operational decision — before
-            significant money, time or organisational capacity is committed.
-          </p>
-        </Reveal>
-        <Reveal delay={100}>
-          <MethodFlow />
-        </Reveal>
-        <div className="hero-actions" style={{ marginTop: 32 }}>
-          <Link className="arrow-link" to="/decision-review">
-            See the full review <i>→</i>
-          </Link>
-        </div>
-      </section>
+      <DecisionReviewBand />
 
-      <section className="platform view-outcomes-section" aria-labelledby="view-outcomes-title">
-        <div className="shell">
-          <Reveal className="section-head">
-            <span className="eyebrow">The Constrange View</span>
-            <h2 className="serif-md" id="view-outcomes-title">Every review ends with a clear position.</h2>
-          </Reveal>
-          <div className="view-outcomes">
-            {constrangeViews.map((view, i) => (
-              <Reveal className={`view-outcome view-outcome-${i}`} key={view} delay={i * 100}>
-                <span>{view}</span>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ConstrangeViewSection />
 
       <section className="section shell">
         <Reveal className="section-head">
