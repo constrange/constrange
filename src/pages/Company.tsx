@@ -115,7 +115,7 @@ export function About() {
             <div className="about-founder-copy">
               <span className="about-kicker">Founder</span>
               <h2>Deepak Patil</h2>
-              <p className="about-founder-role">Founder, Constrange</p>
+              <p className="about-founder-role">Constrange</p>
               <div className="about-founder-body">
                 <p className="about-founder-lead">I run Constrange.</p>
                 <p>

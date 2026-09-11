@@ -2636,54 +2636,47 @@ body.on-about .header.on-dark.stuck {
 /* ---------- founder ---------- */
 .about-founder {
   position: relative;
-  margin-top: -24px;
-  padding: 0 0 80px;
-  background:
-    linear-gradient(180deg, rgba(247, 246, 241, 0) 0%, var(--paper) 18%),
-    var(--paper);
+  padding: 64px 0 88px;
+  background: var(--paper);
 }
 .about-founder-panel {
   display: grid;
-  grid-template-columns: minmax(280px, 0.44fr) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
   align-items: stretch;
   overflow: hidden;
-  border: 1px solid rgba(39, 22, 117, .1);
-  border-radius: 20px;
+  border: 1px solid rgba(23, 23, 23, .09);
+  border-radius: 18px;
   background: #faf9f6;
-  box-shadow:
-    0 24px 64px rgba(39, 22, 117, .07),
-    0 1px 0 rgba(255, 255, 255, .8) inset;
+  box-shadow: 0 20px 56px rgba(23, 23, 23, .06);
 }
 .about-founder-visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 36px 28px;
-  background: #ececec;
+  padding: 40px 32px;
+  background: #f2f2f2;
 }
 .about-founder-photo {
   margin: 0;
   width: 100%;
-  max-width: 300px;
-  transform: translateY(-12px);
+  max-width: 272px;
+  background: #f2f2f2;
 }
 .about-founder-photo img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 804 / 1024;
-  object-fit: cover;
-  object-position: center 8%;
+  max-height: 360px;
+  object-fit: contain;
+  object-position: center top;
 }
 .about-founder-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(32px, 5vw, 52px) clamp(28px, 5vw, 56px);
-  border-left: 1px solid rgba(23, 23, 23, .06);
-  background:
-    radial-gradient(80% 60% at 100% 0%, rgba(219, 255, 113, .08) 0%, transparent 55%),
-    linear-gradient(180deg, #faf9f6 0%, #f6f4f8 100%);
+  padding: clamp(36px, 5vw, 52px) clamp(32px, 5vw, 56px);
+  border-left: 1px solid rgba(23, 23, 23, .07);
+  background: #faf9f6;
 }
 .about-founder-copy h2 {
   margin: 0;
@@ -2691,11 +2684,11 @@ body.on-about .header.on-dark.stuck {
   letter-spacing: -.03em;
 }
 .about-founder-role {
-  margin: 10px 0 28px;
+  margin: 8px 0 26px;
   font: 11px var(--mono);
-  letter-spacing: .1em;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: #8a877f;
+  color: var(--purple);
 }
 .about-founder-body {
   display: grid;
@@ -3205,10 +3198,11 @@ body.on-about .header.on-dark.stuck {
   .about-chapter h2,
   .about-field h2,
   .about-close h2 { font-size: 30px; }
-  .about-founder { margin-top: 0; padding-bottom: 56px; }
+  .about-founder { padding: 48px 0 64px; }
   .about-founder-panel { grid-template-columns: 1fr; }
-  .about-founder-visual { padding: 28px 24px; }
-  .about-founder-photo { max-width: 260px; margin: 0 auto; transform: none; }
+  .about-founder-visual { padding: 32px 24px 28px; }
+  .about-founder-photo { max-width: 240px; margin: 0 auto; }
+  .about-founder-photo img { max-height: 320px; }
   .about-founder-copy {
     border-left: 0;
     border-top: 1px solid rgba(23, 23, 23, .06);
