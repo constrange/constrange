@@ -1530,6 +1530,7 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
   transition: border-color .2s, background .2s;
 }
 .post-share-btn:hover { border-color: var(--purple); background: rgba(39,22,117,.05); }
+.post-share-end { display: none; }
 
 /* ---------- prose ---------- */
 .prose { max-width: 736px; min-width: 0; overflow-wrap: break-word; }
@@ -1679,8 +1680,25 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
     background: #fff;
     border-bottom: 1px solid #e1dfd8;
   }
-  .post-share { padding-block: 4px 10px; }
-  .post-share-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .post-share-sidebar { display: none; }
+  .post-share-end {
+    display: block;
+    max-width: 736px;
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(0,0,0,.1);
+  }
+  .post-share-end .post-share-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .post-share-end .post-share-btn {
+    width: auto;
+    flex: 1 1 calc(50% - 4px);
+    min-width: 0;
+    padding: 10px 12px;
+  }
   .prose h2 { margin-block: 40px 14px; font-size: 27px; }
   .prose h3 { font-size: 20px; }
   .prose p, .prose li { font-size: 16px; }

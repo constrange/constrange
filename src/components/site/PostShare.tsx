@@ -10,9 +10,10 @@ import {
 type PostShareProps = {
   title: string
   url: string
+  className?: string
 }
 
-export function PostShare({ title, url }: PostShareProps) {
+export function PostShare({ title, url, className }: PostShareProps) {
   const [copyLabel, setCopyLabel] = useState("Copy link")
   const [showNativeShare, setShowNativeShare] = useState(false)
   const copyReset = useRef<number>(0)
@@ -38,7 +39,7 @@ export function PostShare({ title, url }: PostShareProps) {
   }
 
   return (
-    <div className="post-share">
+    <div className={className ? `post-share ${className}` : "post-share"}>
       <h4>Share</h4>
       <div className="post-share-actions">
         <button type="button" className="post-share-btn" onClick={onCopyLink}>

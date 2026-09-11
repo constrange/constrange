@@ -69,7 +69,7 @@ export default function BlogPost() {
       <div className="post-layout shell" ref={bodyRef}>
         <aside className="post-aside">
           <TableOfContents blocks={article.body} />
-          <PostShare title={article.title} url={shareUrl} />
+          <PostShare title={article.title} url={shareUrl} className="post-share-sidebar" />
         </aside>
 
         <div className="post-body">
@@ -77,6 +77,7 @@ export default function BlogPost() {
           <div className="post-faq">
             <FaqList items={article.faqs} title="Frequently asked questions" />
           </div>
+          <PostShare title={article.title} url={shareUrl} className="post-share-end" />
         </div>
       </div>
 
