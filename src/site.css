@@ -2636,20 +2636,37 @@ body.on-about .header.on-dark.stuck {
 /* ---------- founder ---------- */
 .about-founder {
   position: relative;
-  padding: 0 0 72px;
-  background: var(--paper);
+  margin-top: -24px;
+  padding: 0 0 80px;
+  background:
+    linear-gradient(180deg, rgba(247, 246, 241, 0) 0%, var(--paper) 18%),
+    var(--paper);
 }
-.about-founder-grid {
+.about-founder-panel {
   display: grid;
-  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
-  gap: 48px 64px;
-  align-items: start;
+  grid-template-columns: minmax(280px, 0.44fr) minmax(0, 1fr);
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid rgba(39, 22, 117, .1);
+  border-radius: 20px;
+  background: #faf9f6;
+  box-shadow:
+    0 24px 64px rgba(39, 22, 117, .07),
+    0 1px 0 rgba(255, 255, 255, .8) inset;
+}
+.about-founder-visual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 32px 28px 0;
+  background:
+    radial-gradient(90% 80% at 50% 100%, rgba(39, 22, 117, .06) 0%, transparent 62%),
+    linear-gradient(165deg, #ebe8f2 0%, #ececec 42%, #e8e8e8 100%);
 }
 .about-founder-photo {
   margin: 0;
-  border: 1px solid rgba(23, 23, 23, .12);
-  background: #fff;
-  box-shadow: 0 18px 48px rgba(23, 23, 23, .08);
+  width: 100%;
+  max-width: 320px;
 }
 .about-founder-photo img {
   display: block;
@@ -2658,25 +2675,42 @@ body.on-about .header.on-dark.stuck {
   aspect-ratio: 804 / 1024;
   object-fit: cover;
   object-position: center top;
-  image-rendering: -webkit-optimize-contrast;
+  vertical-align: bottom;
+}
+.about-founder-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(32px, 5vw, 52px) clamp(28px, 5vw, 56px);
+  border-left: 1px solid rgba(23, 23, 23, .06);
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgba(219, 255, 113, .08) 0%, transparent 55%),
+    linear-gradient(180deg, #faf9f6 0%, #f6f4f8 100%);
 }
 .about-founder-copy h2 {
-  margin: 0 0 24px;
-  font: 400 clamp(36px, 4vw, 48px)/1.05 var(--serif);
+  margin: 0;
+  font: 400 clamp(34px, 3.8vw, 46px)/1.06 var(--serif);
   letter-spacing: -.03em;
+}
+.about-founder-role {
+  margin: 10px 0 28px;
+  font: 11px var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #8a877f;
 }
 .about-founder-body {
   display: grid;
-  gap: 16px;
-  max-width: 42ch;
-  font-size: 17px;
-  line-height: 1.58;
+  gap: 18px;
+  max-width: 44ch;
+  font-size: 16px;
+  line-height: 1.62;
   color: var(--ink-soft);
 }
 .about-founder-body p { margin: 0; }
-.about-founder-body p:first-child {
-  font-size: 20px;
-  line-height: 1.45;
+.about-founder-lead {
+  font-size: 19px;
+  line-height: 1.5;
   color: var(--ink);
   font-weight: 500;
 }
@@ -3173,8 +3207,15 @@ body.on-about .header.on-dark.stuck {
   .about-chapter h2,
   .about-field h2,
   .about-close h2 { font-size: 30px; }
-  .about-founder-grid { grid-template-columns: 1fr; gap: 32px; max-width: 380px; }
-  .about-founder { padding-bottom: 48px; }
+  .about-founder { margin-top: 0; padding-bottom: 56px; }
+  .about-founder-panel { grid-template-columns: 1fr; }
+  .about-founder-visual { padding: 28px 24px 0; }
+  .about-founder-photo { max-width: 260px; margin: 0 auto; }
+  .about-founder-copy {
+    border-left: 0;
+    border-top: 1px solid rgba(23, 23, 23, .06);
+    padding: 28px 24px 32px;
+  }
   .about-split,
   .about-field-grid,
   .about-close-grid,

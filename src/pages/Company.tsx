@@ -99,32 +99,38 @@ export function About() {
 
       <section className="about-founder" id="founder">
         <div className="about-inner">
-          <Reveal className="about-founder-grid">
-            <figure className="about-founder-photo">
-              <img
-                src="/about/deepak-patil.jpg"
-                alt="Deepak Patil, founder of Constrange"
-                width={804}
-                height={1024}
-                loading="eager"
-                decoding="async"
-              />
-            </figure>
+          <Reveal className="about-founder-panel">
+            <div className="about-founder-visual">
+              <figure className="about-founder-photo">
+                <img
+                  src="/about/deepak-patil.jpg"
+                  alt="Deepak Patil, founder of Constrange"
+                  width={804}
+                  height={1024}
+                  loading="eager"
+                  decoding="async"
+                />
+              </figure>
+            </div>
             <div className="about-founder-copy">
               <span className="about-kicker">Founder</span>
               <h2>Deepak Patil</h2>
+              <p className="about-founder-role">Founder, Constrange</p>
               <div className="about-founder-body">
-                <p>I run Constrange.</p>
+                <p className="about-founder-lead">I run Constrange.</p>
                 <p>
                   Most organisations do not fail because they lack technology. They fail because they commit
                   before the problem is clear.
                 </p>
                 <p>
-                  We fix that. We read the actual situation — systems, people, constraints — and say what to
-                  do. Build. Buy. Automate. Or leave it alone. One recommendation, with reasons you can
-                  defend.
+                  We sit with how things actually work: your systems, your people, and the limits you are
+                  under. Then we give you a straight answer. Build. Buy. Automate. Or wait. One
+                  recommendation you can defend.
                 </p>
-                <p>No theatre. No endless options. Just a clear call when the evidence supports it.</p>
+                <p>
+                  I am not here for long decks or ten options on a slide. I am here so you leave with a
+                  decision.
+                </p>
               </div>
             </div>
           </Reveal>
