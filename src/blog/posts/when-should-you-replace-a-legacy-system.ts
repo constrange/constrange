@@ -11,7 +11,7 @@ export const legacyReplacePost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["Legacy systems", "Modernisation", "Technical debt", "Systems strategy"],
-  art: { label: "Legacy", cells: ["Replace", "Repair"], tone: "pine" },
+  art: { label: "Decision guides", cells: ["Replace the system or repair the join"], tone: "pine" },
   body: [
     p(
       "Legacy is a word people use when they are tired. Tired of the interface. Tired of the vendor. Tired of explaining to new hires why a critical path still runs through something built before they were born. Tired is a feeling. It is not a strategy.",

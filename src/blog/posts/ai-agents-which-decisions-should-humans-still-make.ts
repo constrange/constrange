@@ -11,7 +11,7 @@ export const aiAgentsPost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["AI agents", "Human judgement", "Decision-making", "Governance"],
-  art: { label: "Agents", cells: ["Machine", "Human"], tone: "wine" },
+  art: { label: "Decision guides", cells: ["Machine speed vs human judgement"], tone: "wine" },
   body: [
     p(
       "An agent is not a chat window. It is a system that can take steps — query a database, draft a document, send a message, trigger a workflow — without a human in the loop for each move. That is useful. It is also a category error to treat every business decision as a candidate for delegation simply because the agent is competent at the mechanics.",

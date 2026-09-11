@@ -11,7 +11,7 @@ export const aiReadinessPost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["AI readiness", "Digital transformation", "Data quality", "Operating model"],
-  art: { label: "Readiness", cells: ["Hype", "Reality"], tone: "tide" },
+  art: { label: "Decision guides", cells: ["Hype vs operational reality"], tone: "tide" },
   body: [
     p(
       "Every quarter, someone asks whether the business is ready for AI. The question is usually asked too late, after a budget line exists and a vendor has been briefed. The honest answer is rarely a single number on a maturity model. It is a set of plain facts about whether the organisation can absorb another layer without mistaking fluency for fit.",

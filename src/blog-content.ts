@@ -24,7 +24,7 @@ const legacyPosts: Article[] = [
     readTime: "9 min read",
     author: { name: "Constrange", role: "Practice" },
     tags: ["Judgement", "AI", "Decision-making"],
-    art: { label: "Judgement", cells: ["Information", "Context"], tone: "ink" },
+    art: { label: "Perspectives", cells: ["When information is not judgement"], tone: "ink" },
     body: [
       {
         t: "p",
@@ -233,7 +233,7 @@ const legacyPosts: Article[] = [
     readTime: "9 min read",
     author: { name: "Constrange", role: "Practice" },
     tags: ["Complexity", "Prioritisation", "Strategy"],
-    art: { label: "Options", cells: ["Choice", "Constraint"], tone: "field" },
+    art: { label: "Perspectives", cells: ["When more options do not create clarity"], tone: "field" },
     body: [
       {
         t: "p",
@@ -410,7 +410,7 @@ const legacyPosts: Article[] = [
     readTime: "9 min read",
     author: { name: "Constrange", role: "Practice" },
     tags: ["Systems", "Implementation", "Method"],
-    art: { label: "Sequence", cells: ["Problem", "Technology"], tone: "slate" },
+    art: { label: "Perspectives", cells: ["The problem before the technology"], tone: "slate" },
     body: [
       {
         t: "p",

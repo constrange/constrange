@@ -82,7 +82,7 @@ export default function BlogPost() {
           </div>
 
           <div className="post-art" aria-hidden="true">
-            <PostArt art={article.art} variant="hero" />
+            <PostArt art={article.art} title={article.title} category={article.category} variant="hero" />
           </div>
         </div>
       </header>

@@ -12,7 +12,7 @@ export const buildVsBuyPost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["Build vs buy", "AI strategy", "Vendor selection", "Custom development"],
-  art: { label: "Build vs buy", cells: ["Custom", "Existing"], tone: "plum" },
+  art: { label: "Decision guides", cells: ["Custom AI vs an off-the-shelf product"], tone: "plum" },
   body: [
     p(
       "Every quarter, leadership teams face the same fork: commission something bespoke around a model, or buy a product that already claims to solve the category. The question sounds technical. It is not. It is a judgement about fit — how the work actually runs, what systems already exist, who will own the outcome when the first exception appears, and what the organisation can absorb without quietly adding another unofficial path on top of the old one.",

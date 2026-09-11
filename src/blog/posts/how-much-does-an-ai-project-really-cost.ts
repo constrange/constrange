@@ -12,7 +12,7 @@ export const aiProjectCostPost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["AI costs", "Business case", "Total cost of ownership", "Budgeting"],
-  art: { label: "True cost", cells: ["Licence", "Landscape"], tone: "amber" },
+  art: { label: "Decision guides", cells: ["Licence fees vs the full landscape"], tone: "amber" },
   body: [
     p(
       "Boards ask for a number. Finance asks for a line item. Vendors ask for a signature. The honest answer is that an AI project's cost is a bundle spread across licence, integration, data work, human review, change, risk, and the opportunity cost of attention. Quoting only the licence is how organisations discover, eighteen months later, that they bought a programme with a software invoice attached.",

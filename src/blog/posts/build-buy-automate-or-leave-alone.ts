@@ -11,7 +11,7 @@ export const buildBuyAutomatePost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["Build vs buy", "Automation", "Technology strategy", "Prioritisation"],
-  art: { label: "Four paths", cells: ["Build", "Leave"], tone: "clay" },
+  art: { label: "Decision guides", cells: ["Four paths through the same decision"], tone: "clay" },
   body: [
     p(
       "Every technology conversation eventually collapses into four verbs: build it yourself, buy something that exists, automate what is repetitive, or leave the work alone for now. The verbs are simple. The choice is not, because each path carries a different cost in money, attention, risk, and political capital.",

@@ -1267,18 +1267,19 @@ a.tile:hover { transform: translateY(-3px); }
   font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: .09em; text-transform: uppercase; color: var(--purple);
 }
 
-/* featured artwork — noisy gradient + stacked label cards */
+/* featured artwork — noisy radial gradient + report-style stack */
 .post-art { display: flex; justify-content: flex-end; }
 .post-art-frame {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 2px solid #131313;
-  background: #e8e8e8;
+  padding: 9% 8%;
+  background: #c8d8ec;
 }
 .post-art-frame.is-hero {
   max-width: 700px;
@@ -1289,97 +1290,171 @@ a.tile:hover { transform: translateY(-3px); }
   aspect-ratio: auto;
   border: 0;
   box-shadow: none;
+  padding: 11% 9%;
 }
 .post-art-noise {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: .62;
+  opacity: .72;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='pg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23pg)'/%3E%3C/svg%3E");
-  background-size: 220px 220px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='pg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23pg)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+.post-art-noise-2 {
+  opacity: .38;
+  mix-blend-mode: soft-light;
+  background-size: 140px 140px;
+  transform: rotate(7deg) scale(1.08);
 }
 .post-art-stack {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: min(78%, 420px);
+  align-items: stretch;
+  width: min(88%, 480px);
 }
 .post-art-chip,
 .post-art-cell {
   display: block;
-  width: fit-content;
-  max-width: 100%;
-  padding: 14px 20px;
   border: 1.5px solid #131313;
   font-family: 'Inter Variable', Inter, sans-serif;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -.02em;
   color: #131313;
 }
 .post-art-chip {
-  font-size: clamp(15px, 2.4vw, 24px);
-  z-index: 3;
+  align-self: flex-start;
+  width: auto;
+  padding: 9px 14px;
+  font: 500 10px var(--mono);
+  letter-spacing: .14em;
+  line-height: 1.2;
+  white-space: nowrap;
 }
-.post-art-cell {
-  font-size: clamp(13px, 2vw, 18px);
+.post-art-cell-mid {
+  margin-top: -1px;
+  padding: 13px 16px;
+  font-size: clamp(13px, 1.9vw, 17px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -.01em;
+}
+.post-art-cell-title {
+  margin-top: -1px;
+  padding: 15px 16px;
+  font-size: clamp(15px, 2.5vw, 26px);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -.025em;
   background: #fff;
 }
-.post-art-cell-a {
-  margin: -1px 0 0 14px;
-  z-index: 2;
-  background: rgba(255, 255, 255, .88);
+/* soft cloud gradients per tone */
+.tone-ink .post-art-frame {
+  background:
+    radial-gradient(90% 80% at 18% 12%, #f4f2fc 0%, transparent 55%),
+    radial-gradient(70% 70% at 88% 78%, #9890c8 0%, transparent 58%),
+    linear-gradient(165deg, #d8d0ec 0%, #8898c8 100%);
 }
-.post-art-cell-b {
-  margin-top: -1px;
-  z-index: 1;
-  max-width: calc(100% + 20px);
+.tone-field .post-art-frame {
+  background:
+    radial-gradient(85% 75% at 20% 10%, #fcfce8 0%, transparent 52%),
+    radial-gradient(75% 70% at 85% 85%, #98b868 0%, transparent 55%),
+    linear-gradient(165deg, #f0ecc0 0%, #98c888 100%);
 }
-/* frame gradients — one distinct palette per tone */
-.tone-ink .post-art-frame { background: linear-gradient(168deg, #ebe6f8 0%, #b8cce8 100%); }
-.tone-field .post-art-frame { background: linear-gradient(168deg, #f8f2c8 0%, #a8d8a0 100%); }
-.tone-slate .post-art-frame { background: linear-gradient(168deg, #e8eef4 0%, #98b0c0 100%); }
-.tone-plum .post-art-frame { background: linear-gradient(168deg, #f0e4f8 0%, #b8d0e8 100%); }
-.tone-coral .post-art-frame { background: linear-gradient(168deg, #fce8d8 0%, #d8c0e0 100%); }
-.tone-dusk .post-art-frame { background: linear-gradient(168deg, #e4e4f8 0%, #a8a8d0 100%); }
-.tone-amber .post-art-frame { background: linear-gradient(168deg, #fef4c8 0%, #c8e8b0 100%); }
-.tone-moss .post-art-frame { background: linear-gradient(168deg, #eef4d0 0%, #88c8a0 100%); }
-.tone-wine .post-art-frame { background: linear-gradient(168deg, #f8e4e8 0%, #d8a8b8 100%); }
-.tone-tide .post-art-frame { background: linear-gradient(168deg, #d8f0f8 0%, #88c8d8 100%); }
-.tone-pine .post-art-frame { background: linear-gradient(168deg, #e0f0e4 0%, #78a888 100%); }
-.tone-frost .post-art-frame { background: linear-gradient(168deg, #eef6fc 0%, #a8c8d8 100%); }
-.tone-clay .post-art-frame { background: linear-gradient(168deg, #f8ece0 0%, #d8b898 100%); }
-/* chip accents */
-.tone-ink .post-art-chip { background: var(--purple); color: #f4f2ea; }
-.tone-field .post-art-chip { background: linear-gradient(90deg, #f0e8a8 0%, #dbff71 100%); }
+.tone-slate .post-art-frame {
+  background:
+    radial-gradient(88% 78% at 15% 15%, #f4f6f8 0%, transparent 54%),
+    radial-gradient(72% 68% at 90% 80%, #7890a0 0%, transparent 56%),
+    linear-gradient(165deg, #d0dce4 0%, #7890a0 100%);
+}
+.tone-plum .post-art-frame {
+  background:
+    radial-gradient(90% 80% at 16% 10%, #f8f4fc 0%, transparent 54%),
+    radial-gradient(70% 72% at 88% 82%, #9080c0 0%, transparent 56%),
+    linear-gradient(165deg, #dcd0f0 0%, #88a0d0 100%);
+}
+.tone-coral .post-art-frame {
+  background:
+    radial-gradient(88% 78% at 18% 12%, #fff4f0 0%, transparent 52%),
+    radial-gradient(72% 70% at 86% 78%, #d89088 0%, transparent 55%),
+    linear-gradient(165deg, #f8dcd4 0%, #d0a0c0 100%);
+}
+.tone-dusk .post-art-frame {
+  background:
+    radial-gradient(92% 82% at 14% 8%, #f6f6fc 0%, transparent 52%),
+    radial-gradient(74% 72% at 90% 84%, #7888c8 0%, transparent 56%),
+    linear-gradient(165deg, #d0d0ec 0%, #8090d0 100%);
+}
+.tone-amber .post-art-frame {
+  background:
+    radial-gradient(88% 78% at 16% 10%, #fffcf0 0%, transparent 52%),
+    radial-gradient(72% 68% at 88% 82%, #c8a048 0%, transparent 54%),
+    linear-gradient(165deg, #f8ecc0 0%, #a8d080 100%);
+}
+.tone-moss .post-art-frame {
+  background:
+    radial-gradient(86% 76% at 18% 12%, #f8fcf0 0%, transparent 52%),
+    radial-gradient(70% 68% at 86% 80%, #689868 0%, transparent 54%),
+    linear-gradient(165deg, #dce8c0 0%, #78b088 100%);
+}
+.tone-wine .post-art-frame {
+  background:
+    radial-gradient(88% 78% at 16% 10%, #fcf4f6 0%, transparent 52%),
+    radial-gradient(72% 70% at 88% 82%, #b07088 0%, transparent 55%),
+    linear-gradient(165deg, #ecd0d8 0%, #c08898 100%);
+}
+.tone-tide .post-art-frame {
+  background:
+    radial-gradient(90% 80% at 14% 8%, #f0fafc 0%, transparent 52%),
+    radial-gradient(74% 72% at 90% 84%, #4898b0 0%, transparent 56%),
+    linear-gradient(165deg, #c8e8f0 0%, #68a8c0 100%);
+}
+.tone-pine .post-art-frame {
+  background:
+    radial-gradient(86% 76% at 16% 10%, #f4faf6 0%, transparent 52%),
+    radial-gradient(70% 68% at 88% 80%, #508868 0%, transparent 54%),
+    linear-gradient(165deg, #cce0d4 0%, #68a080 100%);
+}
+.tone-frost .post-art-frame {
+  background:
+    radial-gradient(90% 82% at 15% 8%, #f8fcff 0%, transparent 52%),
+    radial-gradient(72% 70% at 88% 84%, #6898b0 0%, transparent 55%),
+    linear-gradient(165deg, #dceef4 0%, #88b0c8 100%);
+}
+.tone-clay .post-art-frame {
+  background:
+    radial-gradient(88% 78% at 16% 10%, #fcf8f4 0%, transparent 52%),
+    radial-gradient(72% 68% at 88% 82%, #a88868 0%, transparent 54%),
+    linear-gradient(165deg, #ecd8c4 0%, #c0a080 100%);
+}
+/* chip — solid accent, white label */
+.tone-ink .post-art-chip { background: #4a3890; color: #fff; }
+.tone-field .post-art-chip { background: #3a4820; color: #f4f2ea; }
 .tone-slate .post-art-chip { background: #2c3844; color: #f4f2ea; }
-.tone-plum .post-art-chip { background: #7a68c8; color: #fff; }
-.tone-coral .post-art-chip { background: linear-gradient(90deg, #f8e0b0 0%, #f0b8a8 100%); }
-.tone-dusk .post-art-chip { background: #4a4088; color: #f4f2ea; }
-.tone-amber .post-art-chip { background: #e8c060; color: #2a2010; }
-.tone-moss .post-art-chip { background: #5a8848; color: #f4f2ea; }
-.tone-wine .post-art-chip { background: #884858; color: #f4f2ea; }
-.tone-tide .post-art-chip { background: #2888a0; color: #f4f2ea; }
-.tone-pine .post-art-chip { background: #387858; color: #f4f2ea; }
-.tone-frost .post-art-chip { background: #5888a0; color: #f4f2ea; }
-.tone-clay .post-art-chip { background: linear-gradient(90deg, #e8d0b0 0%, #c8a078 100%); }
-/* cell tints */
-.tone-ink .post-art-cell-a { background: rgba(255, 255, 255, .82); }
-.tone-field .post-art-cell-a { background: rgba(255, 255, 255, .78); }
-.tone-slate .post-art-cell-a { background: rgba(240, 244, 248, .92); }
-.tone-plum .post-art-cell-a { background: rgba(248, 244, 252, .9); }
-.tone-coral .post-art-cell-a { background: rgba(255, 248, 244, .9); }
-.tone-dusk .post-art-cell-a { background: rgba(244, 244, 252, .9); }
-.tone-amber .post-art-cell-a { background: rgba(255, 252, 240, .9); }
-.tone-moss .post-art-cell-a { background: rgba(248, 252, 244, .9); }
-.tone-wine .post-art-cell-a { background: rgba(252, 244, 248, .9); }
-.tone-tide .post-art-cell-a { background: rgba(244, 252, 255, .9); }
-.tone-pine .post-art-cell-a { background: rgba(244, 252, 248, .9); }
-.tone-frost .post-art-cell-a { background: rgba(248, 252, 255, .92); }
-.tone-clay .post-art-cell-a { background: rgba(252, 248, 244, .9); }
+.tone-plum .post-art-chip { background: #5a48a0; color: #fff; }
+.tone-coral .post-art-chip { background: #b85848; color: #fff; }
+.tone-dusk .post-art-chip { background: #4858b0; color: #fff; }
+.tone-amber .post-art-chip { background: #a87820; color: #fff; }
+.tone-moss .post-art-chip { background: #3a6830; color: #f4f2ea; }
+.tone-wine .post-art-chip { background: #783848; color: #fff; }
+.tone-tide .post-art-chip { background: #187890; color: #fff; }
+.tone-pine .post-art-chip { background: #285840; color: #f4f2ea; }
+.tone-frost .post-art-chip { background: #487090; color: #fff; }
+.tone-clay .post-art-chip { background: #785838; color: #fff; }
+/* mid row — pale tint */
+.tone-ink .post-art-cell-mid { background: rgba(244, 242, 252, .72); }
+.tone-field .post-art-cell-mid { background: rgba(252, 252, 236, .72); }
+.tone-slate .post-art-cell-mid { background: rgba(244, 248, 252, .75); }
+.tone-plum .post-art-cell-mid { background: rgba(248, 244, 252, .74); }
+.tone-coral .post-art-cell-mid { background: rgba(255, 248, 244, .74); }
+.tone-dusk .post-art-cell-mid { background: rgba(244, 246, 252, .76); }
+.tone-amber .post-art-cell-mid { background: rgba(255, 252, 240, .76); }
+.tone-moss .post-art-cell-mid { background: rgba(248, 252, 244, .74); }
+.tone-wine .post-art-cell-mid { background: rgba(252, 244, 248, .74); }
+.tone-tide .post-art-cell-mid { background: rgba(244, 252, 255, .76); }
+.tone-pine .post-art-cell-mid { background: rgba(244, 252, 248, .74); }
+.tone-frost .post-art-cell-mid { background: rgba(248, 252, 255, .78); }
+.tone-clay .post-art-cell-mid { background: rgba(252, 248, 244, .74); }
 
 /* header sits directly on the gradient */
 body.on-gradient { background: #fff; }
@@ -1458,10 +1533,11 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 .post-card-media {
   position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid rgba(0,0,0,.08);
 }
-.post-card-media .post-art-stack { width: min(84%, 300px); }
-.post-card-media .post-art-chip { font-size: clamp(12px, 2.8vw, 16px); padding: 10px 14px; }
-.post-card-media .post-art-cell { font-size: clamp(11px, 2.4vw, 14px); padding: 9px 12px; }
-.post-card-media .post-art-cell-a { margin-left: 10px; }
+.post-card-media .post-art-frame { padding: 12% 10%; }
+.post-card-media .post-art-stack { width: min(92%, 100%); }
+.post-card-media .post-art-chip { font-size: 8px; padding: 7px 10px; }
+.post-card-media .post-art-cell-mid { font-size: clamp(11px, 2.6vw, 13px); padding: 10px 12px; }
+.post-card-media .post-art-cell-title { font-size: clamp(13px, 3.2vw, 17px); padding: 11px 12px; }
 .post-card-body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 20px 22px 22px; min-width: 0; }
 .post-card .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; color: #85827a; }
 .post-card .meta em { font-style: normal; }
@@ -1473,9 +1549,10 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 }
 .post-card.is-featured { display: grid; grid-template-columns: 1.05fr 1fr; margin-bottom: 22px; }
 .post-card.is-featured .post-card-media { aspect-ratio: auto; min-height: 240px; height: 100%; border-bottom: 0; border-right: 1px solid rgba(0,0,0,.08); }
-.post-card.is-featured .post-card-media .post-art-stack { width: min(72%, 380px); }
-.post-card.is-featured .post-card-media .post-art-chip { font-size: clamp(16px, 2.2vw, 22px); padding: 14px 18px; }
-.post-card.is-featured .post-card-media .post-art-cell { font-size: clamp(14px, 1.8vw, 17px); padding: 12px 16px; }
+.post-card.is-featured .post-art-frame { padding: 10% 9%; }
+.post-card.is-featured .post-art-chip { font-size: 9px; padding: 9px 12px; }
+.post-card.is-featured .post-art-cell-mid { font-size: clamp(13px, 1.6vw, 16px); }
+.post-card.is-featured .post-art-cell-title { font-size: clamp(17px, 2.4vw, 24px); }
 .post-card.is-featured h3 { font-size: 30px; line-height: 1.12; }
 .post-card.is-featured p { font-size: 16px; }
 .blog-grid {
@@ -1511,9 +1588,11 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
   .post-byline { gap: 18px; margin-top: 30px; }
   .post-art { justify-content: stretch; }
   .post-art-frame.is-hero { max-width: none; }
-  .post-art-stack { width: min(86%, 320px); }
-  .post-art-chip,
-  .post-art-cell { white-space: normal; }
+  .post-art-frame { padding: 10% 8%; }
+  .post-art-stack { width: min(94%, 100%); }
+  .post-art-chip { white-space: normal; }
+  .post-art-cell-mid,
+  .post-art-cell-title { white-space: normal; }
   .post-layout {
     display: flex;
     flex-direction: column;

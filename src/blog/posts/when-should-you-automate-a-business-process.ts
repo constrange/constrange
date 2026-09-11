@@ -12,7 +12,7 @@ export const whenToAutomatePost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["Process automation", "Operations", "AI readiness", "Workflow design"],
-  art: { label: "Automate", cells: ["Work", "Tool"], tone: "moss" },
+  art: { label: "Decision guides", cells: ["When the work earns automation"], tone: "moss" },
   body: [
     p(
       "Automation has returned to board agendas with a new wardrobe: models that read, classify, summarise, and draft. The temptation is to automate whatever is slow, visible, or embarrassing in customer correspondence. That temptation produces tools that look clever in a demo and fail in the exception — which is where live work actually lives.",

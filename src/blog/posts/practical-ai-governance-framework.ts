@@ -11,7 +11,7 @@ export const aiGovernancePost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["AI governance", "Risk management", "Compliance", "Operating model"],
-  art: { label: "Governance", cells: ["Policy", "Practice"], tone: "frost" },
+  art: { label: "Decision guides", cells: ["Policy on paper vs practice in the room"], tone: "frost" },
   body: [
     p(
       "AI governance has become a document genre. Principles appear on intranets. Committees meet. Someone owns a slide that says human in the loop. Meanwhile, a team deploys a tool into a live path because the quarter needed a win, and the loop turns out to be a checkbox on a hundred items nobody reads.",

@@ -6,7 +6,7 @@ export function PostCard({ post, featured = false }: { post: Article; featured?:
   return (
     <Link className={featured ? "post-card is-featured" : "post-card"} to={`/blog/${post.slug}`}>
       <div className="post-card-media" aria-hidden="true">
-        <PostArt art={post.art} />
+        <PostArt art={post.art} title={post.title} category={post.category} />
       </div>
       <div className="post-card-body">
         <div className="meta">

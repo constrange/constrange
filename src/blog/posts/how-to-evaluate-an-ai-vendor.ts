@@ -12,7 +12,7 @@ export const evaluateAiVendorPost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["Vendor evaluation", "Procurement", "Due diligence", "AI buying"],
-  art: { label: "Vendor", cells: ["Claims", "Evidence"], tone: "dusk" },
+  art: { label: "Decision guides", cells: ["Separating vendor claims from evidence"], tone: "dusk" },
   body: [
     p(
       "Vendor selection for AI products has become a category of theatre. Every deck shows the same futures: faster service, happier customers, defensible advantage. Every demo is fluent. Every reference is 'a leading financial services firm'. The buyer's job is not to be impressed. It is to distinguish a product that fits your join from a product that will require your organisation to misdescribe itself in configuration.",

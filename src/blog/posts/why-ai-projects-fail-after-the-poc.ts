@@ -12,7 +12,7 @@ export const aiProjectsFailAfterPocPost: Article = {
   readTime: readTime(1700),
   author,
   tags: ["POC to production", "AI implementation", "Operating model", "Risk"],
-  art: { label: "After POC", cells: ["Demo", "Production"], tone: "coral" },
+  art: { label: "Decision guides", cells: ["From demo success to production failure"], tone: "coral" },
   body: [
     p(
       "The proof of concept was a success. Stakeholders saw fluent output. Someone took a screenshot. A steering group nodded. Six months later the capability is either quietly abandoned, buried inside a slide about 'lessons learned', or running in production while the people who actually do the work route around it. The failure is rarely announced. It is absorbed as extra friction, another login, or a policy nobody follows.",
