@@ -1267,57 +1267,119 @@ a.tile:hover { transform: translateY(-3px); }
   font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: .09em; text-transform: uppercase; color: var(--purple);
 }
 
-/* featured artwork */
+/* featured artwork — noisy gradient + stacked label cards */
 .post-art { display: flex; justify-content: flex-end; }
 .post-art-frame {
-  position: relative; width: 100%; max-width: 700px; aspect-ratio: 16 / 9;
-  border: 2px solid #131313;
-  box-shadow: 0 22px 50px rgba(24, 22, 12, .16);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  border: 2px solid #131313;
+  background: #e8e8e8;
 }
-.tone-ink .post-art-frame {
-  background: linear-gradient(145deg, #f4f2fb 0%, #d5cfee 48%, #9b93c4 100%);
+.post-art-frame.is-hero {
+  max-width: 700px;
+  box-shadow: 0 22px 50px rgba(24, 22, 12, .16);
 }
-.tone-field .post-art-frame {
-  background: linear-gradient(145deg, #f6f8e4 0%, #dbff71 52%, #9aaa4a 100%);
+.post-art-frame.is-card {
+  height: 100%;
+  aspect-ratio: auto;
+  border: 0;
+  box-shadow: none;
 }
-.tone-slate .post-art-frame {
-  background: linear-gradient(145deg, #eef2f5 0%, #c5d0da 50%, #7d8c9a 100%);
+.post-art-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .62;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='pg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23pg)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
 }
-.tone-plum .post-art-frame { background: linear-gradient(145deg, #f6f2fc 0%, #c8b8e8 52%, #7a68a8 100%); }
-.tone-coral .post-art-frame { background: linear-gradient(145deg, #fdf4f2 0%, #f0c0b4 52%, #c87868 100%); }
-.tone-dusk .post-art-frame { background: linear-gradient(145deg, #f2f0f8 0%, #b8acd8 50%, #6a5c98 100%); }
-.tone-amber .post-art-frame { background: linear-gradient(145deg, #fdf8ec 0%, #f0d888 52%, #c89830 100%); }
-.tone-moss .post-art-frame { background: linear-gradient(145deg, #f4f6ec 0%, #c0d898 52%, #789858 100%); }
-.tone-wine .post-art-frame { background: linear-gradient(145deg, #faf4f6 0%, #d8a8b8 50%, #985870 100%); }
-.tone-tide .post-art-frame { background: linear-gradient(145deg, #eef6f8 0%, #98d0e0 52%, #4890a0 100%); }
-.tone-pine .post-art-frame { background: linear-gradient(145deg, #f0f4f0 0%, #a8c8b0 50%, #588870 100%); }
-.tone-frost .post-art-frame { background: linear-gradient(145deg, #f6fafc 0%, #c0d8e8 52%, #7898a8 100%); }
-.tone-clay .post-art-frame { background: linear-gradient(145deg, #faf6f2 0%, #d8c0a8 50%, #987858 100%); }
-.post-art-comp { position: absolute; left: 20%; top: 30%; display: inline-flex; flex-direction: column; align-items: flex-start; max-width: calc(100% - 24px); }
+.post-art-stack {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: min(78%, 420px);
+}
+.post-art-chip,
+.post-art-cell {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 14px 20px;
+  border: 1.5px solid #131313;
+  font-family: 'Inter Variable', Inter, sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  color: #131313;
+}
 .post-art-chip {
-  padding: 20px 24px; min-width: 196px;
-  color: #fff; font-size: 30px; font-weight: 500; letter-spacing: -.02em; line-height: 1.05;
+  font-size: clamp(15px, 2.4vw, 24px);
+  z-index: 3;
 }
-.tone-ink .post-art-chip { background: var(--purple); }
-.tone-field .post-art-chip { background: #171717; }
-.tone-slate .post-art-chip { background: #2c3844; }
-.tone-plum .post-art-chip { background: #4a3080; }
-.tone-coral .post-art-chip { background: #a84838; }
-.tone-dusk .post-art-chip { background: #3d3568; }
-.tone-amber .post-art-chip { background: #886018; }
-.tone-moss .post-art-chip { background: #3d5828; }
-.tone-wine .post-art-chip { background: #582838; }
-.tone-tide .post-art-chip { background: #185868; }
-.tone-pine .post-art-chip { background: #285840; }
-.tone-frost .post-art-chip { background: #385868; }
-.tone-clay .post-art-chip { background: #584028; }
-.post-art-cells { display: flex; }
-.post-art-cells span {
-  padding: 15px 19px; border: 1px solid #131313; background: transparent;
-  font-size: 17px; color: #17150f; white-space: nowrap;
+.post-art-cell {
+  font-size: clamp(13px, 2vw, 18px);
+  background: #fff;
 }
-.post-art-cells span + span { border-left: 0; }
+.post-art-cell-a {
+  margin: -1px 0 0 14px;
+  z-index: 2;
+  background: rgba(255, 255, 255, .88);
+}
+.post-art-cell-b {
+  margin-top: -1px;
+  z-index: 1;
+  max-width: calc(100% + 20px);
+}
+/* frame gradients — one distinct palette per tone */
+.tone-ink .post-art-frame { background: linear-gradient(168deg, #ebe6f8 0%, #b8cce8 100%); }
+.tone-field .post-art-frame { background: linear-gradient(168deg, #f8f2c8 0%, #a8d8a0 100%); }
+.tone-slate .post-art-frame { background: linear-gradient(168deg, #e8eef4 0%, #98b0c0 100%); }
+.tone-plum .post-art-frame { background: linear-gradient(168deg, #f0e4f8 0%, #b8d0e8 100%); }
+.tone-coral .post-art-frame { background: linear-gradient(168deg, #fce8d8 0%, #d8c0e0 100%); }
+.tone-dusk .post-art-frame { background: linear-gradient(168deg, #e4e4f8 0%, #a8a8d0 100%); }
+.tone-amber .post-art-frame { background: linear-gradient(168deg, #fef4c8 0%, #c8e8b0 100%); }
+.tone-moss .post-art-frame { background: linear-gradient(168deg, #eef4d0 0%, #88c8a0 100%); }
+.tone-wine .post-art-frame { background: linear-gradient(168deg, #f8e4e8 0%, #d8a8b8 100%); }
+.tone-tide .post-art-frame { background: linear-gradient(168deg, #d8f0f8 0%, #88c8d8 100%); }
+.tone-pine .post-art-frame { background: linear-gradient(168deg, #e0f0e4 0%, #78a888 100%); }
+.tone-frost .post-art-frame { background: linear-gradient(168deg, #eef6fc 0%, #a8c8d8 100%); }
+.tone-clay .post-art-frame { background: linear-gradient(168deg, #f8ece0 0%, #d8b898 100%); }
+/* chip accents */
+.tone-ink .post-art-chip { background: var(--purple); color: #f4f2ea; }
+.tone-field .post-art-chip { background: linear-gradient(90deg, #f0e8a8 0%, #dbff71 100%); }
+.tone-slate .post-art-chip { background: #2c3844; color: #f4f2ea; }
+.tone-plum .post-art-chip { background: #7a68c8; color: #fff; }
+.tone-coral .post-art-chip { background: linear-gradient(90deg, #f8e0b0 0%, #f0b8a8 100%); }
+.tone-dusk .post-art-chip { background: #4a4088; color: #f4f2ea; }
+.tone-amber .post-art-chip { background: #e8c060; color: #2a2010; }
+.tone-moss .post-art-chip { background: #5a8848; color: #f4f2ea; }
+.tone-wine .post-art-chip { background: #884858; color: #f4f2ea; }
+.tone-tide .post-art-chip { background: #2888a0; color: #f4f2ea; }
+.tone-pine .post-art-chip { background: #387858; color: #f4f2ea; }
+.tone-frost .post-art-chip { background: #5888a0; color: #f4f2ea; }
+.tone-clay .post-art-chip { background: linear-gradient(90deg, #e8d0b0 0%, #c8a078 100%); }
+/* cell tints */
+.tone-ink .post-art-cell-a { background: rgba(255, 255, 255, .82); }
+.tone-field .post-art-cell-a { background: rgba(255, 255, 255, .78); }
+.tone-slate .post-art-cell-a { background: rgba(240, 244, 248, .92); }
+.tone-plum .post-art-cell-a { background: rgba(248, 244, 252, .9); }
+.tone-coral .post-art-cell-a { background: rgba(255, 248, 244, .9); }
+.tone-dusk .post-art-cell-a { background: rgba(244, 244, 252, .9); }
+.tone-amber .post-art-cell-a { background: rgba(255, 252, 240, .9); }
+.tone-moss .post-art-cell-a { background: rgba(248, 252, 244, .9); }
+.tone-wine .post-art-cell-a { background: rgba(252, 244, 248, .9); }
+.tone-tide .post-art-cell-a { background: rgba(244, 252, 255, .9); }
+.tone-pine .post-art-cell-a { background: rgba(244, 252, 248, .9); }
+.tone-frost .post-art-cell-a { background: rgba(248, 252, 255, .92); }
+.tone-clay .post-art-cell-a { background: rgba(252, 248, 244, .9); }
 
 /* header sits directly on the gradient */
 body.on-gradient { background: #fff; }
@@ -1396,26 +1458,10 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 .post-card-media {
   position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid rgba(0,0,0,.08);
 }
-.post-card-media.tone-ink {
-  background: linear-gradient(145deg, #f4f2fb 0%, #d5cfee 48%, #9b93c4 100%);
-}
-.post-card-media.tone-field {
-  background: linear-gradient(145deg, #f6f8e4 0%, #dbff71 52%, #9aaa4a 100%);
-}
-.post-card-media.tone-slate {
-  background: linear-gradient(145deg, #eef2f5 0%, #c5d0da 50%, #7d8c9a 100%);
-}
-.post-card-media.tone-plum { background: linear-gradient(145deg, #f6f2fc 0%, #c8b8e8 52%, #7a68a8 100%); }
-.post-card-media.tone-coral { background: linear-gradient(145deg, #fdf4f2 0%, #f0c0b4 52%, #c87868 100%); }
-.post-card-media.tone-dusk { background: linear-gradient(145deg, #f2f0f8 0%, #b8acd8 50%, #6a5c98 100%); }
-.post-card-media.tone-amber { background: linear-gradient(145deg, #fdf8ec 0%, #f0d888 52%, #c89830 100%); }
-.post-card-media.tone-moss { background: linear-gradient(145deg, #f4f6ec 0%, #c0d898 52%, #789858 100%); }
-.post-card-media.tone-wine { background: linear-gradient(145deg, #faf4f6 0%, #d8a8b8 50%, #985870 100%); }
-.post-card-media.tone-tide { background: linear-gradient(145deg, #eef6f8 0%, #98d0e0 52%, #4890a0 100%); }
-.post-card-media.tone-pine { background: linear-gradient(145deg, #f0f4f0 0%, #a8c8b0 50%, #588870 100%); }
-.post-card-media.tone-frost { background: linear-gradient(145deg, #f6fafc 0%, #c0d8e8 52%, #7898a8 100%); }
-.post-card-media.tone-clay { background: linear-gradient(145deg, #faf6f2 0%, #d8c0a8 50%, #987858 100%); }
-.post-card-media .post-art-comp { left: 10%; top: 22%; transform: scale(.62); transform-origin: top left; }
+.post-card-media .post-art-stack { width: min(84%, 300px); }
+.post-card-media .post-art-chip { font-size: clamp(12px, 2.8vw, 16px); padding: 10px 14px; }
+.post-card-media .post-art-cell { font-size: clamp(11px, 2.4vw, 14px); padding: 9px 12px; }
+.post-card-media .post-art-cell-a { margin-left: 10px; }
 .post-card-body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 20px 22px 22px; min-width: 0; }
 .post-card .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; color: #85827a; }
 .post-card .meta em { font-style: normal; }
@@ -1427,7 +1473,9 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 }
 .post-card.is-featured { display: grid; grid-template-columns: 1.05fr 1fr; margin-bottom: 22px; }
 .post-card.is-featured .post-card-media { aspect-ratio: auto; min-height: 240px; height: 100%; border-bottom: 0; border-right: 1px solid rgba(0,0,0,.08); }
-.post-card.is-featured .post-card-media .post-art-comp { left: 14%; top: 28%; transform: scale(.85); }
+.post-card.is-featured .post-card-media .post-art-stack { width: min(72%, 380px); }
+.post-card.is-featured .post-card-media .post-art-chip { font-size: clamp(16px, 2.2vw, 22px); padding: 14px 18px; }
+.post-card.is-featured .post-card-media .post-art-cell { font-size: clamp(14px, 1.8vw, 17px); padding: 12px 16px; }
 .post-card.is-featured h3 { font-size: 30px; line-height: 1.12; }
 .post-card.is-featured p { font-size: 16px; }
 .blog-grid {
@@ -1458,15 +1506,14 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
     min-height: 0; height: auto; aspect-ratio: 16 / 9;
     border-right: 0; border-bottom: 1px solid rgba(0,0,0,.08);
   }
-  .post-card.is-featured .post-card-media .post-art-comp { transform: scale(.7); }
   .post-card.is-featured h3 { font-size: 24px; }
   .blog-grid { grid-template-columns: 1fr; }
   .post-byline { gap: 18px; margin-top: 30px; }
   .post-art { justify-content: stretch; }
-  .post-art-frame { max-width: none; }
-  .post-art-comp { left: 8%; top: 26%; }
-  .post-art-chip { min-width: 0; padding: 14px 18px; font-size: 21px; }
-  .post-art-cells span { padding: 11px 13px; font-size: 13px; white-space: normal; }
+  .post-art-frame.is-hero { max-width: none; }
+  .post-art-stack { width: min(86%, 320px); }
+  .post-art-chip,
+  .post-art-cell { white-space: normal; }
   .post-layout {
     display: flex;
     flex-direction: column;

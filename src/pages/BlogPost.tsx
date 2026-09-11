@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { postBySlug, posts } from "@/blog-content"
+import { PostArt } from "@/components/site/PostArt"
 import { PostCard } from "@/components/site/PostCard"
 import { FaqList, Prose, ReadingProgress, TableOfContents } from "@/components/site/Prose"
 import { PageHero } from "@/components/site/Blocks"
@@ -81,15 +82,7 @@ export default function BlogPost() {
           </div>
 
           <div className="post-art" aria-hidden="true">
-            <div className="post-art-frame">
-              <div className="post-art-comp">
-                <span className="post-art-chip">{article.art.label}</span>
-                <div className="post-art-cells">
-                  <span>{article.art.cells[0]}</span>
-                  <span>{article.art.cells[1]}</span>
-                </div>
-              </div>
-            </div>
+            <PostArt art={article.art} variant="hero" />
           </div>
         </div>
       </header>

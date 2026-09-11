@@ -1,17 +1,12 @@
 import { Link } from "react-router-dom"
 import type { Article } from "@/blog-content"
+import { PostArt } from "@/components/site/PostArt"
 
 export function PostCard({ post, featured = false }: { post: Article; featured?: boolean }) {
   return (
     <Link className={featured ? "post-card is-featured" : "post-card"} to={`/blog/${post.slug}`}>
-      <div className={`post-card-media tone-${post.art.tone}`} aria-hidden="true">
-        <div className="post-art-comp">
-          <span className="post-art-chip">{post.art.label}</span>
-          <div className="post-art-cells">
-            <span>{post.art.cells[0]}</span>
-            <span>{post.art.cells[1]}</span>
-          </div>
-        </div>
+      <div className="post-card-media" aria-hidden="true">
+        <PostArt art={post.art} />
       </div>
       <div className="post-card-body">
         <div className="meta">
