@@ -1350,79 +1350,92 @@ a.tile:hover { transform: translateY(-3px); }
   letter-spacing: -.025em;
   background: #fff;
 }
-/* soft cloud gradients per tone */
+/* soft cloud gradients per tone — compound selector so cards match post hero art */
+.post-art-frame.tone-ink,
 .tone-ink .post-art-frame {
   background:
     radial-gradient(90% 80% at 18% 12%, #f4f2fc 0%, transparent 55%),
     radial-gradient(70% 70% at 88% 78%, #9890c8 0%, transparent 58%),
     linear-gradient(165deg, #d8d0ec 0%, #8898c8 100%);
 }
+.post-art-frame.tone-field,
 .tone-field .post-art-frame {
   background:
     radial-gradient(85% 75% at 20% 10%, #fcfce8 0%, transparent 52%),
     radial-gradient(75% 70% at 85% 85%, #98b868 0%, transparent 55%),
     linear-gradient(165deg, #f0ecc0 0%, #98c888 100%);
 }
+.post-art-frame.tone-slate,
 .tone-slate .post-art-frame {
   background:
     radial-gradient(88% 78% at 15% 15%, #f4f6f8 0%, transparent 54%),
     radial-gradient(72% 68% at 90% 80%, #7890a0 0%, transparent 56%),
     linear-gradient(165deg, #d0dce4 0%, #7890a0 100%);
 }
+.post-art-frame.tone-plum,
 .tone-plum .post-art-frame {
   background:
     radial-gradient(90% 80% at 16% 10%, #f8f4fc 0%, transparent 54%),
     radial-gradient(70% 72% at 88% 82%, #9080c0 0%, transparent 56%),
     linear-gradient(165deg, #dcd0f0 0%, #88a0d0 100%);
 }
+.post-art-frame.tone-coral,
 .tone-coral .post-art-frame {
   background:
     radial-gradient(88% 78% at 18% 12%, #fff4f0 0%, transparent 52%),
     radial-gradient(72% 70% at 86% 78%, #d89088 0%, transparent 55%),
     linear-gradient(165deg, #f8dcd4 0%, #d0a0c0 100%);
 }
+.post-art-frame.tone-dusk,
 .tone-dusk .post-art-frame {
   background:
     radial-gradient(92% 82% at 14% 8%, #f6f6fc 0%, transparent 52%),
     radial-gradient(74% 72% at 90% 84%, #7888c8 0%, transparent 56%),
     linear-gradient(165deg, #d0d0ec 0%, #8090d0 100%);
 }
+.post-art-frame.tone-amber,
 .tone-amber .post-art-frame {
   background:
     radial-gradient(88% 78% at 16% 10%, #fffcf0 0%, transparent 52%),
     radial-gradient(72% 68% at 88% 82%, #c8a048 0%, transparent 54%),
     linear-gradient(165deg, #f8ecc0 0%, #a8d080 100%);
 }
+.post-art-frame.tone-moss,
 .tone-moss .post-art-frame {
   background:
     radial-gradient(86% 76% at 18% 12%, #f8fcf0 0%, transparent 52%),
     radial-gradient(70% 68% at 86% 80%, #689868 0%, transparent 54%),
     linear-gradient(165deg, #dce8c0 0%, #78b088 100%);
 }
+.post-art-frame.tone-wine,
 .tone-wine .post-art-frame {
   background:
     radial-gradient(88% 78% at 16% 10%, #fcf4f6 0%, transparent 52%),
     radial-gradient(72% 70% at 88% 82%, #b07088 0%, transparent 55%),
     linear-gradient(165deg, #ecd0d8 0%, #c08898 100%);
 }
+.post-art-frame.tone-tide,
 .tone-tide .post-art-frame {
   background:
     radial-gradient(90% 80% at 14% 8%, #f0fafc 0%, transparent 52%),
     radial-gradient(74% 72% at 90% 84%, #4898b0 0%, transparent 56%),
     linear-gradient(165deg, #c8e8f0 0%, #68a8c0 100%);
 }
+.post-art-frame.tone-pine,
 .tone-pine .post-art-frame {
   background:
     radial-gradient(86% 76% at 16% 10%, #f4faf6 0%, transparent 52%),
     radial-gradient(70% 68% at 88% 80%, #508868 0%, transparent 54%),
     linear-gradient(165deg, #cce0d4 0%, #68a080 100%);
 }
+.post-art-frame.tone-frost,
 .tone-frost .post-art-frame {
   background:
     radial-gradient(90% 82% at 15% 8%, #f8fcff 0%, transparent 52%),
     radial-gradient(72% 70% at 88% 84%, #6898b0 0%, transparent 55%),
     linear-gradient(165deg, #dceef4 0%, #88b0c8 100%);
 }
+.post-art-frame.tone-clay,
 .tone-clay .post-art-frame {
   background:
     radial-gradient(88% 78% at 16% 10%, #fcf8f4 0%, transparent 52%),
@@ -1499,9 +1512,24 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 @media (min-width: 901px) {
   .toc ol { display: grid !important; }
 }
-.post-share div { display: grid; gap: 8px; }
-.post-share button { padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: pointer; font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; transition: border-color .2s, background .2s; }
-.post-share button:hover { border-color: var(--purple); background: rgba(39,22,117,.05); }
+.post-share-actions { display: grid; gap: 8px; }
+.post-share-btn {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font: 10px var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s, background .2s;
+}
+.post-share-btn:hover { border-color: var(--purple); background: rgba(39,22,117,.05); }
 
 /* ---------- prose ---------- */
 .prose { max-width: 736px; min-width: 0; overflow-wrap: break-word; }
@@ -1651,7 +1679,8 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
     background: #fff;
     border-bottom: 1px solid #e1dfd8;
   }
-  .post-share { display: none; }
+  .post-share { padding-block: 4px 10px; }
+  .post-share-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .prose h2 { margin-block: 40px 14px; font-size: 27px; }
   .prose h3 { font-size: 20px; }
   .prose p, .prose li { font-size: 16px; }

@@ -1,30 +1,24 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { Link, useParams } from "react-router-dom"
 import { postBySlug, posts } from "@/blog-content"
 import { PostArt } from "@/components/site/PostArt"
 import { PostCard } from "@/components/site/PostCard"
+import { PostShare } from "@/components/site/PostShare"
 import { FaqList, Prose, ReadingProgress, TableOfContents } from "@/components/site/Prose"
 import { PageHero } from "@/components/site/Blocks"
 import { Reveal } from "@/components/site/Layout"
-import { copyToClipboard, openShareWindow, publicPostUrl, twitterIntentUrl } from "@/share"
+import { publicPostUrl } from "@/share"
 
 export default function BlogPost() {
   const { slug } = useParams()
   const article = postBySlug(slug)
   const bodyRef = useRef<HTMLDivElement>(null)
-  const [copyLabel, setCopyLabel] = useState("Copy link")
-  const copyReset = useRef<number>(0)
 
   /* let the hero gradient show through the sticky header */
   useEffect(() => {
     document.body.classList.add("on-gradient")
     return () => document.body.classList.remove("on-gradient")
   }, [])
-
-  useEffect(() => {
-    setCopyLabel("Copy link")
-    return () => window.clearTimeout(copyReset.current)
-  }, [article?.slug])
 
   if (!article) {
     return (
@@ -40,21 +34,6 @@ export default function BlogPost() {
 
   const related = posts.filter((a) => a.slug !== article.slug).slice(0, 4)
   const shareUrl = publicPostUrl(article.slug)
-
-  const flashCopyLabel = (label: string) => {
-    window.clearTimeout(copyReset.current)
-    setCopyLabel(label)
-    copyReset.current = window.setTimeout(() => setCopyLabel("Copy link"), 1800)
-  }
-
-  const onCopyLink = async () => {
-    const ok = await copyToClipboard(shareUrl)
-    flashCopyLabel(ok ? "Copied!" : "Copy failed")
-  }
-
-  const onPost = () => {
-    openShareWindow(twitterIntentUrl(article.title, shareUrl))
-  }
 
   return (
     <article className="post">
@@ -90,17 +69,7 @@ export default function BlogPost() {
       <div className="post-layout shell" ref={bodyRef}>
         <aside className="post-aside">
           <TableOfContents blocks={article.body} />
-          <div className="post-share">
-            <h4>Share</h4>
-            <div>
-              <button type="button" onClick={onCopyLink}>
-                {copyLabel}
-              </button>
-              <button type="button" onClick={onPost}>
-                Post
-              </button>
-            </div>
-          </div>
+          <PostShare title={article.title} url={shareUrl} />
         </aside>
 
         <div className="post-body">
