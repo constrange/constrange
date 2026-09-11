@@ -97,6 +97,40 @@ export function About() {
         </div>
       </header>
 
+      <section className="about-founder" id="founder">
+        <div className="about-inner">
+          <Reveal className="about-founder-grid">
+            <figure className="about-founder-photo">
+              <img
+                src="/about/deepak-patil.jpg"
+                alt="Deepak Patil, founder of Constrange"
+                width={804}
+                height={1024}
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <div className="about-founder-copy">
+              <span className="about-kicker">Founder</span>
+              <h2>Deepak Patil</h2>
+              <div className="about-founder-body">
+                <p>I run Constrange.</p>
+                <p>
+                  Most organisations do not fail because they lack technology. They fail because they commit
+                  before the problem is clear.
+                </p>
+                <p>
+                  We fix that. We read the actual situation — systems, people, constraints — and say what to
+                  do. Build. Buy. Automate. Or leave it alone. One recommendation, with reasons you can
+                  defend.
+                </p>
+                <p>No theatre. No endless options. Just a clear call when the evidence supports it.</p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <AboutChapter
         id="name"
         n="01"
