@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="60" y="70" width="320" height="300" rx="8" fill="#fff" stroke="#c9c8c1"/>
+  <text x="220" y="100" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#8a877f" letter-spacing="1">MORE DATA</text>
+  <rect x="90" y="120" width="60" height="40" fill="#dceef4"/><rect x="160" y="130" width="60" height="50" fill="#b8dce8"/>
+  <rect x="230" y="110" width="60" height="70" fill="#68a8c0"/><rect x="300" y="125" width="60" height="55" fill="#4898b0"/>
+  <rect x="90" y="180" width="60" height="55" fill="#b8dce8"/><rect x="160" y="190" width="60" height="65" fill="#68a8c0"/>
+  <rect x="230" y="200" width="60" height="80" fill="#4898b0"/><rect x="300" y="175" width="60" height="60" fill="#dceef4"/>
+  <rect x="420" y="70" width="320" height="300" rx="8" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="580" y="100" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#271675" letter-spacing="1">SHARED PICTURE</text>
+  <text x="580" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#171717">Still contested</text>
+  <text x="580" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4c4b46">Different definitions. Different owners.</text>
+  <path d="M380 220 L420 220" stroke="#271675" stroke-width="2"/>
+  <text x="400" y="210" text-anchor="middle" font-size="18" fill="#271675">`</text>
+</svg>

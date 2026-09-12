@@ -5,11 +5,21 @@ import {
   aiGovernancePost,
   aiProjectCostPost,
   aiProjectsFailAfterPocPost,
+  aiProjectNobodyAskedForPost,
   aiReadinessPost,
+  buildBuyAdaptWalkAwayPost,
   buildBuyAutomatePost,
   buildVsBuyPost,
+  dependencyOnDiagramPost,
   evaluateAiVendorPost,
+  hiddenCostOneMoreToolPost,
   legacyReplacePost,
+  moreDataLessUnderstandingPost,
+  problemBehindProblemPost,
+  processIsTheProblemPost,
+  shadowSystemPost,
+  technologyYouDontNeedPost,
+  weShouldAndWeDidPost,
   whenToAutomatePost,
 } from "./blog/posts"
 
@@ -568,6 +578,16 @@ ELSE
 ]
 
 export const posts: Article[] = [
+  shadowSystemPost,
+  buildBuyAdaptWalkAwayPost,
+  problemBehindProblemPost,
+  moreDataLessUnderstandingPost,
+  dependencyOnDiagramPost,
+  weShouldAndWeDidPost,
+  aiProjectNobodyAskedForPost,
+  processIsTheProblemPost,
+  hiddenCostOneMoreToolPost,
+  technologyYouDontNeedPost,
   buildVsBuyPost,
   aiProjectsFailAfterPocPost,
   evaluateAiVendorPost,

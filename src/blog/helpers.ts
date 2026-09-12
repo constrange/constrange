@@ -14,6 +14,12 @@ export const cta = (title: string, text: string, label: string, to = "/contact")
   label,
   to,
 })
+export const fig = (src: string, alt: string, caption?: string): Block => ({
+  t: "figure",
+  src,
+  alt,
+  caption,
+})
 
 export const author = { name: "Constrange", role: "Practice" }
 

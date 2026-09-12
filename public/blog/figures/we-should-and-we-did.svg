@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="80" y="180" width="120" height="80" rx="6" fill="#271675"/>
+  <text x="140" y="225" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#fff">WE SHOULD</text>
+  <rect x="340" y="160" width="120" height="120" rx="6" fill="#fff" stroke="#a87820" stroke-width="2"/>
+  <text x="400" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#171717">The gap</text>
+  <text x="400" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">ownership · capacity</text>
+  <text x="400" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">unofficial paths</text>
+  <rect x="600" y="180" width="120" height="80" rx="6" fill="#f5e0a8" stroke="#271675"/>
+  <text x="660" y="225" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#271675">WE DID</text>
+  <path d="M200 220 L340 220" stroke="#271675" stroke-width="2"/>
+  <path d="M460 220 L600 220" stroke="#c9c8c1" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="400" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Strategy without a transition plan is a slide deck</text>
+</svg>

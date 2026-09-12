@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="40" y="40" width="720" height="370" rx="8" fill="#fff" stroke="#c9c8c1"/>
+  <path d="M120 320 L280 180 L440 260 L560 140 L680 220" stroke="#271675" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="280" cy="180" r="8" fill="#dbff71" stroke="#271675" stroke-width="2"/>
+  <text x="295" y="175" font-family="Georgia, serif" font-size="14" fill="#171717">Stay here</text>
+  <rect x="480" y="90" width="200" height="60" rx="4" fill="#f7f6f1" stroke="#271675" stroke-dasharray="6 4"/>
+  <text x="500" y="118" font-family="ui-monospace, monospace" font-size="11" fill="#6757a5" letter-spacing="1">NEW PLATFORM</text>
+  <text x="500" y="136" font-family="Arial, sans-serif" font-size="12" fill="#8a877f">optional path</text>
+  <line x1="120" y1="360" x2="680" y2="360" stroke="#c9c8c1"/>
+  <text x="120" y="385" font-family="ui-monospace, monospace" font-size="10" fill="#8a877f" letter-spacing="1.2">STABILITY</text>
+  <text x="400" y="385" font-family="ui-monospace, monospace" font-size="10" fill="#8a877f" letter-spacing="1.2" text-anchor="middle">DISRUPTION COST</text>
+  <text x="680" y="385" font-family="ui-monospace, monospace" font-size="10" fill="#8a877f" letter-spacing="1.2" text-anchor="end">NOVELTY</text>
+</svg>

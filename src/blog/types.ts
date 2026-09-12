@@ -9,6 +9,7 @@ export type Block =
   | { t: "cta"; title: string; text: string; label: string; to: string }
   | { t: "quote"; text: string; cite: string }
   | { t: "note"; text: string }
+  | { t: "figure"; src: string; alt: string; caption?: string }
 
 export type BlogTone =
   | "ink"

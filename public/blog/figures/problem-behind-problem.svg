@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="200" y="60" width="400" height="70" rx="4" fill="#fff" stroke="#131313" stroke-width="1.5"/>
+  <text x="400" y="100" text-anchor="middle" font-family="Arial" font-size="14" fill="#171717">Surface symptom: slow reporting</text>
+  <rect x="160" y="150" width="480" height="70" rx="4" fill="#f8f4fc" stroke="#131313" stroke-width="1.5"/>
+  <text x="400" y="190" text-anchor="middle" font-family="Arial" font-size="14" fill="#171717">Intermediate: data in three systems, no owner</text>
+  <rect x="120" y="240" width="560" height="80" rx="4" fill="#fff" stroke="#131313" stroke-width="1.5"/>
+  <text x="400" y="275" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Root: no agreed definition of "customer"</text>
+  <text x="400" y="300" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#5a48a0" letter-spacing="1">INVEST HERE FIRST</text>
+  <path d="M400 130 L400 150 M400 220 L400 240" stroke="#131313" stroke-width="1.5"/>
+</svg>

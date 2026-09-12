@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="100" y="60" width="600" height="50" rx="4" fill="#271675"/>
+  <text x="400" y="92" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#fff" letter-spacing="1.5">MARKET SIGNAL: EVERYONE IS BUILDING AI</text>
+  <rect x="180" y="150" width="440" height="200" rx="8" fill="#fff" stroke="#783848" stroke-width="2"/>
+  <text x="400" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#171717">Internal AI initiative</text>
+  <text x="400" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4c4b46">No named operational problem</text>
+  <text x="400" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4c4b46">No owner after the demo</text>
+  <rect x="240" y="280" width="320" height="40" rx="4" fill="#faf6f8" stroke="#c9c8c1"/>
+  <text x="400" y="306" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#8a877f">WHO ASKED OPERATIONS?</text>
+  <path d="M400 110 L400 150" stroke="#783848" stroke-width="2" stroke-dasharray="4 3"/>
+</svg>

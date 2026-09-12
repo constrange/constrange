@@ -104,6 +104,13 @@ export function Prose({ blocks }: { blocks: Block[] }) {
                 </Link>
               </aside>
             )
+          case "figure":
+            return (
+              <figure className="prose-figure" key={i}>
+                <img src={block.src} alt={block.alt} loading="lazy" decoding="async" />
+                {block.caption ? <figcaption>{block.caption}</figcaption> : null}
+              </figure>
+            )
           default:
             return null
         }
