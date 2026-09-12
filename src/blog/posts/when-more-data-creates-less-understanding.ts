@@ -28,7 +28,7 @@ export const moreDataLessUnderstandingPost: Article = {
       "Each system defines the customer, the product, the revenue line differently. Each dashboard chooses a grain. Each team selects a window. When numbers disagree, meetings become debates about methodology instead of decisions about action. More charts lengthen the debate.",
     ),
     fig(
-      "/blog/figures/more-data-less-understanding.svg",
+      "more-data-less-understanding.svg",
       "Chart showing increasing data volume without a shared organisational picture",
       "More data without shared definitions does not produce a single picture — it produces more versions of the truth.",
     ),

@@ -27,7 +27,7 @@ export const weShouldAndWeDidPost: Article = {
       "The gap is not empty time. It is filled with competing programmes, half-owned initiatives, and local optimisation. Each team interprets the strategy through their backlog. Urgent replaces important. The unofficial path absorbs variance because the official path was never resourced to change.",
     ),
     fig(
-      "/blog/figures/we-should-and-we-did.svg",
+      "we-should-and-we-did.svg",
       "Diagram of the gap between strategic agreement and execution",
       "Strategy without a transition plan leaves ownership, capacity, and unofficial paths unaddressed.",
     ),

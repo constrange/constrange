@@ -28,7 +28,7 @@ export const shadowSystemPost: Article = {
       "Spreadsheets with write access shared across teams. Email as workflow. Chat channels as queues. Personal databases. Printed forms. Verbal handoffs. Side integrations built by an analyst years ago. Each carries load the official stack does not.",
     ),
     fig(
-      "/blog/figures/shadow-system.svg",
+      "shadow-system.svg",
       "Official system above a dashed shadow layer of spreadsheets and inboxes",
       "The shadow layer often carries the work the official system was supposed to own.",
     ),

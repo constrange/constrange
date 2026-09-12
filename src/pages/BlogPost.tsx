@@ -40,6 +40,7 @@ export default function BlogPost() {
       <ReadingProgress target={bodyRef} />
 
       <header className={`post-hero tone-${article.art.tone}`}>
+        <span className="post-hero-grain-soft" aria-hidden />
         <div className="post-hero-inner shell">
           <div className="post-hero-copy">
             <Link className="category-pill" to="/blog">

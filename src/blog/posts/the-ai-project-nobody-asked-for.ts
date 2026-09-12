@@ -28,7 +28,7 @@ export const aiProjectNobodyAskedForPost: Article = {
       "They often start upstairs. Leadership visibility, investor questions, fear of being left behind. They descend as a mandate without a named operational pain. Teams interpret the mandate as 'build something intelligent' rather than 'remove a specific constraint'.",
     ),
     fig(
-      "/blog/figures/ai-project-nobody-asked-for.svg",
+      "ai-project-nobody-asked-for.svg",
       "Flow from market signal to internal AI initiative without operational demand",
       "Market pressure can create programmes that operations never requested and cannot sustain.",
     ),

@@ -12,6 +12,7 @@ function copySiteAssets() {
 
 export default function (eleventyConfig) {
   eleventyConfig.on("eleventy.before", async () => {
+    execSync("tsx --tsconfig tsconfig.build.json scripts/generate-blog-og.tsx", { stdio: "inherit" })
     execSync("tsx --tsconfig tsconfig.build.json scripts/prerender.tsx", { stdio: "inherit" })
     execSync("node scripts/build-assets.mjs", { stdio: "inherit" })
   })

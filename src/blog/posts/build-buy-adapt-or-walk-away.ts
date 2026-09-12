@@ -27,7 +27,7 @@ export const buildBuyAdaptWalkAwayPost: Article = {
       "Build: own the design around the work — custom software, owned integrations, explicit exception handling. Buy: adopt a product's model of the work with eyes open about fit. Adapt: change process, configuration, or ownership without a new platform. Walk away: defer, simplify, or accept risk with named conditions for reopening.",
     ),
     fig(
-      "/blog/figures/build-buy-adapt-walk-away.svg",
+      "build-buy-adapt-walk-away.svg",
       "Four columns labelled build, buy, adapt, and walk away",
       "Walking away is a legitimate outcome when the problem or capacity does not justify investment.",
     ),

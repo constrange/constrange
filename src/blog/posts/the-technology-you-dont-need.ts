@@ -35,7 +35,7 @@ export const technologyYouDontNeedPost: Article = {
           "Success metrics count go-lives, not avoided migrations.",
           "Leadership asks what we are doing about AI, not what we should stop doing."
     ]),
-    fig("/blog/figures/technology-you-dont-need.svg", "Diagram comparing stability against the cost of unnecessary technology change", "Stability is not stagnation. The lowest-cost path is often the one you are already on if the constraint sits elsewhere."),
+    fig("technology-you-dont-need.svg", "Diagram comparing stability against the cost of unnecessary technology change", "Stability is not stagnation. The lowest-cost path is often the one you are already on if the constraint sits elsewhere."),
     h2("When staying put is the honest answer"),
     p(
       "Stay when the problem is not in the system layer. If intake is broken, if definitions are contested, if two teams use the same word for different things, a new platform will encode the confusion faster. Stay when capacity is the constraint. If the organisation is already carrying three programmes, a fourth migration will not land. It will join the queue of partial rollouts.",

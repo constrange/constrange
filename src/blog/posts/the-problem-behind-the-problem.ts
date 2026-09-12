@@ -27,7 +27,7 @@ export const problemBehindProblemPost: Article = {
       "Surface symptom: what people feel day to day — slow, wrong, manual, risky. Intermediate cause: structural reasons the symptom persists — data in three places, no owner, conflicting metrics. Root constraint: what will not move this year without a political or design choice — definition of customer, decision rights, stop list.",
     ),
     fig(
-      "/blog/figures/problem-behind-problem.svg",
+      "problem-behind-problem.svg",
       "Stacked layers from surface symptom to root constraint",
       "Investment at the symptom layer repeats failure. Investment at the root layer changes what is possible.",
     ),

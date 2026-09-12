@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fafc"/>
+      <stop offset="45%" stop-color="#c8e8f0"/>
+      <stop offset="100%" stop-color="#68a8c0"/>
+    </linearGradient>
+    <pattern id="dots" width="5" height="5" patternUnits="userSpaceOnUse">
+      <circle cx="2.5" cy="2.5" r="1.05" fill="#000"/>
+    </pattern>
+    <filter id="dither" x="0" y="0">
+      <feTurbulence type="fractalNoise" baseFrequency="1.35" numOctaves="1" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="discrete" tableValues="0 0 1"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.14"/>
+  <rect width="1200" height="630" filter="url(#dither)" opacity="0.55"/>
+  <rect x="88" y="96" width="189" height="40" fill="#187890"/>
+  <text x="104" y="122" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2" fill="#fff">DECISION GUIDES</text>
+  <rect x="88" y="148" width="560" height="54" fill="rgba(255,255,255,0.74)" stroke="#131313" stroke-width="1.5"/>
+  <text x="104" y="182" font-family="Inter, Arial, sans-serif" font-size="22" fill="#131313">Hype vs operational reality</text>
+  <rect x="88" y="204" width="760" height="98" fill="#fff" stroke="#131313" stroke-width="1.5"/>
+  <text x="104" y="332" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#121212">Is your business actually ready for AI?</text>
+  <text x="88" y="562" font-family="ui-monospace, Menlo, monospace" font-size="14" letter-spacing="2" fill="#271675">CONSTRANGE</text>
+</svg>

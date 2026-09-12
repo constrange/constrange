@@ -711,6 +711,7 @@ export function resolveSeo(pathname: string): SeoRecord {
       canonical: abs(path),
       robots: INDEX,
       ogType: "article",
+      ogImage: abs(`/og/blog/${slug}.svg`),
       breadcrumbs: [
         ["Home", "/"],
         ["Blog", "/blog"],

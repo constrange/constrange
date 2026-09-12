@@ -28,7 +28,7 @@ export const dependencyOnDiagramPost: Article = {
       "People dependencies: single experts, approvers who are never in the workflow tool, managers who reconcile numbers manually. Process dependencies: tacit sequencing ('send it to Alex before finance'), exception paths that bypass controls. Data dependencies: shadow tables, exports that feed other exports, definitions that exist only in a deck from 2019.",
     ),
     fig(
-      "/blog/figures/dependency-on-diagram.svg",
+      "dependency-on-diagram.svg",
       "Architecture diagram with invisible human and spreadsheet dependencies highlighted",
       "Critical paths often run through people and unofficial tools, not through the systems on the diagram.",
     ),

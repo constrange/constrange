@@ -28,7 +28,7 @@ export const hiddenCostOneMoreToolPost: Article = {
       "The first tool fills a gap. The second overlaps the first but does one thing better. The third integrates with the second but not the first. The fourth is required because leadership wants a dashboard that none of the others provide without export. Within eighteen months, a team maintains credentials, field mappings, and exception paths across a mesh nobody designed.",
     ),
     fig(
-      "/blog/figures/hidden-cost-one-more-tool.svg",
+      "hidden-cost-one-more-tool.svg",
       "Diagram showing how adding tools increases integration debt",
       "Each new tool adds a visible licence and an invisible web of joins between systems.",
     ),

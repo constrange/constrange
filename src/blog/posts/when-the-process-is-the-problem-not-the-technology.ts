@@ -27,7 +27,7 @@ export const processIsTheProblemPost: Article = {
       "Symptoms point at software because software is visible. Screens, tickets, error messages. Process problems are social: who can say no, who must approve, what happens when the policy and the emergency disagree. Teams describe the pain as 'the system won't let us' when the truth is 'we never agreed who owns the exception'.",
     ),
     fig(
-      "/blog/figures/process-is-the-problem.svg",
+      "process-is-the-problem.svg",
       "Comparison of a broken operating model versus adding new software",
       "A new layer on a broken process often produces faster confusion, not faster work.",
     ),
