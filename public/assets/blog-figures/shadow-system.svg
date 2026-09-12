@@ -3,10 +3,10 @@
   <rect x="100" y="80" width="600" height="140" rx="8" fill="#fff" stroke="#187890" stroke-width="2"/>
   <text x="400" y="115" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#187890" letter-spacing="1.2">OFFICIAL SYSTEM</text>
   <rect x="160" y="140" width="480" height="60" rx="4" fill="#f0fafc" stroke="#c9c8c1"/>
-  <text x="400" y="175" text-anchor="middle" font-family="Arial" font-size="13" fill="#4c4b46">Approved workflow · logged · audited</text>
+  <text x="400" y="175" text-anchor="middle" font-family="Arial" font-size="13" fill="#4c4b46">Approved workflow &#183; logged &#183; audited</text>
   <rect x="140" y="260" width="520" height="130" rx="8" fill="#e8f4f8" stroke="#187890" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text x="400" y="295" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#187890" letter-spacing="1">SHADOW SYSTEM</text>
-  <text x="400" y="325" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#171717">Spreadsheet · inbox · verbal handoff</text>
+  <text x="400" y="325" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#171717">Spreadsheet &#183; inbox &#183; verbal handoff</text>
   <text x="400" y="350" text-anchor="middle" font-family="Arial" font-size="12" fill="#4c4b46">This is what actually ships the work</text>
   <path d="M400 220 L400 260" stroke="#187890" stroke-width="2" stroke-dasharray="4 3"/>
 </svg>

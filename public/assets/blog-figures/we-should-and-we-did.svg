@@ -4,7 +4,7 @@
   <text x="140" y="225" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#fff">WE SHOULD</text>
   <rect x="340" y="160" width="120" height="120" rx="6" fill="#fff" stroke="#a87820" stroke-width="2"/>
   <text x="400" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#171717">The gap</text>
-  <text x="400" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">ownership · capacity</text>
+  <text x="400" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">ownership &#183; capacity</text>
   <text x="400" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">unofficial paths</text>
   <rect x="600" y="180" width="120" height="80" rx="6" fill="#f5e0a8" stroke="#271675"/>
   <text x="660" y="225" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#271675">WE DID</text>
