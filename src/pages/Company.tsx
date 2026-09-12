@@ -67,6 +67,7 @@ export function About() {
     <article className="about">
       <header className="about-hero">
         <span className="about-hero-grain" aria-hidden />
+        <span className="about-hero-grain-2" aria-hidden />
         <span className="about-hero-wash" aria-hidden />
         <div className="about-hero-inner">
           <div className="about-hero-copy">
@@ -305,6 +306,7 @@ export function About() {
 
       <section className="about-field field-tone-indigo" id="field">
         <span className="about-field-grain" aria-hidden />
+        <span className="about-field-grain-2" aria-hidden />
         <div className="about-inner">
           <Reveal>
             <p className="about-kicker light">

@@ -631,6 +631,7 @@ export function FigurePlate({
   return (
     <figure className={`cx-plate cx-plate-${size} cx-fill-${figureTone[kind]} ${className}`.trim()}>
       <span className="cx-plate-grain" aria-hidden />
+      <span className="cx-plate-grain-2" aria-hidden />
       <div className="cx-plate-art">
         <Figure kind={kind} />
       </div>

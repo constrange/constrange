@@ -149,6 +149,7 @@ export default function Home() {
 
       <section className="stat-band" aria-labelledby="stat-band-title">
         <span className="stat-band-grain" aria-hidden />
+        <span className="stat-band-grain-2" aria-hidden />
         <div className="stat-band-inner">
           <p className="stat-kicker" id="stat-band-title">
             How the work is counted

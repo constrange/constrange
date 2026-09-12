@@ -413,6 +413,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <span className="footer-grain" aria-hidden />
+      <span className="footer-grain-2" aria-hidden />
       <div className="footer-close">
         <Reveal>
           <p className="footer-kicker">Constrange</p>

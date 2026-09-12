@@ -92,6 +92,7 @@ export function AboutPlate({
   return (
     <Reveal className={`about-plate ${className}`.trim()}>
       <span className="about-plate-grain" aria-hidden />
+      <span className="about-plate-grain-2" aria-hidden />
       {children}
       <AboutCaption refn={refn} note={note} />
     </Reveal>

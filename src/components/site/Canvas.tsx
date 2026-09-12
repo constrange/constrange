@@ -50,6 +50,7 @@ export function CanvasHero({
   return (
     <header className={`cx-hero cx-field-${figureTone[figure]} cx-hero-${align}`}>
       <span className="cx-hero-grain" aria-hidden />
+      <span className="cx-hero-grain-2" aria-hidden />
       <div className="cx-hero-inner">
         {crumbs && (
           <p className="cx-crumbs">
@@ -326,6 +327,7 @@ export function Turn({
   return (
     <section className={`cx-turn cx-field-${figureTone[tone]}`}>
       <span className="cx-hero-grain" aria-hidden />
+      <span className="cx-hero-grain-2" aria-hidden />
       <div className="cx-inner">
         <Reveal className="cx-turn-grid">
           <div>

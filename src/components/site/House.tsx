@@ -39,6 +39,7 @@ export function HouseHero({
   return (
     <header className={`about-hero house-tone-${tone} ${className}`.trim()}>
       <span className="about-hero-grain" aria-hidden />
+      <span className="about-hero-grain-2" aria-hidden />
       <span className="about-hero-wash" aria-hidden />
       <div className="about-hero-inner">
         <div className="about-hero-copy">
@@ -164,6 +165,7 @@ export function HouseField({
   return (
     <section className={`about-field field-tone-${tone}`}>
       <span className="about-field-grain" aria-hidden />
+      <span className="about-field-grain-2" aria-hidden />
       <div className="about-inner">
         <Reveal>
           <p className="about-kicker light">
