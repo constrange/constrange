@@ -16,7 +16,7 @@ export const cta = (title: string, text: string, label: string, to = "/contact")
 })
 export const fig = (file: string, alt: string, caption?: string): Block => ({
   t: "figure",
-  src: `/assets/blog-figures/${file.replace(/^\/?(assets\/blog-figures\/|blog\/figures\/)?/, "")}`,
+  src: `/assets/blog-figures/${file.replace(/^\/?(assets\/blog-figures\/|blog\/figures\/)?/, "")}?v=2`,
   alt,
   caption,
 })
