@@ -74,18 +74,13 @@ function buildOgSvg(post: (typeof posts)[number]) {
       <stop offset="45%" stop-color="${colors.a}"/>
       <stop offset="100%" stop-color="${colors.b}"/>
     </linearGradient>
-    <pattern id="dots" width="5" height="5" patternUnits="userSpaceOnUse">
-      <circle cx="2.5" cy="2.5" r="1.05" fill="#000"/>
-    </pattern>
-    <filter id="dither" x="0" y="0">
-      <feTurbulence type="fractalNoise" baseFrequency="1.35" numOctaves="1" stitchTiles="stitch"/>
+    <filter id="grain" x="0" y="0">
+      <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="3" stitchTiles="stitch"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="discrete" tableValues="0 0 1"/></feComponentTransfer>
     </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#dots)" opacity="0.14"/>
-  <rect width="1200" height="630" filter="url(#dither)" opacity="0.55"/>
+  <rect width="1200" height="630" filter="url(#grain)" opacity="0.38"/>
   <rect x="88" y="96" width="${tagWidth}" height="40" fill="${colors.chip}"/>
   <text x="104" y="122" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2" fill="#fff">${escapeXml(tag)}</text>
   <rect x="88" y="148" width="560" height="54" fill="rgba(255,255,255,0.74)" stroke="#131313" stroke-width="1.5"/>
