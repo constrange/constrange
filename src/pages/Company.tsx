@@ -106,7 +106,7 @@ export function About() {
                 <img
                   src="/about/deepak-patil.jpg"
                   alt="Deepak Patil, founder of Constrange"
-                  width={804}
+                  width={803}
                   height={1024}
                   loading="eager"
                   decoding="async"
