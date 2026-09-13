@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="60" y="160" width="100" height="80" rx="6" fill="#fff" stroke="#689878" stroke-width="1.5"/>
+  <rect x="190" y="160" width="100" height="80" rx="6" fill="#fff" stroke="#689878" stroke-width="1.5"/>
+  <rect x="320" y="160" width="100" height="80" rx="6" fill="#fff" stroke="#2d5848" stroke-width="3"/>
+  <rect x="450" y="160" width="100" height="80" rx="6" fill="#fff" stroke="#689878" stroke-width="1.5"/>
+  <rect x="580" y="160" width="100" height="80" rx="6" fill="#fff" stroke="#689878" stroke-width="1.5"/>
+  <path d="M160 200 L190 200 M290 200 L320 200 M420 200 L450 200 M550 200 L580 200" stroke="#689878" stroke-width="2"/>
+  <text x="370" y="205" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#2d5848" letter-spacing="1">BOTTLENECK</text>
+  <rect x="320" y="280" width="100" height="80" rx="6" fill="#ecf4f0" stroke="#2d5848" stroke-width="3" stroke-dasharray="4 3"/>
+  <path d="M370 240 L370 280" stroke="#2d5848" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="370" y="325" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#285840" letter-spacing="1">NEXT LIMIT</text>
+  <text x="110" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">intake</text>
+  <text x="240" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">process</text>
+  <text x="500" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">review</text>
+  <text x="630" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#4c4b46">done</text>
+  <text x="400" y="90" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Fix one constraint &#183; another appears</text>
+  <text x="400" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4c4b46">Strategy must move with the queue</text>
+</svg>

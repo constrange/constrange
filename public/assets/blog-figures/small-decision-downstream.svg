@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <circle cx="400" cy="100" r="36" fill="#fff" stroke="#587888" stroke-width="2"/>
+  <text x="400" y="96" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#487090" letter-spacing="0.8">FIELD</text>
+  <text x="400" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4c4b46">one choice</text>
+  <path d="M400 136 L280 210" stroke="#98b8c8" stroke-width="2"/>
+  <path d="M400 136 L400 210" stroke="#98b8c8" stroke-width="2"/>
+  <path d="M400 136 L520 210" stroke="#98b8c8" stroke-width="2"/>
+  <path d="M280 210 L180 310" stroke="#98b8c8" stroke-width="1.5"/>
+  <path d="M280 210 L280 310" stroke="#98b8c8" stroke-width="1.5"/>
+  <path d="M280 210 L380 310" stroke="#98b8c8" stroke-width="1.5"/>
+  <path d="M400 210 L340 310" stroke="#98b8c8" stroke-width="1.5"/>
+  <path d="M400 210 L460 310" stroke="#98b8c8" stroke-width="1.5"/>
+  <path d="M520 210 L420 310" stroke="#98b8c8" stroke-width="1.5"/>
+  <path d="M520 210 L520 310" stroke="#98b8c8" stroke-width="1.5"/>
+  <path d="M520 210 L620 310" stroke="#98b8c8" stroke-width="1.5"/>
+  <rect x="140" y="310" width="80" height="50" rx="4" fill="#f6fafc" stroke="#587888"/>
+  <rect x="240" y="310" width="80" height="50" rx="4" fill="#f6fafc" stroke="#587888"/>
+  <rect x="340" y="310" width="80" height="50" rx="4" fill="#f6fafc" stroke="#587888"/>
+  <rect x="440" y="310" width="80" height="50" rx="4" fill="#f6fafc" stroke="#587888"/>
+  <rect x="540" y="310" width="80" height="50" rx="4" fill="#f6fafc" stroke="#587888"/>
+  <rect x="640" y="310" width="80" height="50" rx="4" fill="#f6fafc" stroke="#587888"/>
+  <text x="180" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#4c4b46">API</text>
+  <text x="280" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#4c4b46">report</text>
+  <text x="380" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#4c4b46">audit</text>
+  <text x="480" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#4c4b46">partner</text>
+  <text x="580" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#4c4b46">ops sheet</text>
+  <text x="680" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#4c4b46">finance</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#171717">Small at the source &#183; load-bearing downstream</text>
+</svg>

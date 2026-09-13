@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="280" y="60" width="240" height="70" rx="6" fill="#fff" stroke="#a87820" stroke-width="2"/>
+  <text x="400" y="90" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#a87820" letter-spacing="1.2">LICENCE COST</text>
+  <text x="400" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#4c4b46">The line item on the slide</text>
+  <rect x="120" y="160" width="560" height="220" rx="8" fill="#fffcf0" stroke="#a87820" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="400" y="195" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#a87820" letter-spacing="1">OPERATING COST</text>
+  <rect x="160" y="220" width="150" height="50" rx="4" fill="#fff" stroke="#c9c8c1"/>
+  <text x="235" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#171717">Joins</text>
+  <rect x="325" y="220" width="150" height="50" rx="4" fill="#fff" stroke="#c9c8c1"/>
+  <text x="400" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#171717">Rework</text>
+  <rect x="490" y="220" width="150" height="50" rx="4" fill="#fff" stroke="#c9c8c1"/>
+  <text x="565" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#171717">Being wrong</text>
+  <text x="400" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#171717">The bill that arrives after signature</text>
+  <path d="M400 130 L400 160" stroke="#a87820" stroke-width="2" stroke-dasharray="4 3"/>
+</svg>
