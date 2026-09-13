@@ -118,19 +118,25 @@ export function About() {
               <h2>Deepak Patil</h2>
               <p className="about-founder-role">Constrange</p>
               <div className="about-founder-body">
-                <p className="about-founder-lead">I run Constrange.</p>
-                <p>
-                  Most organisations do not fail because they lack technology. They fail because they commit
-                  before the problem is clear.
+                <p className="about-founder-lead">
+                  We started Constrange around a simple belief: better decisions begin with a clear
+                  understanding of the problem.
                 </p>
                 <p>
-                  We sit with how things actually work: your systems, your people, and the limits you are
-                  under. Then we give you a straight answer. Build. Buy. Automate. Or wait. One
-                  recommendation you can defend.
+                  Technology has made it easier to build, buy and automate almost anything. It has also made
+                  it easier to move in the wrong direction faster.
                 </p>
                 <p>
-                  I am not here for long decks or ten options on a slide. I am here so you leave with a
-                  decision.
+                  We work with organisations when the answer is not obvious. We look at how the business
+                  operates, how systems and people interact, what constraints exist, and where the real
+                  trade-offs sit.
+                </p>
+                <p>Then we determine what actually makes sense.</p>
+                <p>Build. Buy. Automate. Simplify. Or wait.</p>
+                <p>The goal is not to add more technology.</p>
+                <p>
+                  It is to bring clarity to the decision, make the reasoning defensible, and give the
+                  organisation a practical path forward.
                 </p>
               </div>
             </div>
