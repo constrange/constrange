@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from "react"
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react"
 import { Link } from "react-router-dom"
 import { Reveal } from "@/components/site/Layout"
 import { FigurePlate, figureTone, type FigureKind } from "@/components/site/Figures"
@@ -84,6 +84,129 @@ export function CanvasHero({
         <FigurePlate kind={figure} keys={keys} />
       </div>
     </header>
+  )
+}
+
+const conceptChips = [
+  { label: "Constraint", x: "8%", y: "22%" },
+  { label: "The join", x: "78%", y: "18%" },
+  { label: "Shadow system", x: "14%", y: "68%" },
+  { label: "Non-goals", x: "72%", y: "62%" },
+]
+
+export function CanvasCinematicHero({
+  figure,
+  crumbs,
+  eyebrow,
+  title,
+  lede,
+  primary = { label: "Start a conversation", to: "/contact" },
+  secondary = { label: "How we work", to: "/how-we-work" },
+  keys,
+}: {
+  figure: FigureKind
+  crumbs?: [string, string][]
+  eyebrow: string
+  title: string
+  lede: string
+  primary?: Action | null
+  secondary?: Action | null
+  keys?: string[]
+}) {
+  return (
+    <header className={`cx-hero cx-hero-cinematic cx-field-${figureTone[figure]} cx-hero-center`}>
+      <span className="cx-hero-grain" aria-hidden />
+      <span className="cx-hero-grain-2" aria-hidden />
+      <span className="cx-dot-grid" aria-hidden />
+      <div className="cx-concept-chips" aria-hidden>
+        {conceptChips.map((chip) => (
+          <span
+            key={chip.label}
+            className="cx-concept-chip"
+            style={{ "--chip-x": chip.x, "--chip-y": chip.y } as CSSProperties}
+          >
+            <i aria-hidden />
+            {chip.label}
+          </span>
+        ))}
+      </div>
+      <div className="cx-hero-inner">
+        {crumbs && (
+          <p className="cx-crumbs">
+            {crumbs.map(([label, to], i) => (
+              <span key={`${i}-${to}`}>
+                {i > 0 && <i>/</i>}
+                <Link to={to}>{label}</Link>
+              </span>
+            ))}
+          </p>
+        )}
+        <span className="cx-eyebrow">{eyebrow}</span>
+        <h1 className="cx-display cx-display-sans">{title}</h1>
+        <p className="cx-lede">{lede}</p>
+        {(primary || secondary) && (
+          <div className="cx-actions">
+            {primary && (
+              <Link className="btn" to={primary.to}>
+                {primary.label}
+              </Link>
+            )}
+            {secondary && (
+              <Link className="btn btn-ghost" to={secondary.to}>
+                {secondary.label}
+              </Link>
+            )}
+          </div>
+        )}
+      </div>
+      <div className="cx-hero-figure cx-hero-figure-cinematic">
+        <FigurePlate kind={figure} keys={keys} size="full" />
+      </div>
+    </header>
+  )
+}
+
+type ExplorerItem = {
+  slug: string
+  name: string
+  short: string
+  blurb: string
+  price: string
+}
+
+export function CapabilityExplorer({ items }: { items: ExplorerItem[] }) {
+  const [active, setActive] = useState(0)
+  const current = items[active]
+  const figure = current.slug as FigureKind
+
+  return (
+    <div className="cx-explorer">
+      <div className="cx-tabs cx-tabs-scroll" role="tablist" aria-label="Capabilities">
+        {items.map((item, i) => (
+          <button
+            key={item.slug}
+            type="button"
+            role="tab"
+            className={i === active ? "on" : ""}
+            aria-selected={i === active}
+            onClick={() => setActive(i)}
+          >
+            {item.short}
+          </button>
+        ))}
+      </div>
+      <div className="cx-explorer-panel" role="tabpanel">
+        <FigurePlate kind={figure} size="full" />
+        <div className="cx-explorer-copy">
+          <span className="cx-label">{current.price}</span>
+          <h3>{current.name}</h3>
+          <p>{current.blurb}</p>
+          <Link className="arrow-link" to={`/products/${current.slug}`}>
+            Explore capability <i>→</i>
+          </Link>
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -3,8 +3,10 @@ import { Link, useParams } from "react-router-dom"
 import { LogoMarquee, PageHero } from "@/components/site/Blocks"
 import {
   Aside,
+  CanvasCinematicHero,
   CanvasHero,
   CanvasPage,
+  CapabilityExplorer,
   CxSection,
   Defs,
   FigureCard,
@@ -147,7 +149,7 @@ export function ProductsOverview() {
 
   return (
     <CanvasPage>
-      <CanvasHero
+      <CanvasCinematicHero
         figure="overview"
         crumbs={CRUMBS}
         eyebrow="What we do"
@@ -158,6 +160,15 @@ export function ProductsOverview() {
 
       <CxSection
         first
+        id="capabilities"
+        label="Capabilities"
+        title="Seven ways of contributing — held in one reading."
+        lede="The same method across strategy, systems, AI, design, implementation, transformation, and judgement. Select a capability to see how it shows up."
+      >
+        <CapabilityExplorer items={products} />
+      </CxSection>
+
+      <CxSection
         label="Problems we take on"
         title="Framed around the situation, not a catalogue of services."
         lede="Four kinds of pressure. They usually arrive together, and they are rarely solved by the tool that was first requested."
@@ -254,6 +265,15 @@ export function ProductsOverview() {
           </Reveal>
         </div>
       </CxSection>
+
+      <section className="cx-trust-strip">
+        <div className="cx-inner">
+          <p>
+            Client situations stay confidential.{" "}
+            <Link to="/security">How we handle information →</Link>
+          </p>
+        </div>
+      </section>
 
       <div className="cx-band">
         <LogoMarquee label="The pressure is rarely a missing tool" />
