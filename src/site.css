@@ -1735,6 +1735,7 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 .page-insight {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
   color: #1c1b18;
 }
 .page-insight-method {
@@ -1796,7 +1797,14 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
   transform: rotate(7deg) scale(1.08);
 }
 main.is-insight { position: relative; z-index: 1; background: transparent; }
-.page-insight .site-footer { position: relative; z-index: 1; }
+.page-insight .site-footer {
+  position: relative; z-index: 1;
+  padding-top: 0;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+.page-insight .footer-close,
+.page-insight .footer-rule { display: none; }
+.page-insight .footer-practice { padding-top: 48px; }
 .insight { position: relative; color: inherit; }
 .insight-hero, .insight-chapter, .insight-close { position: relative; z-index: 2; }
 .insight-hero {
@@ -1992,7 +2000,7 @@ main.is-insight { position: relative; z-index: 1; background: transparent; }
 .tone-navy .insight-rail p { color: #d9d5c8; }
 .tone-forest, .tone-navy, .insight-close { color: #f4f2ea; }
 
-.insight-close { padding: 48px var(--gutter) 88px; }
+.insight-close { padding: 48px var(--gutter) 96px; }
 .insight-close .insight-chapter-inner {
   background: none;
   border: 0;
