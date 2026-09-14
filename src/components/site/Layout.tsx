@@ -111,7 +111,6 @@ export function housePath(pathname: string) {
 
 export function insightVariant(pathname: string): "method" | "audience" | null {
   const path = normalizePathname(pathname)
-  if (path === "/customers") return "audience"
   if (path === "/docs" || path === "/how-we-work") return "method"
   return null
 }

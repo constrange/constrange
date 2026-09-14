@@ -267,6 +267,17 @@ export const solutions: Solution[] = [
 
 export const solutionBySlug = (slug?: string) => solutions.find((s) => s.slug === slug)
 
+export type CustomerFilter = "all" | "operations" | "service" | "technology" | "growth" | "regulated"
+
+export const customerFilters: { id: CustomerFilter; label: string }[] = [
+  { id: "all", label: "All situations" },
+  { id: "operations", label: "Operations" },
+  { id: "service", label: "Service" },
+  { id: "technology", label: "Technology" },
+  { id: "growth", label: "Growth" },
+  { id: "regulated", label: "Regulated" },
+]
+
 export const customers = [
   {
     name: "Operations",
@@ -274,6 +285,7 @@ export const customers = [
       "We knew the work was strained. We did not know whether the next system would help, or simply add another place to look.",
     metric: "",
     label: "Process under pressure",
+    filter: "operations" as CustomerFilter,
   },
   {
     name: "Product",
@@ -281,6 +293,7 @@ export const customers = [
       "Every vendor had a confident answer. None of them could see how our current landscape would actually absorb it.",
     metric: "",
     label: "Technology choice",
+    filter: "technology" as CustomerFilter,
   },
   {
     name: "Finance",
@@ -288,6 +301,7 @@ export const customers = [
       "The question was never whether AI could write a summary. It was whether we should change the process that created the work in the first place.",
     metric: "",
     label: "Investment judgement",
+    filter: "technology" as CustomerFilter,
   },
   {
     name: "Service",
@@ -295,6 +309,7 @@ export const customers = [
       "Customers were meeting three teams and two systems. The gap was not a missing chatbot. It was the join.",
     metric: "",
     label: "Customer operations",
+    filter: "service" as CustomerFilter,
   },
   {
     name: "Clinical",
@@ -302,6 +317,7 @@ export const customers = [
       "We needed a path that respected the constraints. A generic playbook would have been a liability.",
     metric: "",
     label: "High-stakes change",
+    filter: "regulated" as CustomerFilter,
   },
   {
     name: "Growth",
@@ -309,7 +325,82 @@ export const customers = [
       "We had outgrown the informal version of ourselves. The risk was buying something that would freeze the wrong habits.",
     metric: "",
     label: "Scale without clutter",
+    filter: "growth" as CustomerFilter,
   },
+]
+
+const solutionFilter: Record<string, CustomerFilter> = {
+  operations: "operations",
+  "customer-experience": "service",
+  "technology-leaders": "technology",
+  growth: "growth",
+  regulated: "regulated",
+}
+
+const solutionHeadline: Record<string, string> = {
+  operations: "When the unofficial path carries the quarter",
+  "customer-experience": "When the join is what the customer feels",
+  "technology-leaders": "When the organisation expects a technology answer",
+  growth: "When informal ways of working no longer scale",
+  regulated: "When a wrong step is expensive",
+}
+
+const solutionFigure: Record<string, string> = {
+  operations: "systems-operations",
+  "customer-experience": "solution-design",
+  "technology-leaders": "strategy",
+  growth: "transformation",
+  regulated: "judgement",
+}
+
+export const customerStories = solutions.map((s) => ({
+  slug: s.slug,
+  landscape: s.name,
+  title: solutionHeadline[s.slug] ?? s.name,
+  excerpt: s.blurb,
+  filter: solutionFilter[s.slug] ?? "operations",
+  figure: solutionFigure[s.slug] ?? "overview",
+  outcomes: [
+    { value: s.stat[0], label: s.stat[1] },
+    { value: String(s.points.length), label: "moves in the reading" },
+    { value: String(s.stack.length), label: "capabilities in the stack" },
+    { value: "1", label: "constraint named first" },
+  ],
+  featured: s.slug === "operations",
+}))
+
+export const featuredOutcomes = [
+  { value: "3", label: "weeks to a first reading" },
+  { value: "1", label: "named constraint" },
+  { value: "0", label: "default to a new platform" },
+  { value: "1", label: "owner for the join" },
+]
+
+export const customerFaqs: [string, string][] = [
+  [
+    "Do you only work in certain sectors?",
+    "No. The work is defined by the situation — overlapping systems, unclear ownership, pressure to decide — not by a sector label. We have sat with operations, finance, product, service, clinical, and growth teams. The constraint is usually structural, not industry-specific.",
+  ],
+  [
+    "We do not have a polished brief yet. Is that a problem?",
+    "That is often where the conversation starts. A brief that names the pressure honestly is enough. The first reading is designed to make the situation clearer, not to require you to have already chosen a direction.",
+  ],
+  [
+    "How is this different from hiring a systems integrator or a vendor?",
+    "We are not paid to place a stack, and we do not arrive with a default platform. The output is a reading and a path your organisation can own — whether you implement it internally, with us, or with a partner.",
+  ],
+  [
+    "When is AI or automation actually part of the answer?",
+    "When the work, the data, and the risk profile support it — and when a simpler change would not do. We run a necessity test before a pilot is funded. Many engagements end with a clearer process, not a new model.",
+  ],
+  [
+    "What does the first engagement look like?",
+    "A contained diagnostic: map how work actually moves, name the constraint, and propose a sequence small enough to run. Typically three weeks to a first reading, with one owner for the join identified before any build is discussed.",
+  ],
+  [
+    "Can you work alongside our existing teams and vendors?",
+    "Yes. The method is designed to sit inside a live landscape — existing systems, incumbent partners, internal delivery teams. The goal is coherence across them, not replacement by default.",
+  ],
 ]
 
 export const logos = [
@@ -330,6 +421,19 @@ export const logos = [
   "LEGAL",
   "PROPERTY",
 ]
+
+const wallReading: Record<string, string> = {
+  OPERATIONS: "operations",
+  PRODUCT: "technology-leaders",
+  SERVICE: "customer-experience",
+  CLINICAL: "regulated",
+  GROWTH: "growth",
+}
+
+export const customerWall = logos.map((label) => ({
+  label,
+  slug: wallReading[label],
+}))
 
 export const beginShapes: [string, string, string][] = [
   ["Discovery conversation", "understand", "Starts here"],
