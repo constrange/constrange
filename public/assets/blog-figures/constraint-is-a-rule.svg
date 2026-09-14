@@ -14,5 +14,5 @@
   <path d="M120 320 Q 260 180 400 280 T 680 300" stroke="#271675" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
   <circle cx="400" cy="280" r="6" fill="#5a48a0"/>
   <text x="400" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Both behave like physics until changed</text>
-  <text x="400" y="395" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#5a48a0" letter-spacing="1">ONE NEEDS ENGINEERING · ONE NEEDS AUTHORITY</text>
+  <text x="400" y="395" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#5a48a0" letter-spacing="1">ONE NEEDS ENGINEERING &#183; ONE NEEDS AUTHORITY</text>
 </svg>

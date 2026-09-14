@@ -4,11 +4,11 @@
   <text x="220" y="155" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#3a6830" letter-spacing="1">OFFICIAL PATH</text>
   <path d="M120 200 L320 200 M120 240 L320 240 M120 280 L280 280" stroke="#c9c8c1"/>
   <circle cx="300" cy="240" r="8" fill="#dbff71" stroke="#3a6830" stroke-width="1.5"/>
-  <text x="220" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4c4b46">Blocked · slow · wrong definition</text>
+  <text x="220" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4c4b46">Blocked &#183; slow &#183; wrong definition</text>
   <rect x="440" y="120" width="280" height="200" rx="8" fill="#f8fcf0" stroke="#3a6830" stroke-width="1.5"/>
   <text x="580" y="155" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#3a6830" letter-spacing="1">WORKAROUND</text>
   <path d="M480 200 L680 200 L620 260 L720 260" stroke="#3a6830" stroke-width="2" fill="none"/>
-  <text x="580" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#171717">Sheet · inbox · verbal handoff</text>
+  <text x="580" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#171717">Sheet &#183; inbox &#183; verbal handoff</text>
   <text x="580" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4c4b46">This is what ships Tuesday</text>
   <path d="M360 220 L440 220" stroke="#271675" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="400" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Evidence, not disobedience</text>
