@@ -12,7 +12,7 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: "strategy",
-    name: "Business & technology strategy",
+    name: "Business & Technology Strategy",
     short: "Strategy",
     blurb:
       "Where business priorities and technology decisions should actually connect — before a stack is chosen.",
@@ -35,7 +35,7 @@ export const products: Product[] = [
   },
   {
     slug: "ai-automation",
-    name: "AI & automation opportunity",
+    name: "AI & Automation Opportunity",
     short: "AI & automation",
     blurb:
       "Practical uses of AI and automation — identified against the work, not against the hype.",
@@ -58,7 +58,7 @@ export const products: Product[] = [
   },
   {
     slug: "systems-operations",
-    name: "Process & system design",
+    name: "Process & System Design",
     short: "Systems & operations",
     blurb:
       "Disconnected processes and overlapping tools, made into a way of working that people can actually follow.",
@@ -81,7 +81,7 @@ export const products: Product[] = [
   },
   {
     slug: "solution-design",
-    name: "Solution architecture",
+    name: "Solution Architecture",
     short: "Solution design",
     blurb:
       "A complex requirement turned into a structured approach: what is built, what is connected, and in what order.",
@@ -104,7 +104,7 @@ export const products: Product[] = [
   },
   {
     slug: "implementation",
-    name: "Implementation strategy",
+    name: "Implementation Strategy",
     short: "Implementation",
     blurb:
       "A practical path from a decision to work on the ground — owners, sequence, and the first moves.",
@@ -127,7 +127,7 @@ export const products: Product[] = [
   },
   {
     slug: "transformation",
-    name: "Digital transformation",
+    name: "Digital Transformation",
     short: "Transformation",
     blurb:
       "People, process, and technology improved together — not a tool rollout dressed as change.",
@@ -150,7 +150,7 @@ export const products: Product[] = [
   },
   {
     slug: "judgement",
-    name: "Context, judgement & structured problem solving",
+    name: "Context, Judgement & Structured Problem Solving",
     short: "Judgement",
     blurb:
       "A generic model can supply information. It cannot hold your systems, constraints, or the cost of a wrong turn.",

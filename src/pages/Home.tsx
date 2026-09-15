@@ -6,10 +6,10 @@ import { customers, products } from "@/site-data"
 import { posts } from "@/blog-content"
 
 const pillars = [
-  ["01", "The world is complex — more systems, more options, more decisions"],
-  ["02", "More options do not create clarity"],
-  ["03", "The real problem must be understood before a tool is chosen"],
-  ["04", "Structure, then a path that can become action"],
+  ["01", "The World Is Complex — More Systems, More Options, More Decisions"],
+  ["02", "More Options Do Not Create Clarity"],
+  ["03", "The Real Problem Must Be Understood Before A Tool Is Chosen"],
+  ["04", "Structure, Then A Path That Can Become Action"],
 ]
 
 export default function Home() {
@@ -46,8 +46,8 @@ export default function Home() {
       <section className="platform" id="platform">
         <div className="platform-intro">
           <Reveal>
-            <span className="eyebrow">What we do</span>
-            <h2 className="serif-lg">From complexity to a path you can act on.</h2>
+            <span className="eyebrow">What We Do</span>
+            <h2 className="serif-lg">From Complexity To A Path You Can Act On.</h2>
           </Reveal>
           <Reveal delay={120}>
             <ul>
@@ -84,11 +84,11 @@ export default function Home() {
           ))}
           <Link to="/products" className="explore-card">
             <div>
-              <strong className="serif-sm">See how this comes together</strong>
-              <p>Capabilities framed around problems and outcomes, not a service menu.</p>
+              <strong className="serif-sm">See How This Comes Together</strong>
+              <p>Capabilities Framed Around Problems And Outcomes, Not A Service Menu.</p>
             </div>
             <span className="arrow-link">
-              What we take on <i>→</i>
+              What We Take On <i>→</i>
             </span>
           </Link>
         </div>
