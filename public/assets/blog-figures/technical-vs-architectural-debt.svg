@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="100" y="120" width="260" height="220" rx="8" fill="#fff" stroke="#785838" stroke-width="2"/>
+  <text x="230" y="155" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#785838" letter-spacing="1">TECHNICAL DEBT</text>
+  <text x="230" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Messy code</text>
+  <text x="230" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Missing tests</text>
+  <text x="230" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Refactorable</text>
+  <rect x="440" y="120" width="260" height="220" rx="8" fill="#fcf8f4" stroke="#785838" stroke-width="2"/>
+  <text x="570" y="155" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#785838" letter-spacing="1">ARCHITECTURAL DEBT</text>
+  <text x="570" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Wrong boundaries</text>
+  <text x="570" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Shared database</text>
+  <text x="570" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Constrains the future</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Not the same problem. Not the same remedy.</text>
+</svg>

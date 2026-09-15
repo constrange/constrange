@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="340" y="170" width="120" height="70" rx="6" fill="#fff" stroke="#3a4820" stroke-width="2"/>
+  <text x="400" y="205" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#3a4820">MODEL</text>
+  <rect x="100" y="100" width="110" height="55" rx="4" fill="#fcfce8" stroke="#3a4820"/>
+  <text x="155" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3a4820">Data</text>
+  <rect x="590" y="100" width="110" height="55" rx="4" fill="#fcfce8" stroke="#3a4820"/>
+  <text x="645" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3a4820">Eval</text>
+  <rect x="100" y="280" width="110" height="55" rx="4" fill="#fcfce8" stroke="#3a4820"/>
+  <text x="155" y="312" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3a4820">Orchestration</text>
+  <rect x="590" y="280" width="110" height="55" rx="4" fill="#fcfce8" stroke="#3a4820"/>
+  <text x="645" y="312" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3a4820">Fallback</text>
+  <path d="M210 127 L340 190 M590 127 L460 190 M210 307 L340 230 M590 307 L460 230" stroke="#3a4820" stroke-width="1.5"/>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Production is everything around the model</text>
+</svg>

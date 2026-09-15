@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="100" y="120" width="260" height="220" rx="8" fill="#fff" stroke="#a87820" stroke-width="2"/>
+  <text x="230" y="155" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#a87820" letter-spacing="1">REAL-TIME</text>
+  <text x="230" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Streaming</text>
+  <text x="230" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Always on</text>
+  <text x="230" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Complex ops</text>
+  <text x="230" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#a87820">High cost</text>
+  <rect x="440" y="120" width="260" height="220" rx="8" fill="#fffcf0" stroke="#c9c8c1" stroke-width="2"/>
+  <text x="570" y="155" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#7a786f" letter-spacing="1">NEAR-TIME</text>
+  <text x="570" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Batch OK</text>
+  <text x="570" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Simpler path</text>
+  <text x="570" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Often enough</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Ask whether real-time is actually required</text>
+</svg>

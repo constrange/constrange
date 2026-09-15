@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="120" y="140" width="560" height="180" rx="8" fill="#fff" stroke="#3a6830" stroke-width="2"/>
+  <text x="400" y="175" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#3a6830" letter-spacing="1">SYSTEM</text>
+  <rect x="160" y="200" width="90" height="40" rx="4" fill="#f8fcf0" stroke="#c9c8c1"/><text x="205" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7a786f">CPU 40%</text>
+  <rect x="280" y="200" width="90" height="40" rx="4" fill="#fff8f6" stroke="#b85848" stroke-width="2"/><text x="325" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#b85848">DB lock</text>
+  <rect x="400" y="200" width="90" height="40" rx="4" fill="#f8fcf0" stroke="#c9c8c1"/><text x="445" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7a786f">Queue</text>
+  <rect x="520" y="200" width="90" height="40" rx="4" fill="#fff8f6" stroke="#b85848" stroke-width="2"/><text x="565" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#b85848">API limit</text>
+  <path d="M325 240 L325 280 L400 280" stroke="#b85848" stroke-width="2" marker-end="url(#b)"/>
+  <text x="400" y="310" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Actual bottleneck</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">CPU is not always what limits you</text>
+  <defs><marker id="b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#b85848"/></marker></defs>
+</svg>

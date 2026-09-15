@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="80" y="90" width="200" height="120" rx="6" fill="#fff" stroke="#c9c8c1"/>
+  <text x="180" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#7a786f">DASHBOARD</text>
+  <rect x="80" y="230" width="200" height="120" rx="6" fill="#fff" stroke="#c9c8c1"/>
+  <text x="180" y="270" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#7a786f">DASHBOARD</text>
+  <rect x="300" y="160" width="200" height="120" rx="6" fill="#fff" stroke="#c9c8c1"/>
+  <text x="400" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#7a786f">DASHBOARD</text>
+  <path d="M520 225 L620 225" stroke="#487090" stroke-width="2" marker-end="url(#o)"/>
+  <rect x="620" y="140" width="120" height="170" rx="6" fill="#f8fcff" stroke="#487090" stroke-width="2"/>
+  <text x="680" y="175" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#487090">TRACE</text>
+  <path d="M640 200 L720 200 M640 230 L710 230 M640 260 L700 260" stroke="#88b0c8"/>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Reconstruct causality, not decorate walls</text>
+  <defs><marker id="o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#487090"/></marker></defs>
+</svg>

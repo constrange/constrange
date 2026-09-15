@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="60" y="70" width="320" height="300" rx="8" fill="#fff" stroke="#131313" stroke-width="2"/>
+  <text x="220" y="105" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#271675" letter-spacing="1">ARCHITECTURE REVIEW</text>
+  <rect x="100" y="140" width="90" height="50" rx="4" fill="#f8f4fc" stroke="#5a48a0"/>
+  <rect x="210" y="140" width="90" height="50" rx="4" fill="#f8f4fc" stroke="#5a48a0"/>
+  <rect x="100" y="210" width="200" height="50" rx="4" fill="#f8f4fc" stroke="#5a48a0"/>
+  <path d="M145 165 L210 165 M255 165 L255 210 L200 210" stroke="#271675" stroke-width="1.5"/>
+  <text x="220" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Internally consistent</text>
+  <rect x="420" y="70" width="320" height="300" rx="8" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="580" y="105" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848" letter-spacing="1">PRODUCTION</text>
+  <path d="M460 160 L740 160 M460 200 L700 200 M460 240 L720 240 M460 280 L680 280" stroke="#e8c8c0"/>
+  <circle cx="500" cy="200" r="7" fill="#b85848"/>
+  <circle cx="560" cy="240" r="7" fill="#b85848"/>
+  <circle cx="620" cy="280" r="7" fill="#b85848"/>
+  <text x="580" y="330" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Cascading at the joins</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Correct on paper. Failing in operation.</text>
+</svg>

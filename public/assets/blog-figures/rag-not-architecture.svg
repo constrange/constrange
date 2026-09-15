@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="80" y="160" width="100" height="60" rx="4" fill="#fff" stroke="#783848"/><text x="130" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#783848">Ingest</text>
+  <rect x="200" y="160" width="100" height="60" rx="4" fill="#fff" stroke="#783848"/><text x="250" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#783848">Chunk</text>
+  <rect x="320" y="160" width="100" height="60" rx="4" fill="#faf6f8" stroke="#783848" stroke-width="2"/><text x="370" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#783848">Retrieve</text>
+  <rect x="440" y="160" width="100" height="60" rx="4" fill="#fff" stroke="#783848"/><text x="490" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#783848">Rank</text>
+  <rect x="560" y="160" width="100" height="60" rx="4" fill="#fff" stroke="#783848"/><text x="610" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#783848">Generate</text>
+  <path d="M180 190 L200 190 M300 190 L320 190 M420 190 L440 190 M540 190 L560 190" stroke="#783848" stroke-width="1.5"/>
+  <rect x="200" y="280" width="400" height="80" rx="6" fill="#fff" stroke="#c9c8c1" stroke-dasharray="6 4"/>
+  <text x="400" y="315" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8a877f">Permissions &#183; freshness &#183; evaluation &#183; citations</text>
+  <text x="400" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8a877f">Often missing when RAG is the whole plan</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Retrieval is one component</text>
+</svg>

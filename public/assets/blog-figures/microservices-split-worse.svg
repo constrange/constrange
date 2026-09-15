@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="80" y="100" width="280" height="250" rx="8" fill="#fff" stroke="#131313" stroke-width="2"/>
+  <text x="220" y="135" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313" letter-spacing="1">MODULAR MONOLITH</text>
+  <rect x="110" y="160" width="90" height="60" rx="4" fill="#f6f6fc" stroke="#4858b0"/>
+  <rect x="220" y="160" width="90" height="60" rx="4" fill="#f6f6fc" stroke="#4858b0"/>
+  <rect x="110" y="240" width="200" height="60" rx="4" fill="#f6f6fc" stroke="#4858b0"/>
+  <text x="220" y="330" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Shared transaction boundary</text>
+  <rect x="440" y="100" width="280" height="250" rx="8" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="580" y="135" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848" letter-spacing="1">SPLIT TOO EARLY</text>
+  <rect x="470" y="160" width="70" height="50" rx="4" fill="#fff" stroke="#c9c8c1"/>
+  <rect x="555" y="160" width="70" height="50" rx="4" fill="#fff" stroke="#c9c8c1"/>
+  <rect x="640" y="160" width="70" height="50" rx="4" fill="#fff" stroke="#c9c8c1"/>
+  <path d="M505 210 L505 250 L640 250 L640 210" stroke="#b85848" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="580" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#783848">Network between what was one decision</text>
+  <text x="400" y="400" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Splitting is not always simplifying</text>
+</svg>
