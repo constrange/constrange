@@ -16,6 +16,7 @@
   --line: #c9c8c1;
   --mono: ui-monospace, SFMono-Regular, Menlo, "Roboto Mono", monospace;
   --serif: Georgia, "Times New Roman", serif;
+  --display: "Hedvig Letters Serif", Georgia, "Times New Roman", serif;
   --shell: 1144px;
   --gutter: max(24px, calc((100vw - var(--shell)) / 2));
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -98,6 +99,26 @@ img, svg { display: block; max-width: 100%; }
 .serif-lg { font: 400 55px/1.03 var(--serif); letter-spacing: -.035em; margin: 0; }
 .serif-md { font: 400 34px/1.08 var(--serif); letter-spacing: -.02em; margin: 0; }
 .serif-sm { font: 400 24px/1.15 var(--serif); letter-spacing: -.01em; margin: 0; }
+
+/* page display headings — Hedvig Letters Serif */
+.serif-xl,
+.serif-lg,
+.serif-md,
+.cx-display,
+.cx-h2,
+.cx-turn-title,
+.insight-title,
+.insight-chapter h2,
+.insight-close h2,
+.prose h2,
+.footer-close h2,
+.about-hero h1,
+.about-founder-copy h2,
+.about-chapter h2,
+.cust-featured-title,
+.stat b {
+  font-family: var(--display);
+}
 .lede { font-size: 18px; line-height: 1.45; color: var(--ink-soft); }
 
 .btn {

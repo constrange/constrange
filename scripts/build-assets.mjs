@@ -6,9 +6,13 @@ import * as esbuild from "esbuild"
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, "..")
 const generatedAssets = path.join(root, "generated", "assets")
-const fontSource = path.join(
+const interFont = path.join(
   root,
   "node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+)
+const hedvigFont = path.join(
+  root,
+  "node_modules/@fontsource/hedvig-letters-serif/files/hedvig-letters-serif-latin-400-normal.woff2",
 )
 
 fs.mkdirSync(path.join(generatedAssets, "css"), { recursive: true })
@@ -20,7 +24,8 @@ const siteCss = [
 ].join("\n")
 fs.writeFileSync(path.join(generatedAssets, "css", "site.css"), siteCss)
 
-fs.copyFileSync(fontSource, path.join(generatedAssets, "fonts", "inter-latin-wght-normal.woff2"))
+fs.copyFileSync(interFont, path.join(generatedAssets, "fonts", "inter-latin-wght-normal.woff2"))
+fs.copyFileSync(hedvigFont, path.join(generatedAssets, "fonts", "hedvig-letters-serif-latin-400-normal.woff2"))
 
 await esbuild.build({
   entryPoints: [path.join(root, "src/hydrate.tsx")],
