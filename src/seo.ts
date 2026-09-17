@@ -36,7 +36,9 @@ const NOINDEX = "noindex, follow"
 
 function abs(path: string) {
   if (path.startsWith("http")) return path
-  return `${SITE_ORIGIN}${path === "/" ? "/" : path}`
+  const key = path.replace(/\/+$/, "") || "/"
+  if (key === "/") return `${SITE_ORIGIN}/`
+  return `${SITE_ORIGIN}${key}/`
 }
 
 function pack(page: PageSeo): SeoRecord {
@@ -745,7 +747,7 @@ export function resolveSeo(pathname: string): SeoRecord {
 export const indexablePaths = [
   ...pages.map((p) => p.path),
   ...posts.map((p) => `/blog/${p.slug}`),
-]
+].filter((path) => path !== "/docs" && path !== "/playground")
 
 function orgNode() {
   return {
@@ -817,7 +819,7 @@ export function jsonLdFor(seo: SeoRecord) {
   }
 
   if (seo.schema === "service") {
-    const slug = seo.canonical.replace(SITE_ORIGIN, "")
+    const slug = seo.canonical.replace(SITE_ORIGIN, "").replace(/\/+$/, "") || "/"
     const product = products.find((p) => `/products/${p.slug}` === slug)
     graph.push({
       "@type": "Service",

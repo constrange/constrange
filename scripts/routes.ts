@@ -39,6 +39,11 @@ export const staticRoutes = [
 
 export const notFoundRoute = "/__not-found__"
 
+/** Routes that should not appear in sitemap.xml (noindex, robots-blocked, or duplicate canonical). */
+export const sitemapExclude = new Set(["/docs", "/playground"])
+
+export const sitemapRoutes = staticRoutes.filter((route) => !sitemapExclude.has(route))
+
 export const redirectRoutes = [
   { from: "/velocity", to: "/" },
   { from: "/desk", to: "/" },

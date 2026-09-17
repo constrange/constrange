@@ -7,14 +7,22 @@ const root = path.resolve(__dirname, "..")
 const siteDir = path.join(root, "_site")
 const routesFile = path.join(root, ".build", "routes.json")
 
-const { staticRoutes, redirectRoutes, siteOrigin } = JSON.parse(fs.readFileSync(routesFile, "utf8"))
+const { staticRoutes, sitemapRoutes, redirectRoutes, siteOrigin, blogDates = {} } = JSON.parse(
+  fs.readFileSync(routesFile, "utf8"),
+)
+
+function sitemapLoc(route) {
+  return route === "/" ? `${siteOrigin}/` : `${siteOrigin}${route}/`
+}
 
 function writeSitemap() {
-  const urls = staticRoutes.map((route) => {
-    const loc = route === "/" ? `${siteOrigin}/` : `${siteOrigin}${route}`
+  const routes = sitemapRoutes ?? staticRoutes
+  const urls = routes.map((route) => {
+    const loc = sitemapLoc(route)
     const priority = route === "/" ? "1.0" : route.startsWith("/blog/") ? "0.6" : "0.8"
     const changefreq = route === "/" || route === "/blog" ? "weekly" : route.startsWith("/blog/") ? "yearly" : "monthly"
-    return `  <url><loc>${loc}</loc><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`
+    const lastmod = blogDates[route] ? `\n    <lastmod>${blogDates[route]}</lastmod>` : ""
+    return `  <url>\n    <loc>${loc}</loc>${lastmod}\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
   })
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -50,4 +58,4 @@ function writeRedirects() {
 
 writeSitemap()
 writeRedirects()
-console.log("wrote sitemap and redirects")
+console.log(`wrote sitemap (${(sitemapRoutes ?? staticRoutes).length} urls) and redirects`)

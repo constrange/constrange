@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom"
 import { BrandMark } from "@/components/site/BrandMark"
 import { BlogMega, WhatWeDoMega } from "@/components/site/NavMega"
 import { Seo } from "@/components/site/Seo"
-import { normalizePathname } from "@/pathname"
+import { normalizePathname, routeKey } from "@/pathname"
 import { solutions } from "@/site-data"
 
 /* ---------------- scroll reveal ---------------- */
@@ -99,7 +99,7 @@ const resourceLinks = [
 ]
 
 export function housePath(pathname: string) {
-  const path = normalizePathname(pathname)
+  const path = routeKey(pathname)
   if (path === "/about") return true
   if (path === "/research" || path === "/understand" || path === "/structure" || path === "/priorities") return true
   if (path === "/languages" || path === "/status" || path === "/enterprise") return true
@@ -110,7 +110,7 @@ export function housePath(pathname: string) {
 }
 
 export function insightVariant(pathname: string): "method" | "audience" | null {
-  const path = normalizePathname(pathname)
+  const path = routeKey(pathname)
   if (path === "/docs" || path === "/how-we-work") return "method"
   return null
 }
@@ -121,6 +121,7 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
   const [stuck, setStuck] = useState(false)
   const location = useLocation()
   const pathname = normalizePathname(location.pathname)
+  const path = routeKey(location.pathname)
   const hideTimer = useRef(0)
   const pinned = useRef(false)
 
@@ -195,17 +196,14 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
     }
   }, [open])
 
-  const practiceOpen =
-    pathname.startsWith("/products") ||
-    pathname === "/features" ||
-    pathname === "/pricing"
+  const practiceOpen = path.startsWith("/products") || path === "/features" || path === "/pricing"
   const writingOpen =
-    pathname.startsWith("/blog") ||
-    pathname === "/research" ||
-    pathname === "/newsroom" ||
-    pathname === "/understand" ||
-    pathname === "/structure" ||
-    pathname === "/priorities"
+    path.startsWith("/blog") ||
+    path === "/research" ||
+    path === "/newsroom" ||
+    path === "/understand" ||
+    path === "/structure" ||
+    path === "/priorities"
 
   return (
     <>
@@ -230,7 +228,7 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
 
           <NavLink to="/how-we-work"
             className={({ isActive }) =>
-              isActive || pathname === "/docs" ? "nav-link active" : "nav-link"
+              isActive || path === "/docs" ? "nav-link active" : "nav-link"
             }
             onMouseEnter={() => hide(true)}
           >

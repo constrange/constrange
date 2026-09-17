@@ -6,7 +6,8 @@ import { StrictMode } from "react"
 import { StaticRouter } from "react-router-dom/server"
 import { AppRoutes } from "../src/AppRoutes.tsx"
 import { DEFAULT_OG, jsonLdFor, resolveSeo, SITE_NAME } from "../src/seo.ts"
-import { notFoundRoute, redirectRoutes, staticRoutes } from "./routes.ts"
+import { posts } from "../src/blog-content.ts"
+import { notFoundRoute, redirectRoutes, sitemapRoutes, staticRoutes } from "./routes.ts"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, "..")
@@ -110,7 +111,13 @@ fs.writeFileSync(path.join(generated, "404.html"), notFoundHtml)
 
 console.log(`prerendered ${staticRoutes.length + 1} pages`)
 
+const blogDates = Object.fromEntries(posts.map((post) => [`/blog/${post.slug}`, post.dateIso]))
+
 fs.writeFileSync(
   path.join(root, ".build", "routes.json"),
-  JSON.stringify({ staticRoutes, redirectRoutes, siteOrigin: "https://constrange.com" }, null, 2),
+  JSON.stringify(
+    { staticRoutes, sitemapRoutes, redirectRoutes, siteOrigin: "https://constrange.com", blogDates },
+    null,
+    2,
+  ),
 )
