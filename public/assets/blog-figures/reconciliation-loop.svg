@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <circle cx="400" cy="225" r="140" fill="none" stroke="#4a3890" stroke-width="2"/>
+  <text x="400" y="115" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#4a3890" letter-spacing="1">DESIRED STATE</text>
+  <text x="555" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#4a3890" letter-spacing="1">OBSERVE</text>
+  <text x="520" y="320" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#4a3890" letter-spacing="1">DIFF</text>
+  <text x="280" y="320" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#4a3890" letter-spacing="1">ACT</text>
+  <text x="245" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#4a3890" letter-spacing="1">VERIFY</text>
+  <rect x="340" y="200" width="120" height="50" rx="6" fill="#fff" stroke="#4a3890" stroke-width="2"/>
+  <text x="400" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#171717">Loop</text>
+  <path d="M400 365 L400 395" stroke="#783848" stroke-width="2"/>
+  <rect x="310" y="395" width="180" height="36" rx="6" fill="#fff8f6" stroke="#783848" stroke-width="1.5"/>
+  <text x="400" y="418" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#783848">Escalate when ambiguous</text>
+  <text x="400" y="55" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Continuous correction, not one-time deploy</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="300" y="60" width="200" height="60" rx="8" fill="#fff" stroke="#4858b0" stroke-width="2"/>
+  <text x="400" y="95" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#4858b0" letter-spacing="1">DESIRED STATE</text>
+  <rect x="120" y="180" width="140" height="50" rx="6" fill="#fff" stroke="#4858b0" stroke-width="2"/>
+  <text x="190" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Terraform</text>
+  <rect x="330" y="180" width="140" height="50" rx="6" fill="#fff" stroke="#4858b0" stroke-width="2"/>
+  <text x="400" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Console edit</text>
+  <rect x="540" y="180" width="140" height="50" rx="6" fill="#fff" stroke="#4858b0" stroke-width="2"/>
+  <text x="610" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Controller</text>
+  <path d="M190 180 L340 120" stroke="#4858b0" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <path d="M400 180 L400 120" stroke="#4858b0" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <path d="M610 180 L460 120" stroke="#4858b0" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="250" y="300" width="300" height="70" rx="8" fill="#f6f6fc" stroke="#783848" stroke-width="2"/>
+  <text x="400" y="330" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Who is allowed to define truth?</text>
+  <text x="400" y="355" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Drift is competing controllers, not bad tools</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">State management beats blame</text>
+</svg>

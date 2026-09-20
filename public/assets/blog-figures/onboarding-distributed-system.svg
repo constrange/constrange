@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="80" y="160" width="100" height="50" rx="6" fill="#fff" stroke="#187890" stroke-width="2"/>
+  <text x="130" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#187890">CUSTOMER</text>
+  <rect x="200" y="160" width="80" height="50" rx="6" fill="#fff" stroke="#187890" stroke-width="2"/>
+  <text x="240" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#187890">OAUTH</text>
+  <rect x="300" y="160" width="90" height="50" rx="6" fill="#fff" stroke="#187890" stroke-width="2"/>
+  <text x="345" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#187890">WEBHOOK</text>
+  <rect x="410" y="160" width="80" height="50" rx="6" fill="#fff" stroke="#187890" stroke-width="2"/>
+  <text x="450" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#187890">QUEUE</text>
+  <rect x="510" y="160" width="80" height="50" rx="6" fill="#fff" stroke="#187890" stroke-width="2"/>
+  <text x="550" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#187890">WORKER</text>
+  <rect x="610" y="160" width="90" height="50" rx="6" fill="#fff" stroke="#187890" stroke-width="2"/>
+  <text x="655" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#187890">SAAS</text>
+  <path d="M180 185 L200 185" stroke="#187890" stroke-width="2"/>
+  <path d="M280 185 L300 185" stroke="#187890" stroke-width="2"/>
+  <path d="M390 185 L410 185" stroke="#187890" stroke-width="2"/>
+  <path d="M490 185 L510 185" stroke="#187890" stroke-width="2"/>
+  <path d="M590 185 L610 185" stroke="#187890" stroke-width="2"/>
+  <rect x="280" y="260" width="240" height="70" rx="8" fill="#f0fafc" stroke="#187890" stroke-width="1.5"/>
+  <text x="400" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Business calls it a workflow</text>
+  <text x="400" y="315" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Engineering should call it a distributed system</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Retries, races, and partial state are normal</text>
+</svg>

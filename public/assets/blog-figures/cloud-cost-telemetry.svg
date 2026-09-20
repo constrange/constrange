@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="120" y="170" width="120" height="60" rx="8" fill="#fff" stroke="#285840" stroke-width="2"/>
+  <text x="180" y="205" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#285840" letter-spacing="1">COST SPIKE</text>
+  <path d="M240 200 L320 200" stroke="#285840" stroke-width="2"/>
+  <polygon points="320,200 310,195 310,205" fill="#285840"/>
+  <rect x="320" y="150" width="360" height="100" rx="8" fill="#f4faf6" stroke="#285840" stroke-width="2"/>
+  <text x="500" y="185" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Retries? Concurrency? Failed jobs?</text>
+  <text x="500" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Data transfer? Memory? Runaway resource?</text>
+  <text x="500" y="235" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#783848">Correlate billing with telemetry</text>
+  <text x="400" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">FinOps as operational debugging, not accounting alone</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Cost anomalies are system signals</text>
+</svg>

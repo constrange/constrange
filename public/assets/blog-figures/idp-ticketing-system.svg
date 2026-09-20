@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="280" y="70" width="240" height="50" rx="8" fill="#fff" stroke="#3a4820" stroke-width="2"/>
+  <text x="400" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#171717">I need a production PostgreSQL</text>
+  <path d="M400 120 L400 150" stroke="#3a4820" stroke-width="2"/>
+  <rect x="100" y="150" width="110" height="40" rx="6" fill="#fff" stroke="#3a4820" stroke-width="1.5"/>
+  <text x="155" y="175" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#3a4820">IDENTITY</text>
+  <rect x="230" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#3a4820" stroke-width="1.5"/>
+  <text x="275" y="175" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#3a4820">NETWORK</text>
+  <rect x="340" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#3a4820" stroke-width="1.5"/>
+  <text x="385" y="175" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#3a4820">SECRETS</text>
+  <rect x="450" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#3a4820" stroke-width="1.5"/>
+  <text x="495" y="175" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#3a4820">DATABASE</text>
+  <rect x="560" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#3a4820" stroke-width="1.5"/>
+  <text x="605" y="175" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#3a4820">POLICY</text>
+  <rect x="670" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#3a4820" stroke-width="1.5"/>
+  <text x="715" y="175" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#3a4820">COST</text>
+  <rect x="250" y="250" width="300" height="70" rx="8" fill="#fcfce8" stroke="#783848" stroke-width="2"/>
+  <text x="400" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Self-service UI, ticket queue underneath</text>
+  <text x="400" y="305" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Platform without policy becomes another helpdesk</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Name what is infrastructure vs policy vs self-service</text>
+</svg>

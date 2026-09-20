@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="80" y="180" width="120" height="50" rx="6" fill="#fff" stroke="#3a6830" stroke-width="2"/>
+  <text x="140" y="210" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#3a6830">INPUT</text>
+  <path d="M200 205 L280 205" stroke="#3a6830" stroke-width="2"/>
+  <rect x="280" y="170" width="140" height="70" rx="8" fill="#f8fcf0" stroke="#3a6830" stroke-width="2"/>
+  <text x="350" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#3a6830">CONFIDENCE</text>
+  <text x="350" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#4c4b46">gate</text>
+  <path d="M420 185 L500 140" stroke="#3a6830" stroke-width="2"/>
+  <path d="M420 205 L500 205" stroke="#3a6830" stroke-width="2"/>
+  <path d="M420 225 L500 270" stroke="#783848" stroke-width="2"/>
+  <rect x="500" y="115" width="110" height="40" rx="6" fill="#fff" stroke="#3a6830" stroke-width="2"/>
+  <text x="555" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#3a6830">Automate</text>
+  <rect x="500" y="185" width="110" height="40" rx="6" fill="#fff" stroke="#3a6830" stroke-width="2"/>
+  <text x="555" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#3a6830">Investigate</text>
+  <rect x="500" y="255" width="110" height="40" rx="6" fill="#fff8f6" stroke="#783848" stroke-width="2"/>
+  <text x="555" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#783848">Escalate</text>
+  <text x="400" y="360" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Reliable automation knows when acting is unsafe</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Uncertainty is a first-class design input</text>
+</svg>

@@ -46,6 +46,16 @@ import {
   dataPipelinesFailureModesPost,
   technicalDebtVsArchitecturalDebtPost,
   beforeYouScaleFindLimitPost,
+  reconciliationLoopUnderratedInfrastructurePatternPost,
+  aiAgentNeedsControlPlaneNotPromptPost,
+  exactlyOnceIsUsuallyALiePost,
+  customerOnboardingIsDistributedSystemPost,
+  infrastructureDriftIsStateManagementPost,
+  blastRadiusBudgetForAutomationPost,
+  fromRunbooksToExecutableOperationsPost,
+  cloudCostIsObservabilitySignalPost,
+  idpBecomesAnotherTicketingSystemPost,
+  systemsThatKnowWhenTheyDontKnowPost,
 } from "./blog/posts"
 
 const legacyPosts: Article[] = [
@@ -603,6 +613,16 @@ ELSE
 ]
 
 export const posts: Article[] = [
+  systemsThatKnowWhenTheyDontKnowPost,
+  idpBecomesAnotherTicketingSystemPost,
+  cloudCostIsObservabilitySignalPost,
+  fromRunbooksToExecutableOperationsPost,
+  blastRadiusBudgetForAutomationPost,
+  infrastructureDriftIsStateManagementPost,
+  customerOnboardingIsDistributedSystemPost,
+  exactlyOnceIsUsuallyALiePost,
+  aiAgentNeedsControlPlaneNotPromptPost,
+  reconciliationLoopUnderratedInfrastructurePatternPost,
   nobodyOwnsHandoffPost,
   unrecordedDependencyPost,
   processDocumentedPost,

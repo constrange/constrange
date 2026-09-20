@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="120" y="80" width="560" height="300" rx="10" fill="none" stroke="#2c3844" stroke-width="2.5"/>
+  <text x="400" y="108" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#2c3844" letter-spacing="1">CONTROL PLANE</text>
+  <text x="200" y="140" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Identity</text>
+  <text x="320" y="140" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Policy</text>
+  <text x="440" y="140" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Limits</text>
+  <text x="560" y="140" font-family="Georgia, serif" font-size="12" fill="#4c4b46">Audit</text>
+  <rect x="180" y="170" width="440" height="90" rx="8" fill="#f4f6f8" stroke="#2c3844" stroke-width="2"/>
+  <text x="400" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#2c3844" letter-spacing="1">AGENT</text>
+  <text x="400" y="235" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Tools, memory, orchestration</text>
+  <rect x="240" y="280" width="320" height="70" rx="8" fill="#fff" stroke="#2c3844" stroke-width="2"/>
+  <text x="400" y="310" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#2c3844" letter-spacing="1">MODEL</text>
+  <text x="400" y="335" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Reasoning and language</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Model is not agent. Agent is not control plane.</text>
+</svg>

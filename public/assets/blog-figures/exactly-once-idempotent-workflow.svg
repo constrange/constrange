@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="60" y="180" width="90" height="50" rx="6" fill="#fff" stroke="#5a48a0" stroke-width="2"/>
+  <text x="105" y="210" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#5a48a0">WEBHOOK</text>
+  <rect x="170" y="180" width="80" height="50" rx="6" fill="#fff" stroke="#5a48a0" stroke-width="2"/>
+  <text x="210" y="210" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#5a48a0">QUEUE</text>
+  <rect x="270" y="180" width="90" height="50" rx="6" fill="#fff" stroke="#5a48a0" stroke-width="2"/>
+  <text x="315" y="210" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#5a48a0">WORKER</text>
+  <rect x="380" y="180" width="70" height="50" rx="6" fill="#fff" stroke="#5a48a0" stroke-width="2"/>
+  <text x="415" y="210" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#5a48a0">API</text>
+  <rect x="470" y="180" width="90" height="50" rx="6" fill="#fff" stroke="#5a48a0" stroke-width="2"/>
+  <text x="515" y="210" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#5a48a0">DATABASE</text>
+  <rect x="580" y="180" width="110" height="50" rx="6" fill="#fff" stroke="#5a48a0" stroke-width="2"/>
+  <text x="635" y="210" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#5a48a0">NOTIFY</text>
+  <path d="M150 205 L170 205" stroke="#5a48a0" stroke-width="2"/>
+  <path d="M250 205 L270 205" stroke="#5a48a0" stroke-width="2"/>
+  <path d="M360 205 L380 205" stroke="#5a48a0" stroke-width="2"/>
+  <path d="M450 205 L470 205" stroke="#5a48a0" stroke-width="2"/>
+  <path d="M560 205 L580 205" stroke="#5a48a0" stroke-width="2"/>
+  <text x="315" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Failure at any step duplicates or loses work</text>
+  <text x="315" y="305" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4c4b46">Idempotency keys, DLQ, reconciliation</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Exactly-once is a design, not a checkbox</text>
+</svg>
