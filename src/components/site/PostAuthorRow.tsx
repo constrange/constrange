@@ -11,21 +11,19 @@ export function PostAuthorRow({ author, category }: PostAuthorRowProps) {
 
   return (
     <div className="post-author-row">
-      <div className="post-author">
-        <img
-          className="post-author-avatar"
-          src={profile.avatar}
-          alt={profile.name}
-          width={26}
-          height={26}
-          loading="eager"
-          decoding="async"
-        />
-        <p className="post-author-meta">
-          <span className="post-author-name">{profile.name},</span>{" "}
-          <span className="post-author-role">{profile.role}</span>
-        </p>
-      </div>
+      <img
+        className="post-author-avatar"
+        src={profile.avatar}
+        alt={profile.name}
+        width={26}
+        height={26}
+        loading="eager"
+        decoding="async"
+      />
+      <p className="post-author-meta">
+        <span className="post-author-name">{profile.name},</span>{" "}
+        <span className="post-author-role">{profile.role}</span>
+      </p>
       <Link className="post-category-badge" to="/blog">
         {category}
       </Link>

@@ -1451,14 +1451,31 @@ a.tile:hover { transform: translateY(-3px); }
   font-size: 41px; line-height: 1.13; letter-spacing: -.03em; color: #121212;
 }
 .post-deck { max-width: 592px; margin: 20px 0 0; font-size: 18px; line-height: 1.5; color: #5b5854; }
-.post-byline { display: flex; align-items: center; gap: 26px; margin-top: 40px; flex-wrap: wrap; }
-.post-byline p { margin: 0; font-size: 15px; color: #5b5854; }
-.post-byline strong { font-weight: 500; color: #1d1d1d; }
-.post-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-.post-tags span {
-  padding: 8px 15px; border: 1px solid var(--purple); border-radius: 999px; background: rgba(255,255,255,.42);
-  font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: .09em; text-transform: uppercase; color: var(--purple);
+.post-author-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 28px; flex-wrap: nowrap; max-width: 592px; width: 100%;
 }
+.post-author-avatar {
+  width: 26px; height: 26px; max-width: 26px; flex-shrink: 0;
+  border-radius: 50%; object-fit: cover; object-position: center 12%;
+  background: rgba(255,255,255,.55);
+}
+.post-author-meta {
+  margin: 0; flex: 0 1 auto; min-width: 0;
+  font-size: 14px; line-height: 1; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.post-author-name { font-weight: 500; color: #1d1d1d; }
+.post-author-role { font-weight: 400; color: #8a8782; }
+.post-category-badge {
+  display: inline-flex; align-items: center; flex-shrink: 0; margin-left: auto;
+  padding: 5px 12px; border: 1px solid var(--purple); border-radius: 999px;
+  background: rgba(255,255,255,.35);
+  font: 600 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--purple); text-decoration: none;
+  transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+}
+.post-category-badge:hover { background: var(--purple); color: #fff; border-color: var(--purple); }
 
 /* featured artwork — noisy radial gradient + report-style stack */
 .post-art { display: flex; justify-content: flex-end; }
@@ -1805,7 +1822,9 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
   }
   .post-card.is-featured h3 { font-size: 24px; }
   .blog-grid { grid-template-columns: 1fr; }
-  .post-byline { gap: 18px; margin-top: 30px; }
+  .post-author-row { flex-wrap: wrap; max-width: none; margin-top: 24px; }
+  .post-author-meta { white-space: normal; }
+  .post-category-badge { margin-left: 0; }
   .post-art { justify-content: stretch; }
   .post-art-frame.is-hero { max-width: none; }
   .post-art-frame { padding: 10% 8%; }
