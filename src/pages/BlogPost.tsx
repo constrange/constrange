@@ -6,6 +6,7 @@ import { PostCard } from "@/components/site/PostCard"
 import { PostShare } from "@/components/site/PostShare"
 import { FaqList, Prose, ReadingProgress, TableOfContents } from "@/components/site/Prose"
 import { PageHero } from "@/components/site/Blocks"
+import { PostAuthorRow } from "@/components/site/PostAuthorRow"
 import { Reveal } from "@/components/site/Layout"
 import { publicPostUrl } from "@/share"
 
@@ -44,22 +45,10 @@ export default function BlogPost() {
         <span className="cx-hero-grain-2" aria-hidden />
         <div className="post-hero-inner shell">
           <div className="post-hero-copy">
-            <Link className="category-pill" to="/blog">
-              {article.category}
-            </Link>
             <time className="post-date">{article.date}</time>
             <h1 className="post-title">{article.title}</h1>
             <p className="post-deck">{article.deck}</p>
-            <div className="post-byline">
-              <p>
-                <strong>{article.author.name},</strong> <span>{article.author.role}</span>
-              </p>
-              <div className="post-tags">
-                {article.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-            </div>
+            <PostAuthorRow author={article.author} category={article.category} />
           </div>
 
           <div className="post-art" aria-hidden="true">

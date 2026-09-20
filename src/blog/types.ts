@@ -34,7 +34,7 @@ export type Article = {
   date: string
   dateIso: string
   readTime: string
-  author: { name: string; role: string }
+  author: { name: string; role: string; avatar?: string }
   tags: string[]
   art: { label: string; cells: [string, string]; tone: BlogTone }
   body: Block[]

@@ -21,7 +21,9 @@ export const fig = (file: string, alt: string, caption?: string): Block => ({
   caption,
 })
 
-export const author = { name: "Constrange", role: "Practice" }
+import { defaultAuthor } from "./authors"
+
+export const author = defaultAuthor
 
 export function readTime(words: number): string {
   const mins = Math.max(7, Math.round(words / 220))
