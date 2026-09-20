@@ -5,16 +5,18 @@ export type AuthorProfile = {
 }
 
 export const authors = {
-  constrange: {
-    name: "Constrange",
-    role: "Practice",
-    avatar: "/authors/constrange.svg",
+  deepak: {
+    name: "Deepak Patil",
+    role: "Founder",
+    avatar: "/about/deepak-patil.jpg",
   },
 } satisfies Record<string, AuthorProfile>
 
-export const defaultAuthor = authors.constrange
+export const defaultAuthor = authors.deepak
 
 export function resolveAuthor(author: { name: string; role: string; avatar?: string }): AuthorProfile {
+  if (author.name === "Constrange") return defaultAuthor
+
   const match = Object.values(authors).find((entry) => entry.name === author.name)
   return {
     name: author.name,

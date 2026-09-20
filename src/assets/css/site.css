@@ -1187,22 +1187,28 @@ a.tile:hover { transform: translateY(-3px); }
 }
 .post-deck { max-width: 592px; margin: 20px 0 0; font-size: 18px; line-height: 1.5; color: #5b5854; }
 .post-author-row {
-  display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  margin-top: 36px; flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin-top: 28px; flex-wrap: nowrap; max-width: 592px;
 }
-.post-author { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.post-author {
+  display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1 1 auto;
+}
 .post-author-avatar {
-  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-  object-fit: cover; background: rgba(255,255,255,.55);
-  border: 1px solid rgba(29,29,29,.12);
+  width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+  object-fit: cover; object-position: center 12%;
+  background: rgba(255,255,255,.55);
 }
-.post-author-meta { margin: 0; font-size: 15px; line-height: 1.35; color: #5b5854; }
-.post-author-meta strong { font-weight: 500; color: #1d1d1d; }
+.post-author-meta {
+  margin: 0; font-size: 14px; line-height: 1; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.post-author-name { font-weight: 500; color: #1d1d1d; }
+.post-author-role { font-weight: 400; color: #8a8782; }
 .post-category-badge {
   display: inline-flex; align-items: center; flex-shrink: 0;
-  padding: 7px 14px; border: 1px solid var(--purple); border-radius: 999px;
-  background: rgba(255,255,255,.42);
-  font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: .09em;
+  padding: 5px 12px; border: 1px solid var(--purple); border-radius: 999px;
+  background: rgba(255,255,255,.35);
+  font: 600 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: .1em;
   text-transform: uppercase; color: var(--purple);
   transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
 }
@@ -1372,8 +1378,8 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
   .post-card.is-featured .post-card-media .post-art-comp { transform: scale(.7); }
   .post-card.is-featured h3 { font-size: 24px; }
   .blog-grid { grid-template-columns: 1fr; }
-  .post-author-row { gap: 16px; margin-top: 28px; }
-  .post-author-avatar { width: 36px; height: 36px; }
+  .post-author-row { flex-wrap: wrap; max-width: none; margin-top: 24px; }
+  .post-author-meta { white-space: normal; }
   .post-art { justify-content: stretch; }
   .post-art-frame { max-width: none; }
   .post-art-comp { left: 8%; top: 26%; }

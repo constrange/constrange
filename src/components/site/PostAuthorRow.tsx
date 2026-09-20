@@ -15,14 +15,15 @@ export function PostAuthorRow({ author, category }: PostAuthorRowProps) {
         <img
           className="post-author-avatar"
           src={profile.avatar}
-          alt=""
-          width={40}
-          height={40}
+          alt={profile.name}
+          width={26}
+          height={26}
           loading="eager"
           decoding="async"
         />
         <p className="post-author-meta">
-          <strong>{profile.name},</strong> <span>{profile.role}</span>
+          <span className="post-author-name">{profile.name},</span>{" "}
+          <span className="post-author-role">{profile.role}</span>
         </p>
       </div>
       <Link className="post-category-badge" to="/blog">
