@@ -1,17 +1,11 @@
 import {
   UseCaseCTA,
-  UseCaseFeatures,
   UseCaseHero,
   UseCaseLogoGrid,
   UseCasePage,
   UseCaseStats,
+  UseCaseSteps,
 } from "@/components/site/UseCase"
-import {
-  ArtMethodArtefacts,
-  ArtMethodHero,
-  ArtMethodReading,
-  ArtMethodStages,
-} from "@/components/site/UseCaseArt"
 
 export default function HowWeWork() {
   return (
@@ -23,7 +17,6 @@ export default function HowWeWork() {
         lede="Constrange does not start with a platform, a model, or a programme. We start with the pressure as it actually is — then create enough structure for a decision that operations can absorb."
         primary={{ label: "Start a conversation", to: "/contact" }}
         secondary={{ label: "Who we help", to: "/customers" }}
-        visual={<ArtMethodHero />}
       />
 
       <UseCaseLogoGrid
@@ -48,39 +41,50 @@ export default function HowWeWork() {
         }}
       />
 
-      <UseCaseFeatures
+      <UseCaseSteps
         kicker="The method"
-        title="Built for every kind of complexity"
+        title="Five stages. One first move."
         lede="The same sequence applies whether the pressure is operational, strategic, or technical — because the constraint is rarely the tool that was first requested."
-        items={[
+        steps={[
           {
-            title: "Five stages before a path is settled",
+            title: "Understand",
+            body: "Work, systems, people, and constraints as they actually are — including unofficial paths.",
             bullets: [
-              "Understand the work, systems, and unofficial paths as they are",
-              "Define the problem, non-goals, and what would count as better",
-              "Hold more than one credible option long enough to compare",
-              "Structure owners, architecture, and delivery sequence",
+              "Map how work moves today, not how the diagram says it should",
+              "Surface the shadow systems keeping operations alive",
             ],
-            art: <ArtMethodStages />,
           },
           {
-            title: "Context held before judgement is useful",
+            title: "Define",
+            body: "A named problem, non-goals, and what would count as better.",
             bullets: [
-              "Map work, systems, people, time, and risk in one reading",
-              "Name the constraint that keeps reappearing across teams",
-              "Separate a fluent answer from a decision your organisation can own",
+              "Write non-goals before the next tool is discussed",
+              "Separate a fluent answer from a decision the organisation can own",
             ],
-            art: <ArtMethodReading />,
-            reverse: true,
           },
           {
-            title: "Artefacts you can challenge",
+            title: "Explore",
+            body: "More than one credible path, held long enough to compare.",
             bullets: [
-              "Problem statement with named owners for the join",
-              "Two or three credible paths with consequences spelled out",
-              "A first move small enough for the current operation to absorb",
+              "Hold two or three options without collapsing to the first plausible one",
+              "Doing less remains a valid path",
             ],
-            art: <ArtMethodArtefacts />,
+          },
+          {
+            title: "Structure",
+            body: "Architecture, owners, and sequence — the join is designed, not hoped for.",
+            bullets: [
+              "Name who owns the handoff between teams and systems",
+              "Make trade-offs explicit before a stack is selected",
+            ],
+          },
+          {
+            title: "Move",
+            body: "A first action small enough to be real, and a rhythm to review it.",
+            bullets: [
+              "One move the current operation can absorb",
+              "Artefacts you can challenge without a slide of jargon",
+            ],
           },
         ]}
       />

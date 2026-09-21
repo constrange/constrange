@@ -55,9 +55,49 @@ export function UseCaseHero({
             )}
           </div>
         </div>
-        {visual && <div className="uc-hero-visual">{visual}</div>}
+        {visual ? <div className="uc-hero-visual">{visual}</div> : null}
       </div>
     </header>
+  )
+}
+
+export function UseCaseSteps({
+  kicker,
+  title,
+  lede,
+  steps,
+}: {
+  kicker?: string
+  title: string
+  lede?: string
+  steps: { title: string; body?: string; bullets: string[] }[]
+}) {
+  return (
+    <section className="uc-steps">
+      <div className="shell">
+        <Reveal className="uc-features-head">
+          {kicker && <span className="uc-kicker">{kicker}</span>}
+          <h2 className="uc-h2">{title}</h2>
+          {lede && <p className="uc-features-lede">{lede}</p>}
+        </Reveal>
+        <div className="uc-step-list">
+          {steps.map((step, i) => (
+            <Reveal key={step.title} className="uc-step" delay={i * 50}>
+              <span className="uc-step-num">{String(i + 1).padStart(2, "0")}</span>
+              <div className="uc-step-body">
+                <h3 className="uc-step-title">{step.title}</h3>
+                {step.body && <p className="uc-step-lede">{step.body}</p>}
+                <ul className="uc-feature-bullets">
+                  {step.bullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -101,7 +141,7 @@ export type UseCaseFeature = {
   title: string
   lede?: string
   bullets: string[]
-  art: ReactNode
+  art?: ReactNode
   reverse?: boolean
 }
 
@@ -130,7 +170,7 @@ export function UseCaseFeatures({
           {items.map((item, i) => (
             <Reveal
               key={item.title}
-              className={`uc-feature-row${item.reverse ? " is-reverse" : ""}`}
+              className={`uc-feature-row${item.reverse ? " is-reverse" : ""}${item.art ? "" : " is-copy-only"}`}
               delay={i * 60}
             >
               <div className="uc-feature-copy">
@@ -142,7 +182,7 @@ export function UseCaseFeatures({
                   ))}
                 </ul>
               </div>
-              <div className="uc-feature-art">{item.art}</div>
+              {item.art && <div className="uc-feature-art">{item.art}</div>}
             </Reveal>
           ))}
         </div>
