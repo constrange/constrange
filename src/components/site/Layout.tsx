@@ -104,9 +104,13 @@ export function housePath(pathname: string) {
   return false
 }
 
-export function insightVariant(pathname: string): "method" | "audience" | null {
+export function useCasePath(pathname: string) {
   const path = routeKey(pathname)
-  if (path === "/docs" || path === "/how-we-work") return "method"
+  return path === "/how-we-work" || path === "/docs" || path === "/customers" || path === "/products"
+}
+
+export function insightVariant(pathname: string): "method" | "audience" | null {
+  if (useCasePath(pathname)) return null
   return null
 }
 
