@@ -4049,7 +4049,9 @@ body.on-about .header.on-dark.stuck {
 }
 .cookie-float-icon {
   display: block; flex-shrink: 0;
-  width: 24px; height: 24px; color: #fff; fill: #fff;
+  width: 32px; height: 32px;
+  color: #fff; fill: #fff;
+  transform: translateY(-0.5px);
 }
 .cookie-float-btn:hover {
   background: #2d5c4d;
