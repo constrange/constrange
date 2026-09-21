@@ -7,8 +7,8 @@ export const architectureCorrectSystemStillFailingPost: Article = {
   deck:
     "Why technically sound architectures fail under real workloads, organizational dependencies, and operational constraints.",
   category: "Engineering",
-  date: "3 November 2026",
-  dateIso: "2026-11-03",
+  date: "13 February 2026",
+  dateIso: "2026-02-13",
   readTime: readTime(1500),
   author,
   tags: ["Architecture", "Operations", "Constraints"],

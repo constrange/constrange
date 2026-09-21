@@ -7,8 +7,8 @@ export const cloudCostIsObservabilitySignalPost: Article = {
   deck:
     "Cost anomalies reveal system anomalies — retries, leaks, misconfigurations, and architectural drift. This is not another savings listicle.",
   category: "Engineering",
-  date: "29 January 2027",
-  dateIso: "2027-01-29",
+  date: "28 August 2026",
+  dateIso: "2026-08-28",
   readTime: readTime(1500),
   author,
   tags: ["FinOps", "Observability", "Cloud", "Operations"],

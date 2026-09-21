@@ -7,8 +7,8 @@ export const whenToAutomatePost: Article = {
   deck:
     "Automation is not a moral good. It is a move that only pays off when the work, the join, and the organisation are ready.",
   category: "Decision guides",
-  date: "15 September 2026",
-  dateIso: "2026-09-15",
+  date: "31 July 2025",
+  dateIso: "2025-07-31",
   readTime: readTime(1700),
   author,
   tags: ["Process automation", "Operations", "AI readiness", "Workflow design"],

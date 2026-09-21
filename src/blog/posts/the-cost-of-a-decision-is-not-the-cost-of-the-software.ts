@@ -7,8 +7,8 @@ export const decisionCostPost: Article = {
   deck:
     "Licences are the easy line item. The real bill arrives in joins, rework, and being wrong.",
   category: "Perspectives",
-  date: "14 October 2026",
-  dateIso: "2026-10-14",
+  date: "15 December 2025",
+  dateIso: "2025-12-15",
   readTime: readTime(1500),
   author,
   tags: ["Decision-making", "Cost", "Technology"],

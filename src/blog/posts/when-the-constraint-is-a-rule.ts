@@ -7,8 +7,8 @@ export const constraintIsRulePost: Article = {
   deck:
     "Some limits are technical. Some are policy. Both behave like physics until someone changes them.",
   category: "Perspectives",
-  date: "20 October 2026",
-  dateIso: "2026-10-20",
+  date: "30 December 2025",
+  dateIso: "2025-12-30",
   readTime: readTime(1500),
   author,
   tags: ["Constraints", "Policy", "Change"],

@@ -7,8 +7,8 @@ export const moreDataLessUnderstandingPost: Article = {
   deck:
     "Why organisations can have enormous amounts of information and still make poor decisions.",
   category: "Perspectives",
-  date: "18 September 2026",
-  dateIso: "2026-09-18",
+  date: "11 September 2025",
+  dateIso: "2025-09-11",
   readTime: readTime(2000),
   author,
   tags: ["Data", "Decision-making", "Governance"],

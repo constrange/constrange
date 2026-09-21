@@ -7,8 +7,8 @@ export const workaroundIsEvidencePost: Article = {
   deck:
     "Teams do not invent unofficial paths for fun. They invent them because the official path failed.",
   category: "Perspectives",
-  date: "17 October 2026",
-  dateIso: "2026-10-17",
+  date: "19 December 2025",
+  dateIso: "2025-12-19",
   readTime: readTime(1500),
   author,
   tags: ["Workarounds", "Operations", "Design"],

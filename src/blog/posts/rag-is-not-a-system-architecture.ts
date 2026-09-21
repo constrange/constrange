@@ -7,8 +7,8 @@ export const ragIsNotSystemArchitecturePost: Article = {
   deck:
     "Retrieval is one component; discuss ingestion, chunking, indexing, ranking, freshness, permissions, citations, evaluation and failure modes.",
   category: "Engineering",
-  date: "8 December 2026",
-  dateIso: "2026-12-08",
+  date: "13 May 2026",
+  dateIso: "2026-05-13",
   readTime: readTime(1500),
   author,
   tags: ["RAG", "Architecture", "Retrieval", "Production AI"],

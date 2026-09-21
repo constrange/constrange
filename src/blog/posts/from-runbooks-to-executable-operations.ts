@@ -7,8 +7,8 @@ export const fromRunbooksToExecutableOperationsPost: Article = {
   deck:
     "The path from documentation to script to automation to workflow to policy-controlled agent — and where most organisations stall or skip steps.",
   category: "Engineering",
-  date: "26 January 2027",
-  dateIso: "2027-01-26",
+  date: "21 August 2026",
+  dateIso: "2026-08-21",
   readTime: readTime(1500),
   author,
   tags: ["Runbooks", "Operations", "Automation", "SRE"],

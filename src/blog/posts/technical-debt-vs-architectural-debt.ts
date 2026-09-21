@@ -7,8 +7,8 @@ export const technicalDebtVsArchitecturalDebtPost: Article = {
   deck:
     "Code-level debt versus decisions that constrain future architecture, data, scaling, security or organizational change.",
   category: "Engineering",
-  date: "18 December 2026",
-  dateIso: "2026-12-18",
+  date: "8 June 2026",
+  dateIso: "2026-06-08",
   readTime: readTime(1500),
   author,
   tags: ["Technical debt", "Architecture", "Constraints", "Programme design"],

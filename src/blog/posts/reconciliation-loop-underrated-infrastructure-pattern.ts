@@ -7,8 +7,8 @@ export const reconciliationLoopUnderratedInfrastructurePatternPost: Article = {
   deck:
     "Desired state, observed state, diff, action, verification — the control loop that keeps systems honest beyond Kubernetes.",
   category: "Engineering",
-  date: "5 January 2027",
-  dateIso: "2027-01-05",
+  date: "29 June 2026",
+  dateIso: "2026-06-29",
   readTime: readTime(1500),
   author,
   tags: ["Reconciliation", "Infrastructure", "Control loops", "Automation"],

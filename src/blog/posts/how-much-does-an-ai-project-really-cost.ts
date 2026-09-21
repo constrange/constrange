@@ -7,8 +7,8 @@ export const aiProjectCostPost: Article = {
   deck:
     "Licence fees are the visible line. The true cost is joins, ownership, evaluation, change, and what you stop doing to create capacity.",
   category: "Decision guides",
-  date: "14 September 2026",
-  dateIso: "2026-09-14",
+  date: "4 July 2025",
+  dateIso: "2025-07-04",
   readTime: readTime(1700),
   author,
   tags: ["AI costs", "Business case", "Total cost of ownership", "Budgeting"],

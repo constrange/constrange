@@ -7,8 +7,8 @@ export const observabilityNotThreeDashboardsPost: Article = {
   deck:
     "Logs, metrics and traces are only useful when they let you reconstruct causality across a distributed system.",
   category: "Engineering",
-  date: "1 December 2026",
-  dateIso: "2026-12-01",
+  date: "27 April 2026",
+  dateIso: "2026-04-27",
   readTime: readTime(1500),
   author,
   tags: ["Observability", "Operations", "Distributed Systems"],

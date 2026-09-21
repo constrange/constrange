@@ -7,8 +7,8 @@ export const costOfBeingWrongPost: Article = {
   deck:
     "ROI spreadsheets count savings. They rarely count what happens when the bet fails.",
   category: "Perspectives",
-  date: "26 October 2026",
-  dateIso: "2026-10-26",
+  date: "19 January 2026",
+  dateIso: "2026-01-19",
   readTime: readTime(1500),
   author,
   tags: ["Business case", "Risk", "Decision-making"],

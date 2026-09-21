@@ -7,8 +7,8 @@ export const architectureAiAgentTrustedPost: Article = {
   deck:
     "Tool calling, state, permissions, retries, memory, evaluation, auditability, human escalation and failure containment.",
   category: "Engineering",
-  date: "4 December 2026",
-  dateIso: "2026-12-04",
+  date: "7 May 2026",
+  dateIso: "2026-05-07",
   readTime: readTime(1500),
   author,
   tags: ["AI Agents", "Architecture", "Governance"],

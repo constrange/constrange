@@ -7,8 +7,8 @@ export const exactlyOnceIsUsuallyALiePost: Article = {
   deck:
     "Webhook, queue, worker, API, database, notification — each hop can duplicate or drop work. Design for at-least-once delivery and exactly-once effects.",
   category: "Engineering",
-  date: "12 January 2027",
-  dateIso: "2027-01-12",
+  date: "13 July 2026",
+  dateIso: "2026-07-13",
   readTime: readTime(1500),
   author,
   tags: ["Idempotency", "Distributed systems", "Event-driven", "Reliability"],

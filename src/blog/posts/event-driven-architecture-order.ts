@@ -7,8 +7,8 @@ export const eventDrivenArchitectureOrderPost: Article = {
   deck:
     "Eventual consistency, idempotency, duplicate events, ordering, replay, dead-letter queues and debugging distributed workflows.",
   category: "Engineering",
-  date: "20 November 2026",
-  dateIso: "2026-11-20",
+  date: "1 April 2026",
+  dateIso: "2026-04-01",
   readTime: readTime(1500),
   author,
   tags: ["Architecture", "Events", "Distributed Systems"],

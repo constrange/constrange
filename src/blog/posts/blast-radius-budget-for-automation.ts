@@ -7,8 +7,8 @@ export const blastRadiusBudgetForAutomationPost: Article = {
   deck:
     "Who triggers, what modifies, how you roll back, and where loops hide — for CI/CD, agents, bots, and anything that acts without a human in the room.",
   category: "Engineering",
-  date: "22 January 2027",
-  dateIso: "2027-01-22",
+  date: "10 August 2026",
+  dateIso: "2026-08-10",
   readTime: readTime(1500),
   author,
   tags: ["Blast radius", "Automation", "SRE", "Security"],

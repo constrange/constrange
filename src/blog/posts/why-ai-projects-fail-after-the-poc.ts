@@ -7,8 +7,8 @@ export const aiProjectsFailAfterPocPost: Article = {
   deck:
     "The demo worked. Production did not. The gap is rarely the model — it is ownership, joins, evaluation, and the unofficial path.",
   category: "Decision guides",
-  date: "12 September 2026",
-  dateIso: "2026-09-12",
+  date: "2 June 2025",
+  dateIso: "2025-06-02",
   readTime: readTime(1700),
   author,
   tags: ["POC to production", "AI implementation", "Operating model", "Risk"],

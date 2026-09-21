@@ -7,8 +7,8 @@ export const evaluateAiVendorPost: Article = {
   deck:
     "Claims are easy. Evidence is scarce. A serious vendor evaluation tests fit, joins, and what happens when the demo ends.",
   category: "Decision guides",
-  date: "13 September 2026",
-  dateIso: "2026-09-13",
+  date: "12 June 2025",
+  dateIso: "2025-06-12",
   readTime: readTime(1700),
   author,
   tags: ["Vendor evaluation", "Procurement", "Due diligence", "AI buying"],

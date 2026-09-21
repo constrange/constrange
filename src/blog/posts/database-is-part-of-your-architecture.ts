@@ -7,8 +7,8 @@ export const databaseIsPartOfArchitecturePost: Article = {
   deck:
     "Why data ownership, transaction boundaries, replication, consistency and schema evolution determine what the rest of the system can do.",
   category: "Engineering",
-  date: "17 November 2026",
-  dateIso: "2026-11-17",
+  date: "18 March 2026",
+  dateIso: "2026-03-18",
   readTime: readTime(1500),
   author,
   tags: ["Database", "Architecture", "Data"],

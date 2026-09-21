@@ -7,8 +7,8 @@ export const aiModelLeastInterestingPartPost: Article = {
   deck:
     "Why production AI depends more on data pipelines, evaluation, retrieval, orchestration, latency, cost and fallback design.",
   category: "Engineering",
-  date: "11 December 2026",
-  dateIso: "2026-12-11",
+  date: "21 May 2026",
+  dateIso: "2026-05-21",
   readTime: readTime(1500),
   author,
   tags: ["Production AI", "Architecture", "Operating model", "Constraints"],

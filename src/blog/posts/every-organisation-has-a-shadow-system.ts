@@ -7,8 +7,8 @@ export const shadowSystemPost: Article = {
   deck:
     'The unofficial spreadsheets, emails, workarounds and human processes keeping the "official" system alive.',
   category: "Perspectives",
-  date: "21 September 2026",
-  dateIso: "2026-09-21",
+  date: "7 November 2025",
+  dateIso: "2025-11-07",
   readTime: readTime(2000),
   author,
   tags: ["Shadow IT", "Operations", "Workarounds"],

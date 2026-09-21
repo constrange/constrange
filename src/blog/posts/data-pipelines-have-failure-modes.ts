@@ -7,8 +7,8 @@ export const dataPipelinesFailureModesPost: Article = {
   deck:
     "Late data, duplicate records, schema drift, backfills, reconciliation, lineage and what happens when downstream decisions depend on bad data.",
   category: "Engineering",
-  date: "15 December 2026",
-  dateIso: "2026-12-15",
+  date: "1 June 2026",
+  dateIso: "2026-06-01",
   readTime: readTime(1500),
   author,
   tags: ["Data pipelines", "Reliability", "Lineage", "Operations"],

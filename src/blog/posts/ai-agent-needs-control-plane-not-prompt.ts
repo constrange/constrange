@@ -7,8 +7,8 @@ export const aiAgentNeedsControlPlaneNotPromptPost: Article = {
   deck:
     "Model, agent, and control plane are not the same layer — production needs identity, permissions, limits, and audit around autonomous action.",
   category: "Engineering",
-  date: "8 January 2027",
-  dateIso: "2027-01-08",
+  date: "3 July 2026",
+  dateIso: "2026-07-03",
   readTime: readTime(1500),
   author,
   tags: ["AI agents", "Control plane", "Security", "Production systems"],

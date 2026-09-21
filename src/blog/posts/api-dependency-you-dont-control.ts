@@ -7,8 +7,8 @@ export const apiDependencyYouDontControlPost: Article = {
   deck:
     "API contracts, versioning, rate limits, vendor changes, cascading failures, and what dependency really means.",
   category: "Engineering",
-  date: "10 November 2026",
-  dateIso: "2026-11-10",
+  date: "27 February 2026",
+  dateIso: "2026-02-27",
   readTime: readTime(1500),
   author,
   tags: ["API", "Dependencies", "Integration"],

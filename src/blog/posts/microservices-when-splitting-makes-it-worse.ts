@@ -7,8 +7,8 @@ export const microservicesWhenSplittingMakesItWorsePost: Article = {
   deck:
     "Service boundaries, data ownership, network failure, deployment complexity, and when a modular monolith is the better engineering decision.",
   category: "Engineering",
-  date: "13 November 2026",
-  dateIso: "2026-11-13",
+  date: "10 March 2026",
+  dateIso: "2026-03-10",
   readTime: readTime(1500),
   author,
   tags: ["Microservices", "Architecture", "Monolith"],

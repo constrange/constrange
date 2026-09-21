@@ -7,8 +7,8 @@ export const infrastructureDriftIsStateManagementPost: Article = {
   deck:
     "When Terraform, operators, consoles, and runbooks all write reality — drift is disagreement about truth, not a missing plan apply.",
   category: "Engineering",
-  date: "19 January 2027",
-  dateIso: "2027-01-19",
+  date: "4 August 2026",
+  dateIso: "2026-08-04",
   readTime: readTime(1500),
   author,
   tags: ["Infrastructure", "State management", "Drift", "Platform engineering"],

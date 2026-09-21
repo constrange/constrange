@@ -7,8 +7,8 @@ export const dependencyOnDiagramPost: Article = {
   deck:
     "How invisible relationships between people, systems and processes create operational risk.",
   category: "Perspectives",
-  date: "17 September 2026",
-  dateIso: "2026-09-17",
+  date: "4 September 2025",
+  dateIso: "2025-09-04",
   readTime: readTime(2000),
   author,
   tags: ["Risk", "Architecture", "Operations"],

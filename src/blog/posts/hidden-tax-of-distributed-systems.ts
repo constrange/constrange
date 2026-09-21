@@ -7,8 +7,8 @@ export const hiddenTaxDistributedSystemsPost: Article = {
   deck:
     "Latency, retries, consistency, failure modes, observability, and operational complexity that appear after a system is split apart.",
   category: "Engineering",
-  date: "6 November 2026",
-  dateIso: "2026-11-06",
+  date: "23 February 2026",
+  dateIso: "2026-02-23",
   readTime: readTime(1500),
   author,
   tags: ["Distributed Systems", "Latency", "Operations"],

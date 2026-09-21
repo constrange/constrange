@@ -7,8 +7,8 @@ export const theCostOfRealTimePost: Article = {
   deck:
     "When real-time requirements are actually unnecessary and how they increase infrastructure, complexity and operational risk.",
   category: "Engineering",
-  date: "27 November 2026",
-  dateIso: "2026-11-27",
+  date: "17 April 2026",
+  dateIso: "2026-04-17",
   readTime: readTime(1500),
   author,
   tags: ["Architecture", "Latency", "Cost"],

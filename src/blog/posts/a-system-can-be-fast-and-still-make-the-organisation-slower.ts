@@ -7,8 +7,8 @@ export const fastSystemSlowerOrgPost: Article = {
   deck:
     "Local speed is not the same as end-to-end speed. Optimising one box can tax the whole chain.",
   category: "Perspectives",
-  date: "23 October 2026",
-  dateIso: "2026-10-23",
+  date: "7 January 2026",
+  dateIso: "2026-01-07",
   readTime: readTime(1500),
   author,
   tags: ["Systems", "Performance", "Operations"],

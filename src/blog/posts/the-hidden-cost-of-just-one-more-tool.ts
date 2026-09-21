@@ -7,8 +7,8 @@ export const hiddenCostOneMoreToolPost: Article = {
   deck:
     "How organisations accidentally create complexity by solving every problem with another system.",
   category: "Perspectives",
-  date: "13 September 2026",
-  dateIso: "2026-09-13",
+  date: "20 June 2025",
+  dateIso: "2025-06-20",
   readTime: readTime(2000),
   author,
   tags: ["Tool sprawl", "Complexity", "Systems", "Integration"],

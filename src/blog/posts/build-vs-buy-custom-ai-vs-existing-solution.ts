@@ -7,8 +7,8 @@ export const buildVsBuyPost: Article = {
   deck:
     "The choice is rarely about capability. It is about fit, ownership, and what your organisation can absorb over the next eighteen months.",
   category: "Decision guides",
-  date: "11 September 2026",
-  dateIso: "2026-09-11",
+  date: "15 May 2025",
+  dateIso: "2025-05-15",
   readTime: readTime(1700),
   author,
   tags: ["Build vs buy", "AI strategy", "Vendor selection", "Custom development"],

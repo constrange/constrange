@@ -7,8 +7,8 @@ export const aiProjectNobodyAskedForPost: Article = {
   deck:
     "How organisations end up building AI because everyone else is, rather than because the problem requires it.",
   category: "Perspectives",
-  date: "15 September 2026",
-  dateIso: "2026-09-15",
+  date: "22 July 2025",
+  dateIso: "2025-07-22",
   readTime: readTime(2000),
   author,
   tags: ["AI strategy", "Hype", "Governance"],

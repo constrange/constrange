@@ -7,8 +7,8 @@ export const beforeYouScaleFindLimitPost: Article = {
   deck:
     "CPU may not be the bottleneck; examine database locks, queues, downstream APIs, network latency, connection pools, human approvals and workload shape.",
   category: "Engineering",
-  date: "22 December 2026",
-  dateIso: "2026-12-22",
+  date: "16 June 2026",
+  dateIso: "2026-06-16",
   readTime: readTime(1500),
   author,
   tags: ["Scaling", "Performance", "Constraints", "Architecture"],

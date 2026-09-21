@@ -7,8 +7,8 @@ export const smallDecisionDownstreamPost: Article = {
   deck:
     "A naming choice, a field definition, a routing rule — small decisions compound into large consequences.",
   category: "Perspectives",
-  date: "1 November 2026",
-  dateIso: "2026-11-01",
+  date: "2 February 2026",
+  dateIso: "2026-02-02",
   readTime: readTime(1500),
   author,
   tags: ["Decisions", "Downstream effects", "Design"],

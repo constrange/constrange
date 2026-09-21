@@ -7,8 +7,8 @@ export const bottleneckMovesStrategyPost: Article = {
   deck:
     "Fix one constraint and another appears. Strategy that ignores the moving bottleneck is already stale.",
   category: "Perspectives",
-  date: "29 October 2026",
-  dateIso: "2026-10-29",
+  date: "26 January 2026",
+  dateIso: "2026-01-26",
   readTime: readTime(1500),
   author,
   tags: ["Strategy", "Bottlenecks", "Change"],

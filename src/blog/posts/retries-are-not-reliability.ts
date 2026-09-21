@@ -7,8 +7,8 @@ export const retriesAreNotReliabilityPost: Article = {
   deck:
     "How poorly designed retries create retry storms, duplicate work, traffic amplification and cascading failures.",
   category: "Engineering",
-  date: "24 November 2026",
-  dateIso: "2026-11-24",
+  date: "10 April 2026",
+  dateIso: "2026-04-10",
   readTime: readTime(1500),
   author,
   tags: ["Reliability", "Retries", "Resilience"],

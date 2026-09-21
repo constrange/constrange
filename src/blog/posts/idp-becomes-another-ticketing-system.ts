@@ -7,8 +7,8 @@ export const idpBecomesAnotherTicketingSystemPost: Article = {
   deck:
     '"I need a production PostgreSQL" hides identity, Terraform, network, secrets, policy, and a queue — unless you design against the default.',
   category: "Engineering",
-  date: "2 February 2027",
-  dateIso: "2027-02-02",
+  date: "9 September 2026",
+  dateIso: "2026-09-09",
   readTime: readTime(1500),
   author,
   tags: ["Platform engineering", "IDP", "Self-service", "Developer experience"],

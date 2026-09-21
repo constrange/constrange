@@ -7,8 +7,8 @@ export const systemsThatKnowWhenTheyDontKnowPost: Article = {
   deck:
     "Confidence gates, escalating unknowns, and safe defaults for autonomous systems — because acting certain when you are not is the fastest path to incident.",
   category: "Engineering",
-  date: "5 February 2027",
-  dateIso: "2027-02-05",
+  date: "18 September 2026",
+  dateIso: "2026-09-18",
   readTime: readTime(1500),
   author,
   tags: ["Autonomous systems", "AI agents", "Safety", "Governance"],

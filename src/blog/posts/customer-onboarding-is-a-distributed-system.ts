@@ -7,8 +7,8 @@ export const customerOnboardingIsDistributedSystemPost: Article = {
   deck:
     "OAuth, webhooks, queues, workers, SaaS APIs, and your database — onboarding is a distributed workflow whether or not you drew the arrows.",
   category: "Engineering",
-  date: "15 January 2027",
-  dateIso: "2027-01-15",
+  date: "21 July 2026",
+  dateIso: "2026-07-21",
   readTime: readTime(1500),
   author,
   tags: ["Onboarding", "Distributed systems", "Workflow", "Operations"],
