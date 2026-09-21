@@ -2,122 +2,165 @@ import type { ReactNode } from "react"
 
 type ArtProps = { className?: string }
 
+const ink = "#121212"
+const muted = "#6d6a63"
+const line = "#e4e2db"
+const purple = "#271675"
+const purpleSoft = "rgba(39, 22, 117, 0.08)"
+const lime = "#c8e85a"
+const surface = "#ffffff"
+const canvas = "#f7f6f2"
+
 function Frame({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`uc-art ${className}`}>
-      <div className="uc-art-chrome">
-        <span /><span /><span />
-      </div>
-      <div className="uc-art-body">{children}</div>
+    <div className={`uc-art ${className}`} aria-hidden="true">
+      {children}
     </div>
   )
 }
 
+function Panel({ children, x = 0, y = 0, w = 560, h = 360 }: { children: ReactNode; x?: number; y?: number; w?: number; h?: number }) {
+  return (
+    <g transform={`translate(${x} ${y})`}>
+      <rect width={w} height={h} rx="20" fill={surface} stroke={line} />
+      {children}
+    </g>
+  )
+}
+
 export function ArtMethodHero({ className }: ArtProps) {
+  const stages = ["Understand", "Define", "Explore", "Structure", "Move"]
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#121218" />
-        <rect x="24" y="24" width="512" height="44" rx="8" fill="#1e1e28" stroke="#2e2e3a" />
-        <text x="40" y="52" fill="#8b8798" fontFamily="ui-monospace, monospace" fontSize="11" letterSpacing="2">
-          SITUATION READING · LIVE
-        </text>
-        <circle cx="500" cy="46" r="6" fill="#dbff71" />
-        {["Understand", "Define", "Explore", "Structure", "Move"].map((label, i) => (
-          <g key={label}>
-            <rect x={24 + i * 102} y="88" width="94" height="72" rx="10" fill={i === 1 ? "#271675" : "#1a1a24"} stroke={i === 1 ? "#6757a5" : "#2a2a36"} />
-            <text x={24 + i * 102 + 12} y="112" fill="#cbc4e7" fontFamily="ui-monospace, monospace" fontSize="10">
-              0{i + 1}
-            </text>
-            <text x={24 + i * 102 + 12} y="136" fill="#f4f2ea" fontFamily="Georgia, serif" fontSize="13">
-              {label}
-            </text>
-          </g>
-        ))}
-        <path d="M40 200h480" stroke="#2e2e3a" />
-        <text x="40" y="232" fill="#f4f2ea" fontFamily="Georgia, serif" fontSize="18">
-          The request arrived as a platform.
-        </text>
-        <text x="40" y="258" fill="#8b8798" fontFamily="Inter, sans-serif" fontSize="13">
-          The reading named the join between operations and finance first.
-        </text>
-        <rect x="40" y="278" width="140" height="32" rx="6" fill="#271675" />
-        <text x="56" y="298" fill="#fff" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600">
-          First move identified
-        </text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            METHOD · FIVE STAGES
+          </text>
+          <text x="28" y="78" fill={ink} fontFamily="Georgia, serif" fontSize="22">
+            From situation to first move
+          </text>
+          {stages.map((label, i) => {
+            const x = 28 + i * 104
+            const active = i === 1
+            return (
+              <g key={label}>
+                <rect x={x} y="104" width="92" height="88" rx="14" fill={active ? purpleSoft : surface} stroke={active ? purple : line} />
+                <circle cx={x + 18} cy="126" r="10" fill={active ? purple : purpleSoft} />
+                <text x={x + 18} y="130" textAnchor="middle" fill={active ? "#fff" : purple} fontSize="10" fontWeight="600">
+                  {i + 1}
+                </text>
+                <text x={x + 14} y="168" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="12" fontWeight="600">
+                  {label}
+                </text>
+                {i < stages.length - 1 && (
+                  <path d={`M${x + 96} 148 H${x + 104}`} stroke={line} strokeWidth="2" />
+                )}
+              </g>
+            )
+          })}
+          <rect x="28" y="220" width="504" height="96" rx="16" fill={canvas} stroke={line} />
+          <text x="48" y="252" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.2">
+            CURRENT READING
+          </text>
+          <text x="48" y="280" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="15">
+            Constraint named at the join between operations and finance.
+          </text>
+          <rect x="48" y="292" width="128" height="8" rx="4" fill={line} />
+          <rect x="48" y="292" width="84" height="8" rx="4" fill={purple} />
+        </Panel>
       </svg>
     </Frame>
   )
 }
 
 export function ArtMethodStages({ className }: ArtProps) {
+  const rows = [
+    "Map the unofficial path",
+    "Name the constraint",
+    "Hold two credible options",
+    "Design the join",
+    "Define the first move",
+  ]
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#0f1418" />
-        <defs>
-          <linearGradient id="methodGlow" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#271675" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#121218" stopOpacity="0.2" />
-          </linearGradient>
-        </defs>
-        <polygon points="280,40 480,300 80,300" fill="url(#methodGlow)" opacity="0.55" />
-        {[0, 1, 2, 3, 4].map((i) => {
-          const y = 72 + i * 44
-          return (
-            <g key={i}>
-              <circle cx="72" cy={y} r="14" fill={i <= 2 ? "#dbff71" : "#2a2a36"} />
-              <text x="72" y={y + 4} textAnchor="middle" fill="#121218" fontSize="11" fontWeight="700">
-                {i + 1}
-              </text>
-              <rect x="104" y={y - 16} width="360" height="32" rx="6" fill="#1a1f24" stroke="#2a3038" />
-              <text x="120" y={y + 4} fill="#e8e6df" fontFamily="Inter, sans-serif" fontSize="13">
-                {["Map the unofficial path", "Name the constraint", "Hold two credible options", "Design the join", "Define the first move"][i]}
-              </text>
-            </g>
-          )
-        })}
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            STAGE CHECKLIST
+          </text>
+          {rows.map((label, i) => {
+            const y = 72 + i * 52
+            const done = i <= 2
+            return (
+              <g key={label}>
+                <rect x="28" y={y} width="504" height="40" rx="12" fill={done ? purpleSoft : surface} stroke={done ? "rgba(39,22,117,0.18)" : line} />
+                <circle cx="52" cy={y + 20} r="10" fill={done ? purple : surface} stroke={done ? purple : line} strokeWidth="1.5" />
+                {done && (
+                  <path d={`M47 ${y + 20} L50 ${y + 23} L57 ${y + 16}`} stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+                )}
+                <text x="72" y={y + 25} fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="13">
+                  {label}
+                </text>
+              </g>
+            )
+          })}
+        </Panel>
       </svg>
     </Frame>
   )
 }
 
 export function ArtMethodReading({ className }: ArtProps) {
+  const nodes = [
+    [150, 110, "Work"],
+    [250, 110, "Systems"],
+    [350, 110, "People"],
+    [150, 210, "Time"],
+    [350, 210, "Risk"],
+  ]
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#121218" />
-        <circle cx="180" cy="170" r="88" stroke="#6757a5" strokeWidth="1.5" fill="none" opacity="0.5" />
-        <circle cx="180" cy="170" r="58" stroke="#271675" strokeWidth="2" fill="rgba(39,22,117,0.2)" />
-        {[
-          [180, 82, "Work"],
-          [268, 170, "Systems"],
-          [180, 258, "People"],
-          [92, 170, "Time"],
-          [220, 120, "Risk"],
-        ].map(([x, y, label]) => (
-          <g key={label}>
-            <circle cx={x} cy={y} r="22" fill="#1e1e28" stroke="#dbff71" strokeWidth="1.5" />
-            <text x={x} y={y + 4} textAnchor="middle" fill="#f4f2ea" fontSize="10" fontFamily="Inter, sans-serif">
-              {label}
-            </text>
-          </g>
-        ))}
-        <rect x="300" y="56" width="220" height="228" rx="12" fill="#1a1a24" stroke="#2e2e3a" />
-        <text x="320" y="88" fill="#cbc4e7" fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.5">
-          READING OUTPUT
-        </text>
-        <text x="320" y="120" fill="#f4f2ea" fontFamily="Georgia, serif" fontSize="16">
-          Constraint: the handoff
-        </text>
-        <text x="320" y="148" fill="#8b8798" fontFamily="Inter, sans-serif" fontSize="12">
-          Three systems. One owner missing.
-        </text>
-        <rect x="320" y="168" width="180" height="8" rx="4" fill="#2e2e3a" />
-        <rect x="320" y="168" width="108" height="8" rx="4" fill="#271675" />
-        <text x="320" y="210" fill="#dbff71" fontFamily="Inter, sans-serif" fontSize="11">
-          Non-goal: new platform this quarter
-        </text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            CONTEXT MAP
+          </text>
+          <circle cx="250" cy="170" r="54" fill={purpleSoft} stroke={purple} strokeWidth="1.5" />
+          <text x="250" y="166" textAnchor="middle" fill={purple} fontFamily="Georgia, serif" fontSize="14">
+            Reading
+          </text>
+          <text x="250" y="186" textAnchor="middle" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="11">
+            held together
+          </text>
+          {nodes.map(([x, y, label]) => (
+            <g key={label}>
+              <line x1="250" y1="170" x2={x} y2={y} stroke={line} strokeWidth="1.5" />
+              <rect x={x - 44} y={y - 22} width="88" height="44" rx="12" fill={surface} stroke={line} />
+              <text x={x} y={y + 5} textAnchor="middle" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="12">
+                {label}
+              </text>
+            </g>
+          ))}
+          <rect x="410" y="88" width="122" height="184" rx="16" fill={canvas} stroke={line} />
+          <text x="426" y="116" fill={muted} fontFamily="ui-monospace, monospace" fontSize="9" letterSpacing="1.2">
+            OUTPUT
+          </text>
+          <text x="426" y="142" fill={ink} fontFamily="Georgia, serif" fontSize="14">
+            Constraint
+          </text>
+          <text x="426" y="164" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="11">
+            The handoff
+          </text>
+          <rect x="426" y="180" width="90" height="6" rx="3" fill={line} />
+          <rect x="426" y="180" width="58" height="6" rx="3" fill={purple} />
+          <text x="426" y="214" fill={purple} fontFamily="Inter, system-ui, sans-serif" fontSize="10">
+            Non-goal written
+          </text>
+        </Panel>
       </svg>
     </Frame>
   )
@@ -126,54 +169,88 @@ export function ArtMethodReading({ className }: ArtProps) {
 export function ArtMethodArtefacts({ className }: ArtProps) {
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#10141a" />
-        <rect x="32" y="40" width="220" height="260" rx="10" fill="#f7f6f1" stroke="#d8d6ce" />
-        <text x="52" y="72" fill="#271675" fontFamily="ui-monospace, monospace" fontSize="10">ARTEFACT · v1</text>
-        <text x="52" y="104" fill="#171717" fontFamily="Georgia, serif" fontSize="18">Problem statement</text>
-        <text x="52" y="132" fill="#4c4b46" fontFamily="Inter, sans-serif" fontSize="12">Named constraint with owners.</text>
-        <line x1="52" y1="150" x2="232" y2="150" stroke="#e0ded6" />
-        <text x="52" y="178" fill="#171717" fontFamily="Georgia, serif" fontSize="14">Sequence</text>
-        <text x="52" y="202" fill="#4c4b46" fontFamily="Inter, sans-serif" fontSize="11">01 · Stabilise the join</text>
-        <text x="52" y="222" fill="#4c4b46" fontFamily="Inter, sans-serif" fontSize="11">02 · Pilot with one team</text>
-        <rect x="280" y="40" width="248" height="120" rx="10" fill="#1a1f24" stroke="#2a3038" />
-        <rect x="280" y="180" width="248" height="120" rx="10" fill="#1a1f24" stroke="#2a3038" />
-        <text x="300" y="72" fill="#8b8798" fontSize="11" fontFamily="ui-monospace, monospace">OPTION A</text>
-        <text x="300" y="212" fill="#8b8798" fontSize="11" fontFamily="ui-monospace, monospace">OPTION B</text>
-        <text x="300" y="100" fill="#f4f2ea" fontFamily="Inter, sans-serif" fontSize="13">Adapt existing stack</text>
-        <text x="300" y="240" fill="#f4f2ea" fontFamily="Inter, sans-serif" fontSize="13">Targeted replacement</text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <rect x="36" y="48" width="220" height="284" rx="18" fill={surface} stroke={line} />
+        <rect x="52" y="68" width="72" height="20" rx="10" fill={purpleSoft} />
+        <text x="64" y="82" fill={purple} fontFamily="ui-monospace, monospace" fontSize="9">
+          ARTEFACT
+        </text>
+        <text x="52" y="118" fill={ink} fontFamily="Georgia, serif" fontSize="20">
+          Problem statement
+        </text>
+        <text x="52" y="144" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="12">
+          Named constraint with owners.
+        </text>
+        <line x1="52" y1="162" x2="240" y2="162" stroke={line} />
+        <text x="52" y="188" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="13" fontWeight="600">
+          Sequence
+        </text>
+        <text x="52" y="212" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="11">
+          01 · Stabilise the join
+        </text>
+        <text x="52" y="232" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="11">
+          02 · Pilot with one team
+        </text>
+        <rect x="280" y="48" width="284" height="132" rx="18" fill={surface} stroke={line} />
+        <rect x="280" y="200" width="284" height="132" rx="18" fill={surface} stroke={purple} strokeWidth="1.5" />
+        <text x="300" y="80" fill={muted} fontFamily="ui-monospace, monospace" fontSize="9">
+          OPTION A
+        </text>
+        <text x="300" y="232" fill={purple} fontFamily="ui-monospace, monospace" fontSize="9">
+          RECOMMENDED
+        </text>
+        <text x="300" y="108" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="14">
+          Adapt existing stack
+        </text>
+        <text x="300" y="260" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="14" fontWeight="600">
+          Targeted replacement
+        </text>
+        <text x="300" y="284" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="11">
+          Consequences spelled out before sign-off.
+        </text>
       </svg>
     </Frame>
   )
 }
 
 export function ArtCustomerHero({ className }: ArtProps) {
+  const items = [
+    [56, 96, "Operations"],
+    [196, 76, "Technology"],
+    [336, 96, "Service"],
+    [456, 116, "Regulated"],
+    [136, 196, "Growth"],
+    [296, 216, "Finance"],
+  ]
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#121218" />
-        <rect x="28" y="28" width="504" height="36" rx="8" fill="#1e1e28" />
-        <text x="44" y="52" fill="#8b8798" fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="2">
-          LANDSCAPE MAP
-        </text>
-        {[
-          [60, 110, "Operations"],
-          [200, 90, "Technology"],
-          [340, 110, "Service"],
-          [460, 130, "Regulated"],
-          [140, 220, "Growth"],
-          [300, 240, "Finance"],
-        ].map(([x, y, label]) => (
-          <g key={label}>
-            <rect x={x} y={y} width="96" height="56" rx="8" fill="#271675" fillOpacity="0.35" stroke="#6757a5" />
-            <text x={x + 12} y={y + 32} fill="#f4f2ea" fontFamily="Inter, sans-serif" fontSize="12">{label}</text>
-          </g>
-        ))}
-        <path d="M156 138 L200 118 M296 138 L340 138 M436 158 L460 158" stroke="#dbff71" strokeWidth="1.5" opacity="0.7" />
-        <rect x="28" y="280" width="504" height="36" rx="8" fill="#1e1e28" />
-        <text x="44" y="304" fill="#dbff71" fontFamily="Inter, sans-serif" fontSize="12">
-          5 landscapes · 1 method · constraint named first
-        </text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            LANDSCAPES WE RECOGNISE
+          </text>
+          {items.map(([x, y, label]) => (
+            <g key={label}>
+              <rect x={x} y={y} width="108" height="52" rx="14" fill={surface} stroke={line} />
+              <circle cx={x + 18} cy={y + 26} r="5" fill={lime} />
+              <text x={x + 30} y={y + 30} fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="12" fontWeight="500">
+                {label}
+              </text>
+            </g>
+          ))}
+          <path
+            d="M164 122 L196 102 M304 122 L336 122 M444 142 L456 142 M244 222 L296 242"
+            stroke={purple}
+            strokeWidth="1.5"
+            strokeOpacity="0.35"
+          />
+          <rect x="28" y="280" width="504" height="48" rx="14" fill={purpleSoft} />
+          <text x="44" y="310" fill={purple} fontFamily="Inter, system-ui, sans-serif" fontSize="13">
+            Five landscapes · one method · constraint named first
+          </text>
+        </Panel>
       </svg>
     </Frame>
   )
@@ -182,92 +259,138 @@ export function ArtCustomerHero({ className }: ArtProps) {
 export function ArtCustomerOps({ className }: ArtProps) {
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#0d1117" />
-        <text x="32" y="48" fill="#8b8798" fontFamily="ui-monospace, monospace" fontSize="10">OFFICIAL PATH</text>
-        <path d="M48 80 H220 V120 H392 V160 H512" stroke="#4c4b46" strokeWidth="2" fill="none" />
-        <text x="32" y="200" fill="#dbff71" fontFamily="ui-monospace, monospace" fontSize="10">ACTUAL PATH</text>
-        <path d="M48 220 C120 200 180 260 260 230 S380 190 512 250" stroke="#271675" strokeWidth="2.5" fill="none" />
-        <circle cx="260" cy="230" r="28" fill="#271675" fillOpacity="0.4" stroke="#dbff71" />
-        <text x="260" y="235" textAnchor="middle" fill="#f4f2ea" fontSize="11" fontFamily="Inter, sans-serif">Join</text>
-        <rect x="32" y="280" width="200" height="36" rx="6" fill="#1a1f24" stroke="#2a3038" />
-        <text x="48" y="304" fill="#f4f2ea" fontSize="12" fontFamily="Inter, sans-serif">Shadow system detected</text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            HOW WORK ACTUALLY MOVES
+          </text>
+          <text x="28" y="78" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="11">
+            Official path
+          </text>
+          <path d="M48 96 H200 V136 H352 V176 H512" stroke={line} strokeWidth="2" fill="none" strokeDasharray="6 5" />
+          <text x="28" y="214" fill={purple} fontFamily="Inter, system-ui, sans-serif" fontSize="11" fontWeight="600">
+            Actual path
+          </text>
+          <path d="M48 234 C120 214 180 274 260 244 S380 204 512 264" stroke={purple} strokeWidth="2.2" fill="none" />
+          <circle cx="260" cy="244" r="30" fill={purpleSoft} stroke={purple} strokeWidth="1.5" />
+          <text x="260" y="249" textAnchor="middle" fill={purple} fontSize="12" fontFamily="Inter, system-ui, sans-serif" fontWeight="600">
+            Join
+          </text>
+          <rect x="28" y="288" width="240" height="40" rx="12" fill={surface} stroke={line} />
+          <text x="44" y="314" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="12">
+            Shadow system surfaced in the reading
+          </text>
+        </Panel>
       </svg>
     </Frame>
   )
 }
 
 export function ArtCustomerScale({ className }: ArtProps) {
+  const seats = ["Operations", "Product", "Finance", "Service", "Technology"]
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#10141a" />
-        <defs>
-          <linearGradient id="custScale" x1="0.5" y1="0" x2="0.5" y2="1">
-            <stop offset="0%" stopColor="#271675" />
-            <stop offset="100%" stopColor="#0d1117" />
-          </linearGradient>
-        </defs>
-        <rect x="80" y="40" width="400" height="260" rx="12" fill="url(#custScale)" opacity="0.8" />
-        {[0, 1, 2, 3, 4].map((i) => (
-          <rect key={i} x={120 + i * 64} y={80 + i * 12} width="48" height="180 - i * 24" rx="4" fill="#dbff71" fillOpacity={0.15 + i * 0.12} />
-        ))}
-        <text x="280" y="300" textAnchor="middle" fill="#f4f2ea" fontFamily="Georgia, serif" fontSize="16">
-          Same pressure. Different seat.
-        </text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            SAME PRESSURE · DIFFERENT SEAT
+          </text>
+          {seats.map((seat, i) => {
+            const x = 40 + i * 100
+            const h = 120 + i * 18
+            return (
+              <g key={seat}>
+                <rect x={x} y={320 - h} width="72" height={h} rx="12" fill={i === 2 ? purpleSoft : surface} stroke={i === 2 ? purple : line} />
+                <text x={x + 36} y={334} textAnchor="middle" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="9">
+                  {seat}
+                </text>
+              </g>
+            )
+          })}
+          <text x="280" y="300" textAnchor="middle" fill={ink} fontFamily="Georgia, serif" fontSize="18">
+            One structural gap. Many voices.
+          </text>
+        </Panel>
       </svg>
     </Frame>
   )
 }
 
 export function ArtCustomerRegulated({ className }: ArtProps) {
+  const items = ["Audit trail", "Data residency", "Role boundary", "Change control"]
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#121218" />
-        <rect x="40" y="48" width="480" height="56" rx="8" fill="#1a1f24" stroke="#6757a5" />
-        <text x="60" y="82" fill="#f4f2ea" fontFamily="Inter, sans-serif" fontSize="14">Caution as a design input</text>
-        {["Audit trail", "Data residency", "Role boundary", "Change control"].map((label, i) => (
-          <g key={label}>
-            <rect x={40 + (i % 2) * 244} y={128 + Math.floor(i / 2) * 72} width="224" height="52" rx="8" fill="#1e1e28" stroke="#2e2e3a" />
-            <circle cx="64" cy={154 + Math.floor(i / 2) * 72} r="6" fill="#dbff71" />
-            <text x="80" y={158 + Math.floor(i / 2) * 72} fill="#cbc4e7" fontFamily="Inter, sans-serif" fontSize="13">{label}</text>
-          </g>
-        ))}
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            REGULATED ENVIRONMENTS
+          </text>
+          <text x="28" y="78" fill={ink} fontFamily="Georgia, serif" fontSize="20">
+            Caution as a design input
+          </text>
+          {items.map((label, i) => {
+            const col = i % 2
+            const row = Math.floor(i / 2)
+            const x = 28 + col * 272
+            const y = 108 + row * 88
+            return (
+              <g key={label}>
+                <rect x={x} y={y} width="256" height="64" rx="14" fill={surface} stroke={line} />
+                <circle cx={x + 24} cy={y + 32} r="10" fill={purpleSoft} stroke={purple} strokeWidth="1.2" />
+                <path d={`M${x + 20} ${y + 32} L${x + 23} ${y + 35} L${x + 28} ${y + 28}`} stroke={purple} strokeWidth="1.6" strokeLinecap="round" />
+                <text x={x + 44} y={y + 37} fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="13">
+                  {label}
+                </text>
+              </g>
+            )
+          })}
+        </Panel>
       </svg>
     </Frame>
   )
 }
 
 export function ArtProductHero({ className }: ArtProps) {
+  const caps = ["Strategy", "AI", "Systems", "Design", "Implement", "Transform", "Judgement"]
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#121218" />
-        <rect x="24" y="24" width="512" height="44" rx="8" fill="#1e1e28" stroke="#2e2e3a" />
-        <text x="40" y="52" fill="#8b8798" fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="2">
-          CAPABILITY EXPLORER
-        </text>
-        {["Strategy", "AI", "Systems", "Design", "Implement", "Transform", "Judgement"].map((label, i) => (
-          <rect
-            key={label}
-            x={24 + i * 72}
-            y="84"
-            width="64"
-            height="28"
-            rx="14"
-            fill={i === 0 ? "#271675" : "#1a1a24"}
-            stroke={i === 0 ? "#6757a5" : "#2a2a36"}
-          />
-        ))}
-        <rect x="24" y="128" width="512" height="188" rx="12" fill="#1a1a24" stroke="#2e2e3a" />
-        <text x="44" y="164" fill="#f4f2ea" fontFamily="Georgia, serif" fontSize="20">Business & Technology Strategy</text>
-        <text x="44" y="192" fill="#8b8798" fontFamily="Inter, sans-serif" fontSize="13">
-          Where priorities and technology decisions connect — before a stack is chosen.
-        </text>
-        {["Priorities", "Constraints", "Trade-offs"].map((chip, i) => (
-          <rect key={chip} x={44 + i * 108} y="216" width="96" height="28" rx="14" fill="#271675" fillOpacity="0.35" stroke="#6757a5" />
-        ))}
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            SEVEN CAPABILITIES · ONE READING
+          </text>
+          {caps.map((label, i) => {
+            const x = 28 + i * 76
+            const active = i === 0
+            return (
+              <g key={label}>
+                <rect x={x} y="64" width="68" height="30" rx="15" fill={active ? purple : surface} stroke={active ? purple : line} />
+                <text x={x + 34} y="83" textAnchor="middle" fill={active ? "#fff" : muted} fontFamily="Inter, system-ui, sans-serif" fontSize="9.5">
+                  {label}
+                </text>
+              </g>
+            )
+          })}
+          <rect x="28" y="112" width="504" height="200" rx="18" fill={canvas} stroke={line} />
+          <text x="48" y="148" fill={ink} fontFamily="Georgia, serif" fontSize="22">
+            Business & technology strategy
+          </text>
+          <text x="48" y="176" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="13">
+            Where priorities and technology decisions connect — before a stack is chosen.
+          </text>
+          {["Priorities", "Constraints", "Trade-offs"].map((chip, i) => (
+            <g key={chip}>
+              <rect x={48 + i * 112} y="200" width="96" height="28" rx="14" fill={purpleSoft} />
+              <text x={48 + i * 112 + 48} y="218" textAnchor="middle" fill={purple} fontFamily="Inter, system-ui, sans-serif" fontSize="10">
+                {chip}
+              </text>
+            </g>
+          ))}
+        </Panel>
       </svg>
     </Frame>
   )
@@ -276,41 +399,64 @@ export function ArtProductHero({ className }: ArtProps) {
 export function ArtProductOptions({ className }: ArtProps) {
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#0f1418" />
-        <text x="32" y="44" fill="#8b8798" fontFamily="ui-monospace, monospace" fontSize="10">SIX PATHS · ONE RECOMMENDED</text>
-        {[0, 1, 2, 3, 4, 5].map((i) => (
-          <circle key={i} cx={80 + i * 72} cy="100" r="20" fill={i === 2 ? "#dbff71" : "#1e1e28"} stroke={i === 2 ? "#dbff71" : "#2e2e3a"} />
-        ))}
-        <rect x="32" y="140" width="496" height="160" rx="12" fill="#1a1f24" stroke="#271675" strokeWidth="2" />
-        <text x="52" y="176" fill="#dbff71" fontFamily="ui-monospace, monospace" fontSize="10">RECOMMENDED</text>
-        <text x="52" y="208" fill="#f4f2ea" fontFamily="Georgia, serif" fontSize="18">Adapt the join before replacing the stack</text>
-        <text x="52" y="236" fill="#8b8798" fontFamily="Inter, sans-serif" fontSize="12">Constraint: 14-week delivery window · Owner: Operations lead</text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            OPTIONS COMPARED
+          </text>
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <circle key={i} cx={56 + i * 84} cy="88" r="16" fill={i === 2 ? purple : surface} stroke={i === 2 ? purple : line} strokeWidth="1.5" />
+          ))}
+          <rect x="28" y="124" width="504" height="188" rx="18" fill={surface} stroke={purple} strokeWidth="1.5" />
+          <rect x="48" y="144" width="96" height="22" rx="11" fill={purpleSoft} />
+          <text x="60" y="160" fill={purple} fontFamily="ui-monospace, monospace" fontSize="9">
+            RECOMMENDED
+          </text>
+          <text x="48" y="196" fill={ink} fontFamily="Georgia, serif" fontSize="20">
+            Adapt the join before replacing the stack
+          </text>
+          <text x="48" y="224" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="12">
+            Constraint · 14-week delivery window · Owner · Operations lead
+          </text>
+          <rect x="48" y="248" width="420" height="8" rx="4" fill={line} />
+          <rect x="48" y="248" width="280" height="8" rx="4" fill={purple} />
+        </Panel>
       </svg>
     </Frame>
   )
 }
 
 export function ArtProductSystems({ className }: ArtProps) {
+  const nodes = [
+    [108, 108, "CRM"],
+    [256, 88, "ERP"],
+    [404, 118, "Inbox"],
+    [168, 228, "Spreadsheet"],
+    [332, 248, "Warehouse"],
+  ]
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#121218" />
-        {[
-          [120, 100, "CRM"],
-          [280, 80, "ERP"],
-          [420, 120, "Inbox"],
-          [200, 220, "Spreadsheet"],
-          [360, 240, "Warehouse"],
-        ].map(([x, y, label]) => (
-          <g key={label}>
-            <rect x={x} y={y} width="80" height="48" rx="8" fill="#1e1e28" stroke="#6757a5" />
-            <text x={x + 40} y={y + 28} textAnchor="middle" fill="#f4f2ea" fontSize="11" fontFamily="Inter, sans-serif">{label}</text>
-          </g>
-        ))}
-        <path d="M200 124 L280 104 M360 124 L420 144 M240 220 L280 128" stroke="#dbff71" strokeWidth="1.5" opacity="0.6" />
-        <rect x="32" y="288" width="220" height="32" rx="6" fill="#271675" />
-        <text x="48" y="308" fill="#fff" fontSize="12" fontFamily="Inter, sans-serif">Unofficial path mapped</text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            SYSTEM LANDSCAPE
+          </text>
+          {nodes.map(([x, y, label]) => (
+            <g key={label}>
+              <rect x={x} y={y} width="88" height="52" rx="14" fill={surface} stroke={line} />
+              <text x={x + 44} y={y + 30} textAnchor="middle" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="12">
+                {label}
+              </text>
+            </g>
+          ))}
+          <path d="M196 134 L256 114 M344 134 L404 144 M216 228 L256 114" stroke={purple} strokeWidth="1.5" strokeOpacity="0.45" />
+          <rect x="28" y="288" width="220" height="40" rx="12" fill={purpleSoft} />
+          <text x="44" y="314" fill={purple} fontFamily="Inter, system-ui, sans-serif" fontSize="12" fontWeight="500">
+            Unofficial path mapped
+          </text>
+        </Panel>
       </svg>
     </Frame>
   )
@@ -319,16 +465,37 @@ export function ArtProductSystems({ className }: ArtProps) {
 export function ArtProductAI({ className }: ArtProps) {
   return (
     <Frame className={className}>
-      <svg viewBox="0 0 560 340" fill="none" aria-hidden="true">
-        <rect width="560" height="340" rx="16" fill="#10141a" />
-        <text x="32" y="44" fill="#8b8798" fontFamily="ui-monospace, monospace" fontSize="10">FIT LINE · 13 CANDIDATES · 6 WORTH DOING</text>
-        <line x1="48" y1="260" x2="512" y2="260" stroke="#2e2e3a" strokeWidth="2" />
-        <line x1="48" y1="80" x2="48" y2="260" stroke="#2e2e3a" strokeWidth="2" />
-        {Array.from({ length: 13 }).map((_, i) => (
-          <circle key={i} cx={72 + i * 34} cy={200 - (i % 5) * 22} r="6" fill={i < 6 ? "#dbff71" : "#2a3038"} />
-        ))}
-        <line x1="48" y1="140" x2="512" y2="140" stroke="#271675" strokeWidth="2" strokeDasharray="6 4" />
-        <text x="520" y="144" fill="#dbff71" fontSize="10" fontFamily="ui-monospace, monospace">FIT</text>
+      <svg viewBox="0 0 600 380" fill="none">
+        <rect width="600" height="380" rx="24" fill={canvas} />
+        <Panel x="20" y="20" w="560" h="340">
+          <text x="28" y="42" fill={muted} fontFamily="ui-monospace, monospace" fontSize="10" letterSpacing="1.6">
+            NECESSITY TEST
+          </text>
+          <text x="28" y="68" fill={muted} fontFamily="Inter, system-ui, sans-serif" fontSize="11">
+            13 candidates · 6 worth doing
+          </text>
+          <line x1="48" y1="280" x2="512" y2="280" stroke={line} strokeWidth="1.5" />
+          <line x1="48" y1="96" x2="48" y2="280" stroke={line} strokeWidth="1.5" />
+          {Array.from({ length: 13 }).map((_, i) => (
+            <circle
+              key={i}
+              cx={72 + i * 34}
+              cy={220 - (i % 5) * 20}
+              r="7"
+              fill={i < 6 ? purple : surface}
+              stroke={i < 6 ? purple : line}
+              strokeWidth="1.2"
+            />
+          ))}
+          <line x1="48" y1="156" x2="512" y2="156" stroke={purple} strokeWidth="1.5" strokeDasharray="5 4" />
+          <text x="520" y="160" fill={purple} fontFamily="ui-monospace, monospace" fontSize="9">
+            FIT
+          </text>
+          <rect x="48" y="300" width="180" height="36" rx="12" fill={surface} stroke={line} />
+          <text x="64" y="324" fill={ink} fontFamily="Inter, system-ui, sans-serif" fontSize="12">
+            Only if automation fits
+          </text>
+        </Panel>
       </svg>
     </Frame>
   )

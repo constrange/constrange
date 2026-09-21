@@ -1,4 +1,3 @@
-import { HeroDemo } from "@/components/site/Blocks"
 import {
   UseCaseCTA,
   UseCaseFeatures,
@@ -26,10 +25,6 @@ export default function HowWeWork() {
         secondary={{ label: "Who we help", to: "/customers" }}
         visual={<ArtMethodHero />}
       />
-
-      <div className="uc-demo-wrap shell">
-        <HeroDemo />
-      </div>
 
       <UseCaseLogoGrid
         cells={[
