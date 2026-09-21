@@ -52,18 +52,10 @@ const categories: CategoryDef[] = [
 
 function CookieIcon() {
   return (
-    <svg className="cookie-float-icon" width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <svg className="cookie-float-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path
-        d="M16 6.5c-5.247 0-9.5 4.253-9.5 9.5 0 5.247 4.253 9.5 9.5 9.5 2.05 0 3.94-.65 5.48-1.75.27-.19.53-.41.76-.65 1.01-1.02 1.64-2.41 1.64-3.93 0-.74.6-1.34 1.34-1.34.47 0 .9.24 1.14.63 1.39-2.09 2.2-4.58 2.2-7.26C29.02 11.02 23.767 6.5 16 6.5Z"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M21.95 10.99c-1.79-.18-3.33-1.66-3.48-3.46C18.3 4.53 16.47 3 14.35 3c-.32 0-.63.04-.93.1-.03 0-.07-.01-.1-.01-4.42 0-8 3.58-8 8 0 4.42 3.58 8 8 8 4.08 0 7.43-3.06 7.88-7.01.02-.16.03-.33.03-.5 0-.17-.01-.34-.03-.5zM10 8.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm3 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
       />
-      <circle cx="12.25" cy="14.75" r="1.35" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="16.75" cy="19" r="1.35" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="19.75" cy="13.5" r="1.1" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="14.25" cy="21" r="1.1" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   )
 }

@@ -4047,7 +4047,10 @@ body.on-about .header.on-dark.stuck {
   cursor: pointer;
   transition: transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
 }
-.cookie-float-icon { display: block; flex-shrink: 0; }
+.cookie-float-icon {
+  display: block; flex-shrink: 0;
+  width: 24px; height: 24px; color: #fff; fill: #fff;
+}
 .cookie-float-btn:hover {
   background: #2d5c4d;
   transform: translateY(-1px);
