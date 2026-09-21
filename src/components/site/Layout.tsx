@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { BrandMark } from "@/components/site/BrandMark"
 import { BlogMega, WhatWeDoMega } from "@/components/site/NavMega"
+import { CookiePreferences } from "@/components/site/CookiePreferences"
 import { Seo } from "@/components/site/Seo"
 import { normalizePathname, routeKey } from "@/pathname"
 import { solutions } from "@/site-data"
@@ -553,6 +554,7 @@ export function Layout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
+      <CookiePreferences />
     </div>
   )
 }
