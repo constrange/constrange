@@ -25,7 +25,11 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
 body {
   margin: 0;
   background: var(--cream);
@@ -2386,6 +2390,7 @@ body.cx-canvas .header.stuck {
 /* ---------- hero ---------- */
 .cx-hero {
   position: relative; isolation: isolate;
+  overflow: hidden;
   margin-top: calc(-1 * var(--header-h));
   padding: calc(var(--header-h) + 104px) var(--gutter) 0;
 }
@@ -2817,7 +2822,9 @@ body.cx-canvas .header.stuck {
 
 /* the bookend */
 .cx-turn {
-  position: relative; isolation: isolate; margin-top: 96px;
+  position: relative; isolation: isolate;
+  overflow: hidden;
+  margin-top: 96px;
   padding: 92px var(--gutter) 104px;
 }
 .cx-turn > .cx-inner { position: relative; z-index: 1; padding-inline: 0; }
