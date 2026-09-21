@@ -3,10 +3,8 @@ import { Link, useParams } from "react-router-dom"
 import { LogoMarquee, PageHero } from "@/components/site/Blocks"
 import {
   Aside,
-  CanvasCinematicHero,
   CanvasHero,
   CanvasPage,
-  CapabilityExplorer,
   CxSection,
   Defs,
   FigureCard,
@@ -22,8 +20,18 @@ import {
 import { FigurePlate, type FigureKind } from "@/components/site/Figures"
 import { Reveal } from "@/components/site/Layout"
 import { FaqList, Prose } from "@/components/site/Prose"
+import {
+  UseCaseCards,
+  UseCaseCTA,
+  UseCaseFeatures,
+  UseCaseHero,
+  UseCaseLogoGrid,
+  UseCasePage,
+  UseCaseStats,
+} from "@/components/site/UseCase"
+import { ArtProductAI, ArtProductHero, ArtProductOptions, ArtProductSystems } from "@/components/site/UseCaseArt"
 import { productContent } from "@/page-content"
-import { products, productBySlug, standingInputs } from "@/site-data"
+import { logos, products, productBySlug, standingInputs } from "@/site-data"
 
 const CRUMBS: [string, string][] = [
   ["Home", "/"],
@@ -144,150 +152,98 @@ const neverAssumed: [string, string][] = [
 ]
 
 export function ProductsOverview() {
-  const problems = products.slice(0, 4)
-  const contributions = products.slice(4)
-
   return (
-    <CanvasPage>
-      <CanvasCinematicHero
-        figure="overview"
-        crumbs={CRUMBS}
-        eyebrow="What we do"
+    <UseCasePage>
+      <UseCaseHero
+        tag="What we do"
         title="From complexity to a practical path"
+        titleAccent="practical path"
         lede="Constrange sits where business, systems, technology, AI, and implementation meet. The work is to understand the problem, create structure around it, and design a path that can become action."
-        keys={["Constraint", "Complexity", "Change", "Uncertainty"]}
+        primary={{ label: "Start a conversation", to: "/contact" }}
+        secondary={{ label: "How we work", to: "/how-we-work" }}
+        visual={<ArtProductHero />}
       />
 
-      <CxSection
-        first
+      <UseCaseLogoGrid
+        cells={logos.slice(0, 11).map((label) => ({ label }))}
+        featured={{
+          label: "Strategy",
+          metric: "7",
+          metricLabel: "ways of contributing in one reading",
+          to: "/products/strategy",
+        }}
+      />
+
+      <UseCaseFeatures
         id="capabilities"
-        label="Capabilities"
-        title="Seven ways of contributing — held in one reading."
-        lede="The same method across strategy, systems, AI, design, implementation, transformation, and judgement. Select a capability to see how it shows up."
-      >
-        <CapabilityExplorer items={products} />
-      </CxSection>
+        kicker="Capabilities"
+        title="Built for every kind of pressure we take on"
+        lede="Seven ways of contributing — held in one reading. The same method across strategy, systems, AI, design, implementation, transformation, and judgement."
+        items={[
+          {
+            title: "Options held, then one chosen",
+            bullets: [
+              "Compare credible paths on fit, not novelty",
+              "Make trade-offs explicit before a stack is selected",
+              "Give leaders a recommendation they can stand behind",
+            ],
+            art: <ArtProductOptions />,
+          },
+          {
+            title: "How work actually moves",
+            bullets: [
+              "Map unofficial paths alongside the official process",
+              "Locate handoffs where context is lost",
+              "Design the join between teams and tools",
+            ],
+            art: <ArtProductSystems />,
+            reverse: true,
+          },
+          {
+            title: "Only if AI or automation fits",
+            bullets: [
+              "Run a necessity test before a pilot is funded",
+              "Find work repetitive or error-prone enough to change",
+              "Name failure modes before the business case is written",
+            ],
+            art: <ArtProductAI />,
+          },
+        ]}
+      />
 
-      <CxSection
-        label="Problems we take on"
-        title="Framed around the situation, not a catalogue of services."
-        lede="Four kinds of pressure. They usually arrive together, and they are rarely solved by the tool that was first requested."
-      >
-        <div className="cx-cards">
-          {problems.map((p, i) => (
-            <Reveal key={p.slug} delay={(i % 2) * 80}>
-              <FigureCard
-                to={`/products/${p.slug}`}
-                figure={p.slug as FigureKind}
-                kicker={p.price}
-                title={p.short}
-                blurb={p.blurb}
-              />
-            </Reveal>
-          ))}
-        </div>
-      </CxSection>
+      <UseCaseCards
+        kicker="All capabilities"
+        title="One reading, seven ways of contributing"
+        lede="Which of them applies is the first question — not the last."
+        cards={products.map((p) => ({
+          to: `/products/${p.slug}`,
+          tag: p.price,
+          title: p.short,
+          body: p.blurb,
+        }))}
+      />
 
-      <CxSection
-        label="How we contribute"
-        title="Judgement, then structure, then action."
-        lede="The same reading, carried far enough to change what happens on a Monday."
-      >
-        <div className="cx-cards">
-          {contributions.slice(0, 2).map((p, i) => (
-            <Reveal key={p.slug} delay={i * 80}>
-              <FigureCard
-                to={`/products/${p.slug}`}
-                figure={p.slug as FigureKind}
-                kicker={p.price}
-                title={p.short}
-                blurb={p.blurb}
-              />
-            </Reveal>
-          ))}
-          {contributions.slice(2).map((p) => (
-            <Reveal className="is-wide-cell" key={p.slug}>
-              <FigureCard
-                wide
-                to={`/products/${p.slug}`}
-                figure={p.slug as FigureKind}
-                kicker={p.price}
-                title={p.name}
-                blurb={p.blurb}
-              />
-            </Reveal>
-          ))}
-        </div>
-      </CxSection>
+      <UseCaseStats
+        kicker="What is true of every engagement"
+        stats={[
+          { value: "7", label: "capabilities held in one reading" },
+          { value: "0", label: "default platforms assumed" },
+          { value: "1", label: "problem named before a stack is chosen" },
+          { value: "3", label: "credible options compared before a path is settled" },
+        ]}
+      />
 
-      <CxSection label="How the work sits" title="What is true of every engagement.">
-        <div className="cx-aside">
-          <p className="cx-label cx-aside-label">Stance</p>
-          <div>
-            <Defs items={stance} />
-          </div>
-        </div>
-        <div className="cx-pair" style={{ marginTop: 68 }}>
-          <div>
-            <p className="cx-label" style={{ marginBottom: 18 }}>
-              Always in view
-            </p>
-            <Ledger dense rows={standingInputs} />
-          </div>
-          <div>
-            <p className="cx-label" style={{ marginBottom: 18 }}>
-              Never assumed
-            </p>
-            <Ledger dense rows={neverAssumed} />
-          </div>
-        </div>
-      </CxSection>
-
-      <CxSection label="Where to go next" title="Two ways to read the whole practice.">
-        <div className="cx-cards">
-          <Reveal>
-            <FigureCard
-              to="/features"
-              figure="capabilities"
-              kicker="All capabilities"
-              title="One list, without a service menu"
-              blurb="Every way of contributing, evenly weighted. Which of them applies is the first question, not the last."
-            />
-          </Reveal>
-          <Reveal delay={80}>
-            <FigureCard
-              to="/pricing"
-              figure="engagement"
-              kicker="Working with us"
-              title="How an engagement is shaped"
-              blurb="A conversation, a contained diagnostic, a structured path, or direction through implementation."
-            />
-          </Reveal>
-        </div>
-      </CxSection>
-
-      <section className="cx-trust-strip">
-        <div className="cx-inner">
-          <p>
-            Client situations stay confidential.{" "}
-            <Link to="/security">How we handle information →</Link>
-          </p>
-        </div>
-      </section>
-
-      <div className="cx-band">
+      <div className="uc-demo-wrap shell" style={{ borderBottom: 0, paddingBottom: 0 }}>
         <LogoMarquee label="The pressure is rarely a missing tool" />
       </div>
 
-      <Turn
-        tone="overview"
-        kicker="Not sure where to start"
-        title="That is usually the right moment to talk."
+      <UseCaseCTA
+        title="That is usually the right moment to talk"
         body="A conversation can name the problem before a programme is funded. Bring the situation as it is — you do not need a polished brief."
         primary={{ label: "Start a conversation", to: "/contact" }}
-        secondary={{ label: "How we work", to: "/how-we-work" }}
+        secondary={{ label: "Working with us", to: "/pricing" }}
       />
-    </CanvasPage>
+    </UseCasePage>
   )
 }
 

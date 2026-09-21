@@ -1,124 +1,111 @@
-import { Link } from "react-router-dom"
-import { Chapter, Close, InsightHero, InsightShell, Pull } from "@/components/site/Insight"
+import { HeroDemo } from "@/components/site/Blocks"
 import {
-  DrawArrival,
-  DrawArtefacts,
-  DrawClose,
-  DrawLook,
-  DrawReading,
-  DrawStages,
-  Field,
-  StageNotes,
-} from "@/components/site/InsightDraw"
-
-const stages = [
-  { n: "01", title: "Understand", body: "Work, systems, people, and constraints as they actually are — including unofficial paths." },
-  { n: "02", title: "Define", body: "A named problem, non-goals, and what would count as better. Not a catalogue of initiatives." },
-  { n: "03", title: "Explore", body: "More than one credible path, held long enough to compare. Doing less is an option." },
-  { n: "04", title: "Structure", body: "Architecture, owners, and sequence. The join is designed, not hoped for." },
-  { n: "05", title: "Move", body: "A first action small enough to be real, and a rhythm to review it." },
-]
+  UseCaseCTA,
+  UseCaseFeatures,
+  UseCaseHero,
+  UseCaseLogoGrid,
+  UseCasePage,
+  UseCaseStats,
+} from "@/components/site/UseCase"
+import {
+  ArtMethodArtefacts,
+  ArtMethodHero,
+  ArtMethodReading,
+  ArtMethodStages,
+} from "@/components/site/UseCaseArt"
 
 export default function HowWeWork() {
   return (
-    <InsightShell variant="method">
-      <InsightHero
-        kicker="Method"
-        title="How a situation becomes a path."
+    <UseCasePage>
+      <UseCaseHero
+        tag="How we work"
+        title="How a situation becomes a path"
+        titleAccent="becomes a path"
         lede="Constrange does not start with a platform, a model, or a programme. We start with the pressure as it actually is — then create enough structure for a decision that operations can absorb."
         primary={{ label: "Start a conversation", to: "/contact" }}
-        secondary={{ label: "Who this is for", to: "/customers" }}
-        aura="method"
-        figure={
-          <Field refn="Fig. I" note="A tool is asked for. A named problem is what continues.">
-            <DrawArrival />
-          </Field>
-        }
+        secondary={{ label: "Who we help", to: "/customers" }}
+        visual={<ArtMethodHero />}
       />
 
-      <Chapter
-        id="request"
-        n="01"
-        kicker="The opening move"
-        title="The request usually arrives as a tool."
-        lede="Leadership wants a platform, an AI programme, or a new system this quarter. The work underneath is almost always a contested picture of the problem."
-        tone="mist"
-      >
-        <Field refn="Fig. II" note="Fundable on the left. The join, on the right, is what we look for.">
-          <DrawLook />
-        </Field>
-      </Chapter>
+      <div className="uc-demo-wrap shell">
+        <HeroDemo />
+      </div>
 
-      <Chapter
-        id="reading"
-        n="02"
-        kicker="A reading"
-        title="Context has to be held before judgement is useful."
-        lede="A generic model can supply information. It cannot hold your systems, your constraints, or the cost of a wrong turn."
-        tone="gold"
-      >
-        <Field refn="Fig. III" note="Five threads. They only become a picture at the join.">
-          <DrawReading />
-        </Field>
-        <Pull
-          quote="A fluent answer is not a decision. Until the work, the landscape, and the constraint are in the same picture, more options only add noise."
-          attrib="Held in the reading — not after it"
-        />
-      </Chapter>
-
-      <Chapter
-        id="stages"
-        n="03"
-        kicker="The sequence"
-        title="Five stages. One first move."
-        lede="The method is meant to produce action, not a longer catalogue. Each stage leaves an artefact you can challenge."
-        tone="forest"
-      >
-        <Field refn="Fig. IV" note="The path firms as it moves. The last mark is the first action.">
-          <DrawStages stages={stages} />
-        </Field>
-        <StageNotes stages={stages} />
-      </Chapter>
-
-      <Chapter
-        id="leave"
-        n="04"
-        kicker="What remains"
-        title="Artefacts you can stand behind."
-        lede="If the work cannot be explained without a slide of jargon, it is not finished."
-        tone="navy"
-      >
-        <Field refn="Fig. V" note="A reading held. A problem named. A first move small enough to be real.">
-          <DrawArtefacts />
-        </Field>
-        <p className="insight-note">
-          Working notes: <Link to="/docs/guides">the shape of a brief</Link>
-          {" · "}
-          <Link to="/docs/api-reference">what each stage produces</Link>
-          {" · "}
-          <Link to="/products">what we take on</Link>
-        </p>
-        <p className="insight-note">
-          The three holds: <Link to="/understand">Understand</Link>
-          {" · "}
-          <Link to="/structure">Structure</Link>
-          {" · "}
-          <Link to="/priorities">Priorities</Link>
-        </p>
-      </Chapter>
-
-      <Close
-        sign="Constrange"
-        title="Judgement, then structure, then action."
-        figure={<DrawClose />}
-        paragraphs={[
-          "We are not a software-first vendor. The world of work is more complex than a single tool can hold, and more options do not create clarity on their own.",
-          "We help organisations understand the real problem, create structure around it, and design a path that can become action — whether that path is technology, process, or a clearer priority. The right answer depends on the context. It is never assumed in advance.",
-          "When a problem is recurring, important, and existing tools do not hold it, we may turn the answer into software. An engagement still starts with the situation — never with a platform looking for a problem.",
+      <UseCaseLogoGrid
+        cells={[
+          { label: "Understand" },
+          { label: "Define" },
+          { label: "Explore" },
+          { label: "Structure" },
+          { label: "Move" },
+          { label: "Reading" },
+          { label: "Constraint" },
+          { label: "Sequence" },
+          { label: "Owners" },
+          { label: "Non-goals" },
+          { label: "First move" },
         ]}
-        to="/contact"
-        label="Bring the situation as it is"
+        featured={{
+          label: "Typical diagnostic",
+          metric: "3 weeks",
+          metricLabel: "to a first reading",
+          to: "/pricing",
+        }}
       />
-    </InsightShell>
+
+      <UseCaseFeatures
+        kicker="The method"
+        title="Built for every kind of complexity"
+        lede="The same sequence applies whether the pressure is operational, strategic, or technical — because the constraint is rarely the tool that was first requested."
+        items={[
+          {
+            title: "Five stages before a path is settled",
+            bullets: [
+              "Understand the work, systems, and unofficial paths as they are",
+              "Define the problem, non-goals, and what would count as better",
+              "Hold more than one credible option long enough to compare",
+              "Structure owners, architecture, and delivery sequence",
+            ],
+            art: <ArtMethodStages />,
+          },
+          {
+            title: "Context held before judgement is useful",
+            bullets: [
+              "Map work, systems, people, time, and risk in one reading",
+              "Name the constraint that keeps reappearing across teams",
+              "Separate a fluent answer from a decision your organisation can own",
+            ],
+            art: <ArtMethodReading />,
+            reverse: true,
+          },
+          {
+            title: "Artefacts you can challenge",
+            bullets: [
+              "Problem statement with named owners for the join",
+              "Two or three credible paths with consequences spelled out",
+              "A first move small enough for the current operation to absorb",
+            ],
+            art: <ArtMethodArtefacts />,
+          },
+        ]}
+      />
+
+      <UseCaseStats
+        kicker="How the work is counted"
+        stats={[
+          { value: "5", label: "stages from situation to first move" },
+          { value: "3", label: "weeks to a first reading" },
+          { value: "1", label: "constraint named before a stack is chosen" },
+          { value: "0", label: "default to AI, automation, or a new platform" },
+        ]}
+      />
+
+      <UseCaseCTA
+        title="Bring the situation as it actually is"
+        body="You do not need a polished brief. A conversation is usually enough to name the problem and decide whether there is work here at all."
+        primary={{ label: "Start a conversation", to: "/contact" }}
+        secondary={{ label: "What we take on", to: "/products" }}
+      />
+    </UseCasePage>
   )
 }
