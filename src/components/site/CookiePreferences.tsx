@@ -52,12 +52,18 @@ const categories: CategoryDef[] = [
 
 function CookieIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg className="cookie-float-icon" width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M12 2.25c-4.9 0-8.9 4-8.9 8.9 0 4.9 4 8.9 8.9 8.9 2.27 0 4.33-.85 5.92-2.24.18-.15.35-.31.51-.48.84-.9 1.36-2.1 1.36-3.42 0-.58.47-1.05 1.05-1.05.4 0 .76.22.95.55 1.32-1.83 2.01-4.07 2.01-6.23 0-4.9-4-8.9-8.9-8.9zm6.1 2.65a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8.1 10.9a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zm3.4 4.1a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zm4.1-1.45a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"
+        d="M16 6.5c-5.247 0-9.5 4.253-9.5 9.5 0 5.247 4.253 9.5 9.5 9.5 2.05 0 3.94-.65 5.48-1.75.27-.19.53-.41.76-.65 1.01-1.02 1.64-2.41 1.64-3.93 0-.74.6-1.34 1.34-1.34.47 0 .9.24 1.14.63 1.39-2.09 2.2-4.58 2.2-7.26C29.02 11.02 23.767 6.5 16 6.5Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
+      <circle cx="12.25" cy="14.75" r="1.35" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16.75" cy="19" r="1.35" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="19.75" cy="13.5" r="1.1" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="14.25" cy="21" r="1.1" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   )
 }

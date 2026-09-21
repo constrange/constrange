@@ -3981,17 +3981,17 @@ body.on-about .header.on-dark.stuck {
   position: fixed; left: 10px; bottom: 10px; z-index: 70;
   display: flex; align-items: center; justify-content: center;
   width: 50px; height: 50px; padding: 0;
-  border: 0; border-radius: 50%;
-  background: #2f5f52; color: #fff;
-  box-shadow: 0 8px 24px rgba(18, 36, 30, .28);
+  border: 1px solid rgba(255, 255, 255, .14); border-radius: 50%;
+  background: #356b5a; color: #fff;
+  box-shadow: 0 6px 18px rgba(18, 36, 30, .24);
   cursor: pointer;
   transition: transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
 }
-.cookie-float-btn svg { display: block; }
+.cookie-float-icon { display: block; flex-shrink: 0; }
 .cookie-float-btn:hover {
-  background: #264f44;
+  background: #2d5c4d;
   transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(18, 36, 30, .34);
+  box-shadow: 0 8px 22px rgba(18, 36, 30, .3);
 }
 .cookie-float-btn:focus-visible {
   outline: 2px solid #fff;
