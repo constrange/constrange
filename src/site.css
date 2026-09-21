@@ -405,18 +405,79 @@ img, svg { display: block; max-width: 100%; }
 .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.mobile-panel {
-  display: none; position: sticky; top: 84px; z-index: 39;
-  padding: 18px var(--gutter) 30px; background: var(--cream); border-bottom: 1px solid var(--line);
-  animation: drop .25s var(--ease); max-height: calc(100vh - 84px); overflow: auto;
+body.mobile-nav-open { overflow: hidden; }
+.mobile-drawer-backdrop {
+  position: fixed; inset: 0; z-index: 88;
+  border: 0; padding: 0; margin: 0;
+  background: rgba(18, 18, 18, .38);
+  cursor: pointer;
+  animation: fadeIn .2s var(--ease);
 }
-.mobile-panel details { border-bottom: 1px solid rgba(0,0,0,.08); }
-.mobile-panel summary { padding: 15px 0; cursor: pointer; list-style: none; font-size: 15px; }
-.mobile-panel summary::-webkit-details-marker { display: none; }
-.mobile-panel .mobile-sub { display: grid; gap: 12px; padding: 4px 0 18px 14px; }
-.mobile-panel .mobile-sub a { font-size: 13px; color: #55534d; }
-.mobile-panel > a { display: block; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,.08); }
-.mobile-cta { display: grid; gap: 9px; padding-top: 22px; }
+.mobile-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 89;
+  display: flex; flex-direction: column;
+  width: min(420px, 92vw);
+  background: #faf9f6;
+  box-shadow: -10px 0 40px rgba(18, 18, 18, .14);
+  animation: mobileDrawerIn .28s var(--ease);
+}
+.mobile-drawer-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 18px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+  background: #faf9f6;
+}
+.mobile-drawer-head .brand { font-size: 15px; }
+.mobile-drawer-close {
+  width: 36px; height: 36px; padding: 0; flex-shrink: 0;
+  border: 0; border-radius: 50%;
+  background: transparent; color: #1d1d1d;
+  font-size: 28px; line-height: 1; cursor: pointer;
+}
+.mobile-drawer-close:hover { background: rgba(0, 0, 0, .05); }
+.mobile-drawer-nav {
+  flex: 1 1 auto; min-height: 0; overflow: auto;
+}
+.mobile-drawer-group { border-bottom: 1px solid rgba(0, 0, 0, .08); }
+.mobile-drawer-group summary,
+.mobile-drawer-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px;
+  font-size: 16px; font-weight: 500; line-height: 1.2;
+  color: #121212; text-decoration: none;
+  list-style: none; cursor: pointer;
+}
+.mobile-drawer-group summary::-webkit-details-marker { display: none; }
+.mobile-drawer-group summary::after {
+  content: "›";
+  font-size: 22px; line-height: 1; color: #8a8782;
+  transform: translateX(1px);
+}
+.mobile-drawer-group[open] summary::after { transform: rotate(90deg) translateX(1px); }
+.mobile-drawer-sub {
+  display: grid; gap: 12px;
+  padding: 4px 20px 18px 28px;
+  border-top: 1px solid rgba(0, 0, 0, .06);
+  background: rgba(255, 255, 255, .45);
+}
+.mobile-drawer-sub a {
+  font-size: 14px; line-height: 1.35; color: #55534d;
+}
+.mobile-drawer-sub a:hover { color: var(--purple); }
+.mobile-drawer-foot {
+  display: grid; gap: 10px;
+  padding: 18px 20px 22px;
+  border-top: 1px solid rgba(0, 0, 0, .08);
+  background: #faf9f6;
+}
+.mobile-drawer-foot .btn {
+  width: 100%; justify-content: center; text-align: center;
+  min-height: 46px; font-size: 13px; letter-spacing: .04em;
+}
+@keyframes mobileDrawerIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
 
 /* ---------- hero ---------- */
 .hero { padding-block: 96px 72px; display: grid; grid-template-columns: 2fr 1fr; gap: 80px; align-items: center; }
@@ -1232,7 +1293,6 @@ a.tile:hover { transform: translateY(-3px); }
   .header.stuck { height: 66px; }
   .nav-main, .header-actions { display: none; }
   .burger { display: block; }
-  .mobile-panel { display: block; top: 72px; }
   .hero { padding-block: 62px 56px; grid-template-columns: 1fr; gap: 40px; }
   .serif-xl { font-size: 46px; }
   .serif-lg { font-size: 38px; }

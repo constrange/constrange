@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom"
 import { BrandMark } from "@/components/site/BrandMark"
 import { BlogMega, WhatWeDoMega } from "@/components/site/NavMega"
 import { CookiePreferences } from "@/components/site/CookiePreferences"
+import { MobileNav } from "@/components/site/MobileNav"
 import { Seo } from "@/components/site/Seo"
 import { normalizePathname, routeKey } from "@/pathname"
 import { solutions } from "@/site-data"
@@ -92,13 +93,6 @@ export function Brand({ dark = false }: { dark?: boolean }) {
 }
 
 /* ---------------- header ---------------- */
-const resourceLinks = [
-  ["Blog", "/blog"],
-  ["Thinking", "/research"],
-  ["Notes", "/newsroom"],
-  ["Careers", "/careers"],
-]
-
 export function housePath(pathname: string) {
   const path = routeKey(pathname)
   if (path === "/about") return true
@@ -293,59 +287,7 @@ function Header({ canvas, onDark }: { canvas: boolean; onDark: boolean }) {
         )}
       </header>
 
-      {mobile && (
-        <div className="mobile-panel">
-          <details>
-            <summary>What We Do</summary>
-            <div className="mobile-sub">
-              <Link to="/products">Overview</Link>
-              <p className="mobile-label">Read</p>
-              <Link to="/products/strategy">Strategy</Link>
-              <Link to="/products/judgement">Judgement</Link>
-              <p className="mobile-label">Shape</p>
-              <Link to="/products/systems-operations">Systems & operations</Link>
-              <Link to="/products/solution-design">Solution design</Link>
-              <Link to="/products/ai-automation">AI & automation</Link>
-              <p className="mobile-label">Move</p>
-              <Link to="/products/implementation">Implementation</Link>
-              <Link to="/products/transformation">Transformation</Link>
-              <Link to="/pricing">Working with us</Link>
-              <Link to="/features">All capabilities</Link>
-            </div>
-          </details>
-          <details>
-            <summary>Who We Help</summary>
-            <div className="mobile-sub">
-              <Link to="/customers">Overview</Link>
-              <Link to="/enterprise">Organisations under complexity</Link>
-              <Link to="/solutions/growth">Growing teams</Link>
-              {solutions.filter((s) => s.slug !== "growth").map((s) => (
-                <Link key={s.slug} to={`/solutions/${s.slug}`}>
-                  {s.name}
-                </Link>
-              ))}
-            </div>
-          </details>
-          <Link to="/how-we-work">How We Work</Link>
-          <details>
-            <summary>Blog</summary>
-            <div className="mobile-sub">
-              {resourceLinks.map(([label, to]) => (
-                <Link key={to} to={to}>
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </details>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <div className="mobile-cta">
-            <Link to="/contact" className="btn">
-              Start a Conversation
-            </Link>
-          </div>
-        </div>
-      )}
+      <MobileNav open={mobile} onClose={() => setMobile(false)} />
     </>
   )
 }
