@@ -65,7 +65,7 @@ export function AppRoutes() {
         <Route path="/solutions/:slug" element={<SolutionPage />} />
         <Route path="/languages" element={<Languages />} />
 
-        <Route path="/docs" element={<HowWeWork />} />
+        <Route path="/docs" element={<Navigate to="/how-we-work" replace />} />
         <Route path="/how-we-work" element={<HowWeWork />} />
         <Route path="/docs/api-reference" element={<Docs variant="reference" />} />
         <Route path="/docs/guides" element={<Docs variant="guides" />} />

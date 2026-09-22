@@ -662,15 +662,6 @@ function notFound(pathname: string): SeoRecord {
 export function resolveSeo(pathname: string): SeoRecord {
   const path = pathname.replace(/\/+$/, "") || "/"
 
-  if (path === "/docs") {
-    const method = byPath.get("/how-we-work")!
-    return {
-      ...pack(method),
-      robots: NOINDEX,
-      canonical: abs("/how-we-work"),
-    }
-  }
-
   if (path === "/playground") {
     return {
       title: "Diagnostic | Constrange",
@@ -747,7 +738,7 @@ export function resolveSeo(pathname: string): SeoRecord {
 export const indexablePaths = [
   ...pages.map((p) => p.path),
   ...posts.map((p) => `/blog/${p.slug}`),
-].filter((path) => path !== "/docs" && path !== "/playground")
+].filter((path) => path !== "/playground")
 
 function orgNode() {
   return {

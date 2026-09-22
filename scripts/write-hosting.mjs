@@ -11,18 +11,25 @@ const { staticRoutes, sitemapRoutes, redirectRoutes, siteOrigin, blogDates = {} 
   fs.readFileSync(routesFile, "utf8"),
 )
 
+const buildDate = new Date().toISOString().slice(0, 10)
+
 function sitemapLoc(route) {
   return route === "/" ? `${siteOrigin}/` : `${siteOrigin}${route}/`
+}
+
+function redirectTarget(to) {
+  return to === "/" ? `${siteOrigin}/` : `${siteOrigin}${to.replace(/\/+$/, "")}/`
 }
 
 function writeSitemap() {
   const routes = sitemapRoutes ?? staticRoutes
   const urls = routes.map((route) => {
     const loc = sitemapLoc(route)
-    const priority = route === "/" ? "1.0" : route.startsWith("/blog/") ? "0.6" : "0.8"
-    const changefreq = route === "/" || route === "/blog" ? "weekly" : route.startsWith("/blog/") ? "yearly" : "monthly"
-    const lastmod = blogDates[route] ? `\n    <lastmod>${blogDates[route]}</lastmod>` : ""
-    return `  <url>\n    <loc>${loc}</loc>${lastmod}\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
+    const priority = route === "/" ? "1.0" : route === "/blog" ? "0.9" : route.startsWith("/blog/") ? "0.7" : "0.8"
+    const changefreq =
+      route === "/" || route === "/blog" ? "weekly" : route.startsWith("/blog/") ? "yearly" : "monthly"
+    const lastmod = blogDates[route] ?? buildDate
+    return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
   })
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -32,6 +39,30 @@ ${urls.join("\n")}
 `
 
   fs.writeFileSync(path.join(siteDir, "sitemap.xml"), xml)
+}
+
+function writeRedirectHtml(from, to) {
+  const target = redirectTarget(to)
+  const rel = from.replace(/^\//, "")
+  const out = path.join(siteDir, rel, "index.html")
+  fs.mkdirSync(path.dirname(out), { recursive: true })
+  fs.writeFileSync(
+    out,
+    `<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="refresh" content="0; url=${target}" />
+<link rel="canonical" href="${target}" />
+<title>Redirecting…</title>
+<script>location.replace("${target}")</script>
+</head>
+<body>
+<p>Redirecting to <a href="${target}">${target}</a>.</p>
+</body>
+</html>
+`,
+  )
 }
 
 function writeRedirects() {
@@ -54,6 +85,10 @@ function writeRedirects() {
     path.join(siteDir, "vercel.json"),
     JSON.stringify({ redirects: vercelRedirects }, null, 2) + "\n",
   )
+
+  for (const route of redirectRoutes) {
+    writeRedirectHtml(route.from, route.to)
+  }
 }
 
 writeSitemap()

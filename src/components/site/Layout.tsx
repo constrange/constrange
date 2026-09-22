@@ -106,7 +106,7 @@ export function housePath(pathname: string) {
 
 export function useCasePath(pathname: string) {
   const path = routeKey(pathname)
-  return path === "/how-we-work" || path === "/docs" || path === "/customers" || path === "/products"
+  return path === "/how-we-work" || path === "/customers" || path === "/products"
 }
 
 export function insightVariant(pathname: string): "method" | "audience" | null {
