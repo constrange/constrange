@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="100" y="190" width="100" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="150" y="224" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">1% FAIL</text>
+  <rect x="260" y="170" width="100" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="310" y="199" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">RETRY</text>
+  <rect x="260" y="240" width="100" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="310" y="269" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">FAN-OUT</text>
+  <rect x="420" y="190" width="140" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="490" y="224" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">99% IMPACT</text>
+  <path d="M200 220 L260 195" stroke="#b85848" stroke-width="2" fill="none"/>
+  <path d="M200 220 L260 265" stroke="#b85848" stroke-width="2" fill="none"/>
+  <path d="M360 220 L420 220" stroke="#b85848" stroke-width="2" fill="none"/>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Small failure rates compound</text>
+</svg>

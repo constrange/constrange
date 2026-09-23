@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="140" y="180" width="120" height="70" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="200" y="219" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">BACKUP OK</text>
+  <rect x="340" y="160" width="120" height="50" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="400" y="189" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">SECRETS?</text>
+  <rect x="340" y="230" width="120" height="50" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="400" y="259" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">DNS?</text>
+  <rect x="540" y="180" width="120" height="70" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="600" y="219" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">RESTORE?</text>
+  <path d="M260 215 L340 185" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <path d="M260 215 L340 255" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <path d="M460 215 L540 215" stroke="#271675" stroke-width="2" fill="none"/>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Backup success ≠ restore success</text>
+</svg>

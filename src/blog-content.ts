@@ -1,6 +1,21 @@
 export type { Article, Block, BlogTone } from "./blog/types"
 import type { Article } from "./blog/types"
 import {
+  deploymentNotUnitOfChangePost,
+  backupSuccessNotRestorePost,
+  iamGraphNobodyUnderstandsPost,
+  queueHidingTheIncidentPost,
+  onePercentFailureAmplificationPost,
+  engineeringToolSprawlTaxPost,
+  aiMadeCodeCheapPost,
+  humanLatencyLayerPost,
+  oneMoreMicroserviceComplexityCurvePost,
+  architectureOf500msTimeoutPost,
+  observabilityCardinalityBudgetPost,
+  cloudBillDependencyGraphPost,
+  coldStartSystemCostPost,
+  theAvailabilityTrapPost,
+  theRetryTaxPost,
   aiAgentsPost,
   aiGovernancePost,
   aiProjectCostPost,
@@ -613,6 +628,21 @@ ELSE
 ]
 
 export const posts: Article[] = [
+  deploymentNotUnitOfChangePost,
+  backupSuccessNotRestorePost,
+  iamGraphNobodyUnderstandsPost,
+  queueHidingTheIncidentPost,
+  onePercentFailureAmplificationPost,
+  engineeringToolSprawlTaxPost,
+  aiMadeCodeCheapPost,
+  humanLatencyLayerPost,
+  oneMoreMicroserviceComplexityCurvePost,
+  architectureOf500msTimeoutPost,
+  observabilityCardinalityBudgetPost,
+  cloudBillDependencyGraphPost,
+  coldStartSystemCostPost,
+  theAvailabilityTrapPost,
+  theRetryTaxPost,
   systemsThatKnowWhenTheyDontKnowPost,
   idpBecomesAnotherTicketingSystemPost,
   cloudCostIsObservabilitySignalPost,

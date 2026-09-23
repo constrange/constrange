@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="100" y="200" width="600" height="24" rx="4" fill="#271675" opacity="0.2"/>
+  <text x="400" y="217" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#271675">500ms CLIENT DEADLINE</text>
+  <rect x="110" y="250" width="70" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="145" y="279" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">DNS</text>
+  <rect x="195" y="250" width="70" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="230" y="279" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">TLS</text>
+  <rect x="280" y="250" width="70" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="315" y="279" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">GW</text>
+  <rect x="365" y="250" width="90" height="50" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="410" y="279" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">SERVICE</text>
+  <rect x="470" y="250" width="70" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="505" y="279" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">CACHE</text>
+  <rect x="555" y="250" width="70" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="590" y="279" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">DB</text>
+  <text x="410" y="330" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">One slow hop consumes the rest</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">A deadline is a shared budget</text>
+</svg>

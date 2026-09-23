@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="120" y="170" width="220" height="80" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="230" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">ONE LARGE CHANGE</text>
+  <rect x="460" y="170" width="220" height="80" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="570" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">TWENTY SMALL</text>
+  <text x="230" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Same code, different blast radius</text>
+  <text x="570" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#271675">Rollback surface differs</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Change size shapes risk</text>
+</svg>

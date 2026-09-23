@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="360" y="90" width="80" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="400" y="119" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">TEAM</text>
+  <rect x="160" y="200" width="90" height="50" rx="6" fill="#fff" stroke="#131313" stroke-width="2"/>
+  <text x="205" y="229" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">JIRA</text>
+  <rect x="300" y="200" width="90" height="50" rx="6" fill="#fff" stroke="#131313" stroke-width="2"/>
+  <text x="345" y="229" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">SLACK</text>
+  <rect x="440" y="200" width="90" height="50" rx="6" fill="#fff" stroke="#131313" stroke-width="2"/>
+  <text x="485" y="229" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">DATADOG</text>
+  <rect x="580" y="200" width="90" height="50" rx="6" fill="#fff" stroke="#131313" stroke-width="2"/>
+  <text x="625" y="229" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">PAGER</text>
+  <path d="M400 140 L205 200" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <path d="M400 140 L345 200" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <path d="M400 140 L485 200" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <path d="M400 140 L625 200" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Every tool adds an integration edge</text>
+</svg>

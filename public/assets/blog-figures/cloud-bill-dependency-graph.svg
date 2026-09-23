@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="340" y="80" width="120" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="400" y="114" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">API GW</text>
+  <rect x="180" y="180" width="120" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="240" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">ORDERS</text>
+  <rect x="340" y="180" width="120" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="400" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">PAYMENTS</text>
+  <rect x="500" y="180" width="120" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="560" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">INVENTORY</text>
+  <rect x="340" y="290" width="120" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="400" y="324" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">DATABASE</text>
+  <path d="M400 140 L240 180" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M400 140 L400 180" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M400 140 L560 180" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M400 240 L400 290" stroke="#b85848" stroke-width="2" fill="none"/>
+  <text x="400" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Cost follows the dependency graph</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Invoice topology mirrors architecture</text>
+</svg>
