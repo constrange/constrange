@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="100" y="160" width="140" height="70" rx="6" fill="#fff" stroke="#5b7c99" stroke-width="2"/>
+  <text x="170" y="199" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">FUNCTION CALL</text>
+  <rect x="330" y="160" width="140" height="70" rx="6" fill="#fff" stroke="#5b7c99" stroke-width="2"/>
+  <text x="400" y="199" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">REST API</text>
+  <rect x="560" y="160" width="140" height="70" rx="6" fill="#fff" stroke="#5b7c99" stroke-width="2"/>
+  <text x="630" y="199" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">MCP SERVER</text>
+  <text x="170" y="270" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#131313">In-process schema</text>
+  <text x="400" y="270" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#131313">HTTP contract</text>
+  <text x="630" y="270" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#131313">Tool protocol</text>
+  <text x="400" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Choice depends on boundary and ops model</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Three integration patterns, three trade-offs</text>
+</svg>

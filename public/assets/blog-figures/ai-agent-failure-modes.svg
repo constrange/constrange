@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="140" y="140" width="90" height="45" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="185" y="166.5" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">DRIFT</text>
+  <rect x="260" y="140" width="90" height="45" rx="6" fill="#fff" stroke="#b85848" stroke-width="2"/>
+  <text x="305" y="166.5" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">TOOLS</text>
+  <rect x="380" y="140" width="90" height="45" rx="6" fill="#fff" stroke="#b85848" stroke-width="2"/>
+  <text x="425" y="166.5" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">COST</text>
+  <rect x="500" y="140" width="90" height="45" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="545" y="166.5" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">LOOP</text>
+  <rect x="200" y="230" width="90" height="45" rx="6" fill="#fff" stroke="#b85848" stroke-width="2"/>
+  <text x="245" y="256.5" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">POLICY</text>
+  <rect x="320" y="230" width="90" height="45" rx="6" fill="#fff" stroke="#b85848" stroke-width="2"/>
+  <text x="365" y="256.5" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">DATA</text>
+  <rect x="440" y="230" width="90" height="45" rx="6" fill="#fff" stroke="#b85848" stroke-width="2"/>
+  <text x="485" y="256.5" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">HUMAN</text>
+  <text x="400" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Failures are measurable before they become incidents</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Seven measurable failure modes in production</text>
+</svg>

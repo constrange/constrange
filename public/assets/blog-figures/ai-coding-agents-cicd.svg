@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="80" y="180" width="110" height="60" rx="6" fill="#fff" stroke="#4a6741" stroke-width="2"/>
+  <text x="135" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">GENERATE</text>
+  <rect x="230" y="180" width="110" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="285" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">PR</text>
+  <rect x="380" y="180" width="110" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="435" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">CI</text>
+  <rect x="530" y="180" width="110" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="585" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">REVIEW</text>
+  <rect x="680" y="180" width="80" height="60" rx="6" fill="#fff" stroke="#4a6741" stroke-width="2"/>
+  <text x="720" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">DEPLOY</text>
+  <path d="M190 210 L230 210" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M340 210 L380 210" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M490 210 L530 210" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M640 210 L680 210" stroke="#271675" stroke-width="2" fill="none"/>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Generation speed outpaces verification</text>
+</svg>

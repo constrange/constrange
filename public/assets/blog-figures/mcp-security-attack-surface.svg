@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="360" y="80" width="80" height="50" rx="6" fill="#fff" stroke="#783848" stroke-width="2"/>
+  <text x="400" y="109" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">AGENT</text>
+  <rect x="160" y="200" width="100" height="50" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="210" y="229" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">PROMPT</text>
+  <rect x="300" y="200" width="100" height="50" rx="6" fill="#fff" stroke="#783848" stroke-width="2"/>
+  <text x="350" y="229" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">MCP TOOL</text>
+  <rect x="440" y="200" width="100" height="50" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="490" y="229" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">CREDS</text>
+  <rect x="580" y="200" width="100" height="50" rx="6" fill="#fff" stroke="#783848" stroke-width="2"/>
+  <text x="630" y="229" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">DATA</text>
+  <path d="M400 130 L210 200" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <path d="M400 130 L350 200" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M400 130 L490 200" stroke="#b85848" stroke-width="2" fill="none"/>
+  <path d="M400 130 L630 200" stroke="#271675" stroke-width="2" fill="none"/>
+  <text x="400" y="310" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Every tool is a trust boundary</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Tool calling expands the attack surface</text>
+</svg>

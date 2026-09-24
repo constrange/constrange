@@ -1,6 +1,16 @@
 export type { Article, Block, BlogTone } from "./blog/types"
 import type { Article } from "./blog/types"
 import {
+  whyAiAgentsFailInProductionSevenFailureModesPost,
+  mcpServersInProductionPost,
+  aiCodingAgentsChangedCicdPost,
+  mcpSecurityHiddenAttackSurfacePost,
+  mcpVsRestApisVsFunctionCallingPost,
+  whatDoesAnAiAgentReallyCostProductionPost,
+  aiAgentObservabilityWhatToMonitorPost,
+  platformEngineeringForAiAgentsControlPlanePost,
+  canAiSafelyChangeProductionInfrastructureTerraformPost,
+  aiAgentsExplainedLlmPromptToProductionPost,
   deploymentNotUnitOfChangePost,
   backupSuccessNotRestorePost,
   iamGraphNobodyUnderstandsPost,
@@ -628,7 +638,17 @@ ELSE
 ]
 
 export const posts: Article[] = [
-  deploymentNotUnitOfChangePost,
+  whyAiAgentsFailInProductionSevenFailureModesPost,
+  mcpServersInProductionPost,
+  aiCodingAgentsChangedCicdPost,
+  mcpSecurityHiddenAttackSurfacePost,
+  mcpVsRestApisVsFunctionCallingPost,
+  whatDoesAnAiAgentReallyCostProductionPost,
+  aiAgentObservabilityWhatToMonitorPost,
+  platformEngineeringForAiAgentsControlPlanePost,
+  canAiSafelyChangeProductionInfrastructureTerraformPost,
+  aiAgentsExplainedLlmPromptToProductionPost,
+    deploymentNotUnitOfChangePost,
   backupSuccessNotRestorePost,
   iamGraphNobodyUnderstandsPost,
   queueHidingTheIncidentPost,
