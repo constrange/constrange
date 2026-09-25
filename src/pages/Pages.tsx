@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Callout, PageHero, Section } from "@/components/site/Blocks"
 import { Reveal } from "@/components/site/Layout"
 import { PostCard } from "@/components/site/PostCard"
@@ -97,11 +97,21 @@ export function Docs({ variant = "docs" }: { variant?: "docs" | "reference" | "g
   )
 }
 
+const BLOG_GRID_PAGE_SIZE = 12
+
 export function Blog() {
   const [tag, setTag] = useState("All")
+  const [gridVisible, setGridVisible] = useState(BLOG_GRID_PAGE_SIZE)
   const tags = ["All", ...Array.from(new Set(posts.map((a) => a.category)))]
   const shown = tag === "All" ? posts : posts.filter((a) => a.category === tag)
   const [featured, ...rest] = shown
+  const gridPosts = rest.slice(0, gridVisible)
+  const hasMore = rest.length > gridVisible
+  const shownCount = (featured ? 1 : 0) + gridPosts.length
+
+  useEffect(() => {
+    setGridVisible(BLOG_GRID_PAGE_SIZE)
+  }, [tag])
 
   return (
     <>
@@ -129,12 +139,29 @@ export function Blog() {
         )}
 
         <div className="blog-grid">
-          {rest.map((post, i) => (
+          {gridPosts.map((post, i) => (
             <Reveal key={post.slug} delay={(i % 2) * 80}>
               <PostCard post={post} />
             </Reveal>
           ))}
         </div>
+
+        {shown.length > 1 && (
+          <div className="blog-pagination">
+            <p className="blog-pagination-count">
+              Showing {shownCount} of {shown.length} {shown.length === 1 ? "post" : "posts"}
+            </p>
+            {hasMore && (
+              <button
+                type="button"
+                className="btn btn-ghost blog-pagination-more"
+                onClick={() => setGridVisible((n) => n + BLOG_GRID_PAGE_SIZE)}
+              >
+                Load more posts
+              </button>
+            )}
+          </div>
+        )}
       </Section>
     </>
   )

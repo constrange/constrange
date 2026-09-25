@@ -1861,6 +1861,15 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 }
 .blog-grid > .reveal { display: flex; height: 100%; min-height: 0; }
 .blog-grid > .reveal > .post-card { flex: 1 1 auto; width: 100%; }
+.blog-pagination {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(0, 0, 0, .08);
+}
+.blog-pagination-count {
+  margin: 0; font: 12px var(--mono); letter-spacing: .06em; text-transform: uppercase;
+  color: #7f7c74;
+}
+.blog-pagination-more { min-height: 46px; padding: 0 28px; }
 
 /* ---------- feature/steps strips used on expanded pages ---------- */
 .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
