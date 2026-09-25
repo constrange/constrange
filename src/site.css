@@ -1319,6 +1319,7 @@ a.tile:hover { transform: translateY(-3px); }
   .platform { padding: 74px var(--gutter); }
   .platform-intro { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
   .product-grid, .grid-2, .grid-3, .grid-4, .quote-grid, .estimator, .form-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .product-card.span-2, .explore-card { grid-column: 1; }
   .explore-card { flex-direction: column; align-items: flex-start; }
   .benefits { padding-block: 70px; grid-template-columns: 1fr; gap: 64px; }
@@ -1832,18 +1833,25 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 .post-card { display: flex; flex-direction: column; height: 100%; min-width: 0; padding: 0; overflow: hidden; background: #fff; border: 1px solid rgba(0,0,0,.09); border-radius: 12px; transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s; color: inherit; }
 .post-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(24,22,12,.09); border-color: rgba(39,22,117,.3); }
 .post-card-media {
-  position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid rgba(0,0,0,.08);
+  position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid rgba(0,0,0,.08);
 }
-.post-card-media .post-art-frame { padding: 12% 10%; }
-.post-card-media .post-art-stack { width: min(92%, 100%); }
-.post-card-media .post-art-chip { font-size: 8px; padding: 7px 10px; }
-.post-card-media .post-art-cell-mid { font-size: clamp(11px, 2.6vw, 13px); padding: 10px 12px; }
-.post-card-media .post-art-cell-title { font-size: clamp(13px, 3.2vw, 17px); padding: 11px 12px; }
-.post-card-body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 20px 22px 22px; min-width: 0; }
-.post-card .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; color: #85827a; }
+.post-card-media .post-art-frame { padding: 10% 9%; }
+.post-card-media .post-art-stack {
+  width: min(84%, 320px);
+  transform: scale(.72);
+  transform-origin: top left;
+}
+.post-card-media .post-art-chip { font-size: 8px; padding: 6px 9px; }
+.post-card-media .post-art-cell-mid { font-size: 11px; padding: 8px 10px; }
+.post-card-media .post-art-cell-title { font-size: 13px; padding: 9px 10px; }
+.post-card-body { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 16px 18px 18px; min-width: 0; }
+.post-card .meta { display: flex; flex-wrap: wrap; gap: 8px 12px; font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; color: #85827a; }
 .post-card .meta em { font-style: normal; }
-.post-card h3 { margin: 0; font: 400 23px/1.18 var(--serif); }
-.post-card p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink-soft); flex: 1 1 auto; }
+.post-card h3 { margin: 0; font: 400 20px/1.2 var(--serif); }
+.post-card p {
+  margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); flex: 1 1 auto;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
 .post-card .arrow-link {
   margin-top: auto; padding-top: 6px;
   white-space: nowrap; flex-shrink: 0; align-self: flex-start;
@@ -1857,7 +1865,7 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
 .post-card.is-featured h3 { font-size: 30px; line-height: 1.12; }
 .post-card.is-featured p { font-size: 16px; }
 .blog-grid {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch;
 }
 .blog-grid > .reveal { display: flex; height: 100%; min-height: 0; }
 .blog-grid > .reveal > .post-card { flex: 1 1 auto; width: 100%; }
@@ -1895,6 +1903,7 @@ body.on-gradient .header.stuck { background: rgba(243, 242, 236, .88); backdrop-
   }
   .post-card.is-featured h3 { font-size: 24px; }
   .blog-grid { grid-template-columns: 1fr; }
+  .post-card-media .post-art-stack { transform: scale(.8); }
   .post-author-row { flex-wrap: wrap; max-width: none; margin-top: 24px; }
   .post-author-meta { white-space: normal; }
   .post-category-badge { margin-left: 0; }

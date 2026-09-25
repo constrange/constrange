@@ -104,10 +104,9 @@ export function Blog() {
   const [gridVisible, setGridVisible] = useState(BLOG_GRID_PAGE_SIZE)
   const tags = ["All", ...Array.from(new Set(posts.map((a) => a.category)))]
   const shown = tag === "All" ? posts : posts.filter((a) => a.category === tag)
-  const [featured, ...rest] = shown
-  const gridPosts = rest.slice(0, gridVisible)
-  const hasMore = rest.length > gridVisible
-  const shownCount = (featured ? 1 : 0) + gridPosts.length
+  const gridPosts = shown.slice(0, gridVisible)
+  const hasMore = shown.length > gridVisible
+  const shownCount = gridPosts.length
 
   useEffect(() => {
     setGridVisible(BLOG_GRID_PAGE_SIZE)
@@ -132,21 +131,15 @@ export function Blog() {
           ))}
         </div>
 
-        {featured && (
-          <Reveal>
-            <PostCard post={featured} featured />
-          </Reveal>
-        )}
-
         <div className="blog-grid">
           {gridPosts.map((post, i) => (
-            <Reveal key={post.slug} delay={(i % 2) * 80}>
+            <Reveal key={post.slug} delay={(i % 3) * 60}>
               <PostCard post={post} />
             </Reveal>
           ))}
         </div>
 
-        {shown.length > 1 && (
+        {shown.length > BLOG_GRID_PAGE_SIZE && (
           <div className="blog-pagination">
             <p className="blog-pagination-count">
               Showing {shownCount} of {shown.length} {shown.length === 1 ? "post" : "posts"}

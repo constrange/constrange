@@ -69,10 +69,7 @@ function renderHead(pathname: string) {
 <script type="application/ld+json" id="seo-jsonld">${jsonLd}</script>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hedvig-letters-serif-latin-400-normal.woff2" crossorigin>
-<style id="critical-css">${assets.criticalCss}</style>
-<link rel="preload" as="style" href="${assets.css}">
-<link rel="stylesheet" href="${assets.css}" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="${assets.css}"></noscript>
+<link rel="stylesheet" href="${assets.css}">
 </head>
 <body>
 <div id="root">`
