@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="200" y="140" width="400" height="30" rx="4" fill="#271675" opacity="0.2"/>
+  <rect x="200" y="140" width="280" height="30" rx="4" fill="#b85848" opacity="0.5"/>
+  <text x="400" y="160" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">TOP 3 CUSTOMERS = 42% REVENUE</text>
+  <rect x="280" y="220" width="240" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="400" y="254" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">CONCENTRATION RISK</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Top customer dependency scenarios</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <line x1="400" y1="100" x2="400" y2="340" stroke="#131313" stroke-width="1"/>
+  <line x1="120" y1="220" x2="680" y2="220" stroke="#131313" stroke-width="1"/>
+  <rect x="500" y="120" width="140" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="570" y="154" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">ENTER NOW</text>
+  <rect x="160" y="280" width="140" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="230" y="314" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">AVOID</text>
+  <text x="400" y="90" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">FIT</text>
+  <text x="690" y="225" font-family="ui-monospace, monospace" font-size="10" fill="#131313">ACCESS</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Market Entry Matrix</text>
+</svg>

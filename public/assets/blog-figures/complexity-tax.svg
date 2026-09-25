@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="100" y="160" width="100" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="150" y="189" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">PRODUCT</text>
+  <rect x="220" y="160" width="100" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="270" y="189" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">CUSTOMER</text>
+  <rect x="340" y="160" width="100" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="390" y="189" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">GEO</text>
+  <rect x="460" y="160" width="100" height="50" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="510" y="189" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">ORG</text>
+  <text x="400" y="260" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#271675">COMPLEXITY = P × C × G × O</text>
+  <polyline points="120,320 280,300 440,260 620,200" stroke="#b85848" stroke-width="2" fill="none"/>
+  <text x="630" y="200" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">MARGIN</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Complexity Tax on margin</text>
+</svg>

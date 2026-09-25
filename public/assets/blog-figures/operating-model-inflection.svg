@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <polyline points="100,300 220,280 340,240 460,200 580,170 700,160" stroke="#271675" stroke-width="2" fill="none"/>
+  <rect x="340" y="120" width="160" height="50" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="420" y="149" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">INFLECTION</text>
+  <path d="M420 170 L420 120" stroke="#b85848" stroke-width="2" fill="none"/>
+  <text x="400" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Structure lags revenue by 12–18 months</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Org inflection points</text>
+</svg>

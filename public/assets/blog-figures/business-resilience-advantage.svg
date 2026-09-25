@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="120" y="170" width="130" height="70" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="185" y="209" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">SHOCK</text>
+  <rect x="335" y="170" width="130" height="70" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="400" y="209" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">RECOVER</text>
+  <rect x="550" y="170" width="130" height="70" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="615" y="209" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">CAPTURE</text>
+  <path d="M250 205 L335 205" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M465 205 L550 205" stroke="#271675" stroke-width="2" fill="none"/>
+  <text x="400" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Winners convert downtime into share</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Resilience as competitive advantage</text>
+</svg>

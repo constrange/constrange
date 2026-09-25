@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f4fc"/>
+      <stop offset="45%" stop-color="#dcd0f0"/>
+      <stop offset="100%" stop-color="#88a0d0"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0">
+      <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" filter="url(#grain)" opacity="0.38"/>
+  <rect x="88" y="96" width="189" height="40" fill="#5a48a0"/>
+  <text x="104" y="122" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2" fill="#fff">DECISION GUIDES</text>
+  <rect x="88" y="148" width="560" height="54" fill="rgba(255,255,255,0.74)" stroke="#131313" stroke-width="1.5"/>
+  <text x="104" y="182" font-family="Inter, Arial, sans-serif" font-size="22" fill="#131313">Growth adds product lines, customer types, geographies, and layers</text>
+  <rect x="88" y="204" width="760" height="152" fill="#fff" stroke="#131313" stroke-width="1.5"/>
+  <text x="104" y="314" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#121212">The Complexity Tax: How Successful Companies</text>
+  <text x="104" y="368" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#121212">Become Less Profitable as They Grow</text>
+  <text x="88" y="562" font-family="ui-monospace, Menlo, monospace" font-size="14" letter-spacing="2" fill="#271675">CONSTRANGE</text>
+</svg>

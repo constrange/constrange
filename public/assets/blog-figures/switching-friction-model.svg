@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="100" y="170" width="130" height="70" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="165" y="209" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">DATA</text>
+  <rect x="260" y="170" width="130" height="70" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="325" y="209" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">WORKFLOW</text>
+  <rect x="420" y="170" width="130" height="70" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="485" y="209" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">TRAINING</text>
+  <rect x="580" y="170" width="130" height="70" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="645" y="209" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">CONTRACT</text>
+  <text x="400" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#783848">Friction beats stated loyalty</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Switching Friction Model</text>
+</svg>

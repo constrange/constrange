@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="140" y="140" width="120" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="200" y="174" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">GROWTH</text>
+  <rect x="340" y="140" width="120" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="400" y="174" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">MARGIN</text>
+  <rect x="540" y="140" width="120" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="600" y="174" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">RISK</text>
+  <rect x="240" y="260" width="120" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="300" y="294" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">RETAIN</text>
+  <rect x="440" y="260" width="120" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="500" y="294" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">RETURN</text>
+  <path d="M200 200 L280 260" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M400 200 L480 260" stroke="#271675" stroke-width="2" fill="none"/>
+  <path d="M600 200 L520 260" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Where should the next dollar go?</text>
+</svg>

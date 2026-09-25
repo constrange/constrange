@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <rect x="120" y="180" width="140" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="190" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">3 PRIORITIES</text>
+  <rect x="330" y="180" width="140" height="60" rx="6" fill="#fff" stroke="#271675" stroke-width="2"/>
+  <text x="400" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#131313">7 PRIORITIES</text>
+  <rect x="540" y="180" width="140" height="60" rx="6" fill="#fff8f6" stroke="#b85848" stroke-width="2"/>
+  <text x="610" y="214" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">15 PRIORITIES</text>
+  <text x="190" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#271675">High completion</text>
+  <text x="610" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#783848">Diffused effort</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Attention Allocation: 3 vs 7 vs 15 priorities</text>
+</svg>

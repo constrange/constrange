@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f3f2ec"/>
+  <polyline points="100,300 250,260 400,240 550,230 700,225" stroke="#271675" stroke-width="2" fill="none"/>
+  <polyline points="100,300 250,280 400,290 550,310 700,340" stroke="#b85848" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+  <text x="710" y="225" font-family="ui-monospace, monospace" font-size="10" fill="#271675">REVENUE</text>
+  <text x="710" y="345" font-family="ui-monospace, monospace" font-size="10" fill="#b85848">UNIT ECONOMICS</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#171717">Growth quality vs revenue growth</text>
+</svg>
