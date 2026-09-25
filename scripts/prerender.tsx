@@ -12,6 +12,9 @@ import { notFoundRoute, redirectRoutes, sitemapRoutes, staticRoutes } from "./ro
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, "..")
 const generated = path.join(root, "generated")
+const assets = JSON.parse(
+  fs.readFileSync(path.join(root, ".build", "assets-manifest.json"), "utf8"),
+) as { css: string; js: string; criticalCss: string }
 
 function escapeHtml(value: string) {
   return value
@@ -65,7 +68,11 @@ function renderHead(pathname: string) {
 <title>${escapeHtml(seo.title)}</title>
 <script type="application/ld+json" id="seo-jsonld">${jsonLd}</script>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hedvig-letters-serif-latin-400-normal.woff2" crossorigin>
+<style id="critical-css">${assets.criticalCss}</style>
+<link rel="preload" as="style" href="${assets.css}">
+<link rel="stylesheet" href="${assets.css}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="${assets.css}"></noscript>
 </head>
 <body>
 <div id="root">`
@@ -81,7 +88,7 @@ function renderPage(pathname: string) {
   )
 
   return `${renderHead(pathname)}${body}</div>
-<script type="module" src="/assets/site.js"></script>
+<script type="module" src="${assets.js}"></script>
 </body>
 </html>`
 }
@@ -93,8 +100,15 @@ function writePage(route: string, html: string) {
 }
 
 function clearGenerated() {
-  fs.rmSync(generated, { recursive: true, force: true })
-  fs.mkdirSync(generated, { recursive: true })
+  if (!fs.existsSync(generated)) {
+    fs.mkdirSync(generated, { recursive: true })
+    return
+  }
+
+  for (const entry of fs.readdirSync(generated)) {
+    if (entry === "assets") continue
+    fs.rmSync(path.join(generated, entry), { recursive: true, force: true })
+  }
 }
 
 clearGenerated()

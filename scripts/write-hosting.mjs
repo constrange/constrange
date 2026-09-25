@@ -91,6 +91,20 @@ function writeRedirects() {
   }
 }
 
+function writeCacheHeaders() {
+  const headers = `/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+`
+  fs.writeFileSync(path.join(siteDir, "_headers"), headers)
+}
+
 writeSitemap()
 writeRedirects()
+writeCacheHeaders()
 console.log(`wrote sitemap (${(sitemapRoutes ?? staticRoutes).length} urls) and redirects`)
