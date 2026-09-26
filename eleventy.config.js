@@ -28,9 +28,6 @@ export default function (eleventyConfig) {
   eleventyConfig.on("eleventy.after", () => {
     copySiteAssets()
     execSync("node scripts/write-hosting.mjs", { stdio: "inherit" })
-    if (process.env.NODE_ENV === "production") {
-      execSync("node scripts/purge-home-css.mjs", { stdio: "inherit" })
-    }
   })
 
   return {
