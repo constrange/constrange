@@ -34,7 +34,10 @@ export function Seo() {
 
     upsertMeta('meta[name="description"]', { name: "description", content: seo.description })
     upsertMeta('meta[name="robots"]', { name: "robots", content: seo.robots })
-    upsertMeta('meta[name="author"]', { name: "author", content: SITE_NAME })
+    upsertMeta('meta[name="author"]', {
+      name: "author",
+      content: seo.authorName ?? SITE_NAME,
+    })
     upsertLink("canonical", seo.canonical)
 
     upsertMeta('meta[property="og:site_name"]', { property: "og:site_name", content: SITE_NAME })
@@ -46,7 +49,7 @@ export function Seo() {
     upsertMeta('meta[property="og:image"]', { property: "og:image", content: image })
     upsertMeta('meta[property="og:image:alt"]', {
       property: "og:image:alt",
-      content: "Constrange — technology and business consultancy",
+      content: seo.h1,
     })
 
     upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" })
@@ -63,12 +66,30 @@ export function Seo() {
     }
     json.textContent = JSON.stringify(jsonLdFor(seo))
 
-    upsertMeta('meta[property="og:image:width"]', { property: "og:image:width", content: "1200" })
-    upsertMeta('meta[property="og:image:height"]', { property: "og:image:height", content: "630" })
-    upsertMeta('meta[name="twitter:image:alt"]', {
-      name: "twitter:image:alt",
-      content: "Constrange — technology and business consultancy",
-    })
+    const imageWidth = seo.ogType === "article" ? "1600" : "1200"
+    const imageHeight = seo.ogType === "article" ? "840" : "630"
+    upsertMeta('meta[property="og:image:width"]', { property: "og:image:width", content: imageWidth })
+    upsertMeta('meta[property="og:image:height"]', { property: "og:image:height", content: imageHeight })
+    upsertMeta('meta[name="twitter:image:alt"]', { name: "twitter:image:alt", content: seo.h1 })
+
+    if (seo.ogType === "article" && seo.datePublished) {
+      upsertMeta('meta[property="article:published_time"]', {
+        property: "article:published_time",
+        content: seo.datePublished,
+      })
+    }
+    if (seo.ogType === "article" && seo.dateModified) {
+      upsertMeta('meta[property="article:modified_time"]', {
+        property: "article:modified_time",
+        content: seo.dateModified,
+      })
+    }
+    if (seo.ogType === "article" && seo.authorName) {
+      upsertMeta('meta[property="article:author"]', {
+        property: "article:author",
+        content: seo.authorName,
+      })
+    }
 
     const root = document.documentElement
     root.lang = "en-GB"

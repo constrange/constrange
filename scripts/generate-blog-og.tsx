@@ -1,8 +1,12 @@
 import fs from "node:fs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
+import { Resvg } from "@resvg/resvg-js"
 import { posts } from "../src/blog-content.ts"
 import type { BlogTone } from "../src/blog/types.ts"
+
+const OG_WIDTH = 1600
+const OG_HEIGHT = 840
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, "..")
@@ -67,7 +71,7 @@ function buildOgSvg(post: (typeof posts)[number]) {
 
   const tagWidth = Math.min(420, 24 + tag.length * 11)
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_WIDTH}" height="${OG_HEIGHT}" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="${colors.c}"/>
@@ -94,7 +98,10 @@ function buildOgSvg(post: (typeof posts)[number]) {
 fs.mkdirSync(outDir, { recursive: true })
 
 for (const post of posts) {
-  fs.writeFileSync(path.join(outDir, `${post.slug}.svg`), buildOgSvg(post))
+  const svg = buildOgSvg(post)
+  fs.writeFileSync(path.join(outDir, `${post.slug}.svg`), svg)
+  const resvg = new Resvg(svg, { fitTo: { mode: "width", value: OG_WIDTH } })
+  fs.writeFileSync(path.join(outDir, `${post.slug}.png`), resvg.render().asPng())
 }
 
-console.log(`generated ${posts.length} blog OG images in public/og/blog/`)
+console.log(`generated ${posts.length} blog OG images (SVG + PNG) in public/og/blog/`)

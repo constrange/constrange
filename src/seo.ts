@@ -1,4 +1,5 @@
 import { posts, postBySlug } from "@/blog-content"
+import { resolveAuthor } from "@/blog/authors"
 import { productContent, solutionContent } from "@/page-content"
 import { faqs as engagementFaqs, productBySlug, products, solutionBySlug } from "@/site-data"
 
@@ -22,6 +23,9 @@ export type SeoRecord = {
   faqs?: [string, string][]
   datePublished?: string
   dateModified?: string
+  authorName?: string
+  authorUrl?: string
+  authorImage?: string
 }
 
 type PageSeo = Omit<SeoRecord, "canonical" | "ogType" | "ogImage" | "schema"> & {
@@ -38,6 +42,7 @@ function abs(path: string) {
   if (path.startsWith("http")) return path
   const key = path.replace(/\/+$/, "") || "/"
   if (key === "/") return `${SITE_ORIGIN}/`
+  if (/\.[a-z0-9]+$/i.test(key)) return `${SITE_ORIGIN}${key}`
   return `${SITE_ORIGIN}${key}/`
 }
 
@@ -698,13 +703,14 @@ export function resolveSeo(pathname: string): SeoRecord {
     const slug = path.slice("/blog/".length)
     const article = postBySlug(slug)
     if (!article) return notFound(path)
+    const author = resolveAuthor(article.author)
     return {
       title: `${article.title} | Constrange`.slice(0, 70),
       description: article.deck.slice(0, 160),
       canonical: abs(path),
       robots: INDEX,
       ogType: "article",
-      ogImage: abs(`/og/blog/${slug}.svg`),
+      ogImage: abs(`/og/blog/${slug}.png`),
       breadcrumbs: [
         ["Home", "/"],
         ["Blog", "/blog"],
@@ -717,6 +723,9 @@ export function resolveSeo(pathname: string): SeoRecord {
       faqs: article.faqs,
       datePublished: article.dateIso,
       dateModified: article.dateIso,
+      authorName: author.name,
+      authorUrl: abs("/about"),
+      authorImage: abs(author.avatar),
     }
   }
 
@@ -829,10 +838,15 @@ export function jsonLdFor(seo: SeoRecord) {
       description: seo.description,
       datePublished: seo.datePublished,
       dateModified: seo.dateModified ?? seo.datePublished,
-      author: { "@type": "Organization", name: SITE_NAME, url: SITE_ORIGIN },
+      author: {
+        "@type": "Person",
+        name: seo.authorName ?? SITE_NAME,
+        url: seo.authorUrl ?? `${SITE_ORIGIN}/about/`,
+        ...(seo.authorImage ? { image: seo.authorImage } : {}),
+      },
       publisher: { "@id": `${SITE_ORIGIN}/#org` },
-      mainEntityOfPage: seo.canonical,
-      image: DEFAULT_OG,
+      mainEntityOfPage: { "@type": "WebPage", "@id": seo.canonical },
+      image: seo.ogImage ?? DEFAULT_OG,
       inLanguage: "en-GB",
     })
   }

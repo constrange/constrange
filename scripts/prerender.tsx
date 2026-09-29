@@ -47,7 +47,6 @@ function renderHead(pathname: string) {
 <meta name="description" content="${escapeHtml(seo.description)}" />
 <meta name="theme-color" content="#f3f2ec" />
 <meta name="robots" content="${escapeHtml(seo.robots)}" />
-<meta name="author" content="${escapeHtml(SITE_NAME)}" />
 <link rel="canonical" href="${escapeHtml(seo.canonical)}" />
 <link rel="manifest" href="/site.webmanifest" />
 <meta property="og:site_name" content="${escapeHtml(SITE_NAME)}" />
@@ -57,9 +56,13 @@ function renderHead(pathname: string) {
 <meta property="og:url" content="${escapeHtml(seo.canonical)}" />
 <meta property="og:image" content="${escapeHtml(image)}" />
 <meta property="og:image:alt" content="${escapeHtml(seo.h1)}" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+<meta property="og:image:width" content="${seo.ogType === "article" ? "1600" : "1200"}" />
+<meta property="og:image:height" content="${seo.ogType === "article" ? "840" : "630"}" />
 <meta property="og:locale" content="en_GB" />
+${seo.ogType === "article" && seo.datePublished ? `<meta property="article:published_time" content="${escapeHtml(seo.datePublished)}" />` : ""}
+${seo.ogType === "article" && seo.dateModified ? `<meta property="article:modified_time" content="${escapeHtml(seo.dateModified)}" />` : ""}
+${seo.ogType === "article" && seo.authorName ? `<meta property="article:author" content="${escapeHtml(seo.authorName)}" />` : ""}
+${seo.ogType === "article" && seo.authorName ? `<meta name="author" content="${escapeHtml(seo.authorName)}" />` : `<meta name="author" content="${escapeHtml(SITE_NAME)}" />`}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${escapeHtml(seo.title)}" />
 <meta name="twitter:description" content="${escapeHtml(seo.description)}" />
