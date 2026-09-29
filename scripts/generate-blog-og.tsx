@@ -7,10 +7,15 @@ import type { BlogTone } from "../src/blog/types.ts"
 
 const OG_WIDTH = 1600
 const OG_HEIGHT = 840
+const VB_W = 1200
+const VB_H = 630
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, "..")
 const outDir = path.join(root, "public", "og", "blog")
+
+const FONT_INTER_400 = path.join(root, "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2")
+const FONT_INTER_700 = path.join(root, "node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2")
 
 const toneColors: Record<BlogTone, { a: string; b: string; c: string; chip: string }> = {
   ink: { a: "#d8d0ec", b: "#8898c8", c: "#f4f2fc", chip: "#4a3890" },
@@ -28,6 +33,12 @@ const toneColors: Record<BlogTone, { a: string; b: string; c: string; chip: stri
   clay: { a: "#ecd8c4", b: "#c0a080", c: "#fcf8f4", chip: "#785838" },
 }
 
+const PAD = 88
+const CONTENT_W = 960
+const BOX_PAD_X = 16
+const BOX_PAD_Y = 14
+const STROKE = 1.5
+
 function escapeXml(value: string) {
   return value
     .replaceAll("&", "&amp;")
@@ -36,42 +47,150 @@ function escapeXml(value: string) {
     .replaceAll('"', "&quot;")
 }
 
-function wrapTitle(title: string, max = 48) {
-  if (title.length <= max) return [title]
-  const words = title.split(" ")
+function charWidth(char: string, fontSize: number, bold = false) {
+  const base = fontSize * (bold ? 0.56 : 0.5)
+  if (char === " ") return base * 0.42
+  if ("iltfj".includes(char)) return base * 0.42
+  if ("mwMW@#%".includes(char)) return base * 0.9
+  return base
+}
+
+function textWidth(text: string, fontSize: number, bold = false) {
+  return [...text].reduce((sum, ch) => sum + charWidth(ch, fontSize, bold), 0)
+}
+
+function wrapText(text: string, maxWidth: number, fontSize: number, bold = false, maxLines = 4) {
+  const words = text.trim().split(/\s+/)
   const lines: string[] = []
-  let line = ""
+  let current = ""
+
   for (const word of words) {
-    const next = line ? `${line} ${word}` : word
-    if (next.length > max && line) {
-      lines.push(line)
-      line = word
+    const next = current ? `${current} ${word}` : word
+    if (textWidth(next, fontSize, bold) > maxWidth && current) {
+      lines.push(current)
+      current = word
+      if (lines.length >= maxLines) break
     } else {
-      line = next
+      current = next
     }
   }
-  if (line) lines.push(line)
-  return lines.slice(0, 3)
+
+  if (lines.length < maxLines && current) lines.push(current)
+
+  for (let i = 0; i < lines.length - 1; i++) {
+    const tail = lines[i].split(/\s+/).pop() ?? ""
+    if (tail.length <= 2 && lines[i + 1]) {
+      const merged = `${lines[i]} ${lines[i + 1]}`
+      if (textWidth(merged, fontSize, bold) <= maxWidth * 1.05) {
+        lines.splice(i, 2, merged)
+        i -= 1
+      }
+    }
+  }
+
+  const full = words.join(" ")
+  const joined = lines.join(" ")
+  if (joined !== full) {
+    let last = lines[lines.length - 1]
+    while (last.length > 3 && textWidth(`${last}…`, fontSize, bold) > maxWidth) {
+      last = last.slice(0, -1).trimEnd()
+    }
+    lines[lines.length - 1] = `${last}…`
+  }
+
+  return lines
+}
+
+function wrapTitle(title: string, maxWidth: number, fontSize: number, maxLines = 4) {
+  const punct = title.match(/^(.+?[?:])\s+(.+)$/)
+  if (punct) {
+    const [, head, tail] = punct
+    if (textWidth(head, fontSize, true) <= maxWidth) {
+      const rest = wrapText(tail, maxWidth, fontSize, true, maxLines - 1)
+      return [head, ...rest].slice(0, maxLines)
+    }
+  }
+  return wrapText(title, maxWidth, fontSize, true, maxLines)
+}
+
+function pickTitleSize(title: string, maxWidth: number) {
+  for (const size of [34, 30, 26, 22]) {
+    const lines = wrapTitle(title, maxWidth, size, 4)
+    const full = title.replace(/\s+/g, " ")
+    const joined = lines.join(" ").replace(/…$/, "")
+    if (joined === full || lines.length <= 3) return { size, lines }
+  }
+  return { size: 22, lines: wrapTitle(title, maxWidth, 22, 4) }
+}
+
+function textBlock(lines: string[], x: number, y: number, fontSize: number, bold: boolean, lineHeight: number) {
+  if (lines.length === 0) return ""
+  const weight = bold ? ' font-weight="700"' : ' font-weight="400"'
+  const tspans = lines
+    .map((line, i) => {
+      const dy = i === 0 ? 0 : lineHeight
+      return `<tspan x="${x}" dy="${dy}">${escapeXml(line)}</tspan>`
+    })
+    .join("\n    ")
+  return `<text x="${x}" y="${y}" font-family="Inter, sans-serif" font-size="${fontSize}"${weight} fill="#131313">\n    ${tspans}\n  </text>`
+}
+
+function box(x: number, y: number, w: number, h: number, fill: string) {
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" stroke="#131313" stroke-width="${STROKE}"/>`
 }
 
 function buildOgSvg(post: (typeof posts)[number]) {
   const colors = toneColors[post.art.tone]
-  const titleLines = wrapTitle(post.title)
   const tag = (post.category ?? post.art.label).toUpperCase()
-  const subtitle = post.art.cells[0]
-  const titleBoxH = 44 + titleLines.length * 54
-  const titleStartY = 332 - (titleLines.length - 1) * 18
+  const subtitleSource = post.art.cells[0].trim()
+  const textMaxW = CONTENT_W - BOX_PAD_X * 2
 
-  const titleSvg = titleLines
-    .map((line, i) => {
-      const y = titleStartY + i * 54
-      return `<text x="104" y="${y}" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#121212">${escapeXml(line)}</text>`
-    })
-    .join("\n  ")
+  const subtitleSize = 19
+  const subtitleLH = Math.round(subtitleSize * 1.35)
+  const subtitleLines = wrapText(subtitleSource, textMaxW, subtitleSize, false, 2)
+  const subtitleBoxW = Math.min(
+    CONTENT_W,
+    Math.max(
+      300,
+      Math.ceil(Math.max(...subtitleLines.map((l) => textWidth(l, subtitleSize))) + BOX_PAD_X * 2 + 8),
+    ),
+  )
+  const subtitleBoxH = BOX_PAD_Y * 2 + subtitleLines.length * subtitleLH
 
-  const tagWidth = Math.min(420, 24 + tag.length * 11)
+  const { size: titleSize, lines: titleLines } = pickTitleSize(post.title, textMaxW)
+  const titleLH = Math.round(titleSize * 1.2)
+  const titleBoxH = BOX_PAD_Y * 2 + titleLines.length * titleLH
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_WIDTH}" height="${OG_HEIGHT}" viewBox="0 0 1200 630">
+  const chipPadX = 14
+  const chipPadY = 9
+  const chipFont = 11
+  const chipW = Math.ceil(textWidth(tag, chipFont) + chipPadX * 2 + 8)
+  const chipH = chipPadY * 2 + chipFont + 4
+
+  let y = 96
+  const x = PAD
+
+  const chipY = y
+  y += chipH - STROKE
+
+  const subtitleY = y
+  y += subtitleBoxH - STROKE
+
+  const titleY = y
+
+  const subtitleTextY = subtitleY + BOX_PAD_Y + subtitleSize
+  const titleTextY = titleY + BOX_PAD_Y + titleSize
+
+  const tagSvg = `<rect x="${x}" y="${chipY}" width="${chipW}" height="${chipH}" fill="${colors.chip}"/>
+  <text x="${x + chipPadX}" y="${chipY + chipPadY + chipFont}" font-family="Inter, sans-serif" font-size="${chipFont}" font-weight="500" letter-spacing="2" fill="#fff">${escapeXml(tag)}</text>`
+
+  const subtitleSvg = `${box(x, subtitleY, subtitleBoxW, subtitleBoxH, "rgba(255,255,255,0.74)")}
+  ${textBlock(subtitleLines, x + BOX_PAD_X, subtitleTextY, subtitleSize, false, subtitleLH)}`
+
+  const titleSvg = `${box(x, titleY, CONTENT_W, titleBoxH, "#fff")}
+  ${textBlock(titleLines, x + BOX_PAD_X, titleTextY, titleSize, true, titleLH)}`
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_WIDTH}" height="${OG_HEIGHT}" viewBox="0 0 ${VB_W} ${VB_H}">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="${colors.c}"/>
@@ -83,16 +202,22 @@ function buildOgSvg(post: (typeof posts)[number]) {
       <feColorMatrix type="saturate" values="0"/>
     </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" filter="url(#grain)" opacity="0.38"/>
-  <rect x="88" y="96" width="${tagWidth}" height="40" fill="${colors.chip}"/>
-  <text x="104" y="122" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2" fill="#fff">${escapeXml(tag)}</text>
-  <rect x="88" y="148" width="560" height="54" fill="rgba(255,255,255,0.74)" stroke="#131313" stroke-width="1.5"/>
-  <text x="104" y="182" font-family="Inter, Arial, sans-serif" font-size="22" fill="#131313">${escapeXml(subtitle)}</text>
-  <rect x="88" y="204" width="760" height="${titleBoxH}" fill="#fff" stroke="#131313" stroke-width="1.5"/>
+  <rect width="${VB_W}" height="${VB_H}" fill="url(#bg)"/>
+  <rect width="${VB_W}" height="${VB_H}" filter="url(#grain)" opacity="0.38"/>
+  ${tagSvg}
+  ${subtitleSvg}
   ${titleSvg}
-  <text x="88" y="562" font-family="ui-monospace, Menlo, monospace" font-size="14" letter-spacing="2" fill="#271675">CONSTRANGE</text>
+  <text x="${x}" y="562" font-family="Inter, sans-serif" font-size="14" font-weight="500" letter-spacing="2" fill="#271675">CONSTRANGE</text>
 </svg>`
+}
+
+const resvgOpts = {
+  fitTo: { mode: "width" as const, value: OG_WIDTH },
+  font: {
+    fontFiles: [FONT_INTER_400, FONT_INTER_700],
+    loadSystemFonts: true,
+    defaultFontFamily: "Inter",
+  },
 }
 
 fs.mkdirSync(outDir, { recursive: true })
@@ -100,7 +225,7 @@ fs.mkdirSync(outDir, { recursive: true })
 for (const post of posts) {
   const svg = buildOgSvg(post)
   fs.writeFileSync(path.join(outDir, `${post.slug}.svg`), svg)
-  const resvg = new Resvg(svg, { fitTo: { mode: "width", value: OG_WIDTH } })
+  const resvg = new Resvg(svg, resvgOpts)
   fs.writeFileSync(path.join(outDir, `${post.slug}.png`), resvg.render().asPng())
 }
 
