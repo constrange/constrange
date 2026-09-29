@@ -16,16 +16,19 @@
   <rect width="2400" height="1260" fill="url(#base)"/>
   <rect width="2400" height="1260" fill="url(#rad-0)"/>
   <rect width="2400" height="1260" fill="url(#rad-1)"/>
-  <rect x="176" y="192" width="193" height="64" fill="#487090" shape-rendering="crispEdges"/>
-  <text x="204" y="232" font-family="Inter, sans-serif" font-size="22" font-weight="500" letter-spacing="3" fill="#fff" text-rendering="geometricPrecision">ENGINEERING</text>
-  <rect x="176" y="253" width="1175" height="107" fill="rgba(255,255,255,0.74)" stroke="#131313" stroke-width="3" shape-rendering="crispEdges"/>
-  <text x="208" y="319" font-family="Inter, sans-serif" font-size="38" font-weight="400" fill="#131313" text-rendering="geometricPrecision">
-    <tspan x="208" dy="0">Three ways to give models hands — in-process function calling, HTTP A…</tspan>
+  <rect x="2" y="2" width="2396" height="1256" fill="none" stroke="#131313" stroke-width="4" shape-rendering="crispEdges"/>
+  <rect x="216" y="166" width="417" height="127" fill="#487090" shape-rendering="crispEdges"/>
+  <text x="276" y="248" font-family="Inter, sans-serif" font-size="43" font-weight="500" letter-spacing="3" fill="#fff" text-rendering="geometricPrecision">ENGINEERING</text>
+  <rect x="216" y="290" width="1244" height="318" fill="rgba(248, 252, 255, .78)" stroke="#131313" stroke-width="3" shape-rendering="crispEdges"/>
+  <text x="285" y="423" font-family="Inter, sans-serif" font-size="73" font-weight="400" fill="#131313" text-rendering="geometricPrecision">
+    <tspan x="285" dy="0">Three ways to give models</tspan>
+    <tspan x="285" dy="99">hands — in-process function…</tspan>
   </text>
-  <rect x="176" y="357" width="1920" height="220" fill="#fff" stroke="#131313" stroke-width="3" shape-rendering="crispEdges"/>
-  <text x="208" y="453" font-family="Inter, sans-serif" font-size="68" font-weight="700" fill="#131313" text-rendering="geometricPrecision">
-    <tspan x="208" dy="0">MCP vs REST APIs vs Function Calling:</tspan>
-    <tspan x="208" dy="82">A Technical Comparison</tspan>
+  <rect x="216" y="605" width="1728" height="489" fill="#fff" stroke="#131313" stroke-width="3" shape-rendering="crispEdges"/>
+  <text x="285" y="769" font-family="Inter, sans-serif" font-size="104" font-weight="700" fill="#131313" text-rendering="geometricPrecision">
+    <tspan x="285" dy="0">MCP vs REST APIs vs</tspan>
+    <tspan x="285" dy="123">Function Calling: A</tspan>
+    <tspan x="285" dy="123">Technical Comparison</tspan>
   </text>
-  <text x="176" y="1124" font-family="Inter, sans-serif" font-size="28" font-weight="500" letter-spacing="3" fill="#271675" text-rendering="geometricPrecision">CONSTRANGE</text>
+  <text x="216" y="1242" font-family="Inter, sans-serif" font-size="60" font-weight="500" letter-spacing="3" fill="#271675" text-rendering="geometricPrecision">CONSTRANGE</text>
 </svg>

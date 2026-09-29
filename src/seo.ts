@@ -705,7 +705,7 @@ export function resolveSeo(pathname: string): SeoRecord {
     if (!article) return notFound(path)
     const author = resolveAuthor(article.author)
     return {
-      title: `${article.title} | Constrange`.slice(0, 70),
+      title: `${article.title} | Constrange`.slice(0, 95),
       description: article.deck.slice(0, 160),
       canonical: abs(path),
       robots: INDEX,
