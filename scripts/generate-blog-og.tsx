@@ -5,10 +5,9 @@ import { Resvg } from "@resvg/resvg-js"
 import { posts } from "../src/blog-content.ts"
 import type { BlogTone } from "../src/blog/types.ts"
 
-const OG_WIDTH = 1600
-const OG_HEIGHT = 840
-const VB_W = 1200
-const VB_H = 630
+// Render at 2× so text stays sharp after LinkedIn compression/downscaling.
+const OG_WIDTH = 2400
+const OG_HEIGHT = 1260
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, "..")
@@ -17,27 +16,124 @@ const outDir = path.join(root, "public", "og", "blog")
 const FONT_INTER_400 = path.join(root, "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2")
 const FONT_INTER_700 = path.join(root, "node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2")
 
-const toneColors: Record<BlogTone, { a: string; b: string; c: string; chip: string }> = {
-  ink: { a: "#d8d0ec", b: "#8898c8", c: "#f4f2fc", chip: "#4a3890" },
-  field: { a: "#f0ecc0", b: "#98c888", c: "#fcfce8", chip: "#3a4820" },
-  slate: { a: "#d0dce4", b: "#7890a0", c: "#f4f6f8", chip: "#2c3844" },
-  plum: { a: "#dcd0f0", b: "#88a0d0", c: "#f8f4fc", chip: "#5a48a0" },
-  coral: { a: "#f8dcd4", b: "#d0a0c0", c: "#fff4f0", chip: "#b85848" },
-  dusk: { a: "#d0d0ec", b: "#8090d0", c: "#f6f6fc", chip: "#4858b0" },
-  amber: { a: "#f8ecc0", b: "#a8d080", c: "#fffcf0", chip: "#a87820" },
-  moss: { a: "#dce8c0", b: "#78b088", c: "#f8fcf0", chip: "#3a6830" },
-  wine: { a: "#ecd0d8", b: "#c08898", c: "#fcf4f6", chip: "#783848" },
-  tide: { a: "#c8e8f0", b: "#68a8c0", c: "#f0fafc", chip: "#187890" },
-  pine: { a: "#cce0d4", b: "#68a080", c: "#f4faf6", chip: "#285840" },
-  frost: { a: "#dceef4", b: "#88b0c8", c: "#f8fcff", chip: "#487090" },
-  clay: { a: "#ecd8c4", b: "#c0a080", c: "#fcf8f4", chip: "#785838" },
+type ToneBg = {
+  linear: [string, string]
+  radials: { cx: number; cy: number; rx: number; ry: number; color: string; fade: number }[]
+  chip: string
 }
 
-const PAD = 88
-const CONTENT_W = 960
-const BOX_PAD_X = 16
-const BOX_PAD_Y = 14
-const STROKE = 1.5
+const toneBg: Record<BlogTone, ToneBg> = {
+  ink: {
+    linear: ["#d8d0ec", "#8898c8"],
+    radials: [
+      { cx: 0.18, cy: 0.12, rx: 0.9, ry: 0.8, color: "#f4f2fc", fade: 0.55 },
+      { cx: 0.88, cy: 0.78, rx: 0.7, ry: 0.7, color: "#9890c8", fade: 0.58 },
+    ],
+    chip: "#4a3890",
+  },
+  field: {
+    linear: ["#f0ecc0", "#98c888"],
+    radials: [
+      { cx: 0.2, cy: 0.1, rx: 0.85, ry: 0.75, color: "#fcfce8", fade: 0.52 },
+      { cx: 0.85, cy: 0.85, rx: 0.75, ry: 0.7, color: "#98b868", fade: 0.55 },
+    ],
+    chip: "#3a4820",
+  },
+  slate: {
+    linear: ["#d0dce4", "#7890a0"],
+    radials: [
+      { cx: 0.15, cy: 0.15, rx: 0.88, ry: 0.78, color: "#f4f6f8", fade: 0.54 },
+      { cx: 0.9, cy: 0.8, rx: 0.72, ry: 0.68, color: "#7890a0", fade: 0.56 },
+    ],
+    chip: "#2c3844",
+  },
+  plum: {
+    linear: ["#dcd0f0", "#88a0d0"],
+    radials: [
+      { cx: 0.16, cy: 0.1, rx: 0.9, ry: 0.8, color: "#f8f4fc", fade: 0.54 },
+      { cx: 0.88, cy: 0.82, rx: 0.7, ry: 0.72, color: "#9080c0", fade: 0.56 },
+    ],
+    chip: "#5a48a0",
+  },
+  coral: {
+    linear: ["#f8dcd4", "#d0a0c0"],
+    radials: [
+      { cx: 0.18, cy: 0.12, rx: 0.88, ry: 0.78, color: "#fff4f0", fade: 0.52 },
+      { cx: 0.86, cy: 0.78, rx: 0.72, ry: 0.7, color: "#d89088", fade: 0.55 },
+    ],
+    chip: "#b85848",
+  },
+  dusk: {
+    linear: ["#d0d0ec", "#8090d0"],
+    radials: [
+      { cx: 0.14, cy: 0.08, rx: 0.92, ry: 0.82, color: "#f6f6fc", fade: 0.52 },
+      { cx: 0.9, cy: 0.84, rx: 0.74, ry: 0.72, color: "#7888c8", fade: 0.56 },
+    ],
+    chip: "#4858b0",
+  },
+  amber: {
+    linear: ["#f8ecc0", "#a8d080"],
+    radials: [
+      { cx: 0.16, cy: 0.1, rx: 0.88, ry: 0.78, color: "#fffcf0", fade: 0.52 },
+      { cx: 0.88, cy: 0.82, rx: 0.72, ry: 0.68, color: "#c8a048", fade: 0.54 },
+    ],
+    chip: "#a87820",
+  },
+  moss: {
+    linear: ["#dce8c0", "#78b088"],
+    radials: [
+      { cx: 0.18, cy: 0.12, rx: 0.86, ry: 0.76, color: "#f8fcf0", fade: 0.52 },
+      { cx: 0.86, cy: 0.8, rx: 0.7, ry: 0.68, color: "#689868", fade: 0.54 },
+    ],
+    chip: "#3a6830",
+  },
+  wine: {
+    linear: ["#ecd0d8", "#c08898"],
+    radials: [
+      { cx: 0.16, cy: 0.1, rx: 0.88, ry: 0.78, color: "#fcf4f6", fade: 0.52 },
+      { cx: 0.88, cy: 0.82, rx: 0.72, ry: 0.7, color: "#b07088", fade: 0.55 },
+    ],
+    chip: "#783848",
+  },
+  tide: {
+    linear: ["#c8e8f0", "#68a8c0"],
+    radials: [
+      { cx: 0.14, cy: 0.08, rx: 0.9, ry: 0.8, color: "#f0fafc", fade: 0.52 },
+      { cx: 0.9, cy: 0.84, rx: 0.74, ry: 0.72, color: "#4898b0", fade: 0.56 },
+    ],
+    chip: "#187890",
+  },
+  pine: {
+    linear: ["#cce0d4", "#68a080"],
+    radials: [
+      { cx: 0.16, cy: 0.1, rx: 0.86, ry: 0.76, color: "#f4faf6", fade: 0.52 },
+      { cx: 0.88, cy: 0.8, rx: 0.7, ry: 0.68, color: "#508868", fade: 0.54 },
+    ],
+    chip: "#285840",
+  },
+  frost: {
+    linear: ["#dceef4", "#88b0c8"],
+    radials: [
+      { cx: 0.15, cy: 0.08, rx: 0.9, ry: 0.82, color: "#f8fcff", fade: 0.52 },
+      { cx: 0.88, cy: 0.84, rx: 0.72, ry: 0.7, color: "#6898b0", fade: 0.55 },
+    ],
+    chip: "#487090",
+  },
+  clay: {
+    linear: ["#ecd8c4", "#c0a080"],
+    radials: [
+      { cx: 0.16, cy: 0.1, rx: 0.88, ry: 0.78, color: "#fcf8f4", fade: 0.52 },
+      { cx: 0.88, cy: 0.82, rx: 0.72, ry: 0.68, color: "#a88868", fade: 0.54 },
+    ],
+    chip: "#785838",
+  },
+}
+
+const PAD = 176
+const CONTENT_W = 1920
+const BOX_PAD_X = 32
+const BOX_PAD_Y = 28
+const STROKE = 3
 
 function escapeXml(value: string) {
   return value
@@ -114,13 +210,13 @@ function wrapTitle(title: string, maxWidth: number, fontSize: number, maxLines =
 }
 
 function pickTitleSize(title: string, maxWidth: number) {
-  for (const size of [34, 30, 26, 22]) {
+  for (const size of [68, 60, 52, 44]) {
     const lines = wrapTitle(title, maxWidth, size, 4)
     const full = title.replace(/\s+/g, " ")
     const joined = lines.join(" ").replace(/…$/, "")
     if (joined === full || lines.length <= 3) return { size, lines }
   }
-  return { size: 22, lines: wrapTitle(title, maxWidth, 22, 4) }
+  return { size: 44, lines: wrapTitle(title, maxWidth, 44, 4) }
 }
 
 function textBlock(lines: string[], x: number, y: number, fontSize: number, bold: boolean, lineHeight: number) {
@@ -132,27 +228,54 @@ function textBlock(lines: string[], x: number, y: number, fontSize: number, bold
       return `<tspan x="${x}" dy="${dy}">${escapeXml(line)}</tspan>`
     })
     .join("\n    ")
-  return `<text x="${x}" y="${y}" font-family="Inter, sans-serif" font-size="${fontSize}"${weight} fill="#131313">\n    ${tspans}\n  </text>`
+  return `<text x="${x}" y="${y}" font-family="Inter, sans-serif" font-size="${fontSize}"${weight} fill="#131313" text-rendering="geometricPrecision">\n    ${tspans}\n  </text>`
 }
 
 function box(x: number, y: number, w: number, h: number, fill: string) {
-  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" stroke="#131313" stroke-width="${STROKE}"/>`
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" stroke="#131313" stroke-width="${STROKE}" shape-rendering="crispEdges"/>`
+}
+
+function backgroundDefs(tone: BlogTone) {
+  const bg = toneBg[tone]
+  const radials = bg.radials
+    .map((r, i) => {
+      return `<radialGradient id="rad-${i}" cx="${r.cx}" cy="${r.cy}" rx="${r.rx}" ry="${r.ry}" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="${r.color}"/>
+      <stop offset="${Math.round(r.fade * 100)}%" stop-color="${r.color}" stop-opacity="0"/>
+    </radialGradient>`
+    })
+    .join("\n    ")
+
+  return `<linearGradient id="base" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="${bg.linear[0]}"/>
+      <stop offset="100%" stop-color="${bg.linear[1]}"/>
+    </linearGradient>
+    ${radials}`
+}
+
+function backgroundLayers(tone: BlogTone) {
+  const bg = toneBg[tone]
+  const radialRects = bg.radials
+    .map((_, i) => `<rect width="${OG_WIDTH}" height="${OG_HEIGHT}" fill="url(#rad-${i})"/>`)
+    .join("\n  ")
+  return `<rect width="${OG_WIDTH}" height="${OG_HEIGHT}" fill="url(#base)"/>
+  ${radialRects}`
 }
 
 function buildOgSvg(post: (typeof posts)[number]) {
-  const colors = toneColors[post.art.tone]
+  const bg = toneBg[post.art.tone]
   const tag = (post.category ?? post.art.label).toUpperCase()
   const subtitleSource = post.art.cells[0].trim()
   const textMaxW = CONTENT_W - BOX_PAD_X * 2
 
-  const subtitleSize = 19
+  const subtitleSize = 38
   const subtitleLH = Math.round(subtitleSize * 1.35)
   const subtitleLines = wrapText(subtitleSource, textMaxW, subtitleSize, false, 2)
   const subtitleBoxW = Math.min(
     CONTENT_W,
     Math.max(
-      300,
-      Math.ceil(Math.max(...subtitleLines.map((l) => textWidth(l, subtitleSize))) + BOX_PAD_X * 2 + 8),
+      400,
+      Math.ceil(Math.max(...subtitleLines.map((l) => textWidth(l, subtitleSize))) + BOX_PAD_X * 2 + 16),
     ),
   )
   const subtitleBoxH = BOX_PAD_Y * 2 + subtitleLines.length * subtitleLH
@@ -161,13 +284,13 @@ function buildOgSvg(post: (typeof posts)[number]) {
   const titleLH = Math.round(titleSize * 1.2)
   const titleBoxH = BOX_PAD_Y * 2 + titleLines.length * titleLH
 
-  const chipPadX = 14
-  const chipPadY = 9
-  const chipFont = 11
-  const chipW = Math.ceil(textWidth(tag, chipFont) + chipPadX * 2 + 8)
-  const chipH = chipPadY * 2 + chipFont + 4
+  const chipPadX = 28
+  const chipPadY = 18
+  const chipFont = 22
+  const chipW = Math.ceil(textWidth(tag, chipFont) + chipPadX * 2 + 16)
+  const chipH = chipPadY * 2 + chipFont + 6
 
-  let y = 96
+  let y = 192
   const x = PAD
 
   const chipY = y
@@ -181,8 +304,8 @@ function buildOgSvg(post: (typeof posts)[number]) {
   const subtitleTextY = subtitleY + BOX_PAD_Y + subtitleSize
   const titleTextY = titleY + BOX_PAD_Y + titleSize
 
-  const tagSvg = `<rect x="${x}" y="${chipY}" width="${chipW}" height="${chipH}" fill="${colors.chip}"/>
-  <text x="${x + chipPadX}" y="${chipY + chipPadY + chipFont}" font-family="Inter, sans-serif" font-size="${chipFont}" font-weight="500" letter-spacing="2" fill="#fff">${escapeXml(tag)}</text>`
+  const tagSvg = `<rect x="${x}" y="${chipY}" width="${chipW}" height="${chipH}" fill="${bg.chip}" shape-rendering="crispEdges"/>
+  <text x="${x + chipPadX}" y="${chipY + chipPadY + chipFont}" font-family="Inter, sans-serif" font-size="${chipFont}" font-weight="500" letter-spacing="3" fill="#fff" text-rendering="geometricPrecision">${escapeXml(tag)}</text>`
 
   const subtitleSvg = `${box(x, subtitleY, subtitleBoxW, subtitleBoxH, "rgba(255,255,255,0.74)")}
   ${textBlock(subtitleLines, x + BOX_PAD_X, subtitleTextY, subtitleSize, false, subtitleLH)}`
@@ -190,29 +313,22 @@ function buildOgSvg(post: (typeof posts)[number]) {
   const titleSvg = `${box(x, titleY, CONTENT_W, titleBoxH, "#fff")}
   ${textBlock(titleLines, x + BOX_PAD_X, titleTextY, titleSize, true, titleLH)}`
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_WIDTH}" height="${OG_HEIGHT}" viewBox="0 0 ${VB_W} ${VB_H}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_WIDTH}" height="${OG_HEIGHT}" viewBox="0 0 ${OG_WIDTH} ${OG_HEIGHT}">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="${colors.c}"/>
-      <stop offset="45%" stop-color="${colors.a}"/>
-      <stop offset="100%" stop-color="${colors.b}"/>
-    </linearGradient>
-    <filter id="grain" x="0" y="0">
-      <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="3" stitchTiles="stitch"/>
-      <feColorMatrix type="saturate" values="0"/>
-    </filter>
+    ${backgroundDefs(post.art.tone)}
   </defs>
-  <rect width="${VB_W}" height="${VB_H}" fill="url(#bg)"/>
-  <rect width="${VB_W}" height="${VB_H}" filter="url(#grain)" opacity="0.38"/>
+  ${backgroundLayers(post.art.tone)}
   ${tagSvg}
   ${subtitleSvg}
   ${titleSvg}
-  <text x="${x}" y="562" font-family="Inter, sans-serif" font-size="14" font-weight="500" letter-spacing="2" fill="#271675">CONSTRANGE</text>
+  <text x="${x}" y="1124" font-family="Inter, sans-serif" font-size="28" font-weight="500" letter-spacing="3" fill="#271675" text-rendering="geometricPrecision">CONSTRANGE</text>
 </svg>`
 }
 
 const resvgOpts = {
-  fitTo: { mode: "width" as const, value: OG_WIDTH },
+  fitTo: { mode: "original" as const },
+  textRendering: 2 as const,
+  shapeRendering: 2 as const,
   font: {
     fontFiles: [FONT_INTER_400, FONT_INTER_700],
     loadSystemFonts: true,
@@ -229,4 +345,4 @@ for (const post of posts) {
   fs.writeFileSync(path.join(outDir, `${post.slug}.png`), resvg.render().asPng())
 }
 
-console.log(`generated ${posts.length} blog OG images (SVG + PNG) in public/og/blog/`)
+console.log(`generated ${posts.length} blog OG images (${OG_WIDTH}×${OG_HEIGHT} PNG) in public/og/blog/`)

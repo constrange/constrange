@@ -66,8 +66,8 @@ export function Seo() {
     }
     json.textContent = JSON.stringify(jsonLdFor(seo))
 
-    const imageWidth = seo.ogType === "article" ? "1600" : "1200"
-    const imageHeight = seo.ogType === "article" ? "840" : "630"
+    const imageWidth = seo.ogType === "article" ? "2400" : "1200"
+    const imageHeight = seo.ogType === "article" ? "1260" : "630"
     upsertMeta('meta[property="og:image:width"]', { property: "og:image:width", content: imageWidth })
     upsertMeta('meta[property="og:image:height"]', { property: "og:image:height", content: imageHeight })
     upsertMeta('meta[name="twitter:image:alt"]', { name: "twitter:image:alt", content: seo.h1 })

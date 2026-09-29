@@ -1,26 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="840" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1260" viewBox="0 0 2400 1260">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f6f6fc"/>
-      <stop offset="45%" stop-color="#d0d0ec"/>
+    <linearGradient id="base" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#d0d0ec"/>
       <stop offset="100%" stop-color="#8090d0"/>
     </linearGradient>
-    <filter id="grain" x="0" y="0">
-      <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="3" stitchTiles="stitch"/>
-      <feColorMatrix type="saturate" values="0"/>
-    </filter>
+    <radialGradient id="rad-0" cx="0.14" cy="0.08" rx="0.92" ry="0.82" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#f6f6fc"/>
+      <stop offset="52%" stop-color="#f6f6fc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rad-1" cx="0.9" cy="0.84" rx="0.74" ry="0.72" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#7888c8"/>
+      <stop offset="56%" stop-color="#7888c8" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" filter="url(#grain)" opacity="0.38"/>
-  <rect x="88" y="96" width="97" height="33" fill="#4858b0"/>
-  <text x="102" y="116" font-family="Inter, sans-serif" font-size="11" font-weight="500" letter-spacing="2" fill="#fff">ENGINEERING</text>
-  <rect x="88" y="127.5" width="437" height="54" fill="rgba(255,255,255,0.74)" stroke="#131313" stroke-width="1.5"/>
-  <text x="104" y="160.5" font-family="Inter, sans-serif" font-size="19" font-weight="400" fill="#131313">
-    <tspan x="104" dy="0">Compare one large change versus twenty small ones</tspan>
+  <rect width="2400" height="1260" fill="url(#base)"/>
+  <rect width="2400" height="1260" fill="url(#rad-0)"/>
+  <rect width="2400" height="1260" fill="url(#rad-1)"/>
+  <rect x="176" y="192" width="193" height="64" fill="#4858b0" shape-rendering="crispEdges"/>
+  <text x="204" y="232" font-family="Inter, sans-serif" font-size="22" font-weight="500" letter-spacing="3" fill="#fff" text-rendering="geometricPrecision">ENGINEERING</text>
+  <rect x="176" y="253" width="874" height="107" fill="rgba(255,255,255,0.74)" stroke="#131313" stroke-width="3" shape-rendering="crispEdges"/>
+  <text x="208" y="319" font-family="Inter, sans-serif" font-size="38" font-weight="400" fill="#131313" text-rendering="geometricPrecision">
+    <tspan x="208" dy="0">Compare one large change versus twenty small ones</tspan>
   </text>
-  <rect x="88" y="180" width="960" height="69" fill="#fff" stroke="#131313" stroke-width="1.5"/>
-  <text x="104" y="228" font-family="Inter, sans-serif" font-size="34" font-weight="700" fill="#131313">
-    <tspan x="104" dy="0">The Deployment Is Not the Unit of Change</tspan>
+  <rect x="176" y="357" width="1920" height="138" fill="#fff" stroke="#131313" stroke-width="3" shape-rendering="crispEdges"/>
+  <text x="208" y="453" font-family="Inter, sans-serif" font-size="68" font-weight="700" fill="#131313" text-rendering="geometricPrecision">
+    <tspan x="208" dy="0">The Deployment Is Not the Unit of Change</tspan>
   </text>
-  <text x="88" y="562" font-family="Inter, sans-serif" font-size="14" font-weight="500" letter-spacing="2" fill="#271675">CONSTRANGE</text>
+  <text x="176" y="1124" font-family="Inter, sans-serif" font-size="28" font-weight="500" letter-spacing="3" fill="#271675" text-rendering="geometricPrecision">CONSTRANGE</text>
 </svg>
