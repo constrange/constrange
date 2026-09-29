@@ -47,6 +47,9 @@ export function Seo() {
     upsertMeta('meta[property="og:description"]', { property: "og:description", content: seo.description })
     upsertMeta('meta[property="og:url"]', { property: "og:url", content: seo.canonical })
     upsertMeta('meta[property="og:image"]', { property: "og:image", content: image })
+    if (seo.ogType === "article") {
+      upsertMeta('meta[property="og:image:type"]', { property: "og:image:type", content: "image/jpeg" })
+    }
     upsertMeta('meta[property="og:image:alt"]', {
       property: "og:image:alt",
       content: seo.h1,

@@ -3,6 +3,7 @@ dist/
 _site/
 generated/
 .build/
+.og-render/
 .tts-venv/
 .venv/
 __pycache__/

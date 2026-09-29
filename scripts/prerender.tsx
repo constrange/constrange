@@ -58,6 +58,7 @@ function renderHead(pathname: string) {
 <meta property="og:image:alt" content="${escapeHtml(seo.h1)}" />
 <meta property="og:image:width" content="${seo.ogType === "article" ? "2400" : "1200"}" />
 <meta property="og:image:height" content="${seo.ogType === "article" ? "1260" : "630"}" />
+<meta property="og:image:type" content="${seo.ogType === "article" ? "image/jpeg" : "image/png"}" />
 <meta property="og:locale" content="en_GB" />
 ${seo.ogType === "article" && seo.datePublished ? `<meta property="article:published_time" content="${escapeHtml(seo.datePublished)}" />` : ""}
 ${seo.ogType === "article" && seo.dateModified ? `<meta property="article:modified_time" content="${escapeHtml(seo.dateModified)}" />` : ""}
